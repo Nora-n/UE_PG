@@ -36,3 +36,15 @@ Optique/S4/CM/
 Optique/S4/TD/
 
 Optique/S5/TD/
+
+*.aux
+
+*.fdb_latexmk
+
+*.fls
+
+*.log
+
+*.out
+
+*.gz
