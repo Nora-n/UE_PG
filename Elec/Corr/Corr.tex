@@ -1,0 +1,107 @@
+\documentclass[10pt,a5paper,notitlepage]{book}
+
+\usepackage{preambule}
+\usepackage[Rejne]{fncychap}
+\fancyhead[L]{\scriptsize Nora \textsc{Nicolas}}
+\fancyhead[R]{\scriptsize \textsc{UE PG -- Fiche de travaux dirigés}}
+
+\titleformat{\section}{\color{blue}\bfseries\Large}{
+\hspace{-.85em}}{.5em}{}{}
+\titleformat{\subsection}{\color{brandeisblue}\bfseries\large}{Exercice
+\arabic{subsection})}{.5em}{}{}
+\titleformat{\subsubsection}{\color{capri}\bfseries}{
+\arabic{subsection}) \arabic{subsubsection}-}{.5em}{}{}
+
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+\begin{document}
+
+\begin{center}
+\Huge Physique générale : Électricité\smallbreak\vspace*{-14pt}
+\rule[11pt]{5cm}{0.5pt}\smallbreak\vspace*{-14pt}
+\huge Chapitres 1 à 4
+\end{center}
+
+\toccontents
+
+\setcounter{chapter}{-1}
+\chapter{Conseils généraux}
+\vspace*{-47pt}
+Ce document à pour but de rappeler et résumer les conseils, arguments et astuces
+qui ont pu être vues et énoncées durant les TDs. Il ne remplace ni les séances
+en elles-mêmes, où votre participation active est nécessaire (c'est en se
+trompant qu'on sait comment ne pas faire, et donc comment bien faire), ni les CM
+de votre professeur-e. J'espère néanmoins qu'il saura vous être utile.
+\smallbreak
+
+La première partie comporte quelques éléments généraux sur l'optique. D'autres
+conseils et éléments importants sont mis en valeur quand ils sont pertinents :
+le code couleur reste le même, dans le but d'avoir une structure facilement
+navigable. Les bases de réflexion, données ou définitions, sont en vert. Les
+résultats importants, propriétés ou résultats à trouver, sont en rouge. Les
+points pivots de réflexion, démonstration ou outils à choisir judicieusement,
+sont en bleu. Les côtés pratiques, exemples et applications, sont en gris.
+\smallbreak
+
+Les premiers exercice du chapitre 1 sont intégralement corrigés, et certains
+mots importants (comme « divergent ») ont une note de fin du chapitre 1 avec une
+brève définition. Ces exercices représentent la base de comment construire sa
+réflexion face à un exercice de pĥysique (d'optique particulièrement), mais ils
+ne sont pas tous corrigés ainsi. Ainsi, vous verrez qu'après quelques exemples,
+je vous renvoie aux corrigés que vous avez à disposition sur \textit{Claroline}.
+Les schémas y sont clairs et j'espère que ma retranscription écrite du
+raisonnement derrière ces schémas suffiront à vous guider. \smallbreak
+
+Bonne lecture, \hfill Nora NICOLAS --
+\href{mailto:n.nicolas@ipnl.in2p3.fr}{n.nicolas@ipnl.in2p3.fr}\\
+
+\begin{rtcb}{Principe des exercices de physique}
+    Tout exercice de physique suit le schéma suivant :
+    \begin{enumerate}
+        \item Lecture de l'énoncé en français et relevé des données ;
+        \item Traduction des données en schéma si pertinent, et en expression
+            mathématique si pertinent ;
+        \item Compréhension de la réponse attendue ;
+        \item Traduction de la réponse attendue en schéma si pertinent, et en
+            expression mathématique si pertinent ;
+        \item Détermination d'un ou de plusieurs outils (relation mathématique,
+            règle de construction...) du cours faisant le lien entre les données
+            et la réponse : répéter si besoin d'une réponse intermédiaire ;
+        \item Application.
+    \end{enumerate}
+    Un exemple est donné partie \ref{ssec:vp}.
+\end{rtcb}
+
+
+\begin{ptcb}{Conseils}
+    Avant d'encadrer un résultat :
+    \begin{enumerate}
+        \item Vérifer la cohérence mathématique avec la ligne précédente : les
+            signes devant les grandeurs, le nombre de grandeurs, ne pas oublier
+            les fonctions inverses... ;
+        \item Vérifier l'homogénéité de part et d'autre de l'équation pour les
+            résultats littéraux ;
+        \item Vérifier la cohérence physique de la valeur numérique, notamment à
+            l'aide d'un schéma
+    \end{enumerate}
+\end{ptcb}
+
+\begin{bvtcb}{Important}
+    L'erreur la plus simple mais la plus grave à faire est de se tromper sur une
+    grandeur algébrique.
+    \begin{center}
+        \Ul{Toujours vérifier le sens des grandeurs algébriques} 
+    \end{center}
+\end{bvtcb}
+
+\chapter{Grandeurs électriques}\label{ch:O1}
+\vspace*{-24pt}
+\section{Exercices d'application}
+\subsection{Ordres de grandeur}
+
+\theendnotes
+
+\end{document}
