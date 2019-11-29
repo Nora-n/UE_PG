@@ -6,34 +6,35 @@ import matplotlib.pyplot as plt
 dgmap = plt.cm.get_cmap('viridis')
 
 list = [
-    4.00,
+    1.00,
     10.00,
+    13.00,
+    5.50,
+    0.50,
     7.00,
-    2.00,
-    8.00,
-    18.00,
-    12.00,
-    6.00,
+    10.00,
     1.50,
-    12.00,
-    16.00,
-    14.00,
-    15.00,
-    13.00,
-    15.00,
-    12.00,
-    11.00,
-    2.75,
-    9.50,
-    4.00,
-    16.50,
-    19.50,
-    9.50,
+    7.50,
+    6.00,
     7.00,
-    4.00,
+    7.00,
+    15.50,
+    10.00,
     8.00,
+    8.00,
+    10.00,
+    3.75,
+    11.00,
+    5.50,
+    8.50,
+    1.50,
+    10.00,
     13.00,
-    7.50]
+    5.50,
+    5.00,
+    4.00,
+    12.00,
+    5.00]
 
 moy = st.mean(list)
 # print('Moyenne = ', moy)
@@ -91,7 +92,7 @@ ax.set_xlim((0, 20))
 ax.set_xlabel(r"$\mathrm{Notes}$ ", fontsize="x-large")
 ax.set_ylabel(r"$\mathrm{N}_\mathrm{notes}$ ", fontsize="x-large")
 
-plt.title('Résultat C1 : moyenne = '
+plt.title('Résultat C2 : moyenne = '
           + str(round(moy, 2))
           + ', écart-type = '
           + str(round(std, 2)))
@@ -99,7 +100,7 @@ plt.title('Résultat C1 : moyenne = '
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 fig = plt.gcf()
-fig.savefig(dir_path + '/Res_C1_S1-GC.pdf',
+fig.savefig(dir_path + '/Res_C2_S1-GC.pdf',
             bbox_inches='tight')
 
 # plt.show()
