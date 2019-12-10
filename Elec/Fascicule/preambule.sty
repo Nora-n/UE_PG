@@ -10,7 +10,7 @@
 
 %\RequirePackage[top=2cm, bottom=2cm, left=1in, right=1in]{geometry}
 \RequirePackage[top=2cm, bottom=2cm, left=1.5cm, right=1.5cm]{geometry}
-\RequirePackage{subfigure}
+\RequirePackage{subfig}
 %\RequirePackage[subfigure]{tocloft}
 \RequirePackage{wrapfig}
 \RequirePackage{caption}
@@ -60,6 +60,13 @@
   \mbox{}\par\vskip-2.3\baselineskip\noindent\rule{.5\textwidth}{0.4pt}\par\vskip\baselineskip}
 \makeatother
 
+\makeatletter
+\newcommand*{\shifttext}[2]{%
+  \settowidth{\@tempdima}{#2}%
+  \makebox[\@tempdima]{\hspace*{#1}#2}%
+}
+\makeatother
+
 \lstdefinestyle{customc}{
   belowcaptionskip=1\baselineskip,
   breaklines=true,
@@ -78,13 +85,15 @@
 \setcounter{secnumdepth}{4}
 
 %%% Ajout d'éléments tikz
-\RequirePackage{standalone}
+%\RequirePackage{standalone}
 \RequirePackage[tikz]{bclogo}
 \usetikzlibrary{calc}
 \usetikzlibrary{arrows}
 \usetikzlibrary{patterns}
 \usetikzlibrary{shapes.misc}
 \usetikzlibrary{intersections}
+\RequirePackage[european resistor, european voltage, european current]{circuitikz}
+\usetikzlibrary{babel}
 \tikzset{cross/.style={cross out, draw=black, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt}, cross/.default={2pt}}
 %\usepackage[compat=1.0.0]{tikz-feynman}
 
@@ -104,6 +113,8 @@
 \titleformat{\section}{\color{blue}\bfseries\Large}{\Roman{section} -}{.5em}{}{}
 \titleformat{\subsection}{\color{brandeisblue}\bfseries\Large}{\Roman{section} -
 \arabic{subsection}.}{.5em}{}{}
+\titleformat{\subsubsection}{\color{capri}\bfseries\Large}{\Roman{section} -
+\arabic{subsection}. \alph{subsubsection}}{.5em}{}{}
 \titleformat{\subsubsection}{\color{capri}\bfseries\Large}{\Roman{section} -
 \arabic{subsection}. \alph{subsubsection}}{.5em}{}{}
 \titleformat{\paragraph}{\color{cyan}\bfseries\Large}{}{.5em}{}{}
@@ -440,6 +451,7 @@ title=#2, #1}
 \def\Dc{\mathcal{D}}
 \def\Ec{\mathcal{E}}
 \def\Rc{\mathcal{R}}
+\def\Nc{\mathcal{N}}
 \def\Pc{\mathcal{P}}
 \def\Lc{\mathcal{L}}
 \def\Hc{\mathcal{H}}
@@ -539,8 +551,6 @@ title=#2, #1}
 \def\ef{\overrightarrow{e}\!}
 \def\gf{\overrightarrow{g}}
 \def\qf{\overrightarrow{q}\!}
-\def\Lf{\overrightarrow{L}\!}
-\def\Rf{\overrightarrow{R}}
 \def\Tf{\overrightarrow{T}}
 \def\Gf{\Vect{G}}
 \def\Lfo{\overrightarrow{L_O}}

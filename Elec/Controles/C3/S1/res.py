@@ -33,7 +33,8 @@ list = [
     5.25,
     9.25,
     16.00,
-    10.25]
+    10.25,
+    5.75]
 
 moy = st.mean(list)
 # print('Moyenne = ', moy)

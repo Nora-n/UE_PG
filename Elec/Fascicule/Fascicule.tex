@@ -37,14 +37,14 @@ trompant qu'on sait comment ne pas faire, et donc comment bien faire), ni les CM
 de votre professeur-e. J'espère néanmoins qu'il saura vous être utile.
 \smallbreak
 
-La première partie comporte quelques éléments généraux sur l'optique. D'autres
-conseils et éléments importants sont mis en valeur quand ils sont pertinents :
-le code couleur reste le même, dans le but d'avoir une structure facilement
-navigable. Les bases de réflexion, données ou définitions, sont en vert. Les
-résultats importants, propriétés ou résultats à trouver, sont en rouge. Les
-points pivots de réflexion, démonstration ou outils à choisir judicieusement,
-sont en bleu. Les côtés pratiques, exemples et applications, sont en gris.
-\smallbreak
+La première partie comporte quelques éléments généraux sur l'électricité.
+D'autres conseils et éléments importants sont mis en valeur quand ils sont
+pertinents : le code couleur reste le même, dans le but d'avoir une structure
+facilement navigable. Les bases de réflexion, données ou définitions, sont en
+vert. Les résultats importants, propriétés ou résultats à trouver, sont en
+rouge. Les points pivots de réflexion, démonstration ou outils à choisir
+judicieusement, sont en bleu. Les côtés pratiques, exemples et applications,
+sont en gris. \smallbreak
 
 Les premiers exercice du chapitre 1 sont intégralement corrigés, et certains
 mots importants (comme « divergent ») ont une note de fin du chapitre 1 avec une
@@ -72,7 +72,7 @@ Bonne lecture, \hfill Nora NICOLAS --
             et la réponse : répéter si besoin d'une réponse intermédiaire ;
         \item Application.
     \end{enumerate}
-    Un exemple est donné partie \ref{ssec:vp}.
+    Un exemple est donné partie .
 \end{rtcb}
 
 
@@ -102,6 +102,37 @@ Bonne lecture, \hfill Nora NICOLAS --
 \section{Exercices d'application}
 \subsection{Ordres de grandeur}
 
-\theendnotes
+%\theendnotes
+
+\begin{circuitikz}
+    \draw (0,0) node {$\bullet$} to[R=\shifttext{1.15cm}{$R_1$}, i=$i_{11}$]
+          (0,4) node {$\bullet$} --
+          (2,4) node {$\bullet$} to[R=\shifttext{-1.15cm}{$R_2$}, i>^=$i_2$]
+          (2,0) node {$\bullet$} to[R=\raisebox{-.5cm}{$R_{40}$}]
+          (4,0) node {$\bullet$} to[V_=$E_3$, i^>=$i_3$] 
+          (4,2) to[R=\shifttext{1.15cm}{$R_3$}]
+          (4,4) node {$\bullet$} --
+          (2,4)
+          (0,0) -- (2,0) ;
+    \node[above left ] (A) at (0,4) {A};
+    \node[above] (B) at (2,4) {B};
+    \node[above right] (C) at (4,4) {C};
+    \node[below left] (E) at (0,0) {E};
+    \node[below] (F) at (2,0) {F};
+    \node[below right] (G) at (4,0) {G};
+    \draw[->] (E) -- (F) node[midway, below] {$U \St{FE}$};
+    \draw[->] (B) -- (A) node[midway, above] {$U \St{AB}$};
+\end{circuitikz}
+
+\begin{circuitikz}
+    \draw (0,0) to[I=$I$]
+    (0,2) -- (3,2) node[right] {A}
+    (1,2) to[R= \shifttext{-1.15cm}{$R_1$}]
+    (1,0)
+    (2,2) to[R=$R_2$]
+    (2,0)
+    (0,0) -- (3,0) node[right] {B}
+    ;
+\end{circuitikz}
 
 \end{document}
