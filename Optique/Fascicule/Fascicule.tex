@@ -5,12 +5,12 @@
 \fancyhead[L]{\scriptsize Nora \textsc{Nicolas}}
 \fancyhead[R]{\scriptsize \textsc{UE PG -- Fiche de travaux dirigés}}
 
-\titleformat{\section}{\color{blue}\bfseries\Large}{
-\hspace{-.85em}}{.5em}{}{}
-\titleformat{\subsection}{\color{brandeisblue}\bfseries\large}{Exercice
-\arabic{subsection})}{.5em}{}{}
-\titleformat{\subsubsection}{\color{capri}\bfseries}{
-\arabic{subsection}) \arabic{subsubsection}-}{.5em}{}{}
+\titleformat{\section}{\color{blue}\bfseries\large}{\hspace{-0.3em}
+Exercice~\arabic{section})}{.2em}{}{}
+\titleformat{\subsection}{\color{brandeisblue}\bfseries}{\hspace{-0.3em}
+\arabic{section}) \arabic{subsection}-}{.5em}{}{}
+\titleformat{\subsubsection}{\color{capri}\bfseries}{\hspace{-0.3em}
+\arabic{section}) \arabic{subsection}- \alph{subsubsection}.}{.5em}{}{}
 
 \newlength\tindent
 \setlength{\tindent}{\parindent}
@@ -58,7 +58,7 @@ raisonnement derrière ces schémas suffiront à vous guider. \smallbreak
 Bonne lecture, \hfill Nora NICOLAS --
 \href{mailto:n.nicolas@ipnl.in2p3.fr}{n.nicolas@ipnl.in2p3.fr}\\
 
-\begin{rtcb}{Principe des exercices de physique}
+\begin{NCprop}{Principe des exercices de physique}
     Tout exercice de physique suit le schéma suivant :
     \begin{enumerate}
         \item Lecture de l'énoncé en français et relevé des données ;
@@ -73,10 +73,10 @@ Bonne lecture, \hfill Nora NICOLAS --
         \item Application.
     \end{enumerate}
     Un exemple est donné partie \ref{ssec:vp}.
-\end{rtcb}
+\end{NCprop}
 
 
-\begin{ptcb}{Conseils}
+\begin{NCcoro}{Conseils}
     Avant d'encadrer un résultat :
     \begin{enumerate}
         \item Vérifer la cohérence mathématique avec la ligne précédente : les
@@ -87,21 +87,24 @@ Bonne lecture, \hfill Nora NICOLAS --
         \item Vérifier la cohérence physique de la valeur numérique, notamment à
             l'aide d'un schéma
     \end{enumerate}
-\end{ptcb}
+\end{NCcoro}
 
-\begin{bvtcb}{Important}
+\begin{NCimpo}{Important}
     L'erreur la plus simple mais la plus grave à faire est de se tromper sur une
     grandeur algébrique.
     \begin{center}
         \Ul{Toujours vérifier le sens des grandeurs algébriques} 
     \end{center}
-\end{bvtcb}
+\end{NCimpo}
 
 \chapter{Lentilles minces}\label{ch:O1}
 \vspace*{-24pt}
-\section{Exercices d'application}
-\subsection{Constructions optiques dans toutes les situations}
 
+\begin{center}
+    \Huge Exercices d'application
+\end{center}
+
+\section{Constructions optiques dans toutes les situations}
 Pour construire une image à partir d'un objet, on utilise les règles de
 construction :
 
@@ -121,7 +124,8 @@ construction :
     \huge Constructions pour une lentille convergente
 \end{center}
 
-\subsubsection{a. Avant le foyer objet}
+\subsection{Objet à distance finie}
+\subsubsection{Avant le foyer objet}
 On utilise aisément les règles sus-citées en traçant :
 \begin{enumerate}
     \item Le rayon passant par $B$ et par $O$ : il ne sera pas dévié ;
@@ -138,8 +142,7 @@ Ces rayons, issus d'un \Ul{\ed{objet réel}{qui existe physiquement,
 observée sur un support physique dans l'espace image du système, après la face
 de sortie}}.
 
-\setcounter{subsubsection}{0}
-\subsubsection{b. Sur le foyer objet}
+\subsubsection{Sur le foyer objet}
 De la même manière, on trace :
 \begin{enumerate}
     \item Le rayon passant par $B$ et par $O$ : il ne sera pas dévié ;
@@ -152,8 +155,7 @@ De la même manière, on trace :
 Ainsi, à partir d'un \Ul{objet réel}, on obtient des rayons parallèles
 qui donnent une \Ul{image à l'infini}.
 
-\setcounter{subsubsection}{0}
-\subsubsection{c. Entre le foyer et la lentille}\label{eflc}
+\subsubsection{Entre le foyer et la lentille}\label{eflc}
 Tout pareil, on trace :
 \begin{enumerate}
     \item Le rayon passant par $B$ et par $O$ : il ne sera pas dévié ;
@@ -168,8 +170,7 @@ la marche des rayons mène à une intersection}}, donnant une \Ul{\ed{image
 virtuelle}{qui se forme avant la face de sortie du système optique, et ne peut
 pas être observée sur un écran}}.
 
-\setcounter{subsubsection}{0}
-\subsubsection{d. Après la lentille}
+\subsubsection{Après la lentille}
 Bien que la situation semble bizarre, le procédé reste le même. On
 trace un objet après la lentille, puis on trace :
 \begin{enumerate}
@@ -188,7 +189,7 @@ rayons virtuels. Les rayons émergents suivent les règles de la définition
 \ref{rconst}, et donnent un faisceau émergent \Ul{convergent} donnant lieu à une
 \Ul{image réelle}.
 
-\subsubsection{Objet à l'infini}
+\subsection{Objet à l'infini}
 Des rayons parallèles à l'A.O., d'après la règle de construction
 numéro \textcolor{brandeisblue}{3)}, émergent en coupant l'A.0. au foyer image.
 On s'intéresse ici à des rayons venant de l'infini, non parallèles à l'A.O.
@@ -216,15 +217,16 @@ passant par $O$ qui ne sera pas dévié. On sait alors que le rayon émergent de
 notre rayon incident quelconque devra passer par l'intersection entre le rayon
 émergent particulier que l'on vient de construire et le plan focal image.
 
-\subsubsection{Rayon quelconque}
+\subsection{Rayon quelconque}
 De même que précédemment.
 
 \begin{center}
     \huge Constructions pour une lentille divergente
 \end{center}
 
-\setcounter{subsubsection}{0}
-\subsubsection{a. Avant le foyer image}
+\setcounter{subsection}{0}
+\subsection{Objet à distance finie}
+\subsubsection{Avant le foyer image}
 Les règles de construction pour une lentille divergente sont les mêmes que
 celles pour la lentille convergente. La seule différence est que les foyers
 objet et image sont échangés. On trace donc :
@@ -243,12 +245,10 @@ rayons émergent qui se situe dans l'espace objet (à gauche de la lentille).
 À partir d'un \Ul{objet réel}, on obtient un faisceau \Ul{divergent}, dont
 l'intersection donne une \Ul{image virtuelle}.
 
-\setcounter{subsubsection}{0}
-\subsubsection{b. Entre le foyer image et la lentille}
+\subsubsection{Entre le foyer image et la lentille}
 Le principe est exactement le même, le résultat est exactement le même.
 
-\setcounter{subsubsection}{0}
-\subsubsection{c. Sur le foyer objet}
+\subsubsection{Sur le foyer objet}
 De la même manière qu'au point \textcolor{capri}{1) 1- d.}, on a bien un objet à
 droite de la lentille, mais le procédé reste le même. On trace :
 
@@ -271,20 +271,18 @@ de l'espace objet et en trait plein dans la partie de l'espace image. \bigbreak
 Dans le cas où l'objet était au foyer objet, on a alors des rayons émergents
 parallèles entre eux donnant une \Ul{image à l'infini}.
 
-\setcounter{subsubsection}{0}
-\subsubsection{d. Entre le foyer objet et la lentille}
+\subsubsection{Entre le foyer objet et la lentille}
 Même principe qu'à la question précédente. Cette fois les rayons émergents
 forment un faisceau \Ul{convergent} donnant lieu à une \Ul{image réelle}.
 
-\setcounter{subsubsection}{0}
-\subsubsection{e. Après le foyer objet}
+\subsubsection{Après le foyer objet}
 Même principe également. Cette fois les rayons émergents forment un faisceau
 \Ul{divergent}, donnant lieu à une \Ul{image virtuelle}.
 
-\subsubsection{Objet à l'infini}
+\subsection{Objet à l'infini}
 Pareil qu'avec la lentille convergente.
 
-\subsubsection{Rayon quelconque}
+\subsection{Rayon quelconque}
 Pareil qu'à la question précédente.
 
 \begin{impo}[label = resma]{Résumé de l'exercice}
@@ -296,7 +294,7 @@ Pareil qu'à la question précédente.
     dans le sens négatif de la marche des rayons pour un faisceau divergent.
 \end{impo}
 
-\subsection{Videoprojecteur}\label{ssec:vp}
+\section{Videoprojecteur}\label{ssec:vp}
 Cet exercice est un exemple d'application d'un raisonnement classique à avoir
 face à un exercice de physique, en référence au premier encadré de ce document.
 \bigbreak
@@ -304,7 +302,7 @@ face à un exercice de physique, en référence au premier encadré de ce docume
 La lecture de l'énoncé nous indique que l'on a affaire à une lentille mince. La
 traduction des données nous donne :
 
-\begin{vtcb}{Données}
+\begin{NCdefi}{Données}
     \begin{enumerate}
         \item $(AB) = \SI{24}{mm}$ : « l'objet est une matrice de $ \SI{24}{mm}$
             » ;
@@ -312,7 +310,7 @@ traduction des données nous donne :
             (c'est là que se forme l'image, c'est donc la position de $A'$) ;
         \item $ \obar{OF'} = \SI{+5}{cm}$.
     \end{enumerate}
-\end{vtcb}
+\end{NCdefi}
 
 On peut en faire un schéma, et c'est vivement conseillé en optique : cela
 permet, s'il est bien fait, de savoir à quoi s'attendre numériquement si
@@ -320,7 +318,7 @@ nécessaire. C'est une méthode supplémentaire pour avoir un avis critique sur 
 réponse numérique. \smallbreak
 
 La compréhension des réponses attendues nous donne :
-\begin{rtcb}{Résultats attendus}
+\begin{NCprop}{Résultats attendus}
     \begin{enumerate}
         \item Que vaut $ \obar{OA}$ ? : « Déterminer la position et la nature de
             l'objet » ($O$ est bon point d'intérêt à partir duquel on peut
@@ -329,22 +327,22 @@ La compréhension des réponses attendues nous donne :
             et donc son caractère virtuel ou réel) ;
         \item Que vaut $\ABp$ ? : « Déterminer [...] la taille de l'image ».
     \end{enumerate}
-\end{rtcb}
+\end{NCprop}
 
 Les outils dont on dispose qui sont pertinents pour relier les données aux
 inconnues sont :
-\begin{btcb}{Outils du cours}
+\begin{NCdemo}{Outils du cours}
     \begin{enumerate}
         \item Relation de conjugaison pour une lentille mince :
-            \[ \boxed{ \frac{1}{\OF} = \frac{1}{\OAp} - \frac{1}{\OAp}}\]
+            \[ \boxed{ \frac{1}{\OF} = \frac{1}{\OAp} - \frac{1}{\OA}}\]
         \item Grandissement pour une lentille mince :
             \[\boxed{\g = \frac{\ABp}{\ABb} = \frac{\OAp}{\OA}}\]
     \end{enumerate}
-\end{btcb}
+\end{NCdemo}
 
 On est donc en mesure de répondre aux questions :
 
-\begin{lgtcb}{Application}
+\begin{NCexem}{Application}
     \begin{enumerate}
         \item De la relation de conjugaison, on a :
             \[\OA = \left[ \frac{1}{\OAp} - \frac{1}{\OF} \right]^{-1}\]
@@ -358,69 +356,71 @@ On est donc en mesure de répondre aux questions :
             Et avec les données,
             \[ \boxed{\ABp = \SI{- 1.9}{m}} \]
     \end{enumerate}
-\end{lgtcb}
+\end{NCexem}
 
-\subsection{La loupe}
-\begin{vtcb}{Données}
+\section{La loupe}
+\begin{NCdefi}{Données}
     \begin{enumerate}
         \item $\OA = \SI{-2}{cm}$
         \item $(AB) = \SI{1}{cm}$
         \item $\OF = \SI{4}{cm}$
     \end{enumerate}
-\end{vtcb}
+\end{NCdefi}
 
-\begin{rtcb}{Résultats attendus}
+\begin{NCprop}{Résultats attendus}
     \begin{enumerate}
         \item $\OAp$ ?
         \item $\ABp$ ?
     \end{enumerate}
-\end{rtcb}
+\end{NCprop}
 
-\begin{btcb}{Outils du cours}
+\begin{NCdemo}{Outils du cours}
    \begin{enumerate}
        \item Relation de conjugaison pour une lentille mince ;
        \item Grandissement pour une lentille mince.
    \end{enumerate} 
-\end{btcb}
+\end{NCdemo}
 
-\begin{lgtcb}{Résultats}
+\begin{NCexem}{Résultats}
     \[ \boxed{\OAp = \SI{-4}{cm}} \]
     \[ \boxed{\ABp = \SI{2}{cm}} \]
-\end{lgtcb}
+\end{NCexem}
 
-\subsection{Œil réduit et accomodation}
-\begin{vtcb}{Données}
+\section{Œil réduit et accomodation}
+\begin{NCdefi}{Données}
     \begin{enumerate}
         \item Rétine = écran, cristallin = lentille ;
         \item Au repos, $A$ à l'infini ;
         \item Au \textit{proximum}, $A$ à \SI{25}{cm} ($\OA = \SI{-25}{cm}$).
     \end{enumerate}
-\end{vtcb}
+\end{NCdefi}
 
-\begin{rtcb}{Résultats attendus}
+\begin{NCprop}{Résultats attendus}
     \begin{enumerate}
         \item $\OF \St{repos}$ ?
         \item $\OF \St{accomodation}$ ?
     \end{enumerate}
-\end{rtcb}
+\end{NCprop}
 
-\begin{btcb}{Outils du cours}
+\begin{NCdemo}{Outils du cours}
    \begin{enumerate}
        \item Relation de conjugaison pour une lentille mince, avec $\OAp =
            \obar{OE} = \SI{22.3}{mm} $ et $\frac{1}{\OA} = 0$ quand $\OA =
            -\infty$
    \end{enumerate} 
-\end{btcb}
+\end{NCdemo}
 
-\begin{lgtcb}{Résultats}
+\begin{NCexem}{Résultats}
     \[ \boxed{\OF\St{repos} = \SI{22.3}{mm}}\]
     \[ \boxed{\OF\St{accomodation} = \SI{20.6}{mm}} \]
-\end{lgtcb}
+\end{NCexem}
 
-\section{Exercices d'entraînement}
-\setcounter{subsection}{4}
-\subsection{Construction géométrique d'objets}
-\subsubsection{a.}
+\begin{center}
+    \Huge Exercices d'entraînement
+\end{center}
+
+\section{Construction géométrique d'objets}
+\subsection{}
 On a une image réelle. Pour trouver $B$, on dessine dans l'espace image les
 rayons émergents particuliers des règles de construction \ref{rconst} et qui se
 croisent en $B'$ (c'est bien la finalité d'un objet qui donne une image). On
@@ -434,53 +434,56 @@ Le dernier n'est pas dévié. \bigbreak
 
 Schéma en ligne.
 
-\subsubsection{b.}
+\subsection{}
 Même exercice, mais on échange $F$ et $F'$.
 
-\subsubsection{c.}
+\subsection{}
 On a une image virtuelle. On doit tracer dans l'espace image trois rayons
 d'intérêt dont la \Ul{prolongation dans le sens opposé à celle de la marche des
 rayons} passe par $B'$. Même principe ensuite.
 
-\subsubsection{d.}
+\subsection{}
 Pareil mais on échange $F$ et $F'$.
 
 \theendnotes
 
 \chapter{Miroirs et dioptres plans}
-\vspace*{-24pt}
-\section{Exercices d'application}
-\subsection{Miroir plan et tracé des rayons}
-\subsubsection{a.}
+\vspace*{-47pt}
+\begin{center}
+    \Huge Exercices d'application
+\end{center}
+
+\section{Miroir plan et tracé des rayons}
+\subsection{}
 On a intersection des rayons incidents avant le miroir, c'est un objet réel.
 L'image de cet objet par le miroir est son symétrique par rapport au plan du
 miroir : elle est virtuelle. Les rayons émergents passent par cette image (mais
 sont en pointillés derrière le miroir).
 
-\subsubsection{b.}
+\subsection{}
 Les rayons indicents se croisent après le miroir. On a un objet réel. Son image
 par le miroir plan est son symétrique par rapport au plan du miroir. C'est donc
 une image réelle (au-dessus du miroir). Les rayons émergents passent par cette
 image.
 
-\subsubsection{c.}
+\subsection{}
 Ici on a des rayons émergents. Leur intersection est, par définition, le point
 image. Elle se fait derrière le miroir : c'est un image virtuelle. On obtient
 l'objet associé en en faisant le symétrique par rapport au plan du miroir : il
 est donc au-dessus, et c'est un objet réel.
 
-\subsection{Une grenouille intelligente}
-\begin{vtcb}{Données}
+\section{Une grenouille intelligente}
+\begin{NCdefi}{Données}
     Pour une hauteur de grenouille fixée, il y a une taille de
     nénuphar permettant à tous les rayons partant de la grenouille de ne
     pas traverser le dioptre.
-\end{vtcb}
+\end{NCdefi}
 
-\begin{rtcb}{But à atteindre}
+\begin{NCprop}{But à atteindre}
     Origine physique de ce phénomène et traduction mathématique.
-\end{rtcb}
+\end{NCprop}
 
-\begin{btcb}{Outils du cours}
+\begin{NCdemo}{Outils du cours}
     Loi de Snell-Descartes :
     \[ n_1\ss i_1 = n_2\ss i_2\]
     et \Ul{angle limite} de réfraction, tel que :
@@ -488,17 +491,17 @@ est donc au-dessus, et c'est un objet réel.
     qui indique que pour $n_1 > n_2$, il y a un angle d'incidence à
     partir duquel il n'y a pas de rayon réfracté (les rayons réfractés font un
     angle de 90° avec la normale et sont donc parallèles au dioptre).
-\end{btcb}
+\end{NCdemo}
 
-\begin{lgtcb}{Conclusion}
+\begin{NCexem}{Conclusion}
      Pour qu'il n'y ait pas de rayon sortant de l'eau, il faut que tous les
      rayons avec un angle d'incidence plus faible que cet angle limite soient
      bloqués par le nénuphar. Un beau, grand schéma avec toutes les données
      reportées dessus mène naturellement à l'utilisation de formules
      trigonométriques de 4$\Ot{ème}$.
-\end{lgtcb}
+\end{NCexem}
 
-\begin{ptcb}{Conseil}
+\begin{NCcoro}{Conseil}
     Pour retenir vos formules trigonométriques, un moyen mnémotechnique :
     \begin{center}
         CAH\quad SOH \quad TOA
@@ -506,9 +509,9 @@ est donc au-dessus, et c'est un objet réel.
 pour \[ \cc\a = \frac{ \text{adjacent}}{ \mathrm{hypothénuse}} \quad \ss\a =
     \frac{ \text{opposé}}{ \mathrm{hypothénuse}} \quad \tan\a = \frac{
 \text{opposé}}{ \mathrm{adjacent}} \]
-\end{ptcb}
+\end{NCcoro}
 
-\begin{bvtcb}{Important !}
+\begin{NCimpo}{Important !}
     La deuxième plus \Ul{grosse} erreur facile à faire mais cette fois pire que
     \textbf{tout}, c'est d'oublier que :
     \begin{center}
@@ -517,34 +520,34 @@ pour \[ \cc\a = \frac{ \text{adjacent}}{ \mathrm{hypothénuse}} \quad \ss\a =
     \end{center}
     Il ne faut pas prendre la surface du dioptre comme référence pour définir
     des angles.
-\end{bvtcb}
+\end{NCimpo}
 
-\subsection{Le chat et le poisson}
-\begin{vtcb}{Données}
+\section{Le chat et le poisson}
+\begin{NCdefi}{Données}
     \begin{enumerate}
         \item Aquarium $\equiv$ dioptre plan ;
         \item $n \St{eau} = 1.33$, $n \St{air} = 1$ ;
         \item $\obar{HA} = \SI{-15}{cm}$.
     \end{enumerate}
-\end{vtcb}
+\end{NCdefi}
 
-\begin{rtcb}{Résultats attendus}
+\begin{NCprop}{Résultats attendus}
     \begin{enumerate}
         \item Sachant que le poisson observe la lumière partant du chat (point
             $A$), que vaut $\obar{HA'}$ ?
         \item Sachant que le \Ul{chat} observe la lumière partant du poisson
             (point A), que vaut $\obar{HA'}$ ?
     \end{enumerate}
-\end{rtcb}
+\end{NCprop}
 
-\begin{btcb}{Outils du cours}
+\begin{NCdemo}{Outils du cours}
     Relation de conjugaison pour un objet $A$ dans un milieu d'indice $n_1$,
     dont l'image $A'$ est dans un milieu d'indice $n_2$ :
     \[ \frac{\obar{HA'}}{\obar{HA}} = \frac{n_2}{n_1} \quad \mathrm{ou} \quad
     \frac{\obar{HA'}}{n_2} - \frac{\obar{HA}}{n_1} = 0 \]
-\end{btcb}
+\end{NCdemo}
 
-\begin{lgtcb}{Application}
+\begin{NCexem}{Application}
     \begin{enumerate}
         \item Dans ce cas, $A$, le chat, est dans un milieu d'indice $n_1 = 1$ ;
             son image par le dioptre plan donne $A'$ dans le milieu d'indice
@@ -558,45 +561,50 @@ pour \[ \cc\a = \frac{ \text{adjacent}}{ \mathrm{hypothénuse}} \quad \ss\a =
             \[ \obar{HA'} = \frac{\obar{HA}}{n \St{eau}} < \obar{HA} \]
             puisque l'on divise $\obar{HA}$ par $n \St{eau} > 1$.
     \end{enumerate}
-\end{lgtcb}
+\end{NCexem}
 
-\begin{ptcb}{Conseils}
+\begin{NCcoro}{Conseils}
     Réécrire les formules telles que vous les avez apprises en cours,
     \textbf{puis} inclure les données de l'énoncé une par une pour éviter les
     erreurs...
-\end{ptcb}
+\end{NCcoro}
 
-\begin{bvtcb}{Important}
+\begin{NCimpo}{Important}
     \begin{enumerate}
         \item Ne pas se tromper sur le caractère {\huge algébrique} des
             grandeurs ;
         \item Bien identifier quelle est la source, quel est l'observateur.
     \end{enumerate}
-\end{bvtcb}
+\end{NCimpo}
 
-\subsection{Lois de Snell-Descartes}
+\begin{center}
+    \Huge Exercices d'entraînement
+\end{center}
+
+\setcounter{section}{5}
+\section{Lois de Snell-Descartes}
 Cet exercice est d'une simplicité absolue. Et pourtant...
-\begin{vtcb}{Données}
+\begin{NCdefi}{Données}
     \begin{enumerate}
         \item Rayon incident sur un dioptre entre air et milieu d'indice $n$ :
             angle {\huge avec le dioptre} de \SI{56}{\degres} ;
         \item Différence d'angle entre rayon incident et réfléchi (« déviation
             ») de \SI{13.5}{\degres}.
     \end{enumerate}
-\end{vtcb}
+\end{NCdefi}
 
-\begin{rtcb}{Résultat attendu}
+\begin{NCprop}{Résultat attendu}
     Indice du liquide.
-\end{rtcb}
+\end{NCprop}
 
-\begin{btcb}{Outils du cours}
+\begin{NCdemo}{Outils du cours}
     Loi de Snell-Descartes :
     \[ n_1\ss i_1 = n_2 \ss i_2 \]
     avec $n_1$ l'indice du milieu d'indidence, $n_2$ celui du milieu de
     réfraction, $i_1$ l'angle d'incidence et $i_2$ l'angle de réfraction.
-\end{btcb}
+\end{NCdemo}
 
-\begin{lgtcb}{Application}
+\begin{NCexem}{Application}
     Un bon schéma fait attentivement est \textbf{nécessaire} ici. En effet,
     les angles donnés ne sont pas ceux qu'on utilise dans la relation de
     Snell-Descartes. \bigbreak
@@ -609,16 +617,18 @@ Cet exercice est d'une simplicité absolue. Et pourtant...
     On se débrouille pour trouver $n_2$ sachant qu'on a $i_1 = \SI{34}{\degres}$
     et $i_2 = \SI{20.5}{\degres}$. On trouve
     \[ \boxed{n_2 = 1.6} \]
-\end{lgtcb}
+\end{NCexem}
 
 \chapter{Instruments d'optique}
-\vspace*{-24pt}
-\section{Exercices d'application}
-\subsection{Tracés de rayons avec association de lentilles}
+\vspace*{-47pt}
+\begin{center}
+    \Huge Exercices d'application
+\end{center}
+\section{Tracés de rayons avec association de lentilles}
 Les associations de lentilles ne présentent pas de difficultés particulières,
 une fois les techniques de construction maîtrisées (cf. chapitre \ref{ch:O1}).
 
-\subsubsection{a.}
+\subsection{}
 Dans ce premier cas, on doit construire l'image d'un objet \Ul{réel} par
 l'association de deux lentilles convergentes. Il suffit pour cela de construire
 l'image de l'objet initial $\ABb$ par la lentille $L_1$, image que l'on appellera
@@ -657,7 +667,7 @@ pointillés pour montrer que ce sont des rayons virtuels. Les rayons émergents
 suivent les règles de la définition \ref{rconst}, et donnent un faisceau
 émergent \Ul{convergent} donnant lieu à une \Ul{image réelle}.
 
-\subsubsection{b.}
+\subsection{}
 De la même manière, on construit $\ABa$ à partir de l'action de $L_1$ sur $\ABb$.
 C'est la situation 1) 1- c. pour la lentille convergente : on obtient une
 \Ul{image virtuelle} \uuline{pour $L_1$}. $\ABa$ est cependant dans l'espace
@@ -665,39 +675,40 @@ objet pour $L_2$, et est donc un \Ul{objet réel} \uuline{pour $L_2$}. On
 construit son image comme dans la situation 1) 1- a. pour la lentille
 divergente, et on obtient une \Ul{image virtuelle}.
 
-\subsection{Des lunettes astronomiques}
+\section{Des lunettes astronomiques}
 \begin{center}
     \huge Partie 1
 \end{center}
 
 \pagebreak
 
-\begin{vtcb}{Données}
+\begin{NCdefi}{Données}
     Association de deux lentilles :
     \begin{enumerate}
         \item $L_1$ « objectif », vergence $C_1 = \SI{3.125}{\de}$, diamètre $D
             = \SI{30}{mm}$ ;
         \item $L_2$ « oculaire », vergence $C_2 = \SI{25}{\de}$.
     \end{enumerate}
-\end{vtcb}
+\end{NCdefi}
 
-\subsubsection{}
+\subsection{}
 
-\begin{rtcb}{Résultat attendu}
+\begin{NCprop}{Résultat attendu}
     Focales de lentilles
-\end{rtcb}
+\end{NCprop}
 
-\begin{btcb}{Outil du cours}
+\begin{NCdemo}{Outil du cours}
     Une lentille de focale $f'$ a pour vergence $V$ :
     \[ V = \frac{1}{f'} \]
-\end{btcb}
+\end{NCdemo}
 
-\begin{lgtcb}{Application}
+\begin{NCexem}{Application}
     \[ \boxed{\obar{O_1F'_1} = \SI{32}{cm}} \]
     \[ \boxed{\obar{O_2F'_2} = \SI{4}{cm}} \]
-\end{lgtcb}
+\end{NCexem}
 
-\subsubsection{a.}
+\subsection{Lunette de Kepler}
+\subsubsection{}
 \begin{defi}{Système afocal}
     Est afocal un système pour lequel un objet initial à l'infini donne une
     image finale à l'infini.
@@ -709,13 +720,12 @@ divergente, et on obtient une \Ul{image virtuelle}.
     l'infini (cf chapitre 1 exercice 4).
 \end{inte}
 
-\setcounter{subsubsection}{1}
-\subsubsection{b.}
-\begin{rtcb}{Résultat attendu}
+\subsubsection{}
+\begin{NCprop}{Résultat attendu}
     $$\obar{O_1O_2}$$
-\end{rtcb}
+\end{NCprop}
 
-\begin{btcb}{Outils du cours}
+\begin{NCdemo}{Outils du cours}
     Règles de construction de rayons :
     \begin{enumerate}
 
@@ -727,9 +737,9 @@ divergente, et on obtient une \Ul{image virtuelle}.
     \end{enumerate}
     Relation de Chasles :
     \[ \obar{O_1O_2} = \obar{O_1F_1'} + \obar{F_1'O_2} \]
-\end{btcb}
+\end{NCdemo}
 
-\begin{lgtcb}{Application}
+\begin{NCexem}{Application}
     Pour que tous les rayons sortant de la lunette soient parallèles entre eux
     (donnant donc une image à l'infini), il faut que tous les rayons à
     l'intérieur passent par le plan focal objet de son oculaire.\bigbreak
@@ -745,9 +755,10 @@ divergente, et on obtient une \Ul{image virtuelle}.
     On a alors $\obar{O_1O_2} = \obar{O_1F_1'} + \obar{F_2O_2}$, et finalement
 
     \[ \boxed{\obar{O_1O_2} = \SI{+36}{cm}} \]
-\end{lgtcb}
+\end{NCexem}
 
-\subsubsection{a.}
+\subsection{Cercle oculaire}
+\subsubsection{}
 \begin{defi}{Cercle oculaire}
     On appelle cercle oculaire l'image de la monture de l'objectif donnée par
     l'oculaire.
@@ -758,19 +769,18 @@ divergente, et on obtient une \Ul{image virtuelle}.
     l'oculaire, où l'œil reçoit le maximum de lumière.  
 \end{inte}
 
-\setcounter{subsubsection}{2}
-\subsubsection{b.}
-\begin{rtcb}{Résultat attendu}
+\subsubsection{}
+\begin{NCprop}{Résultat attendu}
     $$\obar{O_2C_k'}$$
-\end{rtcb}
+\end{NCprop}
 
-\begin{btcb}{Outil du cours}
+\begin{NCdemo}{Outil du cours}
     Par définition, $C_k'$ est l'image de $O_1$ par $L_2$. On va donc se servir
     de la relation de conjugaison d'une lentille mince :
     \[ \frac{1}{\OF} = \frac{1}{\OAp} - \frac{1}{\OA} \]
-\end{btcb}
+\end{NCdemo}
 
-\begin{lgtcb}{Application}
+\begin{NCexem}{Application}
     On a ici $O \equiv O_2$, $F' \equiv F_2'$, $A \equiv O_1$ et $A' \equiv
     C_k'$. On a donc :
     \[ \frac{1}{\obar{O_2F_2'}} = \frac{1}{\obar{O_2C_k'}} -
@@ -778,72 +788,71 @@ divergente, et on obtient une \Ul{image virtuelle}.
     et après calculs :
     \[ \boxed{\obar{O_2C_k'} = \left[ \frac{1}{\obar{O_2O_1}} +
     \frac{1}{\obar{O_2F_2'}}\right]^{-1} = \SI{+4.5}{cm}} \]
-\end{lgtcb}
+\end{NCexem}
 
-\setcounter{subsubsection}{2}
-\subsubsection{c.}
-\begin{rtcb}{Résultat attendu}
+\subsubsection{}
+\begin{NCprop}{Résultat attendu}
     $$D_k'$$
-\end{rtcb}
+\end{NCprop}
 
-\begin{btcb}{Outil du cours}
+\begin{NCdemo}{Outil du cours}
     Le diamètre du cercle oculaire s'apparente à la taille d'un objet. On peut
     donc utiliser le grandissement :
     \[ \g = \frac{\ABp}{\ABb} = \frac{\OAp}{\OA} \]
-\end{btcb}
+\end{NCdemo}
 
-\begin{lgtcb}{Application}
+\begin{NCexem}{Application}
     Avec les données de l'énoncé, on obtient :
     \[ \g = \frac{D_k'}{D} = \frac{\obar{O_2C_k'}}{\obar{O_2O_1}}\]
     et finalement
     \[ \boxed{D_k' = D\times \frac{\obar{O_2C_k'}}{\obar{O_2O_1}} =
     \SI{3.75}{mm}} \]
-\end{lgtcb}
+\end{NCexem}
 
 \begin{center}
     \huge Partie 2
 \end{center}
 
-\subsubsection{}
+\subsection{}
 Si l'oculaire est divergent, cela signifie que $C_3 < 0$. On a donc $C_3 = -
 C_2$, d'où le résultat demandé.
 
-\subsubsection{}
+\subsection{}
 On reprend la question 2) b-, avec cette fois des indices « 3 » au lieu des
 indices « 2 », et on obtient :
 
-\begin{lgtcb}{Application}
+\begin{NCexem}{Application}
     $\obar{O_1O_3} = \obar{O_1F_1'} + \obar{F_3O_3}$ avec $\obar{F_3O_3} =
     \obar{O_3F_3'} = \SI{-4}{cm}$, d'où
     \[ \boxed{\obar{O_1O_3} = \SI{+28}{cm}} \]
-\end{lgtcb}
+\end{NCexem}
 
 \begin{inte}{Intérêt}
     La lunette de Galilée est donc plus compacte que la lunette de Kepler !
 \end{inte}
 
-\subsubsection{Tracé non effectué}
+\subsection{Tracé non effectué}
 
-\subsubsection{a.}
+\subsection{}
+\subsubsection{}
 On reprend la question 2) 3- b., avec des indices « 3 » au lieu de « 2 », et on
 obtient :
-\begin{lgtcb}{Application}
+\begin{NCexem}{Application}
     \[ \boxed{\obar{O_3C_k'} = \SI{-3.5}{cm}}\]
-\end{lgtcb}
+\end{NCexem}
 
-\begin{rema}{comparaison}
+\begin{NCrema}{Comparaison}
     On a cette fois un cercle oculaire virtuel. Il faudra placer son œil le plus
     près possible de l'oculaire pour espérer avoir le plus de lumière possible.
-\end{rema}
+\end{NCrema}
 
-\setcounter{subsubsection}{6}
-\subsubsection{b.}
+\subsubsection{}
 On reprend la question 2) 3- c. :
-\begin{lgtcb}{Application}
+\begin{NCexem}{Application}
     \[ \boxed{D_k' = \SI{3.75}{mm}} \]
-\end{lgtcb}
+\end{NCexem}
 
-\subsubsection{Comparaison}
+\subsection{Comparaison}
 \begin{tabularx}{\linewidth}{|Y*{2}{|Y}|}\hline
     \rowcolor{gray!15} & Avantages & Inconvéniants \\\hline
     \cellcolor{gray!15} Lunette Galilée & + compacte\smallbreak image droite &
@@ -853,54 +862,56 @@ On reprend la question 2) 3- c. :
 \end{tabularx}
 
 \chapter{Dioptres et miroirs sphériques}
-\vspace*{-24pt}
-\section{Exercices d'application}
-\subsection{Miroir sphérique}
-\begin{vtcb}{Données}
+\vspace*{-47pt}
+\begin{center}
+    \Huge Exercices d'application
+\end{center}
+
+\section{Miroir sphérique}
+\begin{NCdefi}{Données}
     \begin{enumerate}
         \item $\SC = \SI{+10}{cm}$ ;
         \item Conditions de Gauss vérifiées.
     \end{enumerate}
-\end{vtcb}
+\end{NCdefi}
 
-\subsubsection{}
-\begin{rtcb}{Résultat attendu}
+\subsection{}
+\begin{NCprop}{Résultat attendu}
     \[ \SF\quad\mathrm{et}\quad\SFp \]
-\end{rtcb}
+\end{NCprop}
 
-\begin{btcb}{Outil du cours}
+\begin{NCdemo}{Outil du cours}
     \begin{enumerate}
         \item Relation de conjugaison pour un miroir sphérique :
             \[ \frac{1}{\SA} + \frac{1}{\SAp} = \frac{2}{\SC} \]
         \item $F = F'$ pour un miroir sphérique.
     \end{enumerate}
-\end{btcb}
+\end{NCdemo}
 
-\begin{lgtcb}{Application}
+\begin{NCexem}{Application}
     Le foyer image est défini comme étant le point en lequel converge un rayon
     incident venant de l'infini et parallèle à l'A.O. On a donc $\SA = +\infty$
     et la relation de conjugaison donne directement :
     \[ \boxed{\SF = \SF' = \frac{\SC}{2} = \SI{5}{cm}} \]
-\end{lgtcb}
+\end{NCexem}
 
-\subsubsection{}
-\begin{vtcb}{Données}
+\subsection{}
+\begin{NCdefi}{Données}
     \begin{enumerate}
         \item $\SA = \SI{-5}{cm}$
         \item $(AB) = \SI{1}{cm}$
     \end{enumerate}
-\end{vtcb}
+\end{NCdefi}
 
-\setcounter{subsubsection}{1}
-\subsubsection{a.}
-\begin{rtcb}{Résultat attendu}
+\subsubsection{}
+\begin{NCprop}{Résultat attendu}
     \begin{enumerate}
         \item $\SAp$ = ?
         \item $\ABp$ = ?
     \end{enumerate}
-\end{rtcb}
+\end{NCprop}
 
-\begin{btcb}{Outil du cours}
+\begin{NCdemo}{Outil du cours}
     \begin{enumerate}
         \item Relation de conjugaison pour un miroir sphérique :
             \[ \frac{1}{\SA} + \frac{1}{\SAp} = \frac{2}{\SC} \]
@@ -908,54 +919,53 @@ On reprend la question 2) 3- c. :
             \[ \g = \frac{\ABp}{\ABb} = - \frac{\SAp}{\SA} \]
     \end{enumerate}
     
-\end{btcb}
+\end{NCdemo}
 
-\begin{lgtcb}{Application}
+\begin{NCexem}{Application}
     \begin{enumerate}
         \item \[ \boxed{\SAp = \left[ \frac{2}{\SC}- \frac{1}{\SA}\right]^{-1} =
             \SI{+2.5}{cm}}\]
         \item \[ \boxed{\ABp = \ABb\times \LR{-\SAp}{\SA} = \SI{0.5}{cm}} \]
     \end{enumerate}
-\end{lgtcb}
+\end{NCexem}
 
-\setcounter{subsubsection}{1}
-\subsubsection{b.}
+\subsubsection{}
 On a $\SAp > 0$ : l'image se trouve derrière le miroir et est donc
 \Ul{virtuelle}.
 
-\subsubsection{}
+\subsection{}
 Pour déterminer le rayon émergent d'un rayon incident quelconque, on applique
 les règles 3) et 4) de \ref{rconstp} : on trace un autre rayon indicent
 parallèle au premier, qui soit un rayon particulier dont on sait tracer le rayon
 émergent (passant par $C$ par exemple). On sait alors que les deux rayons
 émergents doivent se croiser au même point dans le plan focal objet.
 
-\subsection{Lentille épaisse}
-\begin{vtcb}{Données}
+\section{Lentille épaisse}
+\begin{NCdefi}{Données}
     \begin{enumerate}
         \item Association de deux dioptres ;
         \item $n = 1.5$ ;
         \item $O \equiv C$ ;
         \item $\SC = \SI{-15}{cm}$.
     \end{enumerate}
-\end{vtcb}
+\end{NCdefi}
 
-\subsubsection{}
+\subsection{}
 L'objet $\ABb$ passe par un dioptre plan et par un dioptre sphérique.
 
-\subsubsection{}
-\begin{vtcb}{Données}
+\subsection{}
+\begin{NCdefi}{Données}
     $\obar{CA} = \SI{-6}{cm}$
-\end{vtcb}
+\end{NCdefi}
 
-\begin{rtcb}{Résultat attendu}
+\begin{NCprop}{Résultat attendu}
     \begin{enumerate}
         \item $\obar{CA}$ ou $\SAp$ a priori ;
         \item $\g$.
     \end{enumerate}
-\end{rtcb}
+\end{NCprop}
 
-\begin{btcb}{Outils du cours}
+\begin{NCdemo}{Outils du cours}
     \begin{enumerate}
         \item Relation de conjugaison pour un dioptre sphérique dont l'objet
             $A$ est dans un milieu d'indice $n_1$ et l'image $A'$ est dans un
@@ -971,9 +981,9 @@ L'objet $\ABb$ passe par un dioptre plan et par un dioptre sphérique.
             \[ \g \St{DS} = \frac{\ABp}{\ABb} = \frac{n_1}{n_2}
             \frac{\SAp}{\SA}\]
     \end{enumerate}
-\end{btcb}
+\end{NCdemo}
 
-\begin{lgtcb}{Application}
+\begin{NCexem}{Application}
     \begin{enumerate}
 
         \item Dans notre cas, en partant de l'objet $\ABb$ dans l'air d'indice
@@ -1005,9 +1015,9 @@ L'objet $\ABb$ passe par un dioptre plan et par un dioptre sphérique.
 
             \[ \boxed{\g = 2.1}\]
     \end{enumerate}
-    \end{lgtcb}
+    \end{NCexem}
 
-\begin{bvtcb}{Important !!}
+\begin{NCimpo}{Important !!}
     On l'a vu mardi 08 octobre, deux choses sont \textbf{nécessaires} pour
     réussir un exercice de ce genre :
     \begin{enumerate}
@@ -1023,10 +1033,10 @@ L'objet $\ABb$ passe par un dioptre plan et par un dioptre sphérique.
     l'application théorique de la relation de conjugaison avec les $n_2$ et
     $n_1$, puis d'appliquer les données de l'énoncé par dessus, pour chaque
     relation de conjugaison.
-\end{bvtcb}
+\end{NCimpo}
 
-\subsection{Télescope de Newton}
-\begin{vtcb}{Données}
+\section{Télescope de Newton}
+\begin{NCdefi}{Données}
     \begin{enumerate}
         \item Miroir sphérique de $\SC = \SI{16}{m}$ ;
         \item Observation du Soleil :
@@ -1036,27 +1046,27 @@ L'objet $\ABb$ passe par un dioptre plan et par un dioptre sphérique.
                 \item $\t = \SI{0.5}{\degres}$
             \end{itemize}
     \end{enumerate}
-\end{vtcb}
+\end{NCdefi}
 
-\subsubsection{}
+\subsection{}
 
-\begin{rtcb}{Résultat attendu}
+\begin{NCprop}{Résultat attendu}
     \begin{enumerate}
         \item $\obar{O_1A_1}$ ?
         \item $\ABa$ ?
     \end{enumerate}
-\end{rtcb}
+\end{NCprop}
 
-\begin{btcb}{Outils du cours}
+\begin{NCdemo}{Outils du cours}
     \begin{enumerate}
         \item Objet à l'infini se forme sur le plan focal image ;
         \item Foyers objet et image confondus pour un miroir sphérique ;
         \item Relation de conjugaison avec origine au sommet :
             \[ \frac{1}{\SA} + \frac{1}{\SAp} = \frac{2}{\SC} \]
     \end{enumerate}
-\end{btcb}
+\end{NCdemo}
 
-\begin{lgtcb}{Application}
+\begin{NCexem}{Application}
     \begin{enumerate}
         \item On observe le Soleil, considéré comme un objet à l'infini : d'un
             objet $AB$ on obtient un objet $A_1B_1$ dont $A_1$ est confondu avec
@@ -1073,26 +1083,26 @@ L'objet $\ABb$ passe par un dioptre plan et par un dioptre sphérique.
             qu'on connaît $\obar{F'C}$ :
             \[ \boxed{\ABa = \tan\t\times\obar{A_1C} = \SI{7}{cm}} \]
     \end{enumerate}
-\end{lgtcb}
+\end{NCexem}
 
-\subsubsection{}
+\subsection{}
 
-\begin{vtcb}{Données}
+\begin{NCdefi}{Données}
     \begin{enumerate}
         \item Miroir plan ;
         \item $\obar{O_2F} = \SI{20}{cm}$.
     \end{enumerate}
-\end{vtcb}
+\end{NCdefi}
 
-\begin{rtcb}{Résultats attendus}
+\begin{NCprop}{Résultats attendus}
     \begin{enumerate}
         \item Nature ?
         \item $\obar{O_2A_2}$ ?
         \item $\LF{A_2B_2}$ ?
     \end{enumerate}
-\end{rtcb}
+\end{NCprop}
 
-\begin{btcb}{Outils du cours}
+\begin{NCdemo}{Outils du cours}
     \begin{enumerate}
         \item Si l'intersection des rayons émergents (dans le sens de la
             propagation des rayons ou non), c'est-à-dire là ou se forme l'image,
@@ -1102,9 +1112,9 @@ L'objet $\ABb$ passe par un dioptre plan et par un dioptre sphérique.
         \item L'action d'un miroir plan sur un objet est d'en faire l'image en
             symétrique par rapport à son plan.
     \end{enumerate}
-\end{btcb}
+\end{NCdemo}
 
-\begin{lgtcb}{Application}
+\begin{NCexem}{Application}
     \begin{enumerate}
         \item Sur le schéma de l'énoncé, le foyer image du miroir $M_1$ est
             derrière le miroir $M_2$. Or, nous avnos déterminé que c'était là
@@ -1127,23 +1137,24 @@ L'objet $\ABb$ passe par un dioptre plan et par un dioptre sphérique.
             On a donc directement :
             \[ \boxed{ \LF{A_2B_2} = \LF{A_1B_1} = \SI{7}{cm}} \]
     \end{enumerate}
-\end{lgtcb}
+\end{NCexem}
 
-\subsubsection{a-}
-\begin{vtcb}{Données}
+\subsection{L'observateurice vise à l'infini}
+\subsubsection{}
+\begin{NCdefi}{Données}
     \begin{enumerate}
         \item Lentille convergente ;
         \item $\obar{O_3F_3'} = \SI{4}{cm}$ ;
         \item Les rayons émergent parallèles entre eux (« L'observateur-ice vise
             à l'infini »).
     \end{enumerate}
-\end{vtcb}
+\end{NCdefi}
 
-\begin{rtcb}{Résultats attendus}
+\begin{NCprop}{Résultats attendus}
     $\obar{O_2O_3}$ ?
-\end{rtcb}
+\end{NCprop}
 
-\begin{btcb}{Outils du cours}
+\begin{NCdemo}{Outils du cours}
     \begin{enumerate}
 
         \item Des rayons qui se croisent dans le plan focal objet ressortent
@@ -1151,9 +1162,9 @@ L'objet $\ABb$ passe par un dioptre plan et par un dioptre sphérique.
 
         \item Relation de \bsc{Chasles}.
     \end{enumerate}
-\end{btcb}
+\end{NCdemo}
 
-\begin{lgtcb}{Application}
+\begin{NCexem}{Application}
     L'énoncé nous indique donc que l'objet sur lequel agit $L_3$ se situe sur
     son plan focal objet. Or, cet objet pour $L_3$ n'est autre que l'image
     produite par $M_2$, $\obar{A_2B_2}$, et on en déduit que $A_2$ est confondu
@@ -1162,27 +1173,25 @@ L'objet $\ABb$ passe par un dioptre plan et par un dioptre sphérique.
     avoir :
     \[ \boxed{\obar{O_2O_3} = \obar{O_2A_2} + \obar{O_3F_3'} = 20 + 4 =
     \SI{24}{cm}} \]
-\end{lgtcb}
+\end{NCexem}
 
-\setcounter{subsubsection}{2}
-\subsubsection{b-}
+\subsubsection{}
 En formant un rayon depuis $B_2$ et passant par $O_3$, on forme un triangle
 rectangle entre $\obar{A_2B_2}$ et $ \obar{F_3O_3}$ étant donné que $A_2 = F_3$.
 On a ainsi \[ \boxed{\tan\t' = \frac{A_2B_2}{F_3O_3} \Leftrightarrow \t' =
 66.8\degres}\]
 
-\setcounter{subsubsection}{2}
-\subsubsection{c-}
-\begin{rtcb}{Résultat attendu}
+\subsubsection{}
+\begin{NCprop}{Résultat attendu}
     Grossissement
-\end{rtcb}
+\end{NCprop}
 
-\begin{btcb}{Outil du cours}
+\begin{NCdemo}{Outil du cours}
     $ \displaystyle G = \frac{\t'}{\t}$
-\end{btcb}
+\end{NCdemo}
 
-\begin{lgtcb}{Application}
+\begin{NCexem}{Application}
     \[ \boxed{G = \frac{\t'}{\t} = 113.6} \]
-\end{lgtcb}
+\end{NCexem}
 
 \end{document}

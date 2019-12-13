@@ -1,0 +1,192 @@
+\documentclass[10pt,a5paper,notitlepage]{book}
+
+\usepackage{preambule}
+\usepackage[Rejne]{fncychap}
+\fancyhead[L]{\scriptsize Nora \textsc{Nicolas}}
+\fancyhead[R]{\scriptsize \textsc{UE PG -- Fiche de travaux dirigés}}
+
+\titleformat{\section}{\color{blue}\bfseries\large}{\hspace{-0.3em}
+Exercice~\arabic{section})}{.2em}{}{}
+\titleformat{\subsection}{\color{brandeisblue}\bfseries}{\hspace{-0.3em}
+\arabic{section}) \arabic{subsection}-}{.5em}{}{}
+\titleformat{\subsubsection}{\color{capri}\bfseries}{\hspace{-0.3em}
+\arabic{section}) \arabic{subsection}- \alph{subsubsection}.}{.5em}{}{}
+
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+\begin{document}
+
+\begin{center}
+\Huge Physique générale : Électricité\smallbreak\vspace*{-14pt}
+\rule[11pt]{5cm}{0.5pt}\smallbreak\vspace*{-14pt}
+\huge Chapitres 1 à 4
+\end{center}
+
+\toccontents
+
+\chapter{Style de page et tcolorboxes}
+\vspace*{-47pt}
+
+En plus de charger le package \verb=\usepackage{preambule}=, on doit charger
+\verb=\usepackage[Rejne]{fncychap}= dans le préambule du fascicule pour qu'il
+soit correctement utilisé. Il définit le style des chapitres. Les
+\verb=\fancyhead[L]= et \verb=\fancyhead[R]= qui sont chargés écrasent ceux de
+\verb=preambule.sty= qui est plus général et détaille les chapitres, ce qui
+n'est pas nécessaire ici. \bigbreak
+
+Ensuite vient le choix de style des sections, sous-sections et
+sous-sous-sections. Elles sont définies par \verb=\titleformat= et son
+relativement explicites dans leur fonctionnement. Sinon, d'autres exemples sont
+présents dans \verb=preambule.sty= (ils se font aussi écraser ici). Étant donné
+que le fascicule d'exercices de TD sont divisés entre exercices d'application et
+d'entraînement mais ne rompent pas le numéro des exercices, on les indiquera par
+
+\begin{verbatim}
+    \begin{center}
+        \Huge Exercices d'application
+    \end{center}
+\end{verbatim}
+
+pour donner
+
+\begin{center}
+    \Huge Exercices d'application
+\end{center}
+
+On notera qu'il a été décidé que l'indentation ne se fasse pas par défaut en
+mettant la grandeur \verb=\parindent= à 0 en utilisant
+\verb=\setlength{\parindent}{0pt}=, mais qu'on peut forcer l'indentation
+manuellement en utilisant la commande \verb=\indent=. \bigbreak
+
+Les sections correspondent aux exercices. On écrira donc
+
+\begin{verbatim}
+    \section{Ordres de grandeur}
+\end{verbatim}
+
+pour avoir
+
+\section{Ordres de grandeur}
+
+et évidemment, les questions sont \verb=\subsection{}= et les sous-questions
+sont \verb=\subsubsection{}=. Il ne paraît pas pertinent de réécrire les
+énoncés dans les \verb={}=.
+
+La mise en valeur des étapes au sein des réponses sont faites avec des
+\textit{tcolorboxes}. Il en existe plein, codées dans preambule.sty. Pour chaque
+\textit{tcolorbox}, il y a la version avec le \textit{counter} qui indique le
+nombre de fois que cette \textit{tcolorbox} a été appelée, et la version sans
+qui est appelée de la même manière en rajoutant « NC » devant, pour « No counter
+».  Par exemple,
+
+\begin{verbatim}
+    \begin{prop}[label = propa]{Propriété}
+        Ceci est le texte d'une boîte « Propriété »
+        avec un \textit{counter}
+    \end{prop}
+\end{verbatim}
+
+donne
+
+\begin{prop}[label = propa]{Propriété}
+    Ceci est le texte d'une boîte « Propriété » avec un \textit{counter}
+\end{prop}
+
+et
+
+\begin{verbatim}
+    \begin{NCprop}{Propriété}
+        Ceci est le texte d'une boîte « Propriété »
+        sans \textit{counter}.
+    \end{NCprop}
+\end{verbatim}
+
+donne
+
+\begin{NCprop}{Propriété}
+    Ceci est le texte d'une boîte « Propriété » sans \textit{counter}.
+\end{NCprop}
+
+Loi
+Theo
+prop
+coro = corolaire,
+demo
+inte = interprétation
+Impl = implication
+
+\begin{NCcoro}{Conseils}
+    Avant d'encadrer un résultat :
+    \begin{enumerate}
+        \item Vérifer la cohérence mathématique avec la ligne précédente : les
+            signes devant les grandeurs, le nombre de grandeurs, ne pas oublier
+            les fonctions inverses... ;
+        \item Vérifier l'homogénéité de part et d'autre de l'équation pour les
+            résultats littéraux ;
+        \item Vérifier la cohérence physique de la valeur numérique, notamment à
+            l'aide d'un schéma
+    \end{enumerate}
+\end{NCcoro}
+
+\begin{NCimpo}{Important}
+    L'erreur la plus simple mais la plus grave à faire est de se tromper sur une
+    grandeur algébrique.
+    \begin{center}
+        \Ul{Toujours vérifier le sens des grandeurs algébriques} 
+    \end{center}
+\end{NCimpo}
+
+\chapter{Grandeurs électriques}\label{ch:O1}
+\vspace*{-24pt}
+\section{Exercices d'application}
+\subsection{Ordres de grandeur}
+
+%\theendnotes
+
+\begin{circuitikz}
+    \draw (0,0) node {$\bullet$} to[R=\shifttext{1.15cm}{$R_1$}, i>^=$i_{11}$]
+          (0,4) node {$\bullet$} --
+          (2,4) node {$\bullet$} to[R=\shifttext{-1.15cm}{$R_2$},
+                                    i>^=$i_2$,
+                                    v^<=$U_{R_2}$]
+          (2,0) node {$\bullet$} to[R=\raisebox{-.5cm}{$R_{40}$}]
+          (4,0) node {$\bullet$} to[V_=$E_3$, i^>=$i_3$] 
+          (4,2) to[R=\shifttext{1.15cm}{$R_3$},
+                   v_<=$U_{R_3}$]
+          (4,4) node {$\bullet$} --
+          (2,4)
+          (0,0) -- (2,0) ;
+    \node[above left ] (A) at (0,4) {A};
+    \node[above] (B) at (2,4) {B};
+    \node[above right] (C) at (4,4) {C};
+    \node[below left] (E) at (0,0) {E};
+    \node[below] (F) at (2,0) {F};
+    \node[below right] (G) at (4,0) {G};
+    \draw[->] (E) -- (F) node[midway, below] {$U \St{FE}$};
+    \draw[->] (B) -- (A) node[midway, above] {$U \St{AB}$};
+    
+\end{circuitikz}
+
+\begin{circuitikz}
+    \draw (0,0) to[R=$R_1$]
+    (0,4) to[V=$E_3$, i^>=$i_1$]
+    (4,4) to[R=\shifttext{-1.15cm}{$R_2$}, v^<=$U_{R_2}$]
+    (4,0)
+    ;
+\end{circuitikz}
+
+\begin{circuitikz}
+    \draw (0,0) to[I=$I$]
+    (0,2) -- (3,2) node[right] {A}
+    (1,2) to[R=\shifttext{-1.15cm}{$R_1$}]
+    (1,0)
+    (2,2) to[R=\shifttext{-1.15cm}{$R_2$}]
+    (2,0)
+    (0,0) -- (3,0) node[right] {B}
+    ;
+\end{circuitikz}
+
+\end{document}

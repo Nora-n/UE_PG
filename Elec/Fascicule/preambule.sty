@@ -92,7 +92,7 @@
 \usetikzlibrary{patterns}
 \usetikzlibrary{shapes.misc}
 \usetikzlibrary{intersections}
-\RequirePackage[european resistor, european voltage, european current]{circuitikz}
+\RequirePackage[european, straightvoltages]{circuitikz}
 \usetikzlibrary{babel}
 \tikzset{cross/.style={cross out, draw=black, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt}, cross/.default={2pt}}
 %\usepackage[compat=1.0.0]{tikz-feynman}
@@ -220,7 +220,7 @@ title=Loi~\thetcbcounter~: #2, #1}
 enhanced, breakable, colback=red!10, colframe=red!70!black, fonttitle=\bfseries,
 title=Théorème~\thetcbcounter~: #2, #1}
     
-\newtcolorbox[auto counter, number within=section]{drtcb}[2][]{%
+\newtcolorbox[auto counter, number within=section]{NCtheo}[2][]{%
 enhanced, breakable, colback=red!10, colframe=red!70!black, fonttitle=\bfseries,
 title=#2, #1}
 
@@ -228,7 +228,7 @@ title=#2, #1}
 enhanced, breakable, colback=red!10, colframe=red!60!black, fonttitle=\bfseries,
 title=Propriété~\thetcbcounter~: #2, #1}
 
-\newtcolorbox[auto counter, number within=section]{rtcb}[2][]{%
+\newtcolorbox[auto counter, number within=section]{NCprop}[2][]{%
 enhanced, breakable, colback=red!10, colframe=red!60!black, fonttitle=\bfseries,
 title=#2, #1}
 
@@ -236,7 +236,7 @@ title=#2, #1}
 enhanced, breakable, colback=VioletRed!10, colframe=VioletRed!60!black, fonttitle=\bfseries,
 title=Corollaire~\thetcbcounter~: #2, #1}
 
-\newtcolorbox[auto counter, number within=section]{ptcb}[2][]{%
+\newtcolorbox[auto counter, number within=section]{NCcoro}[2][]{%
 enhanced, breakable, colback=VioletRed!10, colframe=VioletRed!60!black, fonttitle=\bfseries,
 title=#2, #1}
 
@@ -244,7 +244,7 @@ title=#2, #1}
 enhanced, breakable, colback=blue!10, colframe=blue!60!black, fonttitle=\bfseries,
 title=Démonstration~\thetcbcounter~: #2, #1}
 
-\newtcolorbox[auto counter, number within=section]{btcb}[2][]{%
+\newtcolorbox[auto counter, number within=section]{NCdemo}[2][]{%
 enhanced, breakable, colback=blue!10, colframe=blue!60!black, fonttitle=\bfseries,
 title=#2, #1}
 
@@ -252,7 +252,7 @@ title=#2, #1}
 enhanced, breakable, colback=RoyalBlue!10, colframe=RoyalBlue!50!black, fonttitle=\bfseries,
 title=Interprétation~\thetcbcounter~: #2, #1}
 
-\newtcolorbox[auto counter, number within=section]{rbtcb}[2][]{%
+\newtcolorbox[auto counter, number within=section]{NCinte}[2][]{%
 enhanced, breakable, colback=RoyalBlue!10, colframe=RoyalBlue!50!black, fonttitle=\bfseries,
 title=#2, #1}
 
@@ -260,7 +260,7 @@ title=#2, #1}
 enhanced, breakable, colback=DodgerBlue!10, colframe=DodgerBlue!50!black, fonttitle=\bfseries,
 title=Implication~\thetcbcounter~: #2, #1}
 
-\newtcolorbox[auto counter, number within=section]{dbtcb}[2][]{%
+\newtcolorbox[auto counter, number within=section]{NCimpl}[2][]{%
 enhanced, breakable, colback=DodgerBlue!10, colframe=DodgerBlue!50!black, fonttitle=\bfseries,
 title=#2, #1}
 
@@ -268,7 +268,7 @@ title=#2, #1}
 enhanced, breakable, colback=green!10, colframe=green!60!black, fonttitle=\bfseries,
 title=Définition~\thetcbcounter~: #2, #1}
 
-\newtcolorbox[auto counter, number within=section]{vtcb}[2][]{%
+\newtcolorbox[auto counter, number within=section]{NCdefi}[2][]{%
 enhanced, breakable, colback=green!10, colframe=green!60!black, fonttitle=\bfseries,
 title=#2, #1}
 
@@ -276,7 +276,7 @@ title=#2, #1}
 enhanced, breakable, colback=green!10, colframe=green!50!black, fonttitle=\bfseries,
 title=Notation~\thetcbcounter~: #2, #1}
 
-\newtcolorbox[auto counter, number within=section]{lvtcb}[2][]{%
+\newtcolorbox[auto counter, number within=section]{NCnota}[2][]{%
 enhanced, breakable, colback=green!10, colframe=green!50!black, fonttitle=\bfseries,
 title=#2, #1}
 
@@ -284,7 +284,7 @@ title=#2, #1}
 enhanced, breakable, colback=BlueViolet!10, colframe=BlueViolet!50!black, fonttitle=\bfseries,
 title=Important~\thetcbcounter~: #2, #1}
 
-\newtcolorbox[auto counter, number within=section]{bvtcb}[2][]{%
+\newtcolorbox[auto counter, number within=section]{NCimpo}[2][]{%
 enhanced, breakable, colback=BlueViolet!10, colframe=BlueViolet!50!black, fonttitle=\bfseries,
 title=#2, #1}
 
@@ -296,7 +296,7 @@ title=Rappel~\thetcbcounter~: #2, #1}
 enhanced, breakable, colback=lightgray!10, colframe=lightgray!50!black, fonttitle=\bfseries,
 title=Exemple~\thetcbcounter~: #2, #1}
 
-\newtcolorbox[auto counter, number within=section]{lgtcb}[2][]{%
+\newtcolorbox[auto counter, number within=section]{NCexem}[2][]{%
 enhanced, breakable, colback=lightgray!10, colframe=lightgray!50!black, fonttitle=\bfseries,
 title=#2, #1}
 
@@ -308,7 +308,7 @@ title=Ordre de grandeur~\thetcbcounter~: #2, #1}
 enhanced, breakable, colback=gray!10, colframe=gray!50!black, fonttitle=\bfseries,
 title=Contre-exemple~\thetcbcounter~: #2, #1}
 
-\newtcolorbox[auto counter, number within=section]{gtcb}[2][]{%
+\newtcolorbox[auto counter, number within=section]{NCcexe}[2][]{%
 enhanced, breakable, colback=gray!10, colframe=gray!50!black, fonttitle=\bfseries,
 title=#2, #1}
 
@@ -316,7 +316,7 @@ title=#2, #1}
 enhanced, breakable, colback=darkgray!10, colframe=darkgray!50!black, fonttitle=\bfseries,
 title=Remarque~\thetcbcounter~: #2, #1}
 
-\newtcolorbox[auto counter, number within=section]{dgtcb}[2][]{%
+\newtcolorbox[auto counter, number within=section]{NCrema}[2][]{%
 enhanced, breakable, colback=darkgray!10, colframe=darkgray!50!black, fonttitle=\bfseries,
 title=#2, #1}
 

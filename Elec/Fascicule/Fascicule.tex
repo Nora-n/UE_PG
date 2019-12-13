@@ -58,7 +58,7 @@ raisonnement derrière ces schémas suffiront à vous guider. \smallbreak
 Bonne lecture, \hfill Nora NICOLAS --
 \href{mailto:n.nicolas@ipnl.in2p3.fr}{n.nicolas@ipnl.in2p3.fr}\\
 
-\begin{rtcb}{Principe des exercices de physique}
+\begin{NCprop}{Principe des exercices de physique}
     Tout exercice de physique suit le schéma suivant :
     \begin{enumerate}
         \item Lecture de l'énoncé en français et relevé des données ;
@@ -73,10 +73,10 @@ Bonne lecture, \hfill Nora NICOLAS --
         \item Application.
     \end{enumerate}
     Un exemple est donné partie .
-\end{rtcb}
+\end{NCprop}
 
 
-\begin{ptcb}{Conseils}
+\begin{NCcoro}{Conseils}
     Avant d'encadrer un résultat :
     \begin{enumerate}
         \item Vérifer la cohérence mathématique avec la ligne précédente : les
@@ -87,15 +87,15 @@ Bonne lecture, \hfill Nora NICOLAS --
         \item Vérifier la cohérence physique de la valeur numérique, notamment à
             l'aide d'un schéma
     \end{enumerate}
-\end{ptcb}
+\end{NCcoro}
 
-\begin{bvtcb}{Important}
+\begin{NCimpo}{Important}
     L'erreur la plus simple mais la plus grave à faire est de se tromper sur une
     grandeur algébrique.
     \begin{center}
         \Ul{Toujours vérifier le sens des grandeurs algébriques} 
     \end{center}
-\end{bvtcb}
+\end{NCimpo}
 
 \chapter{Grandeurs électriques}\label{ch:O1}
 \vspace*{-24pt}
@@ -105,12 +105,15 @@ Bonne lecture, \hfill Nora NICOLAS --
 %\theendnotes
 
 \begin{circuitikz}
-    \draw (0,0) node {$\bullet$} to[R=\shifttext{1.15cm}{$R_1$}, i=$i_{11}$]
+    \draw (0,0) node {$\bullet$} to[R=\shifttext{1.15cm}{$R_1$}, i>^=$i_{11}$]
           (0,4) node {$\bullet$} --
-          (2,4) node {$\bullet$} to[R=\shifttext{-1.15cm}{$R_2$}, i>^=$i_2$]
+          (2,4) node {$\bullet$} to[R=\shifttext{-1.15cm}{$R_2$},
+                                    i>^=$i_2$,
+                                    v^<=$U_{R_2}$]
           (2,0) node {$\bullet$} to[R=\raisebox{-.5cm}{$R_{40}$}]
           (4,0) node {$\bullet$} to[V_=$E_3$, i^>=$i_3$] 
-          (4,2) to[R=\shifttext{1.15cm}{$R_3$}]
+          (4,2) to[R=\shifttext{1.15cm}{$R_3$},
+                   v_<=$U_{R_3}$]
           (4,4) node {$\bullet$} --
           (2,4)
           (0,0) -- (2,0) ;
@@ -122,14 +125,23 @@ Bonne lecture, \hfill Nora NICOLAS --
     \node[below right] (G) at (4,0) {G};
     \draw[->] (E) -- (F) node[midway, below] {$U \St{FE}$};
     \draw[->] (B) -- (A) node[midway, above] {$U \St{AB}$};
+    
+\end{circuitikz}
+
+\begin{circuitikz}
+    \draw (0,0) to[R=$R_1$]
+    (0,4) to[V=$E_3$, i^>=$i_1$]
+    (4,4) to[R=\shifttext{-1.15cm}{$R_2$}, v^<=$U_{R_2}$]
+    (4,0)
+    ;
 \end{circuitikz}
 
 \begin{circuitikz}
     \draw (0,0) to[I=$I$]
     (0,2) -- (3,2) node[right] {A}
-    (1,2) to[R= \shifttext{-1.15cm}{$R_1$}]
+    (1,2) to[R=\shifttext{-1.15cm}{$R_1$}]
     (1,0)
-    (2,2) to[R=$R_2$]
+    (2,2) to[R=\shifttext{-1.15cm}{$R_2$}]
     (2,0)
     (0,0) -- (3,0) node[right] {B}
     ;
