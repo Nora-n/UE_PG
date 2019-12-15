@@ -102,6 +102,65 @@ Bonne lecture, \hfill Nora NICOLAS --
 \section{Exercices d'application}
 \subsection{Ordres de grandeur}
 
+Cet exercice ce concentre sur la notion d'intensité en électricité. Faisons tout d'abord un petit rappel du cours.
+
+\begin{defi}{Intensité électrique}
+	L'intensité électrique est une grandeur physique décrivant la quantité de charges électriques (exprimées en Coulomb, C) passant par un point d'un circuit à chaque unité de temps (exprimé en seconde, s) :
+	\begin{equation}
+		I = \dfrac{Q}{t} \label{eq:1.1.intensite}
+	\end{equation}
+	L'intensité est ainsi exprimée en Coulomb par seconde, unité que l'on nomme l'Ampère (A). Si les charges sont des électrons se déplaçant dans un fil, le nombre de charges est :
+	\begin{equation}
+		Q = N\times e \label{eq:1.1.charge}
+	\end{equation}
+	où $e = 1.602\times 10^{-19}\,$C est la charge de l'électron (en valeur absolue).
+\end{defi}
+
+Nous voyons donc que le temps, l'intensité et le nombre de charges sont reliées par les formules \ref{eq:1.1.intensite} et \ref{eq:1.1.charge}.
+
+\begin{NCprop}{Résultats attendus}
+	Les trois questions de l'exercice donnent une grandeur électrique et attendent de vous le calcul d'une grandeur inconnue. Il va donc falloir utiliser les formules précédentes pour exprimer la grandeur inconnue en fonction des données du problème.
+\end{NCprop}
+
+\begin{NCdefi}{Données}
+	\begin{enumerate}
+		\item "Un générateur délivre une intensité $I = 3,0\,$A." : $I = 3\,$A ;
+		\item "1000 électrons" : $N = 1000$ ;
+		\item "faire circuler $1.10^{20}$ électrons chaque seconde" : $N = 1\times 10^{20}$, $t = 1\,$s.
+	\end{enumerate}
+\end{NCdefi}
+
+\begin{NCexem}{Application}
+	\begin{enumerate}
+		\item Le nombre d'électrons émis chaque seconde est donné par :
+		\begin{equation}
+			N = \dfrac{I \times t}{e}
+		\end{equation}
+		Avec les données du problème, nous avons :
+		\begin{equation}
+			N = \dfrac{3.0 \times 1}{1.6\times 10^{-19}} = 1.9\times 10^{19}
+		\end{equation}
+		\item Le temps pour émettre 1000 électrons est donné par :
+		\begin{equation}
+			t = \dfrac{N\times e}{I} = \dfrac{1000 \times 1.6\times 10^{-19}}{3.0}\,{\rm s} = 5.3\times 10^{-17}\,{\rm s}
+		\end{equation}
+		\item L'intensité correspondante est :
+		\begin{equation}
+			I = \dfrac{N\times e}{t} = \dfrac{1.0\times 10^{20} \times 1.6\times 10^{-19}}{1}\,{\rm A} = 16\,{\rm A}
+		\end{equation}
+	\end{enumerate}
+\end{NCexem}
+
+\begin{impo}{Important}
+	Dans cet exercice, nous avons dû faire des applications numériques. Il faut alors faire attention à deux choses :
+	\begin{itemize}
+		\item l'unité : dès que vous remplacez les grandeurs littérales par des valeurs numériques, votre calcul acquiert une unité, qui doit apparaître ;
+		\item les chiffres significatifs : le résultat final doit comporter un nombre de chiffres significatifs cohérent avec la précision des données utilisées. Par exemple, l'intensité $I = 3.0\,$A a deux chiffres significatifs, ce qui va limiter la précision avec laquelle on va utiliser la charge de l'électron à deux chiffres : $e = 1.6\times 10^{-19}\,$C. Autre cas, quand on vous dit "par seconde", le temps $t$ a alors la valeur $t = 1\,$s, avec une précision arbitraire, qui sera limitée par la précision des autres données. Il en va de même pour le nombre $N = 1000$ électrons.
+	\end{itemize}
+\end{impo}
+
+\newpage
+
 %\theendnotes
 
 \begin{circuitikz}

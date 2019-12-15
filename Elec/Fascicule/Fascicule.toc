@@ -1,4 +1,4 @@
-\babel@toc {french}{}
+\select@language {french}
 \contentsline {chapter}{\numberline {0}Conseils g\IeC {\'e}n\IeC {\'e}raux}{3}{chapter.0}
 \contentsline {chapter}{\numberline {1}Grandeurs \IeC {\'e}lectriques}{5}{chapter.1}
 \contentsline {section}{\numberline {1.1}Exercices d'application}{5}{section.1.1}
