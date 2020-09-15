@@ -92,10 +92,91 @@
 \usetikzlibrary{patterns}
 \usetikzlibrary{shapes.misc}
 \usetikzlibrary{intersections}
+\usetikzlibrary{decorations.markings,
+    decorations.pathmorphing,
+    decorations.pathreplacing}
 \RequirePackage[european, straightvoltages]{circuitikz}
 \usetikzlibrary{babel}
 \tikzset{cross/.style={cross out, draw=black, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt}, cross/.default={2pt}}
 %\usepackage[compat=1.0.0]{tikz-feynman}
+
+\newdimen\XCoord
+\newdimen\YCoord
+\newcommand*{\ExtractCoordinate}[1]{\path (#1);
+                                    \pgfgetlastxy{\XCoord}{\YCoord};}%
+
+%simple flèche
+\tikzstyle simple=[postaction={decorate,
+                               decoration={markings,
+                                           mark=at position .5 with
+                                           {\arrow[scale=1,>=stealth]{>}}}}]
+
+%simple flèche reverse
+\tikzstyle simplerev=[postaction={decorate,
+                                  decoration={markings,
+                                              mark=at position .5 with
+                                              {\arrow[scale=1,>=stealth]{<}}}}]
+
+%double flèches
+\tikzstyle double=[postaction={decorate,
+                               decoration={markings,
+                                           mark=at position .5 with
+                                           {\arrow[scale=1,>=stealth]{>>}}}}]
+
+%double flèches reverse
+\tikzstyle doublerev=[postaction={decorate,
+                                  decoration={markings,
+                                              mark=at position .5 with
+                                              {\arrow[scale=1,
+                                                      >=stealth]{<<}}}}]
+
+%triple flèches
+\tikzstyle triple=[postaction={decorate,
+                               decoration={markings,
+                                           mark=at position .5 with
+                                           {\arrow[scale=1,>=stealth]{>>>}}}}]
+
+%triple flèches reverse
+\tikzstyle triplerev=[postaction={decorate,
+                                  decoration={markings,
+                                              mark=at position .5 with
+                                              {\arrow[scale=1,
+                                                      >=stealth]{<<<}}}}]
+
+%simple flèche grande taille
+\tikzstyle simplegros=[postaction={decorate,
+                                   decoration={markings,
+                                               mark=at position .5 with
+                                               {\arrow[scale=1.5,
+                                                       >=stealth]{>}}}}]
+
+%simple flèche grande taille reverse
+\tikzstyle simplegrosrev=[postaction={decorate,
+                                      decoration={markings,
+                                                  mark=at position .5 with
+                                                  {\arrow[scale=1.5,
+                                                          >=stealth]{<}}}}]
+
+%double flèches grande taille
+\tikzstyle doublegros=[postaction={decorate,
+                                   decoration={markings,
+                                               mark=at position .5 with
+                                               {\arrow[scale=1.5,
+                                                       >=stealth]{>>}}}}]
+
+%double flèche grande taille reverse
+\tikzstyle doublegrosrev=[postaction={decorate,
+                                      decoration={markings,
+                                                  mark=at position .5 with
+                                                  {\arrow[scale=1.5,
+                                                          >=stealth]{<<}}}}]
+
+%oeil, le paramètre, indiqué entre crochet permettra de positionner
+%l'oeil avec un shift, rotate...
+\newcommand{\oeil}[1][]{
+    \draw[#1,thick,rounded corners] (-15:1)--(0,0)--(15:1);
+    \draw[#1] (-15:0.8) arc (-15:15:0.8);
+    \draw[#1,fill=black] (0:0.75) ellipse(0.05 and 0.1);} 
 
 %%% Définition des couleurs
 
@@ -544,6 +625,7 @@ title=#2, #1}
 \def\ABb{\obar{AB}}
 \def\ABp{\obar{A'B'}}
 \def\ABa{\obar{A_1B_1}}
+\def\bp{$'$}
 \def\SC{\obar{SC}}
 \def\SA{\obar{SA}}
 \def\SAp{\obar{SA'}}
