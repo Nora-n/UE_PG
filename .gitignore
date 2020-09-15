@@ -1,41 +1,34 @@
+Elec/CC/
 
-Elec/S1/CM/
+Elec/CC-2/
 
-Elec/S1/TD/
+Elec/Controles/
 
-Elec/S2/CM/
+Elec/S1/
 
-Elec/S2/TD/
+Elec/S2/
 
-Elec/S3/CM/
+Elec/S3/
 
-Elec/S3/TD/
+Elec/S4/
 
-Elec/S4/CM/
-
-Elec/S4/TD/
-
-fascicule\+PG\+2019.pdf
+Elec/S5/
 
 Optique/CC/
 
-Optique/S1/CM 1/
+Optique/Controles/
 
-Optique/S1/TD O1/
+Optique/CC-2/
 
-Optique/S2/CM 2/
+Optique/S1/
 
-Optique/S2/TD O2/
+Optique/S2/
 
-Optique/S3/CM 3/
+Optique/S3/
 
-Optique/S3/TD O3/
+Optique/S4/
 
-Optique/S4/CM/
-
-Optique/S4/TD/
-
-Optique/S5/TD/
+Optique/S5/
 
 *.aux
 
@@ -49,24 +42,6 @@ Optique/S5/TD/
 
 *.gz
 
-Elec/S5/CM/
-
-Elec/S5/TD/
-
-Elec/Controles/C2/Corr.pdf
-
-Elec/Controles/C3/S1/Copies/
-
-Elec/Controles/C3/S2/Copies/
-
-Elec/Controles/C3/Corr.pdf
-
 *.toc
 
-Elec/CC/Sujet-PGE-V8-corrigé-barème.pdf
-
-Elec/CC/Sujet-PGE-V8-corrigé.pdf
-
-Elec/CC-2/Corrigé session 2 élec.pdf
-
-Optique/CC-2/corrigé session 2 optique.pdf
+General/

@@ -1,6 +1,9 @@
 \documentclass[10pt,a5paper,notitlepage]{book}
 
 \usepackage{preambule}
+
+\graphicspath{{./Figures/}}
+
 \usepackage[Rejne]{fncychap}
 \fancyhead[L]{\scriptsize Nora \textsc{Nicolas}}
 \fancyhead[R]{\scriptsize \textsc{UE PG -- Fiche de travaux dirigés}}
@@ -56,7 +59,7 @@ Les schémas y sont clairs et j'espère que ma retranscription écrite du
 raisonnement derrière ces schémas suffiront à vous guider. \smallbreak
 
 Bonne lecture, \hfill Nora NICOLAS --
-\href{mailto:n.nicolas@ipnl.in2p3.fr}{n.nicolas@ipnl.in2p3.fr}\\
+\href{mailto:n.nicolas@ip2i.in2p3.fr}{n.nicolas@ip2i.in2p3.fr}\\
 
 \begin{NCprop}{Principe des exercices de physique}
     Tout exercice de physique suit le schéma suivant :
@@ -134,6 +137,10 @@ On utilise aisément les règles sus-citées en traçant :
     \item Le rayon passant par $B$ et parallèle à l'A.O. : il passe par $F'$ en
         sortie.
 \end{enumerate}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.8\linewidth]{conv_bF.png}
+\end{figure}
 Ces rayons, issus d'un \Ul{\ed{objet réel}{qui existe physiquement,
         situé avant la face d'entrée du système optique}}, se croisent après la
         lentille : on a un faisceau émergent \Ul{\ed{convergent}{dont la
@@ -357,6 +364,15 @@ On est donc en mesure de répondre aux questions :
             \[ \boxed{\ABp = \SI{- 1.9}{m}} \]
     \end{enumerate}
 \end{NCexem}
+
+\begin{NCrema}{Remarque}
+    Attention, comme on a qu'un seul chiffre significatif, on a $\OA =
+    \SI{-5}{cm}$, ce qui semble correspondre à la position de $F$, mais en
+    réalité ce n'est qu'une approximation numérique. Comme $\OAp \gg \OF$, le
+    résultat numérique est proche de $-\OF$, mais il est évident que si l'objet
+    était en effet au foyer objet, le vidéoprojecteur ne formerait pas l'image
+    sur l'écran mais à l'infini.
+\end{NCrema}
 
 \section{La loupe}
 \begin{NCdefi}{Données}
