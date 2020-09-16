@@ -686,6 +686,116 @@ rayons} passe par $B'$. Même principe ensuite.
 \subsection{}
 Pareil mais on échange $F$ et $F'$.
 
+\section{Trouver la lentille}
+
+\section{Relation de conjugaison}
+
+Dans cet exercice, on veut démontrer la relation de conjugaison du cours
+\begin{equation*}
+	\boxed{\dfrac{1}{\overline{OF^\prime}} = \dfrac{1}{\overline{OA^\prime}} - \dfrac{1}{\overline{OA}}}
+\end{equation*}
+en se servant uniquement des rayons particuliers que l'on peut construire pour toute lentille mince, à savoir celui qui passe par le centre optique et ceux qui passent par les foyers. Dans ce genre de démonstration, il est très important de faire attention à l'utilisation des valeurs algébriques des longueurs lorsqu'on applique les formules de trigonométrie. Une bonne technique consiste à utiliser des angles inférieurs à $90^{\rm o}$ pour lesquels toutes les fonctions trigonométriques sont positives, et à utiliser alors des grandeurs algébriques positives dans l'écriture de ces formules.
+
+\begin{center}
+[schéma à venir]
+\end{center}
+
+Pour trouver la relation de conjugaison, nous utilisons le triangle $ABO$ dans lequel l'angle $\alpha \equiv \widehat{AOB}$ permet d'obtenir la relation
+\begin{equation*}
+	\tan(\alpha) = \dfrac{\overline{AB}}{\overline{AO}}
+\end{equation*}
+Dans le triangle $OA^\prime B^\prime$, l'angle de même valeur $\widehat{A^\prime O B^\prime} = \alpha$ permet d'obtenir
+\begin{equation*}
+	\tan(\alpha) = \dfrac{\overline{B^\prime A^\prime}}{\overline{OA^\prime}}
+\end{equation*}
+On démontre ainsi immédiatement la formule du grandissement
+\begin{equation*}
+	\dfrac{\overline{AB}}{\overline{AO}} = \dfrac{\overline{B^\prime A^\prime}}{\overline{OA^\prime}} \iff \boxed{\dfrac{\overline{A^\prime B^\prime}}{\overline{AB}} = \dfrac{\overline{OA^\prime}}{\overline{OA}}}
+\end{equation*}
+Nous définissons ensuite le point intermédiaire $B^{\prime\prime}$ qui est l'intersection du rayon partant de $B$ parallèlement à l'axe optique et de la lentille. Ainsi, dans le triangle $OB^{\prime\prime}F^\prime$, l'angle $\beta\equiv \widehat{F^\prime O B^{\prime\prime}}$ donne
+\begin{equation*}
+	\tan(\beta) = \dfrac{\overline{OB^{\prime\prime}}}{\overline{OF^\prime}} = \dfrac{\overline{AB}}{\overline{OF^\prime}}
+\end{equation*}
+Dans l'autre triangle $F^\prime A^\prime B^\prime$, l'angle de même valeur $\widehat{B^\prime F^\prime A^\prime} = \beta$ donne
+\begin{equation*}
+	\tan(\beta) = \dfrac{\overline{B^\prime A^\prime}}{\overline{F^\prime A^\prime}}
+\end{equation*}
+On a donc
+\begin{equation*}
+	\dfrac{\overline{AB}}{\overline{OF^\prime}} = \dfrac{\overline{B^\prime A^\prime}}{\overline{F^\prime A^\prime}} \iff \dfrac{\overline{A^\prime B^\prime}}{\overline{AB}} = \dfrac{\overline{A^\prime F^\prime}}{\overline{OF^\prime}}
+\end{equation*}
+En remplaçant dans la formule de grandissement, et en utilisant la décomposition
+\begin{equation*}
+	\overline{A^\prime F^\prime} = \overline{A^\prime O} + \overline{OF^\prime} = -\overline{OA^\prime} + \overline{OF^\prime}
+\end{equation*}
+on a donc en divisant les deux côtés par $\overline{OA^\prime}$
+\begin{equation*}
+	\dfrac{\overline{OA^\prime}}{\overline{OA}} = \dfrac{\overline{A^\prime F^\prime}}{\overline{OF^\prime}} = - \dfrac{\overline{OA^\prime}}{\overline{OF^\prime}} + 1 \iff \boxed{\dfrac{1}{\overline{OF^\prime}} = \dfrac{1}{\overline{OA^\prime}} - \dfrac{1}{\overline{OA}}}
+\end{equation*}
+
+\section{Lentilles inconnues}
+
+\section{Distances focales}
+
+\begin{NCdefi}{Données}
+	\begin{enumerate}
+		\item $\overline{OA} = -6\,$cm ;
+		\item $\overline{OA^\prime} = 2\,$cm ;
+	\end{enumerate}
+\end{NCdefi}
+
+\begin{NCprop}{Résultats attendus}
+	\begin{enumerate}
+		\item $\OF$ ?
+		\item Nature de la lentille ?
+	\end{enumerate}
+\end{NCprop}
+
+\begin{NCdemo}{Outils du cours}
+	\begin{enumerate}
+		\item Relation de conjugaison
+	\end{enumerate} 
+\end{NCdemo}
+
+\begin{NCexem}{Résultats}
+	\begin{enumerate}
+		\item $\boxed{\OF = 1.5\,{\rm cm}}$
+		\item $\OF > 0$ donc le foyer image est à droite de la lentille, c'est une lentille convergente
+		\item $\left[{\rm schéma\,\, à\,\, venir}\right]$
+	\end{enumerate}
+\end{NCexem}
+
+\section{Les petits angles}
+
+L'objectif de cet exercice est de montrer quantitativement à quoi correspond "l'approximation des petits angles" nécessaire à l'applicabilité des conditions de Gauss. Tout d'abord, rappelons que la relation entre les valeurs d'un angle $\alpha$ en degré et en radians est
+\begin{equation}
+	\alpha({\rm rad}) = \dfrac{\alpha(^{\rm o})\times 2\pi}{360}
+\end{equation}
+Ainsi, nous pouvons remplir le tableau
+\begin{table*}[h!]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		$i$ ($^{\rm o}$) & $i$ (rad) & $\sin(i)$ & Ecart relatif (\%) \\
+		\hline
+		8 & $0.140$ & $0.140$ & 0 \\
+		\hline
+		10 & $0.174$ & $0.173$ & $0.57$ \\
+		\hline
+		12 & $0.209$ & $0.207$ & $0.9$ \\
+		\hline
+		15 & $0.262$ & $0.259$ & $1.2$ \\
+		\hline
+		18 & $0.314$ & $0.309$ & $1.6$ \\
+		\hline
+		20 & $0.349$ & $0.342$ & 2 \\
+		\hline
+		25 & $0.436$ & $0.423$ & $3.1$ \\
+		\hline
+	\end{tabular}
+\end{table*}
+Ce tableau montre que même pour des angles de $25^{\rm o}$, l'erreur relative entre l'angle et son sinus est de l'ordre du pourcentage, validant les conditions de Gauss.
+
 \theendnotes
 
 \chapter{Miroirs et dioptres plans}
