@@ -5,13 +5,12 @@
 \fancyhead[L]{\scriptsize Nora \textsc{Nicolas}}
 \fancyhead[R]{\scriptsize \textsc{UE PG -- Fiche de travaux dirigés}}
 
-\titleformat{\section}{\color{blue}\bfseries\Large}{
-\hspace{-.85em}}{.5em}{}{}
-\titleformat{\subsection}{\color{brandeisblue}\bfseries\large}{Exercice
-\arabic{subsection})}{.5em}{}{}
-\titleformat{\subsubsection}{\color{capri}\bfseries}{
-\arabic{subsection}) \arabic{subsubsection}-}{.5em}{}{}
-
+\titleformat{\section}{\color{blue}\bfseries\large}{\hspace{-0.3em}
+Exercice~\arabic{section})}{.2em}{}{}
+\titleformat{\subsection}{\color{brandeisblue}\bfseries}{\hspace{-0.3em}
+\arabic{section}) \arabic{subsection}-}{.5em}{}{}
+\titleformat{\subsubsection}{\color{capri}\bfseries}{\hspace{-0.3em}
+\arabic{section}) \arabic{subsection}- \alph{subsubsection}.}{.5em}{}{}
 \newlength\tindent
 \setlength{\tindent}{\parindent}
 \setlength{\parindent}{0pt}
@@ -98,14 +97,34 @@ Bonne lecture, \hfill Nora NICOLAS --
 \end{NCimpo}
 
 \chapter{Grandeurs électriques}\label{ch:O1}
-\vspace*{-24pt}
-\section{Exercices d'application}
-\subsection{Ordres de grandeur}
+\vspace*{-47pt}
 
-Cet exercice ce concentre sur la notion d'intensité en électricité. Faisons tout
-d'abord un petit rappel du cours.
+\begin{center}
+    \Huge Exercices d'application
+\end{center}
 
-\begin{NCrapp}{Outil du cours : intensité électrique}
+\section{Ordres de grandeur}
+
+Cet exercice ce concentre sur la notion d'intensité en électricité.
+
+\begin{NCprop}{Résultats attendus}
+    Les trois questions de l'exercice donnent une grandeur électrique et
+    attendent de vous le calcul d'une grandeur inconnue. Il va donc falloir
+    utiliser les formules précédentes pour exprimer la grandeur inconnue en
+    fonction des données du problème.
+\end{NCprop}
+
+\begin{NCdefi}{Données}
+	\begin{enumerate}
+        \item « Un générateur délivre une intensité $I = \SI{3.0}{A}$ » :
+            $I = \SI{3.0}{A}$ ;
+		\item « 1000 électrons » : $N = 1000$ ;
+        \item « faire circuler $\SI{1e20}{}$ électrons chaque seconde » : $N =
+            \SI{1e20}{}$, $t = \SI{1}{s}$.
+	\end{enumerate}
+\end{NCdefi}
+
+\begin{NCdemo}{Outil du cours : intensité électrique}
     L'intensité électrique est une grandeur physique décrivant la quantité de
     charges électriques (exprimées en Coulomb, C) passant par un point d'un
     circuit à chaque unité de temps (exprimé en seconde, s) :
@@ -118,34 +137,18 @@ d'abord un petit rappel du cours.
 	\begin{equation}
 		Q = N\times e \label{eq:1.1.charge}
 	\end{equation}
-    où $e = 1.602\times 10^{-19}\,$C est la charge de l'électron (en valeur
+    où $e = \SI{1.602e-19}{C}$ est la charge de l'électron (en valeur
     absolue).
-\end{NCrapp}
+\end{NCdemo}
 
 Nous voyons donc que le temps, l'intensité et le nombre de charges sont reliées
 par les formules \ref{eq:1.1.intensite} et \ref{eq:1.1.charge}.
-
-\begin{NCprop}{Résultats attendus}
-    Les trois questions de l'exercice donnent une grandeur électrique et
-    attendent de vous le calcul d'une grandeur inconnue. Il va donc falloir
-    utiliser les formules précédentes pour exprimer la grandeur inconnue en
-    fonction des données du problème.
-\end{NCprop}
-
-\begin{NCdefi}{Données}
-	\begin{enumerate}
-        \item "Un générateur délivre une intensité $I = 3,0\,$A." : $I = 3\,$A ;
-		\item "1000 électrons" : $N = 1000$ ;
-        \item "faire circuler $1.10^{20}$ électrons chaque seconde" : $N =
-            1\times 10^{20}$, $t = 1\,$s.
-	\end{enumerate}
-\end{NCdefi}
 
 \begin{NCexem}{Application}
 	\begin{enumerate}
 		\item Le nombre d'électrons émis chaque seconde est donné par :
 		\begin{equation}
-			N = \dfrac{I \times t}{e}
+			N = \frac{I \times t}{e}
 		\end{equation}
 		Avec les données du problème, nous avons :
 		\begin{equation}
@@ -153,36 +156,67 @@ par les formules \ref{eq:1.1.intensite} et \ref{eq:1.1.charge}.
 		\end{equation}
 		\item Le temps pour émettre 1000 électrons est donné par :
 		\begin{equation}
-			t = \dfrac{N\times e}{I} = \dfrac{1000 \times 1.6\times 10^{-19}}{3.0}\,{\rm s} = 5.3\times 10^{-17}\,{\rm s}
+            t = \dfrac{N\times e}{I} = \dfrac{1000 \times 1.6\times
+            10^{-19}}{3.0}\,{\rm s} = \SI{5.3e-17}{s}
 		\end{equation}
 		\item L'intensité correspondante est :
 		\begin{equation}
-			I = \dfrac{N\times e}{t} = \dfrac{1.0\times 10^{20} \times 1.6\times 10^{-19}}{1}\,{\rm A} = 16\,{\rm A}
+            I = \dfrac{N\times e}{t} = \dfrac{1.0\times 10^{20} \times 1.6\times
+            10^{-19}}{1}\,{\rm A} = \SI{16}{A}
 		\end{equation}
 	\end{enumerate}
 \end{NCexem}
 
 \begin{impo}{Important}
-	Dans cet exercice, nous avons dû faire des applications numériques. Il faut alors faire attention à deux choses :
+    Dans cet exercice, nous avons dû faire des applications numériques. Il faut
+    alors faire attention à deux choses :
 	\begin{itemize}
-		\item l'unité : dès que vous remplacez les grandeurs littérales par des valeurs numériques, votre calcul acquiert une unité, qui doit apparaître ;
-		\item les chiffres significatifs : le résultat final doit comporter un nombre de chiffres significatifs cohérent avec la précision des données utilisées. Par exemple, l'intensité $I = 3.0\,$A a deux chiffres significatifs, ce qui va limiter la précision avec laquelle on va utiliser la charge de l'électron à deux chiffres : $e = 1.6\times 10^{-19}\,$C. Autre cas, quand on vous dit "par seconde", le temps $t$ a alors la valeur $t = 1\,$s, avec une précision arbitraire, qui sera limitée par la précision des autres données. Il en va de même pour le nombre $N = 1000$ électrons.
+        \item \underline{l'unité} : dès que vous remplacez les grandeurs
+            littérales par des valeurs numériques, votre calcul acquiert une
+            unité, qui doit apparaître ;
+        \item \underline{les chiffres significatifs} : le résultat final doit
+            comporter un nombre de chiffres significatifs cohérent avec la
+            précision des données utilisées. Par exemple, l'intensité $I =
+            \SI{3.0}{A}$ a deux chiffres significatifs, ce qui va limiter la
+            précision avec laquelle on va utiliser la charge de l'électron à
+            deux chiffres : $e = \SI{1.6e-19}{C}$. Autre cas, quand on vous dit
+            « par seconde », le temps $t$ a alors la valeur $t = \SI{1}{s}$, avec
+            une précision arbitraire, qui sera limitée par la précision des
+            autres données. Il en va de même pour le nombre $N = 1000$
+            électrons.
 	\end{itemize}
 \end{impo}
 
-\subsection{Potentiels, tensions et courants}
+\section{Potentiels, tensions et courants}
 
 \begin{defi}{Potentiel et tension électrique}
-	Dans cet exercice, nous allons appliquer les notions de potentiel et de tension électrique, ainsi que celle de sens "conventionnel" du courant.
+	Dans cet exercice, nous allons appliquer les notions de potentiel et de
+    tension électrique, ainsi que celle de sens « conventionnel » du courant.
 	\begin{enumerate}
-		\item Le potentiel électrique peut être vu comme un équivalent de l'altitude en mécanique : si vous êtes en altitude, vous avez le "potentiel" de tomber et de fournir de l'énergie, emmagasinée pendant la chute, en arrivant au sol. Chaque point d'un circuit est ainsi à une certaine "altitude". Si on considère une particule de charge positive, alors cette particule a le comportement intuitif et "tombe" des potentiels les plus élevés vers les plus bas (le $+$ repousse le $+$). Si cette particule est chargée négativement, comme l'électron, elle "remonte" des bas potentiels vers les plus élevés (le $+$ attire le $-$).
-		\item La tension électrique est la différence de potentiel entre deux points d'un circuit. Sa notation est intuitive : $U_{\rm AB}$ est la différence de potentiel entre A et B, $V_{\rm A} - V_{\rm B}$. On la représente par contre comme une flèche allant de $B$ vers $A$ : la flèche suit les potentiels croissants.
-		\item Le sens conventionnel du courant positif est alors l'inverse du sens de circulation des électrons, car ils sont chargés négativement.
+        \item Le potentiel électrique peut être vu comme un équivalent de
+            l'altitude en mécanique : si vous êtes en altitude, vous avez le «
+            potentiel » de tomber et de fournir de l'énergie, emmagasinée
+            pendant la chute, en arrivant au sol. Chaque point d'un circuit est
+            ainsi à une certaine « altitude ». Si on considère une particule de
+            charge positive, alors cette particule a le comportement intuitif et
+            « tombe » des potentiels les plus élevés vers les plus bas (le $+$
+            repousse le $+$). Si cette particule est chargée négativement, comme
+            l'électron, elle « remonte » des bas potentiels vers les plus élevés
+            (le $+$ attire le $-$).
+        \item La tension électrique est la différence de potentiel entre deux
+            points d'un circuit. Sa notation est intuitive : $U_{\rm AB}$ est la
+            différence de potentiel entre A et B, $V_{\rm A} - V_{\rm B}$. On la
+            représente par contre comme une flèche allant de $B$ vers $A$ : la
+            flèche suit les potentiels croissants.
+        \item Le sens conventionnel du courant positif est alors l'inverse du
+            sens de circulation des électrons, car ils sont chargés
+            négativement.
 	\end{enumerate}
 \end{defi}
 
-\begin{enumerate}
-	\item Sur le circuit ci-dessous, on a indiqué le sens de circulation des électrons, donc des potentiels les plus bas vers les plus hauts.
+\subsection{}
+Sur le circuit ci-dessous, on a indiqué le sens de circulation des électrons,
+donc des potentiels les plus bas vers les plus hauts.
 	\begin{figure}[h!]
 		\centering{
 		\begin{circuitikz}
@@ -208,7 +242,8 @@ par les formules \ref{eq:1.1.intensite} et \ref{eq:1.1.charge}.
 		\end{circuitikz}
 		}
 	\end{figure}
-	\item Sur le circuit suivant, on a indiqué le sens conventionnel du courant positif, donc des hauts potentiels vers les bas.
+\subsection{}
+Sur le circuit suivant, on a indiqué le sens conventionnel du courant positif, donc des hauts potentiels vers les bas.
 		\begin{figure}[h!]
 		\centering{
 			\begin{circuitikz}
@@ -234,8 +269,10 @@ par les formules \ref{eq:1.1.intensite} et \ref{eq:1.1.charge}.
 			\end{circuitikz}
 		}
 	\end{figure}
-	\item L'analogie de l'altitude pour les potentiels électriques nous donne une intuition pour la valeur du potentiel au point D : ce potentiel doit être compris "entre" ceux des points C et E, car aucune source extérieure ne peut permettre de relever ou d'abaisser artificiellement le point D. Par exemple, $x = 2.0\,$V.
-	\item Sur le circuit ci-dessous, nous avons fléché les tensions en question.
+\subsection{}
+L'analogie de l'altitude pour les potentiels électriques nous donne une intuition pour la valeur du potentiel au point D : ce potentiel doit être compris "entre" ceux des points C et E, car aucune source extérieure ne peut permettre de relever ou d'abaisser artificiellement le point D. Par exemple, $x = 2.0\,$V.
+\subsection{}
+Sur le circuit ci-dessous, nous avons fléché les tensions en question.
 	\begin{figure}[h!]
 		\centering{
 			\begin{circuitikz}
@@ -265,7 +302,7 @@ par les formules \ref{eq:1.1.intensite} et \ref{eq:1.1.charge}.
 		}
 	\end{figure}
 	Ces tensions se calculent par différence de potentiel : $U_{\rm AB} = V_{\rm A} - V_{\rm B} = 2.0\,$V, $U_{\rm FG} = 0\,$V, $U_{\rm BG} = 2.0\,$V, $U_{\rm CB} = -0.5\,$V, $U_{\rm CF} = 1.5\,$V, $U_{\rm EC} = -1.5\,V$, $U_{\rm CH} = 1.5\,$V et $U_{\rm AE} = 4.0\,$V.
-	\item
+\subsection{}
 	\begin{NCdemo}{Outils du cours}
 		Une tension peut être difficile à calculer au premier coup d'{\oe}il. Dans ces cas-là, il peut être utile d'utiliser des points intermédiaires dont on connaît le potentiel, c'est une forme de composition des vecteurs. Par exemple, la tension $U_{\rm AB}$ entre B et A peut être décomposée à l'aide d'un point tiers, C, par la formule $U_{\rm AB} = U_{\rm AC} + U_{\rm CB}$. On peut le démontrer facilement en remplaçant les tensions par des différences de potentiel.
 	\end{NCdemo}
@@ -275,14 +312,14 @@ par les formules \ref{eq:1.1.intensite} et \ref{eq:1.1.charge}.
 			\item $U_{\rm AD} = U_{\rm AB} + U_{\rm BD}$
 		\end{itemize}
 	\end{NCexem}
-	\item Les points E, F, G et H sont reliés par des fils, sans dipôles intermédiaires. Ils sont donc au même potentiel.
-\end{enumerate}
+\subsection{}
+Les points E, F, G et H sont reliés par des fils, sans dipôles intermédiaires. Ils sont donc au même potentiel.
 \begin{impo}{Potentiel dans un circuit}
 	\label{def:potentiel}
 	Dans un circuit, tous les points reliés par des fils sans dipôles intermédiaires sont au même potentiel. Ils sont en fait considérés comme un seul point dans un circuit. Il peut être utile de se servir de cette propriété pour redessiner un circuit sous une forme plus simple.
 \end{impo}
 
-\subsection{Schématisation}
+\section{Schématisation}
 
 \begin{defi}{Résistances équivalentes et associations de résistances}
 	Très souvent, un circuit électrique contient de nombreuses résistances. Ces résistances peuvent être :
@@ -375,19 +412,21 @@ par les formules \ref{eq:1.1.intensite} et \ref{eq:1.1.charge}.
 	\end{itemize}
 \end{NCexem}
 
-\subsection{Association de résistances}
+\section{Association de résistances}
 
 \begin{NCcoro}{Conseils}
 	Dans cet exercice, on va exprimer la résistance équivalente d'un circuit, symboliquement, à l'aide des signes $//$ et $+$. Le plus simple est de procéder par étapes afin d'identifier les couples de résistances en série et en dérivation, et de les remplacer par leur résistance équivalente. Pour ce faire, on se rappelle que d'après la définition \ref{def:potentiel}, on peut déplacer les points le long de fils tant qu'on ne traverse pas de dipôle.
 \end{NCcoro}
 
-\begin{enumerate}
-	\item 	\begin{itemize}
+\subsection{}
+
+\begin{itemize}
 				\item Dans le schéma 1, $R_1$ et $R$ ne sont ni en série ni en dérivation, il y a un n{\oe}ud entre les deux, qui part sur une autre branche. $r$ et $r_2$ ne sont pas en parallèle, il y a une résistance ($R$) sur la branche transverse. $R_2$ et $R$ : aucun. $R_3$ et $r_2$ : aucun. $R_3$ et $R_2$ sont en série.
 				\item Dans le schéma 2, $R_1$ et $R$ : aucun. $r$ et $r_2$ : aucun. $R_3$ et $r_2$ sont en parallèle, ce qui est bien visible si on déplace le point B en bas à gauche du schéma.
 				\item Dans le schéma 3, $R_1$ et $R$ sont en série. $R_2$ et $R$ : aucun. $r$ et $r^\prime$ sont en parallèle, si on prend les deux résistances en bas à gauche du schéma.
 			\end{itemize}
-	\item On va faire en détails le cas du schéma 1.
+\subsection{}
+On va faire en détails le cas du schéma 1.
 	\begin{center}
 		\begin{circuitikz}
 			\draw (0,0) node {$\bullet$} to[R = \raisebox{-0.5cm}{$R_1$}]
@@ -466,8 +505,10 @@ par les formules \ref{eq:1.1.intensite} et \ref{eq:1.1.charge}.
 		&= R_1 + (r//[R + \{ r_2 // R_{\rm eq,1} \}]) \nonumber \\
 		&= R_1 + (r//[R + \{ r_2 // (R_3 + R_2) \}]) \label{eq:1.4.1}
 	\end{align}
-	Une fois ce calcul terminé, on peut vérifier par le chemin inverse que la schématisation de la résistance équivalente \ref{eq:1.4.1} donne bien le schéma de départ.
-\end{enumerate}
+
+    Une fois ce calcul terminé, on peut vérifier par le chemin inverse que la
+    schématisation de la résistance équivalente \ref{eq:1.4.1} donne bien le
+    schéma de départ.
 
 \newpage
 
