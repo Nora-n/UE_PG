@@ -100,10 +100,24 @@
 \tikzset{cross/.style={cross out, draw=black, fill=none, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt}, cross/.default={2pt}}
 %\usepackage[compat=1.0.0]{tikz-feynman}
 
+% ExtractCoordinate commands from https://tex.stackexchange.com/a/66129
 \newdimen\XCoord
 \newdimen\YCoord
 \newcommand*{\ExtractCoordinate}[1]{\path (#1);
                                     \pgfgetlastxy{\XCoord}{\YCoord};}%
+
+% Length calculation from https://tex.stackexchange.com/a/412901
+\makeatletter
+\newcommand{\len}[3]{% % from https://tex.stackexchange.com/q/56353/121799
+\tikz@scan@one@point\pgfutil@firstofone($#1-#2$)\relax  
+\pgfmathsetmacro{#3}{round(0.99626*veclen(\the\pgf@x,\the\pgf@y)/0.0283465)/1000}
+}% Explanation: the calc library allows us, among other things, to add and
+% subtract points, so ($#1-#2$) is simply the difference between the points
+% #1 and #2. The combination \tikz@scan@one@point\pgfutil@firstofone extracts
+% the coordinates of the new point and stores them in \pgf@x and \pgf@y. 
+% They get fed in veclen, and \pgfmathsetmacro stores the result in #3. 
+% EDIT: included fudge factor, see https://tex.stackexchange.com/a/22702/121799
+\makeatother
 
 %simple flèche
 \tikzstyle simple=[postaction={decorate,
