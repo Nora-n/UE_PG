@@ -128,28 +128,12 @@ construction :
 
 \subsection{Objet à distance finie}
 \subsubsection{Avant le foyer objet}
-On utilise aisément les règles sus-citées en traçant :
-\begin{enumerate}
-    \item Le rayon passant par $B$ et par $O$ : il ne sera pas dévié ;
-    \item Le rayon passant par $B$ et par $F$ : il émerge parallèle à
-        l'\ed{A.O.}{axe optique} ;
-    \item Le rayon passant par $B$ et parallèle à l'A.O. : il passe par $F'$ en
-        sortie.
-\end{enumerate}
-Ces rayons, issus d'un \Ul{\ed{objet réel}{qui existe physiquement, situé avant
-la face d'entrée du système optique}}, se croisent après la lentille :
-on a un faisceau émergent \Ul{\ed{convergent}{dont la prolongation dans
-le sens positif de la marche des rayons mène à une
-intersection}} qui donne une \Ul{\ed{image réelle}{qui peut être
-observée sur un support physique dans l'espace image du système, après la face
-de sortie}}.
-
-\begin{center}
-    \begin{tikzpicture}[scale=1]
+\begin{wrapfigure}[5]{R}{.45\linewidth}
+    %\vspace*{-20pt}
+    \centering
+    \begin{tikzpicture}[scale=0.9]
         % Axe optique
         \draw[thin,->](-3.5,0)--(3.5,0)node[below]{A.O.};
-        % ---------------------------------------------------------------------
-
         % Lentille
         \coordinate (O) at (0,0);
         \def \fa{1.5};
@@ -167,8 +151,6 @@ de sortie}}.
         
         \draw[shift={(O)}, ultra thick, <->, >=latex] (0,-\lsiz)--(0,\lsiz)
             node[above]{$\Lc_{}$};
-        % ---------------------------------------------------------------------
-        
         % Objet
         \def \pos{-3}
         \def \siz{1}
@@ -199,26 +181,33 @@ de sortie}}.
         node[above] {A\bp}
         -- (B\bp)
         node[below, right] {B\bp};
-        % ---------------------------------------------------------------------
     \end{tikzpicture}
-\end{center}
+    \label{fig:convAF}
+\end{wrapfigure}
 
-\subsubsection{Sur le foyer objet}
-De la même manière, on trace :
+On utilise aisément les règles sus-citées en traçant :
 \begin{enumerate}
     \item Le rayon passant par $B$ et par $O$ : il ne sera pas dévié ;
-    \item Le rayon passant par $B$ et $F$ ne passe pas par le système optique,
-        ce rayon est inutile ;
     \item Le rayon passant par $B$ et parallèle à l'A.O. : il passe par $F'$ en
-        sortie.
+        sortie ;
+    \item Le rayon passant par $B$ et par $F$ : il émerge parallèle à
+        l'\ed{A.O.}{axe optique}.
 \end{enumerate}
 
-\begin{center}
+Ces rayons, issus d'un \Ul{\ed{objet réel}{qui existe physiquement, situé avant
+la face d'entrée du système optique}}, se croisent après la lentille :
+on a un faisceau émergent \Ul{\ed{convergent}{dont la prolongation dans
+le sens positif de la marche des rayons mène à une
+intersection}} qui donne une \Ul{\ed{image réelle}{qui peut être
+observée sur un support physique dans l'espace image du système, après la face
+de sortie}}.
+
+\subsubsection{Sur le foyer objet}
+\begin{wrapfigure}[5]{R}{0.45\linewidth}
+    \vspace*{-20pt}
     \begin{tikzpicture}[scale=1]
     % Axe optique
     \draw[thin, ->](-3,0)--(3,0)node[below]{A.O.};
-    % -------------------------------------------------------------------------
-    
     % Lentille 
     \coordinate (O) at (0,0);
     \def \fa{2}
@@ -237,8 +226,6 @@ De la même manière, on trace :
 
     \draw[shift={(O)}, ultra thick, <->, >=latex] (0,-\lsiz)--(0,\lsiz)
         node[above]{$\Lc_{}$};
-    % -------------------------------------------------------------------------
-    
     % Objet
     \def \pos{-2}
     \def \siz{1.5}
@@ -259,26 +246,28 @@ De la même manière, on trace :
     \draw[orange!70, double, name path=IBp] (I) --++ ($\mut*(Fp)-\mut*(I)$);
     % ---------------------------------------------------------------------        
     \end{tikzpicture}
-\end{center}
+    \centering
+    \label{fig:convBF}
+\end{wrapfigure}
 
+De la même manière, on trace :
+\begin{enumerate}
+    \item Le rayon passant par $B$ et par $O$ : il ne sera pas dévié ;
+    \item Le rayon passant par $B$ et parallèle à l'A.O. : il passe par $F'$ en
+        sortie ;
+    \item Le rayon passant par $B$ et $F$ ne passe pas par le système optique,
+        ce rayon est inutile.
+\end{enumerate}
 Ainsi, à partir d'un \Ul{objet réel}, on obtient des rayons parallèles
 qui donnent une \Ul{image à l'infini}.
 
 \subsubsection{Entre le foyer et la lentille}\label{eflc}
-Tout pareil, on trace :
-\begin{enumerate}
-    \item Le rayon passant par $B$ et par $O$ : il ne sera pas dévié ;
-    \item Le rayon passant par $B$ et par $F$ : il émerge parallèle à l'A.O. ;
-    \item Le rayon passant par $B$ et parallèle à l'A.O. : il passe par $F'$ en
-        sortie.
-\end{enumerate}
 
-\begin{center}
+\begin{wrapfigure}[4]{R}{.45\linewidth}
+    \centering
     \begin{tikzpicture}[scale=1]
         % Axe optique
         \draw[thin, ->](-3,0)--(3,0)node[below]{A.O.};
-        % ---------------------------------------------------------------------
-        
         % Lentille 
         \coordinate (O) at (0,0);
         \def \fa{2}
@@ -297,8 +286,6 @@ Tout pareil, on trace :
 
         \draw[shift={(O)}, ultra thick, <->, >=latex] (0,-\lsiz)--(0,\lsiz)
             node[above]{$\Lc_{}$};
-        % ---------------------------------------------------------------------
-        
         % Objet
         \def \pos{-0.8}
         \def \siz{1}
@@ -314,18 +301,18 @@ Tout pareil, on trace :
         \len{(O)}{(F)}{\foc}
         \draw[brandeisblue, simple] (B) -- (O);
         \draw[orange!70, simple] (O) --++ ($(O)-(B)$);
-        \def \mut{2}
+        \def \mut{1.5}
         \draw[orange!70, simplerev,
             dashed, name path=OBp] (B) --++ ($\mut*(B)-\mut*(O)$);
         \draw[brandeisblue, double] (B) --++ (\posi,0) coordinate (I);
-        \def \mut{2}
+        \def \mut{1.3}
         \draw[orange!70, double] (I) --++ ($\mut*(Fp)-\mut*(I)$);
         \draw[orange!70, doublerev,
             dashed, name path=IBp] (I) --++ ($-\mut*(Fp)+\mut*(I)$);
         \def \intsiz{\size*\foc/(\posi-\foc)}
         \draw[brandeisblue, triple] (B) -- (F)
             --++ (\foc,-{\intsiz}) coordinate (E);
-        \def \mut{2}
+        \def \mut{1.3}
         \draw[orange!70, triple] (E) --++ (\mut*\foc,0);
         \draw[orange!70, triplerev,
             dashed, name path=EBp] (E) --++ (-\mut*\foc,0);
@@ -335,32 +322,24 @@ Tout pareil, on trace :
         node[below] {A\bp}
         -- (B\bp)
         node[below, right] {B\bp};
-        % ---------------------------------------------------------------------
     \end{tikzpicture}
-\end{center}
+    \label{fig:convCF}
+\end{wrapfigure}
 
-Cette fois, à partir d'un \Ul{objet réel}, on obtient un faisceau
-émergent \Ul{\ed{divergent}{dont la prolongation dans le sens \Ul{négatif} de
-la marche des rayons mène à une intersection}}, donnant une \Ul{\ed{image
-virtuelle}{qui se forme avant la face de sortie du système optique, et ne peut
-pas être observée sur un écran}}.
-
-\subsubsection{Après la lentille}
-Bien que la situation semble bizarre, le procédé reste le même. On
-trace un objet après la lentille, puis on trace :
+Tout pareil, on trace :
 \begin{enumerate}
     \item Le rayon passant par $B$ et par $O$ : il ne sera pas dévié ;
-    \item Le rayon passant par $B$ et par $F$ : il émerge parallèle à l'A.O. ;
     \item Le rayon passant par $B$ et parallèle à l'A.O. : il passe par $F'$ en
-        sortie.
+        sortie ;
+    \item Le rayon passant par $B$ et par $F$ : il émerge parallèle à l'A.O.
 \end{enumerate}
 
-\begin{center}
-    \begin{tikzpicture}[scale=0.8]
+\subsubsection{Après la lentille}
+\begin{wrapfigure}[5]{R}{0.45\linewidth}
+    \centering
+    \begin{tikzpicture}[scale=1]
         % Axe optique
         \draw[thin, ->](-3,0)--(3,0)node[below]{A.O.};
-        % ---------------------------------------------------------------------
-        
         % Lentille 
         \coordinate (O) at (0,0);
         \def \fa{2}
@@ -379,8 +358,6 @@ trace un objet après la lentille, puis on trace :
 
         \draw[shift={(O)}, ultra thick, <->, >=latex] (0,-\lsiz)--(0,\lsiz)
             node[above]{$\Lc_{}$};
-        % ---------------------------------------------------------------------
-        
         % Objet
         \def \pos{1.5}
         \def \siz{1.5}
@@ -415,7 +392,18 @@ trace un objet après la lentille, puis on trace :
         -- (B\bp)
         node[below, right] {B\bp};
     \end{tikzpicture}
-\end{center}
+    \label{fig:convDF}
+\end{wrapfigure}
+
+
+Bien que la situation semble bizarre, le procédé reste le même. On
+trace un objet après la lentille, puis on trace :
+\begin{enumerate}
+    \item Le rayon passant par $B$ et par $O$ : il ne sera pas dévié ;
+    \item Le rayon passant par $B$ et parallèle à l'A.O. : il passe par $F'$ en
+        sortie ;
+    \item Le rayon passant par $B$ et par $F$ : il émerge parallèle à l'A.O.
+\end{enumerate}
 
 La seule différence ici, c'est que les rayons dans l'espace objet du
 système optique ne peuvent pas atteindre l'\Ul{\ed{objet virtuel}{situé après la
@@ -472,17 +460,17 @@ numéro \textcolor{brandeisblue}{3)}, émergent en coupant l'A.O. au foyer image
         % Rayons pour objet avant foyer d'une lentille convergente
         \len{(A1)}{(O)}{\posi}
         \draw[brandeisblue, simple] (B1) --++ (\posi,0) coordinate (I);
-        \def \mut{2}
+        \def \mut{1.2}
         \draw[orange!70, simple] (I) --++ ($\mut*(Fp)-\mut*(I)$);
         % Rayons pour objet avant foyer d'une lentille convergente
         \len{(A2)}{(O)}{\posi}
         \draw[brandeisblue, simple] (B2) --++ (\posi,0) coordinate (I);
-        \def \mut{2}
+        \def \mut{1.2}
         \draw[orange!70, simple] (I) --++ ($\mut*(Fp)-\mut*(I)$);
         % Rayons pour objet avant foyer d'une lentille convergente
         \len{(A3)}{(O)}{\posi}
         \draw[brandeisblue, simple] (B3) --++ (\posi,0) coordinate (I);
-        \def \mut{2}
+        \def \mut{1.2}
         \draw[orange!70, simple] (I) --++ ($\mut*(Fp)-\mut*(I)$);
         % ---------------------------------------------------------------------
         
@@ -504,18 +492,12 @@ deux règles supplémentaires :
     \end{enumerate}
 \end{defi}
 
-Ainsi, pour construire le rayon émergent d'un rayon quelconque, il suffit de
-prendre un rayon incident parallèle à celui-ci dont on sait construire le rayon
-émergent : celui qui passe par $F$ et qui resortira parallèle à l'A.O., ou celui
-passant par $O$ qui ne sera pas dévié. On sait alors que le rayon émergent de
-notre rayon incident quelconque devra passer par l'intersection entre le rayon
-émergent particulier que l'on vient de construire et le plan focal image.
-
-\begin{center}
+\begin{wrapfigure}[11]{R}{.45\linewidth}
+    \vspace*{-20pt}
+    \centering
     \begin{tikzpicture}[scale=1]
         % Axe optique
         \draw[thin, ->](-3,0)--(3,0)node[below]{A.O.};
-        % ---------------------------------------------------------------------
         % Lentille 
         \coordinate (O) at (0,0);
         \def \fa{2}
@@ -534,7 +516,6 @@ notre rayon incident quelconque devra passer par l'intersection entre le rayon
 
         \draw[shift={(O)}, ultra thick, <->, >=latex] (0,-\lsiz)--(0,\lsiz)
             node[above]{$\Lc_{}$};
-        % ---------------------------------------------------------------------
         % Objet
         \def \pos{-3}
         \def \siz{1.5}
@@ -572,7 +553,15 @@ notre rayon incident quelconque devra passer par l'intersection entre le rayon
         % Rayon obj émergent
         \draw[orange!50, simple] (I) --++ ($\mut*(GF)-\mut*(I)$);
     \end{tikzpicture}
-\end{center}
+    \label{fig:quelcdiv}
+\end{wrapfigure}
+
+Ainsi, pour construire le rayon émergent d'un rayon quelconque, il suffit de
+prendre un rayon incident parallèle à celui-ci dont on sait construire le rayon
+émergent : celui qui passe par $F$ et qui resortira parallèle à l'A.O., ou celui
+passant par $O$ qui ne sera pas dévié. On sait alors que le rayon émergent de
+notre rayon incident quelconque devra passer par l'intersection entre le rayon
+émergent particulier que l'on vient de construire et le plan focal image.
 
 \subsection{Rayon quelconque}
 De même que précédemment.
@@ -584,21 +573,9 @@ De même que précédemment.
 \setcounter{subsection}{0}
 \subsection{Objet à distance finie}
 \subsubsection{Avant le foyer image}
-Les règles de construction pour une lentille divergente sont les mêmes que
-celles pour la lentille convergente. La seule différence est que les foyers
-objet et image sont échangés. On trace donc :
-
-\begin{enumerate}
-    \item Le rayon passant par $B$ et par $O$ : il ne sera pas dévié ;
-    \item Le rayon passant par $B$ et par $F$ : il émerge parallèle à l'A.O. ;
-    \item Le rayon passant par $B$ et parallèle à l'A.O. : il passe par $F'$ en
-        sortie.
-\end{enumerate}
-
-$F'$ étant maintenant à \Ul{gauche} de $O$, on trace en pointillés la partie des
-rayons émergent qui se situe dans l'espace objet (à gauche de la lentille).
-
-\begin{center}
+\begin{wrapfigure}[8]{R}{0.45\linewidth}
+    \vspace*{-30pt}
+    \centering
     \begin{tikzpicture}[scale=1]
         % Axe optique
         \draw[thin, ->](-3,0)--(3,0)node[below]{A.O.};
@@ -668,7 +645,22 @@ rayons émergent qui se situe dans l'espace objet (à gauche de la lentille).
         node[above, right] {B\bp};
         % ---------------------------------------------------------------------
     \end{tikzpicture}
-\end{center}
+    \label{fig:divAF}
+\end{wrapfigure}
+
+Les règles de construction pour une lentille divergente sont les mêmes que
+celles pour la lentille convergente. La seule différence est que les foyers
+objet et image sont échangés. On trace donc :
+
+\begin{enumerate}
+    \item Le rayon passant par $B$ et par $O$ : il ne sera pas dévié ;
+    \item Le rayon passant par $B$ et parallèle à l'A.O. : il passe par $F'$ en
+        sortie ;
+    \item Le rayon passant par $B$ et par $F$ : il émerge parallèle à l'A.O.
+\end{enumerate}
+
+$F'$ étant maintenant à \Ul{gauche} de $O$, on trace en pointillés la partie des
+rayons émergent qui se situe dans l'espace objet (à gauche de la lentille).
 
 À partir d'un \Ul{objet réel}, on obtient un faisceau \Ul{divergent}, dont
 l'intersection donne une \Ul{image virtuelle}.
@@ -749,33 +741,12 @@ Le principe est exactement le même, le résultat est exactement le même.
 \end{center}
 
 \subsubsection{Entre le foyer objet et la lentille}
-De la même manière qu'au point \textcolor{capri}{1) 1- d.} avec une lentille
-convergente, on a bien un objet à droite de la lentille, et le procédé reste
-le même. On trace :
-
-\begin{enumerate}
-    \item Le rayon passant par $B$ et par $O$ : il ne sera pas dévié ;
-    \item Le rayon passant par $B$ et par $F$ : il émerge parallèle à l'A.O. ;
-    \item Le rayon passant par $B$ et parallèle à l'A.O. : il passe par $F'$ en
-        sortie.
-\end{enumerate}
-
-Encore une fois, le rayon \textcolor{brandeisblue}{2)} provenant de l'espace
-objet ne peut pas atteindre l'\Ul{objet virtuel}. On le fait partir de la gauche
-du système optique comme s'il allait passer par $B$, mais une fois arrivé à la
-lentille, on continue le trait en pointillés pour montrer que c'est un rayon
-virtuel. Le rayon émergent suit la règle de la définition \ref{rconst} et passe
-par le foyer image $F'$, qui sera également indiqué en pointillés dans la partie
-de l'espace objet et en trait plein dans la partie de l'espace image. \bigbreak
-
-Les rayons émergents forment un faisceau \Ul{convergent}, donnant lieu à une
-\Ul{image réelle}.
-
-\begin{center}
+\begin{wrapfigure}[5]{R}{0.45\linewidth}
+    \vspace*{-20pt}
+    \centering
     \begin{tikzpicture}[scale=1]
         % Axe optique
         \draw[thin, ->](-3,0)--(3,0)node[below]{A.O.};
-        % ---------------------------------------------------------------------
         % Lentille 
         \coordinate (O) at (0,0);
         \def \fa{-2}
@@ -795,7 +766,6 @@ Les rayons émergents forment un faisceau \Ul{convergent}, donnant lieu à une
         \draw[shift={(O)}, ultra thick,
             >-<, >=latex, name path=L] (0,-\lsiz)--(0,\lsiz)
             node[above]{$\Lc_{}$};
-        % ---------------------------------------------------------------------
         % Objet
         \def \pos{0.8}
         \def \siz{0.7}
@@ -838,9 +808,31 @@ Les rayons émergents forment un faisceau \Ul{convergent}, donnant lieu à une
             node[below] {A\bp}
             -- (B\bp)
             node[below, right] {B\bp};
-            % ---------------------------------------------------------------------
     \end{tikzpicture}
-\end{center}
+    \label{fig:divBF}
+\end{wrapfigure}
+
+De la même manière qu'au point \textcolor{capri}{1) 1- d.} avec une lentille
+convergente, on a bien un objet à droite de la lentille, et le procédé reste
+le même. On trace :
+
+\begin{enumerate}
+    \item Le rayon passant par $B$ et par $O$ : il ne sera pas dévié ;
+    \item Le rayon passant par $B$ et parallèle à l'A.O. : il passe par $F'$ en
+        sortie ;
+    \item Le rayon passant par $B$ et par $F$ : il émerge parallèle à l'A.O.
+\end{enumerate}
+
+Encore une fois, le rayon \textcolor{brandeisblue}{2)} provenant de l'espace
+objet ne peut pas atteindre l'\Ul{objet virtuel}. On le fait partir de la gauche
+du système optique comme s'il allait passer par $B$, mais une fois arrivé à la
+lentille, on continue le trait en pointillés pour montrer que c'est un rayon
+virtuel. Le rayon émergent suit la règle de la définition \ref{rconst} et passe
+par le foyer image $F'$, qui sera également indiqué en pointillés dans la partie
+de l'espace objet et en trait plein dans la partie de l'espace image. \bigbreak
+
+Les rayons émergents forment un faisceau \Ul{convergent}, donnant lieu à une
+\Ul{image réelle}.
 
 \subsubsection{Sur le foyer objet}
 Même principe également. Cette fois on a alors des rayons émergents parallèles
@@ -905,13 +897,12 @@ entre eux donnant une \Ul{image à l'infini}.
 \end{center}
 
 \subsubsection{Après le foyer objet}
-Même principe qu'à la question précédente. Cette fois les rayons émergents
-forment un faisceau \Ul{divergent} donnant lieu à une \Ul{image virtuelle}.
-
-\begin{center}
+\begin{wrapfigure}[5]{R}{0.45\linewidth}
+    \vspace*{-45pt}
+    \centering
     \begin{tikzpicture}[]
         % Axe optique
-        \draw[thin, ->](-4,0)--(4,0)node[below]{A.O.};
+        \draw[thin, ->](-3,0)--(3,0)node[below]{A.O.};
         % ---------------------------------------------------------------------
         % Lentille 
         \coordinate (O) at (0,0);
@@ -932,7 +923,6 @@ forment un faisceau \Ul{divergent} donnant lieu à une \Ul{image virtuelle}.
         \draw[shift={(O)}, ultra thick,
             >-<, >=latex, name path=L] (0,-\lsiz)--(0,\lsiz)
             node[above]{$\Lc_{}$};
-        % ---------------------------------------------------------------------
         % Objet
         \def \pos{2}
         \def \siz{1}
@@ -949,13 +939,13 @@ forment un faisceau \Ul{divergent} donnant lieu à une \Ul{image virtuelle}.
         \len{(O)}{(F)}{\foc}
         % Rayon 1
         \draw[brandeisblue, simple, name path=OBp] ($2*(O)-1.2*(B)$) -- (O);
-        \def \mut{1.8}
+        \def \mut{1.5}
         \draw[orange!70, simple] (O) --++ ($\mut*(B)-\mut*(O)$);
         % Rayon 2
         \def \mut{2.2}
         \draw[brandeisblue, double] ($(B)-(\mut*\posi,0)$)
             --++ (\mut*\posi-\posi,0) coordinate (I);
-        \draw[brandeisblue, dashed, double] (I) --++ (2*\posi,0);
+        \draw[brandeisblue, dashed, double] (I) --++ (1.5*\posi,0);
         \def \mut{2.2}
         \draw[orange!70, doublerev, dashed, name path=IBp] (I)
             --++ ($\mut*(Fp)-\mut*(I)$);
@@ -965,7 +955,7 @@ forment un faisceau \Ul{divergent} donnant lieu à une \Ul{image virtuelle}.
         % Rayon 3
         \path[name path=tripleB] (B) --++ ($3*(F)-3*(B)$);
         \path[name intersections={of=L and tripleB, by=E}];
-        \def \mut{1.5}
+        \def \mut{1.2}
         \draw[brandeisblue, triplerev] (E) --++ ($\mut*(F)-\mut*(B)$);
         \def \mut{2.2}
         \draw[brandeisblue, dashed, triple] (E) --++ ($\mut*(F)-\mut*(E)$);
@@ -980,9 +970,12 @@ forment un faisceau \Ul{divergent} donnant lieu à une \Ul{image virtuelle}.
         node[above] {A\bp}
         -- (B\bp)
         node[below] {B\bp};
-        % ---------------------------------------------------------------------
     \end{tikzpicture}
-\end{center}
+    \label{fig:divDF}
+\end{wrapfigure}
+
+Même principe qu'à la question précédente. Cette fois les rayons émergents
+forment un faisceau \Ul{divergent} donnant lieu à une \Ul{image virtuelle}.
 
 \subsection{Objet à l'infini}
 Pareil qu'avec la lentille convergente.
@@ -991,7 +984,6 @@ Pareil qu'avec la lentille convergente.
     \begin{tikzpicture}[]
         % Axe optique
         \draw[thin, ->](-3,0)--(3,0)node[below]{A.O.};
-        % ---------------------------------------------------------------------
         % Lentille 
         \coordinate (O) at (0,0);
         \def \fa{-2}
@@ -1011,7 +1003,6 @@ Pareil qu'avec la lentille convergente.
         \draw[shift={(O)}, ultra thick,
             >-<, >=latex, name path=L] (0,-\lsiz)--(0,\lsiz)
             node[above]{$\Lc_{}$};
-        % ---------------------------------------------------------------------
         % Objet
         \def \pos{-2}
         \def \siz{0.5}
@@ -1040,7 +1031,6 @@ Pareil qu'avec la lentille convergente.
         \draw[orange!70, doublerev,
         dashed, name path=IBp] (I)
         --++ ($\mut*(Fp)-\mut*(I)$);
-        % ---------------------------------------------------------------------
         % Rayon 2
         \draw[brandeisblue, double] (B2) --++ (\posi,0) coordinate (I);
         \def \mut{1}
@@ -1049,7 +1039,6 @@ Pareil qu'avec la lentille convergente.
         \draw[orange!70, doublerev,
         dashed, name path=IBp] (I)
         --++ ($\mut*(Fp)-\mut*(I)$);
-        % ---------------------------------------------------------------------
         % Rayon 2
         \draw[brandeisblue, double] (B3) --++ (\posi,0) coordinate (I);
         \def \mut{1}
@@ -1058,8 +1047,6 @@ Pareil qu'avec la lentille convergente.
         \draw[orange!70, doublerev,
         dashed, name path=IBp] (I)
         --++ ($\mut*(Fp)-\mut*(I)$);
-        % ---------------------------------------------------------------------
-        
     \end{tikzpicture}
 \end{center}
 
@@ -1464,8 +1451,8 @@ On est donc en mesure de répondre aux questions :
                     \coordinate (B') at ({\xAA},{\yBB});
                     \draw[|->, thick]  (A)node[below]{A}--(B)node[above]{B};
                     % Grandeurs
-                    \node[left=.2cm, inner sep=0] (Aa) at (A) {};
-                    \node[left=.2cm, inner sep=0] (Bb) at (B) {};
+                    \node[left=.22cm, inner sep=0] (Aa) at (A) {};
+                    \node[left=.22cm, inner sep=0] (Bb) at (B) {};
                     \draw[<->, ultra thin, gray] (Aa) --
                         node[midway, fill=blue!10]{$h$} (Bb);
 
@@ -1500,8 +1487,8 @@ On est donc en mesure de répondre aux questions :
                 \draw[|->, thick] (A)node[below left]{A}--(B)
                     node[above]{B};
                 % Grandeurs
-                \node[left=.2cm, inner sep=0] (Aa) at (A) {};
-                \node[left=.2cm, inner sep=0] (Bb) at (B) {};
+                \node[left=.22cm, inner sep=0] (Aa) at (A) {};
+                \node[left=.22cm, inner sep=0] (Bb) at (B) {};
                 \draw[<->, ultra thin, gray] (Aa) --
                     node[midway, fill=blue!10]{$h$} (Bb);
 
@@ -1530,6 +1517,72 @@ On est donc en mesure de répondre aux questions :
                  
                 \oeil[shift={(2.8,0)},rotate=180];
                 \end{tikzpicture}
+            \begin{tikzpicture}[]
+                % Axe optique
+                \draw[thin, ->](-3,0)--(3,0)node[below]{A.O.};
+                % Lentille 
+                \coordinate (O) at (0,0);
+                \def \fa{-2}
+                \def \lsiz{2}
+                \coordinate (F) at ($(O)+(-\fa,0)$);
+                \coordinate (Fp) at ($(O)+(\fa,0)$);
+
+                \foreach \x/\z in {O/\fa}{
+                    \draw[shift={(\x)}] (0,0)
+                        node[below right] {O$_{}$};
+                    \draw[shift={(\x)}] (\z,2pt) --++ (0,-4pt)
+                        node[below left] {F$'_{}$};
+                    \draw[shift={(\x)}] ({-\z},2pt) --++ (0,-4pt)
+                        node[below right] {F$_{}$};
+                }
+
+                \draw[shift={(O)}, ultra thick,
+                    >-<, >=latex, name path=L] (0,-\lsiz)--(0,\lsiz)
+                    node[above]{$\Lc_{}$};
+                % Objet
+                \def \pos{-3}
+                \def \siz{1}
+                \coordinate (A) at ($(O)+(\pos,0)$);
+                \coordinate (B) at ($(A)+(0,\siz)$);
+                \draw[->, Purple!70] (A) 
+                    node[below] {A}
+                    -- (B)
+                    node[above left] {B};
+                % Rayons pour objet avant foyer image d'une lentille convergente
+                % Lengths
+                \len{(A)}{(O)}{\posi}
+                \len{(A)}{(B)}{\size}
+                \len{(O)}{(F)}{\foc}
+                % Rayon 1
+                \draw[brandeisblue, simple, name path=OBp] (B) -- (O);
+                \draw[orange!70, simple] (O) --++ ($(O)-(B)$);
+                % Rayon 2
+                \draw[brandeisblue, double] (B) --++ (\posi,0) coordinate (I);
+                \def \mut{2}
+                \draw[orange!70, double] (I)
+                    --++ ($-\mut*(Fp)+\mut*(I)$);
+                \draw[orange!70, doublerev,
+                    dashed, name path=IBp] (I)
+                    --++ ($\mut*(Fp)-\mut*(I)$);
+                % Rayon 3
+                \path[name path=tripleB] (B) -- (F);
+                \path[name intersections={of=L and tripleB, by=E}];
+                \draw[brandeisblue, triple] (B) -- (E);
+                \def \mut{2}
+                \draw[brandeisblue, triple, dashed] (E) --++ ($\mut*(F)-\mut*(E)$);
+                \draw[orange!70, triple] (E) --++ (\mut*\foc,0);
+                \draw[orange!70, triplerev,
+                dashed, name path=EBp] (E) --++ (-\mut*\foc,0);
+                % Image
+                \path[name intersections={of=OBp and IBp, by=B1}];
+                \len{(O)}{(E)}{\intsiz}
+                \coordinate (A1) at ($(B1)+(0,-{\intsiz})$);
+                \draw[->, Red!70] (A1) 
+                node[below] {A1}
+                -- (B1)
+                node[above, right] {B1};
+                
+            \end{tikzpicture}
             \end{center}
             D'une manière générale, on veut que l'œil voie sans accomoder, que
             ce soit l'objet où l'image : on s'intéresse donc à l'angle de vue
@@ -1648,11 +1701,90 @@ On est donc en mesure de répondre aux questions :
 
 \section{Œil réduit et accomodation}
 \begin{NCdefi}{Données}
-    \begin{enumerate}
-        \item Rétine = écran, cristallin = lentille ;
-        \item Au repos, $A$ à l'infini ;
-        \item Au \textit{proximum}, $A$ à \SI{25}{cm} ($\OA = \SI{-25}{cm}$).
-    \end{enumerate}
+    \begin{minipage}{0.4\linewidth}
+        \begin{enumerate}
+            \item Rétine = écran, \smallbreak
+                cristallin = lentille ;
+            \item Au repos, $A$ à l'infini ;
+            \item Au \textit{proximum}, \smallbreak
+                $A$ à \SI{25}{cm} \smallbreak
+                ($\OA = \SI{-25}{cm}$).
+        \end{enumerate}
+    \end{minipage}
+    \begin{minipage}{0.7\linewidth}
+        \begin{center}
+            \begin{tikzpicture}[scale=.8]
+                % Axe optique
+                \draw[thin, ->](-3,0)--(3,0)node[below]{A.O.};
+                % Lentille 
+                \coordinate (O) at (0,0);
+                \def \fa{1.5}
+                \def \lsiz{2}
+                \coordinate (F) at ($(O)+(-\fa,0)$);
+                \coordinate (Fp) at ($(O)+(\fa,0)$);
+
+                \foreach \x/\z in {O/\fa}{
+                    \draw[shift={(\x)}] (0,0)
+                        node[below right] {O$_{}$};
+                }
+
+                \draw[shift={(O)}, ultra thick,
+                    <->, >=latex, name path=L] (0,-\lsiz)--(0,\lsiz)
+                    node[above]{$\Lc_{}$};
+                % Écran
+                \def\ecsiz{4}
+                \draw[dotted] ($(2.9,0)+(0,-\ecsiz/2)$)
+                    --++ (0,\ecsiz);
+                \node[above right] (E) at (2.9,0) {E};
+                % Objet
+                \def \pos{-2.9}
+                \def \siz{1.5}
+                \coordinate (Ar) at ($(O)+(\pos,0)$);
+                \coordinate (Br) at ($(Ar)+(0,\siz)$);
+                % Rayons pour objet avant foyer d'une lentille convergente
+                % Lengths
+                \len{(Ar)}{(O)}{\posi}
+                \len{(Ar)}{(Br)}{\size}
+                \len{(O)}{(F)}{\foc}
+                % Rayon 2
+                \draw[brandeisblue, double] (Br) --++ (\posi,0)
+                    node[above, midway, brandeisblue] {Remotum} coordinate (I);
+                % Objet
+                \def \pos{-2.5}
+                \def \siz{1}
+                \coordinate (A) at ($(O)+(\pos,0)$);
+                \coordinate (B) at ($(A)+(0,\siz)$);
+                \draw[->, Purple!70] (A) 
+                    node[below] {A}
+                    -- (B)
+                    node[left] {B};
+                % Rayons pour objet avant foyer d'une lentille convergente
+                % Lengths
+                \len{(A)}{(O)}{\posi}
+                \len{(A)}{(B)}{\size}
+                \len{(O)}{(F)}{\foc}
+                % Rayon 2
+                \draw[brandeisblue, simple] (B) --++ (\posi,0)
+                node[below, midway] {Proximum} coordinate (I);
+                % Grandeurs
+                \node[below] (Og) at (O) {};
+                \node[below] (Ag) at (A) {};
+                \draw[<->, ForestGreen] (Ag) --
+                node[below, midway, sloped]{\scriptsize $\SI{-25}{cm}$} (Og);
+                % Grandeurs
+                \node[below=15, inner sep=0] (Og) at (O) {};
+                \node[below=15, inner sep=0] (Arg) at (Ar) {};
+                \draw[<->, ForestGreen, dashed] (Arg) --
+                node[below, midway, sloped]{\scriptsize $\SI{-\infty}{}$} (Og);
+                % Grandeurs
+                \node[above] (Og) at (O) {};
+                \node[above] (Eg) at (2.9,0) {};
+                \draw[<->, ForestGreen] (Og) --
+                node[above, midway, sloped]{\scriptsize $\SI{22.3}{mm}$} (Eg);
+                
+            \end{tikzpicture}
+        \end{center}
+    \end{minipage}
 \end{NCdefi}
 
 \begin{NCprop}{Résultats attendus}
@@ -1665,14 +1797,155 @@ On est donc en mesure de répondre aux questions :
 \begin{NCdemo}{Outils du cours}
    \begin{enumerate}
        \item Relation de conjugaison pour une lentille mince, avec $\OAp =
-           \obar{OE} = \SI{22.3}{mm} $ et $\frac{1}{\OA} = 0$ quand $\OA =
+           \obar{OE} = \SI{22.3}{mm}$ (le principe d'un écran c'est que l'image
+           se forme dessus !!) et $\frac{1}{\OA} = 0$ quand $\OA =
            -\infty$
    \end{enumerate} 
 \end{NCdemo}
 
 \begin{NCexem}{Résultats}
     \[ \boxed{\OF\St{repos} = \SI{22.3}{mm}}\]
+    \begin{center}
+        \begin{tikzpicture}[]
+            % Axe optique
+            \draw[thin, ->](-3,0)--(3,0)node[below]{A.O.};
+            \node[above](eg) at (2.9,0) {=};
+            % Lentille 
+            \coordinate (O) at (0,0);
+            \def \fa{2.9}
+            \def \lsiz{1}
+            \coordinate (F) at ($(O)+(-\fa,0)$);
+            \coordinate (Fp) at ($(O)+(\fa,0)$);
+
+            \foreach \x/\z in {O/\fa}{
+                \draw[shift={(\x)}] (0,0)
+                    node[below right] {O$_{}$};
+                \draw[shift={(\x)}] (\z,2pt) --++ (0,-4pt)
+                    node[above left] {F$'_{}$};
+                \draw[shift={(\x)}] ({-\z},2pt) --++ (0,-4pt)
+                    node[below left] {F$_{}$};
+            }
+
+            \draw[shift={(O)}, ultra thick,
+                <->, >=latex, name path=L] (0,-\lsiz)--(0,\lsiz)
+                node[above]{$\Lc_{}$};
+            % Écran
+            \def\ecsiz{2}
+            \draw[dotted] ($(2.9,0)+(0,-\ecsiz/2)$)
+                --++ (0,\ecsiz);
+            \node[above right] at (2.9,0) {E};
+            % Objet
+            \def \pos{-2.9}
+            \def \siz{0.9}
+            \coordinate (A) at ($(O)+(\pos,0)$);
+            \coordinate (B) at ($(A)+(0,\siz)$);
+            % Rayons pour objet avant foyer d'une lentille convergente
+            % Lengths
+            \len{(A)}{(O)}{\posi}
+            \len{(A)}{(B)}{\size}
+            \len{(O)}{(F)}{\foc}
+            % Rayon 2
+            \draw[brandeisblue, double] (B) --++ (\posi,0) coordinate (I);
+            \def \mut{1.2}
+            \draw[orange!70, double, name path=IBp] (I)
+                --++ ($\mut*(Fp)-\mut*(I)$);
+            \def \intsiz{\size*\foc/(\posi-\foc)}
+            % Grandeurs
+            \node[below] (Ag) at (A) {};
+            \node[below] (Og) at (O) {};
+            \draw[<->, ForestGreen, dashed] (Ag) --
+            node[below, midway, sloped]{\scriptsize $\SI{-\infty}{}$} (Og);
+            % Grandeurs
+            \node[below] (Fpg) at (Fp) {};
+            \draw[<->, ForestGreen] (Og) --
+            node[below, midway, sloped]{\scriptsize $\SI{22.3}{mm}$} (Fpg);
+        \end{tikzpicture}
+    \end{center}
     \[ \boxed{\OF\St{accomodation} = \SI{20.6}{mm}} \]
+    \begin{center}
+        \begin{tikzpicture}[]
+            % Axe optique
+            \draw[thin, ->](-3,0)--(3,0)node[below]{A.O.};
+            \node[above](eg) at (2.9,0) {=};
+            % Lentille 
+            \coordinate (O) at (0,0);
+            \def \fa{1.3}
+            \def \lsiz{2}
+            \coordinate (F) at ($(O)+(-\fa,0)$);
+            \coordinate (Fp) at ($(O)+(\fa,0)$);
+
+            \foreach \x/\z in {O/\fa}{
+                \draw[shift={(\x)}] (0,0)
+                    node[above right] {O$_{}$};
+                \draw[shift={(\x)}] (\z,2pt) --++ (0,-4pt)
+                    node[below right] {F$'_{}$};
+                \draw[shift={(\x)}] ({-\z},2pt) --++ (0,-4pt)
+                    node[above right] {F$_{}$};
+            }
+
+            \draw[shift={(O)}, ultra thick,
+                <->, >=latex, name path=L] (0,-\lsiz)--(0,\lsiz)
+                node[above]{$\Lc_{}$};
+            % Node E
+            \node[above right] at (2.9,0) {E};
+            % Objet
+            \def \pos{-2.5}
+            \def \siz{1}
+            \coordinate (A) at ($(O)+(\pos,0)$);
+            \coordinate (B) at ($(A)+(0,\siz)$);
+            \draw[->, Purple!70] (A) 
+                node[below] {A}
+                -- (B)
+                node[above left] {B};
+            % Rayons pour objet avant foyer d'une lentille convergente
+            % Lengths
+            \len{(A)}{(O)}{\posi}
+            \len{(A)}{(B)}{\size}
+            \len{(O)}{(F)}{\foc}
+            % Rayon 1
+            \draw[brandeisblue, simple] (B) -- (O);
+            \def\mut{1.5}
+            \draw[orange!70, simple, name path=OBp] (O)
+                --++ ($\mut*(O)-\mut*(B)$);
+            % Rayon 2
+            \draw[brandeisblue, double] (B) --++ (\posi,0) coordinate (I);
+            \def \mut{2.3}
+            \draw[orange!70, double, name path=IBp] (I)
+            --++ ($\mut*(Fp)-\mut*(I)$);
+            \def \intsiz{\size*\foc/(\posi-\foc)}
+            % Rayon 3
+            \draw[brandeisblue, triple] (B) -- (F)
+            --++ (\foc,-{\intsiz}) coordinate (E);
+            \def \mut{2.3}
+            \draw[orange!70, triple, name path=EBp] (E) --++ (\mut*\foc,0);
+            % Image
+            \path[name intersections={of=OBp and IBp, by=B\bp}];
+            \coordinate (A\bp) at ($(B\bp)+(0,{\intsiz})$);
+            \draw[->, Red!70] (A\bp) 
+            node[above] {A\bp}
+            -- (B\bp)
+            node[below right] {B\bp};
+            % Grandeurs
+            \node[below] (Ag) at (A) {};
+            \node[below] (Og) at (O) {};
+            \draw[<->, ForestGreen] (Ag) --
+            node[below, midway, sloped]{\scriptsize $\SI{-25}{cm}$} (Og);
+            % Grandeurs
+            \node[below] (Fpg) at (Fp) {};
+            \draw[<->, ForestGreen] (Og) --
+            node[below, midway, sloped]{\scriptsize $\SI{20.6}{mm}$} (Fpg);
+            % Grandeurs
+            \node[above] (Og) at (O) {};
+            \node[above] (Eg) at (2.9,0) {};
+            \draw[<->, ForestGreen] (Og) --
+            node[above, midway, sloped]{\scriptsize $\SI{22.3}{mm}$} (Eg);
+            % Écran
+            \def\ecsiz{4}
+            \draw[dotted] ($(A\bp)+(0,-\ecsiz/2)$)
+                --++ (0,\ecsiz);
+        \end{tikzpicture}
+    \end{center}
+
 \end{NCexem}
 
 \begin{center}
@@ -1681,55 +1954,344 @@ On est donc en mesure de répondre aux questions :
 
 \section{Construction géométrique d'objets}
 \subsection{}
+\begin{wrapfigure}[7]{R}{0.45\linewidth}
+    \vspace*{-30pt}
+    \centering
+    \begin{tikzpicture}[]
+        % Axe optique
+        \draw[thin, ->](-3,0)--(3,0)node[below]{A.O.};
+        % Lentille 
+        \coordinate (O) at (0,0);
+        \def \fa{2.7}
+        \def \lsiz{2}
+        \coordinate (F) at ($(O)+(-\fa,0)$);
+        \coordinate (Fp) at ($(O)+(\fa,0)$);
+
+        \foreach \x/\z in {O/\fa}{
+            \draw[shift={(\x)}] (0,0)
+                node[below right] {O$_{}$};
+            \draw[shift={(\x)}] (\z,2pt) --++ (0,-4pt)
+                node[above right] {F$'_{}$};
+            \draw[shift={(\x)}] ({-\z},2pt) --++ (0,-4pt)
+                node[below left] {F$_{}$};
+        }
+
+        \draw[shift={(O)}, ultra thick,
+            <->, >=latex, name path=L] (0,-\lsiz)--(0,\lsiz)
+            node[above]{$\Lc_{}$};
+        % Objet
+        \def \pos{2.5}
+        \def \siz{1}
+        \coordinate (A) at ($(O)+(\pos,0)$);
+        \coordinate (B) at ($(A)+(0,\siz)$);
+        \draw[->, Purple!70] (A) 
+            node[below] {A}
+            -- (B)
+            node[above left] {B};
+        % Rayons pour objet virtuel d'une lentille convergente
+        % Lengths
+        \len{(A)}{(O)}{\posi}
+        \len{(A)}{(B)}{\size}
+        \len{(O)}{(F)}{\foc}
+        % Rayon 1
+        \draw[brandeisblue, simple] ($2*(O)-(B)$) -- (O);
+        \def \mut{1.3}
+        \draw[orange!70, simple, name path=OBp] (O) --++ ($\mut*(B)-\mut*(O)$);
+        % Rayon 2
+        \def \mut{1.5}
+        \draw[brandeisblue, double] ($(B)-(\mut*\posi,0)$)
+            --++ (\mut*\posi-\posi,0) coordinate (I);
+        \draw[brandeisblue, dashed, double] (I) --++ (1.2*\posi,0);
+        \def \mut{1}
+        \draw[orange!70, double, name path=IBp] (I) --++ ($\mut*(Fp)-\mut*(I)$);
+        % Rayon 3
+        \def \intsiz{\size*\foc/(\posi+\foc)}
+        \draw[brandeisblue, triple] (F) --++ (\foc,{\intsiz}) coordinate (E);
+        \def \mut{0.3}
+        \draw[brandeisblue, dashed, triple] (E) -- (B) --++ ($\mut*(B)-\mut*(E)$);
+        \draw[orange!70, triple, name path=EBp] (E) --++ (1.2*\posi,0);
+        % Image
+        \path[name intersections={of=OBp and IBp, by=B\bp}];
+        \coordinate (A\bp) at ($(B\bp)+(0,-{\intsiz})$);
+        \draw[->, Red!70] (A\bp) 
+        node[below] {A\bp}
+        -- (B\bp)
+        node[below, right] {B\bp};
+    \end{tikzpicture}
+    \label{fig:consA}
+\end{wrapfigure}
+
 On a une image réelle. Pour trouver $B$, on dessine dans l'espace image les
-rayons émergents particuliers des règles de construction \ref{rconst} et qui se
-croisent en $B'$ (c'est bien la finalité d'un objet qui donne une image). On
-trace, depuis la lentille :
+rayons \underline{émergents} particuliers des règles de construction
+\ref{rconst} et qui se croisent en $B'$ (c'est bien la finalité d'un objet qui
+donne une image). On trace, depuis la lentille :
 
 \begin{enumerate}
-    \item le rayon parallèle à l'axe optique et passant par $B'$ ;
-    \item le rayon qui passe par $F'$ et par $B'$ ;
-    \item et le rayon qui passe par $O$ et par $B'$.
+    \item le rayon \underline{émergent} qui passe par $O$ et par $B'$ ;
+    \item le rayon \underline{émergent} qui passe par $F'$ et par $B'$ ;
+    \item le rayon \underline{émergent} parallèle à l'axe optique et passant par
+        $B'$.
 \end{enumerate}
 
 Le premier doit provenir d'un rayon incident passant par $B$ et par $F$. Le
 second doit provenir d'un rayon incident passant par $B$ et parallèle à l'A.O.
 Le dernier n'est pas dévié. \bigbreak
 
-Schéma en ligne.
-
 \subsection{}
+\begin{wrapfigure}[2]{R}{0.45\linewidth}
+    \vspace*{-45pt}
+    \centering
+    \begin{tikzpicture}[scale=1]
+        % Axe optique
+        \draw[thin, ->](-3,0)--(3,0)node[above]{A.O.};
+        % Lentille 
+        \coordinate (O) at (0,0);
+        \def \fa{-2.7}
+        \def \lsiz{1.5}
+        \coordinate (F) at ($(O)+(-\fa,0)$);
+        \coordinate (Fp) at ($(O)+(\fa,0)$);
+
+        \foreach \x/\z in {O/\fa}{
+            \draw[shift={(\x)}] (0,0)
+                node[below right] {O$_{}$};
+            \draw[shift={(\x)}] (\z,2pt) --++ (0,-4pt)
+                node[below left] {F$'_{}$};
+            \draw[shift={(\x)}] ({-\z},2pt) --++ (0,-4pt)
+                node[below right] {F$_{}$};
+        }
+
+        \draw[shift={(O)}, ultra thick,
+            >-<, >=latex, name path=L] (0,-\lsiz)--(0,\lsiz)
+            node[above]{$\Lc_{}$};
+        % Objet
+        \def \pos{0.9}
+        \def \siz{0.7}
+        \coordinate (A) at ($(O)+(\pos,0)$);
+        \coordinate (B) at ($(A)+(0,\siz)$);
+        \draw[->, Purple!70] (A) 
+            node[below] {A}
+            -- (B)
+            node[above left] {B};
+        % Rayons pour objet virtuel entre O et F d'une lentille divergente
+        % Lengths
+        \len{(A)}{(O)}{\posi}
+        \len{(A)}{(B)}{\size}
+        \len{(O)}{(F)}{\foc}
+        % Rayon 1
+        \draw[brandeisblue, simple] ($2*(O)-(B)$) -- (O);
+        \def \mut{1.8}
+        \draw[orange!70, simple, name path=OBp] (O) --++ ($\mut*(B)-\mut*(O)$);
+        % Rayon 2
+        \def \mut{3}
+        \draw[brandeisblue, double] ($(B)-(\mut*\posi,0)$)
+            --++ (\mut*\posi-\posi,0) coordinate (I);
+        \draw[brandeisblue, dashed, double] (I) --++ (2*\posi,0);
+        \def \mut{1.2}
+        \draw[orange!70, doublerev, dashed] (I)
+            --++ ($\mut*(Fp)-\mut*(I)$);
+        \draw[orange!70, double, name path=IBp] (I)
+            --++ ($-\mut*(Fp)+\mut*(I)$);
+        % Rayon 3
+            \path[name path=tripleB] (F) --++ ($3*(B)-3*(F)$);
+            \path[name intersections={of=L and tripleB, by=E}];
+            \def \mut{1.2}
+            \draw[brandeisblue, triplerev] (E) --++ ($\mut*(B)-\mut*(F)$);
+            \draw[brandeisblue, dashed, triple] (E) --++ ($\mut*(F)-\mut*(E)$);
+            \draw[orange!70, triple, name path=EBp] (E) --++ (\mut*\foc,0);
+            % Image
+            \path[name intersections={of=OBp and IBp, by=B\bp}];
+            \len{(O)}{(E)}{\intsiz}
+            \coordinate (A\bp) at ($(B\bp)+(0,-{\intsiz})$);
+            \draw[->, Red!70] (A\bp) 
+            node[below] {A\bp}
+            -- (B\bp)
+            node[below, right] {B\bp};
+    \end{tikzpicture}
+    \label{fig:consB}
+\end{wrapfigure}
+\vspace*{20pt}
 Même exercice, mais on échange $F$ et $F'$.
+\vspace*{20pt}
 
 \subsection{}
+
+\begin{wrapfigure}[6]{R}{0.45\linewidth}
+    \centering
+    \begin{tikzpicture}[]
+        % Axe optique
+        \draw[thin, ->](-3,0)--(3,0)node[below]{A.O.};
+        % Lentille 
+        \coordinate (O) at (0,0);
+        \def \fa{1.3}
+        \def \lsiz{2}
+        \coordinate (F) at ($(O)+(-\fa,0)$);
+        \coordinate (Fp) at ($(O)+(\fa,0)$);
+
+        \foreach \x/\z in {O/\fa}{
+            \draw[shift={(\x)}] (0,0)
+                node[below right] {O$_{}$};
+            \draw[shift={(\x)}] (\z,2pt) --++ (0,-4pt)
+                node[below right] {F$'_{}$};
+            \draw[shift={(\x)}] ({-\z},2pt) --++ (0,-4pt)
+                node[below left] {F$_{}$};
+        }
+
+        \draw[shift={(O)}, ultra thick,
+            <->, >=latex, name path=L] (0,-\lsiz)--(0,\lsiz)
+            node[above]{$\Lc_{}$};
+        % Objet
+        \def \pos{-0.7}
+        \def \siz{0.5}
+        \coordinate (A) at ($(O)+(\pos,0)$);
+        \coordinate (B) at ($(A)+(0,\siz)$);
+        \draw[->, Purple!70] (A) 
+            node[below] {A}
+            -- (B)
+            node[above left] {B};
+        % Rayons pour objet entre le foyer et le centre d'une lentille convergente
+        % Lengths
+        \len{(A)}{(O)}{\posi}
+        \len{(A)}{(B)}{\size}
+        \len{(O)}{(F)}{\foc}
+        % Rayon 1
+        \draw[brandeisblue, simple] (B) -- (O);
+        \draw[orange!70, simple] (O) --++ ($(O)-(B)$);
+        \def \mut{2}
+        \draw[orange!70, simplerev,
+            dashed, name path=OBp] (B) --++ ($\mut*(B)-\mut*(O)$);
+        % Rayon 2
+        \draw[brandeisblue, double] (B) --++ (\posi,0) coordinate (I);
+        \def \mut{2}
+        \draw[orange!70, double] (I) --++ ($\mut*(Fp)-\mut*(I)$);
+        \draw[orange!70, doublerev,
+            dashed, name path=IBp] (I) --++ ($-\mut*(Fp)+\mut*(I)$);
+        % Rayon 3
+        \def \intsiz{\size*\foc/(\posi-\foc)}
+        \draw[brandeisblue, triple] (B) -- (F)
+        --++ (\foc,-{\intsiz}) coordinate (E);
+        \def \mut{2}
+        \draw[orange!70, triple] (E) --++ (\mut*\foc,0);
+        \draw[orange!70, triplerev,
+        dashed, name path=EBp] (E) --++ (-\mut*\foc,0);
+        % Image
+        \path[name intersections={of=OBp and IBp, by=B\bp}];
+        \coordinate (A\bp) at ($(B\bp)+(0,{\intsiz})$);
+        \draw[->, Red!70] (A\bp) 
+        node[left] {A\bp}
+        -- (B\bp)
+        node[above] {B\bp};
+    \end{tikzpicture}
+    \label{fig:consC}
+\end{wrapfigure}
+
 On a une image virtuelle. On doit tracer dans l'espace image trois rayons
-d'intérêt dont la \Ul{prolongation dans le sens opposé à celle de la marche des
-rayons} passe par $B'$. Même principe ensuite.
+d'intérêt dont la \underline{prolongation dans le sens} \underline{opposé à
+celle de la marche des rayons} passe par $B'$. Même principe ensuite.
 
 \begin{enumerate}
-    \item le rayon parallèle à l'axe optique et passant par $B'$ ;
+    \item le rayon qui passe par $O$ et par $B'$ ;
     \item le rayon qui passe par $F'$ et par $B'$ ;
-    \item et le rayon qui passe par $O$ et par $B'$.
+    \item et le rayon parallèle à l'axe optique et passant par $B'$.
 \end{enumerate} \bigbreak
 
 Le premier doit provenir d'un rayon incident passant par $B$ et par $F$. Le
 second doit provenir d'un rayon incident passant par $B$ et parallèle à l'A.O.
-Le dernier n'est pas dévié. \bigbreak
-
-Schéma en ligne.
+Le dernier n'est pas dévié.
 
 \subsection{}
+\begin{wrapfigure}[4]{R}{0.45\linewidth}
+    \vspace*{-60pt}
+    \centering
+    \begin{tikzpicture}[]
+        % Axe optique
+        \draw[thin, ->](-3,0)--(3,0)node[below]{A.O.};
+        % Lentille 
+        \coordinate (O) at (0,0);
+        \def \fa{-0.75}
+        \def \lsiz{1.5}
+        \coordinate (F) at ($(O)+(-\fa,0)$);
+        \coordinate (Fp) at ($(O)+(\fa,0)$);
+
+        \foreach \x/\z in {O/\fa}{
+            \draw[shift={(\x)}] (0,0)
+                node[below right] {O$_{}$};
+            \draw[shift={(\x)}] (\z,2pt) --++ (0,-4pt)
+                node[below left] {F$'_{}$};
+            \draw[shift={(\x)}] ({-\z},2pt) --++ (0,-4pt)
+                node[below right] {F$_{}$};
+        }
+
+        \draw[shift={(O)}, ultra thick,
+            >-<, >=latex, name path=L] (0,-\lsiz)--(0,\lsiz)
+            node[above]{$\Lc_{}$};
+        % Objet
+        \def \pos{1.5}
+        \def \siz{-0.5}
+        \coordinate (A) at ($(O)+(\pos,0)$);
+        \coordinate (B) at ($(A)+(0,\siz)$);
+        \draw[->, Purple!70] (A) 
+            node[above] {A}
+            -- (B)
+            node[below] {B};
+        % Rayons pour objet virtuel après F d'une lentille divergente
+        % Lengths
+        \len{(A)}{(O)}{\posi}
+        \len{(A)}{(B)}{\size}
+        \len{(O)}{(F)}{\foc}
+        % Rayon 1
+        \draw[brandeisblue, simple, name path=OBp] ($2*(O)-1.2*(B)$) -- (O);
+        \def \mut{1.8}
+        \draw[orange!70, simple] (O) --++ ($\mut*(B)-\mut*(O)$);
+        % Rayon 2
+        \def \mut{2.2}
+        \draw[brandeisblue, double] ($(B)-(\mut*\posi,0)$)
+            --++ (\mut*\posi-\posi,0) coordinate (I);
+        \draw[brandeisblue, dashed, double] (I) --++ (2*\posi,0);
+        \def \mut{2.2}
+        \draw[orange!70, doublerev, dashed, name path=IBp] (I)
+            --++ ($\mut*(Fp)-\mut*(I)$);
+        \def \mut{1.2}
+        \draw[orange!70, double] (I)
+            --++ ($-\mut*(Fp)+\mut*(I)$);
+        % Rayon 3
+        \path[name path=tripleB] (B) --++ ($3*(F)-3*(B)$);
+        \path[name intersections={of=L and tripleB, by=E}];
+        \def \mut{1.5}
+        \draw[brandeisblue, triplerev] (E) --++ ($\mut*(F)-\mut*(B)$);
+        \def \mut{2.2}
+        \draw[brandeisblue, dashed, triple] (E) --++ ($\mut*(F)-\mut*(E)$);
+        \draw[orange!70, triple] (E) --++ (\mut*\foc,0);
+        \draw[orange!70, triplerev,
+        dashed, name path=EBp] (E) --++ (-\mut*\foc,0);
+        % Image
+        \path[name intersections={of=OBp and IBp, by=B\bp}];
+        \len{(O)}{(E)}{\intsiz}
+        \coordinate (A\bp) at ($(B\bp)-(0,{\intsiz})$);
+        \draw[->, Red!70] (A\bp) 
+        node[below] {A\bp}
+        -- (B\bp)
+        node[above] {B\bp};
+    \end{tikzpicture}
+    \label{fig:consD}
+\end{wrapfigure}
+\vspace*{20pt}
 Même exercice, mais on échange $F$ et $F'$.
-
-\subsection{}
-On a une image virtuelle. On doit tracer dans l'espace image trois rayons
-d'intérêt dont la \Ul{prolongation dans le sens opposé à celle de la marche des
-rayons} passe par $B'$. Même principe ensuite.
-
-\subsection{}
-Pareil mais on échange $F$ et $F'$.
+\vspace*{20pt}
 
 \section{Trouver la lentille}
+Pour cet exercice, il faut étudier les liens entre objet et image avec le centre
+$O$ et le foyer image d'une lentille. On se rend alors compte qu'en traçant une
+droite de $B$ à $B'$, il est naturel de trouver $O$ à l'intersection de cette
+droite et de l'axe optique. On peut faire ça pour chaque schéma, et il ne reste
+qu'à trouver le foyer image.
+
+Pour cela, après avoir trouvé $O$ et tracé une lentille (pour le moment, ni
+convergente ni divergente), il suffit de tracer un rayon partant de $B$ et
+parallèle à l'axe optique qui, une fois arrivé à la lentille, doit continuer
+jusqu'à passer en $B'$. L'intersection de ce rayon et de l'axe optique donne
+l'emplacement de $F'$. Il faut cependant faire attention à bien savoir si ce
+sont les prolongations des rayons ou les rayons eux-mêmes qui partent de $B$ ou
+qui arrivent en $B'$. Les schémas sont en ligne sur Claroline.
 
 \section{Relation de conjugaison}
 
@@ -1894,9 +2456,162 @@ on a donc en divisant les deux côtés par $\overline{OA^\prime}$
 \end{equation*}
 
 \section{Lentilles inconnues}
+Cet exercice peut paraître déroutant, mais il faut simplement s'en tenir à ce
+qu'on peut faire. On sait que les rayons émergents doivent se croiser en $B'$,
+par définition. On peut tracer le rayon de $B'$ à $O$, c'est toujours une source
+sûre. Ce rayon doit également passer par $B$ : étant donné qu'on a la position
+$A$, on en déduit la position de $B$ qui est à la verticale de $A$ et sur ce
+rayon.
+
+Ensuite, on peut tracer le rayon émergent parallèle à l'axe optique qui
+passe par $B'$ (en prolongation). On sait qu'il doit partir de $B$ et coupe
+l'axe optique en $F$ : on a trouvé $B$ et $F$ !
+
+\begin{minipage}{0.45\linewidth}
+    \begin{center}
+        \begin{tikzpicture}[scale=0.9]
+            % Axe optique
+            \draw[thin, ->](-3,0)--(3,0)node[above]{A.O.};
+            % Lentille 
+            \coordinate (O) at (0,0);
+            \def \fa{2.7}
+            \def \lsiz{2}
+            \coordinate (F) at ($(O)+(-\fa,0)$);
+            \coordinate (Fp) at ($(O)+(\fa,0)$);
+
+            \foreach \x/\z in {O/\fa}{
+                \draw[shift={(\x)}] (0,0)
+                    node[below right] {O$_{}$};
+                \draw[shift={(\x)}] (\z,2pt) --++ (0,-4pt)
+                    node[below right] {F$'_{}$};
+                \draw[shift={(\x)}] ({-\z},2pt) --++ (0,-4pt)
+                    node[below left] {F$_{}$};
+            }
+
+            \draw[shift={(O)}, ultra thick,
+                <->, >=latex, name path=L] (0,-\lsiz)--(0,\lsiz)
+                node[above]{$\Lc_{}$};
+            % Objet
+            \def \pos{-1}
+            \def \siz{0.7}
+            \coordinate (A) at ($(O)+(\pos,0)$);
+            \coordinate (B) at ($(A)+(0,\siz)$);
+            \draw[->, Purple!70] (A) 
+                node[below] {A}
+                -- (B)
+                node[above left] {B};
+            % Rayons pour objet entre le foyer et le centre d'une lentille convergente
+            % Lengths
+            \len{(A)}{(O)}{\posi}
+            \len{(A)}{(B)}{\size}
+            \len{(O)}{(F)}{\foc}
+            % Rayon 1
+            \draw[brandeisblue, simple] (B) -- (O);
+            \draw[orange!70, simple] (O) --++ ($(O)-(B)$);
+            \def \mut{2}
+            \draw[orange!70, simplerev,
+                dashed, name path=OBp] (B) --++ ($\mut*(B)-\mut*(O)$);
+            % Rayon 2
+            \draw[brandeisblue, double] (B) --++ (\posi,0) coordinate (I);
+            \def \mut{1.2}
+            \draw[orange!70, double] (I) --++ ($\mut*(Fp)-\mut*(I)$);
+            \draw[orange!70, doublerev,
+                dashed, name path=IBp] (I) --++ ($-\mut*(Fp)+\mut*(I)$);
+            % Rayon 3
+            \def \intsiz{\size*\foc/(\posi-\foc)}
+            \draw[brandeisblue, triple] (B) -- (F)
+            --++ (\foc,-{\intsiz}) coordinate (E);
+            \def \mut{1.2}
+            \draw[orange!70, triple] (E) --++ (\mut*\foc,0);
+            \draw[orange!70, triplerev,
+            dashed, name path=EBp] (E) --++ (-\mut*\foc,0);
+            % Image
+            \path[name intersections={of=OBp and IBp, by=B\bp}];
+            \coordinate (A\bp) at ($(B\bp)+(0,{\intsiz})$);
+            \draw[->, Red!70] (A\bp) 
+            node[below] {A\bp}
+            -- (B\bp)
+            node[below right] {B\bp};
+        \end{tikzpicture}
+    \end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+    \begin{center}
+        \begin{tikzpicture}[scale=0.9]
+            % Axe optique
+            \draw[thin, ->](-3,0)--(3,0)node[below]{A.O.};
+            % Lentille 
+            \coordinate (O) at (0,0);
+            \def \fa{-1}
+            \def \lsiz{2}
+            \coordinate (F) at ($(O)+(-\fa,0)$);
+            \coordinate (Fp) at ($(O)+(\fa,0)$);
+
+            \foreach \x/\z in {O/\fa}{
+                \draw[shift={(\x)}] (0,0)
+                    node[below right] {O$_{}$};
+                \draw[shift={(\x)}] (\z,2pt) --++ (0,-4pt)
+                    node[below left] {F$'_{}$};
+                \draw[shift={(\x)}] ({-\z},2pt) --++ (0,-4pt)
+                    node[below right] {F$_{}$};
+            }
+
+            \draw[shift={(O)}, ultra thick,
+                >-<, >=latex, name path=L] (0,-\lsiz)--(0,\lsiz)
+                node[above]{$\Lc_{}$};
+            % Objet
+            \def \pos{2}
+            \def \siz{-0.5}
+            \coordinate (A) at ($(O)+(\pos,0)$);
+            \coordinate (B) at ($(A)+(0,\siz)$);
+            \draw[->, Purple!70] (A) 
+                node[above] {A}
+                -- (B)
+                node[below] {B};
+            % Rayons pour objet virtuel après F d'une lentille divergente
+            % Lengths
+            \len{(A)}{(O)}{\posi}
+            \len{(A)}{(B)}{\size}
+            \len{(O)}{(F)}{\foc}
+            % Rayon 1
+            \draw[brandeisblue, simple, name path=OBp] ($2*(O)-1.2*(B)$) -- (O);
+            \def \mut{1.8}
+            \draw[orange!70, simple] (O) --++ ($\mut*(B)-\mut*(O)$);
+            % Rayon 2
+            \def \mut{2.2}
+            \draw[brandeisblue, double] ($(B)-(\mut*\posi,0)$)
+                --++ (\mut*\posi-\posi,0) coordinate (I);
+            \draw[brandeisblue, dashed, double] (I) --++ (2*\posi,0);
+            \def \mut{2.2}
+            \draw[orange!70, doublerev, dashed, name path=IBp] (I)
+                --++ ($\mut*(Fp)-\mut*(I)$);
+            \def \mut{1.2}
+            \draw[orange!70, double] (I)
+                --++ ($-\mut*(Fp)+\mut*(I)$);
+                % Rayon 3
+                \path[name path=tripleB] (B) --++ ($3*(F)-3*(B)$);
+                \path[name intersections={of=L and tripleB, by=E}];
+                \def \mut{1.5}
+                \draw[brandeisblue, triplerev] (E) --++ ($\mut*(F)-\mut*(B)$);
+                \def \mut{2.2}
+                \draw[brandeisblue, dashed, triple] (E) --++ ($\mut*(F)-\mut*(E)$);
+                \draw[orange!70, triple] (E) --++ (\mut*\foc,0);
+                \draw[orange!70, triplerev,
+                dashed, name path=EBp] (E) --++ (-\mut*\foc,0);
+                % Image
+                \path[name intersections={of=OBp and IBp, by=B\bp}];
+                \len{(O)}{(E)}{\intsiz}
+                \coordinate (A\bp) at ($(B\bp)-(0,{\intsiz})$);
+                \draw[->, Red!70] (A\bp) 
+                node[below] {A\bp}
+                -- (B\bp)
+                node[above] {B\bp};
+        \end{tikzpicture}
+    \end{center}
+\end{minipage}
 
 \section{Distances focales}
-
 \begin{NCdefi}{Données}
 	\begin{enumerate}
 		\item $\overline{OA} = -6\,$cm ;

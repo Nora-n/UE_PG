@@ -2,7 +2,7 @@
 
 \usepackage{preambule}
 \usepackage[Rejne]{fncychap}
-\fancyhead[L]{\scriptsize Nora \textsc{Nicolas}}
+\fancyhead[L]{\scriptsize Nora \textsc{Nicolas} \& Jérémy \textsc{Auffinger}}
 \fancyhead[R]{\scriptsize \textsc{UE PG -- Fiche de travaux dirigés}}
 
 \titleformat{\section}{\color{blue}\bfseries\large}{\hspace{-0.3em}
@@ -28,7 +28,7 @@ Exercice~\arabic{section})}{.2em}{}{}
 
 \setcounter{chapter}{-1}
 \chapter{Conseils généraux}
-\vspace*{-47pt}
+\vspace*{-55pt}
 Ce document à pour but de rappeler et résumer les conseils, arguments et astuces
 qui ont pu être vues et énoncées durant les TDs. Il ne remplace ni les séances
 en elles-mêmes, où votre participation active est nécessaire (c'est en se
@@ -52,10 +52,13 @@ réflexion face à un exercice de pĥysique (d'optique particulièrement), mais 
 ne sont pas tous corrigés ainsi. Ainsi, vous verrez qu'après quelques exemples,
 je vous renvoie aux corrigés que vous avez à disposition sur \textit{Claroline}.
 Les schémas y sont clairs et j'espère que ma retranscription écrite du
-raisonnement derrière ces schémas suffiront à vous guider. \smallbreak
+raisonnement derrière ces schémas suffiront à vous guider. \hfill Bonne lecture,
+\smallbreak
 
-Bonne lecture, \hfill Nora NICOLAS --
-\href{mailto:n.nicolas@ipnl.in2p3.fr}{n.nicolas@ipnl.in2p3.fr}\\
+Nora \textsc{Nicolas} --
+\href{mailto:n.nicolas@ip2i.in2p3.fr}{n.nicolas@ip2i.in2p3.fr}\\
+Jérémy \textsc{Auffinger} --
+\href{mailto:j.auffinger@ip2i.in2p3.fr}{j.auffinger@ip2i.in2p3.fr}\\
 
 \begin{NCprop}{Principe des exercices de physique}
     Tout exercice de physique suit le schéma suivant :
@@ -73,7 +76,6 @@ Bonne lecture, \hfill Nora NICOLAS --
     \end{enumerate}
     Un exemple est donné partie .
 \end{NCprop}
-
 
 \begin{NCcoro}{Conseils}
     Avant d'encadrer un résultat :
@@ -105,14 +107,7 @@ Bonne lecture, \hfill Nora NICOLAS --
 
 \section{Ordres de grandeur}
 
-Cet exercice ce concentre sur la notion d'intensité en électricité.
-
-\begin{NCprop}{Résultats attendus}
-    Les trois questions de l'exercice donnent une grandeur électrique et
-    attendent de vous le calcul d'une grandeur inconnue. Il va donc falloir
-    utiliser les formules précédentes pour exprimer la grandeur inconnue en
-    fonction des données du problème.
-\end{NCprop}
+Cet exercice se concentre sur la notion d'intensité en électricité.
 
 \begin{NCdefi}{Données}
 	\begin{enumerate}
@@ -123,6 +118,13 @@ Cet exercice ce concentre sur la notion d'intensité en électricité.
             \SI{1e20}{}$, $t = \SI{1}{s}$.
 	\end{enumerate}
 \end{NCdefi}
+
+\begin{NCprop}{Résultats attendus}
+    Les trois questions de l'exercice donnent une grandeur électrique et
+    attendent de vous le calcul d'une grandeur inconnue. Il va donc falloir
+    utiliser les formules précédentes pour exprimer la grandeur inconnue en
+    fonction des données du problème.
+\end{NCprop}
 
 \begin{NCdemo}{Outil du cours : intensité électrique}
     L'intensité électrique est une grandeur physique décrivant la quantité de
@@ -217,120 +219,175 @@ par les formules \ref{eq:1.1.intensite} et \ref{eq:1.1.charge}.
 \subsection{}
 Sur le circuit ci-dessous, on a indiqué le sens de circulation des électrons,
 donc des potentiels les plus bas vers les plus hauts.
-	\begin{figure}[h!]
-		\centering{
-		\begin{circuitikz}
-			\draw (0,2) node {$\bullet$} to[R = \raisebox{-.5cm}{$R_1$}, i<^=$e^-$]
-			(3,2) node {$\bullet$} to[R = \raisebox{-0.5cm}{$R$}, i<_=$e^-$]
-			(6,2) node {$\bullet$} to[R = \raisebox{-0.5cm}{$R_3$}, i<_=$e^-$]
-			(9,2) node {$\bullet$} to[R = \shifttext{-1.15cm}{$R_2$}, i<^=$e^-$]
-			(9,0) node {$\bullet$} to[short, i<^=$e^-$]
-			(6,0) node {$\bullet$} to[short, i<^=$e^-$]
-			(3,0) node {$\bullet$} to[short, i<^=$e^-$]
-			(0,0) node {$\bullet$}
-			;
-			\draw (3,2) to[R = \shifttext{-0.9cm}{$r$}, i^<=$e^-$] (3,0);
-			\draw (6,2) to[R = \shifttext{-1.cm}{$r_2$}, i^<=$e^-$] (6,0);
-			\node[above left] (A) at (0,2) {A, $5.0\,$V};
-			\node[above] (B) at (3,2) {B, $3.0\,$V};
-			\node[above] (C) at (6,2) {C, $2.5\,$V};
-			\node[above right] (D) at (9,2) {D, $x\,$V};
-			\node[below right] (E) at (9,0) {E};
-			\node[below] (F) at (6,0) {F};
-			\node[below] (G) at (3,0) {G};
-			\node[below left] (H) at (0,0) {H, $1.0\,$V};
-		\end{circuitikz}
-		}
-	\end{figure}
+\begin{figure}[h!]
+    \begin{center}
+        \begin{circuitikz}
+	        \draw (0,2) node {$\bullet$} to[R = \raisebox{-.5cm}{$R_1$}, i<^=$e^-$]
+	        (3,2) node {$\bullet$} to[R = \raisebox{-0.5cm}{$R$}, i<_=$e^-$]
+	        (6,2) node {$\bullet$} to[R = \raisebox{-0.5cm}{$R_3$}, i<_=$e^-$]
+	        (9,2) node {$\bullet$} to[R = \shifttext{-1.15cm}{$R_2$}, i<^=$e^-$]
+	        (9,0) node {$\bullet$} to[short, i<^=$e^-$]
+	        (6,0) node {$\bullet$} to[short, i<^=$e^-$]
+	        (3,0) node {$\bullet$} to[short, i<^=$e^-$]
+	        (0,0) node {$\bullet$};
+	        \draw (3,2) to[R = \shifttext{-0.9cm}{$r$}, i^<=$e^-$] (3,0);
+	        \draw (6,2) to[R = \shifttext{-1.cm}{$r_2$}, i^<=$e^-$] (6,0);
+            \node[above] (A) at (0,2) {A};
+            \node[below] at (0,2) {$ \SI{5.0}{V}$};
+            \node[above] (B) at (3,2) {B};
+            \node[below left] at (3,2) {$ \SI{3.0}{V}$};
+            \node[above] (C) at (6,2) {C};
+            \node[below left]at (6,2) {$ \SI{2.5}{V}$};
+            \node[above] (D) at (9,2) {D};
+            \node[right]at (9,2) {$ \SI{x}{V}$};
+            \node[below] (E) at (9,0) {E};
+            \node[below] (F) at (6,0) {F};
+            \node[below] (G) at (3,0) {G};
+            \node[below] (H) at (0,0) {H};
+            \node[above]at (0,0) {$ \SI{1.0}{V}$};
+        \end{circuitikz}
+    \end{center}
+\end{figure}
 \subsection{}
 Sur le circuit suivant, on a indiqué le sens conventionnel du courant positif, donc des hauts potentiels vers les bas.
-		\begin{figure}[h!]
-		\centering{
-			\begin{circuitikz}
-				\draw (0,2) node {$\bullet$} to[R = \raisebox{-.5cm}{$R_1$}, i>^=$I>0$]
-				(3,2) node {$\bullet$} to[R = \raisebox{-0.5cm}{$R$}, i>_=$I>0$]
-				(6,2) node {$\bullet$} to[R = \raisebox{-0.5cm}{$R_3$}, i>_=$I>0$]
-				(9,2) node {$\bullet$} to[R = \shifttext{-1.15cm}{$R_2$}, i>^=$I>0$]
-				(9,0) node {$\bullet$} to[short, i>^=$I>0$]
-				(6,0) node {$\bullet$} to[short, i>^=$I>0$]
-				(3,0) node {$\bullet$} to[short, i>^=$I>0$]
-				(0,0) node {$\bullet$}
-				;
-				\draw (3,2) to[R = \shifttext{-0.9cm}{$r$}, i^>=$I>0$] (3,0);
-				\draw (6,2) to[R = \shifttext{-1.cm}{$r_2$}, i^>=$I>0$] (6,0);
-				\node[above left] (A) at (0,2) {A, $5.0\,$V};
-				\node[above] (B) at (3,2) {B, $3.0\,$V};
-				\node[above] (C) at (6,2) {C, $2.5\,$V};
-				\node[above right] (D) at (9,2) {D, $x\,$V};
-				\node[below right] (E) at (9,0) {E};
-				\node[below] (F) at (6,0) {F};
-				\node[below] (G) at (3,0) {G};
-				\node[below left] (H) at (0,0) {H, $1.0\,$V};
+\begin{figure}[h!]
+    \begin{center}
+        \begin{circuitikz}
+            \draw (0,2) node {$\bullet$} to[R = \raisebox{-.5cm}{$R_1$}, i>^=$I>0$]
+            (3,2) node {$\bullet$} to[R = \raisebox{-0.5cm}{$R$}, i>_=$I>0$]
+            (6,2) node {$\bullet$} to[R = \raisebox{-0.5cm}{$R_3$}, i>_=$I>0$]
+            (9,2) node {$\bullet$} to[R = \shifttext{-1.15cm}{$R_2$}, i>^=$I>0$]
+            (9,0) node {$\bullet$} to[short, i>^=$I>0$]
+            (6,0) node {$\bullet$} to[short, i>^=$I>0$]
+            (3,0) node {$\bullet$} to[short, i>^=$I>0$]
+            (0,0) node {$\bullet$};
+            \draw (3,2) to[R = \shifttext{-0.9cm}{$r$}, i^>=$I>0$] (3,0);
+            \draw (6,2) to[R = \shifttext{-1.cm}{$r_2$}, i^>=$I>0$] (6,0);
+            \node[above left] (A) at (0,2) {A};
+            \node[below] at (0,2) {$ \SI{5.0}{V}$};
+            \node[above] (B) at (3,2) {B};
+            \node[below left] at (3,2) {$ \SI{3.0}{V}$};
+            \node[above] (C) at (6,2) {C};
+            \node[below left]at (6,2) {$ \SI{2.5}{V}$};
+            \node[above] (D) at (9,2) {D};
+            \node[right]at (9,2) {$ \SI{x}{V}$};
+            \node[below] (E) at (9,0) {E};
+            \node[below] (F) at (6,0) {F};
+            \node[below] (G) at (3,0) {G};
+            \node[below] (H) at (0,0) {H};
+            \node[above]at (0,0) {$ \SI{1.0}{V}$};
 			\end{circuitikz}
-		}
-	\end{figure}
+    \end{center}
+\end{figure}
 \subsection{}
-L'analogie de l'altitude pour les potentiels électriques nous donne une intuition pour la valeur du potentiel au point D : ce potentiel doit être compris "entre" ceux des points C et E, car aucune source extérieure ne peut permettre de relever ou d'abaisser artificiellement le point D. Par exemple, $x = 2.0\,$V.
+L'analogie de l'altitude pour les potentiels électriques nous donne une
+intuition pour la valeur du potentiel au point D : ce potentiel doit être
+compris « entre » ceux des points C et E, car aucune source extérieure ne peut
+permettre de relever ou d'abaisser artificiellement le point D. Par exemple, $x
+= \SI{2.0}{V}$.
+
 \subsection{}
 Sur le circuit ci-dessous, nous avons fléché les tensions en question.
-	\begin{figure}[h!]
-		\centering{
-			\begin{circuitikz}
-				\draw (0,2) node {$\bullet$} to[R = \raisebox{-.5cm}{$R_1$}, v_<=$U_{\rm AB}$]
-				(3,2) node {$\bullet$} to[R = \raisebox{-0.5cm}{$R$}, v_>=$U_{\rm CB}$]
-				(6,2) node {$\bullet$} to[R = \raisebox{-0.5cm}{$R_3$}]
-				(9,2) node {$\bullet$} to[R = \shifttext{-1.15cm}{$R_2$}]
-				(9,0) node {$\bullet$} to[short]
-				(6,0) node {$\bullet$} to[short, v^<=$U_{\rm FG}$]
-				(3,0) node {$\bullet$} to[short]
-				(0,0) node {$\bullet$}
-				;
-				\draw (3,2) to[R = \shifttext{-0.9cm}{$r$}, v^<=$U_{\rm BG}$] (3,0);
-				\draw (6,2) to[R = \shifttext{-1.cm}{$r_2$}, v^<=$U_{\rm CF}$] (6,0);
-				\node[above left] (A) at (0,2) {A, $5.0\,$V};
-				\node[above] (B) at (3,2) {B, $3.0\,$V};
-				\node[above] (C) at (6,2) {C, $2.5\,$V};
-				\node[above right] (D) at (9,2) {D, $x\,$V};
-				\node[below right] (E) at (9,0) {E};
-				\node[below] (F) at (6,0) {F};
-				\node[below] (G) at (3,0) {G};
-				\node[below left] (H) at (0,0) {H, $1.0\,$V};
-				\draw[->,red] (C) -- (E) node[midway, above] {$U \St{EC}$};
-				\draw[->,red] (H) -- (C) node[midway, above] {$U \St{CH}$};
-				\draw[->,red] (E) -- (A) node[midway, below] {$U_{\rm AE}$};
-			\end{circuitikz}
-		}
-	\end{figure}
-	Ces tensions se calculent par différence de potentiel : $U_{\rm AB} = V_{\rm A} - V_{\rm B} = 2.0\,$V, $U_{\rm FG} = 0\,$V, $U_{\rm BG} = 2.0\,$V, $U_{\rm CB} = -0.5\,$V, $U_{\rm CF} = 1.5\,$V, $U_{\rm EC} = -1.5\,V$, $U_{\rm CH} = 1.5\,$V et $U_{\rm AE} = 4.0\,$V.
+\begin{figure}[h!]
+    \begin{center}
+        \begin{circuitikz}
+            \draw (0,2) node {$\bullet$} coordinate (Au)
+            to[R = \raisebox{-.5cm}{$R_1$}, v_<=$U_\text{AB}$]
+            (3,2) node {$\bullet$} to[R = \raisebox{-0.5cm}{$R$}, v_>=$U_{\rm CB}$]
+            (6,2) node {$\bullet$} coordinate (Cu) to[R = \raisebox{-0.5cm}{$R_3$}]
+            (9,2) node {$\bullet$} to[R = \shifttext{-1.15cm}{$R_2$}]
+            (9,0) node {$\bullet$} coordinate (Eu) to[short]
+            (6,0) node {$\bullet$} to[short, v^<=$U_\text{FG}$]
+            (3,0) node {$\bullet$} to[short]
+            (0,0) node {$\bullet$} coordinate (Hu);
+            \draw (3,2) to[R = \shifttext{-0.9cm}{$r$}, v^<=$U_\text{BG}$] (3,0);
+            \draw (6,2) to[R = \shifttext{-1.cm}{$r_2$}, v^<=$U_\text{CF}$] (6,0);
+            \node[above] (A) at (0,2) {A};
+            \node[below] at (0,2) {$ \SI{5.0}{V}$};
+            \node[above] (B) at (3,2) {B};
+            \node[below left] at (3,2) {$ \SI{3.0}{V}$};
+            \node[above] (C) at (6,2) {C};
+            \node[below left]at (6,2) {$ \SI{2.5}{V}$};
+            \node[above] (D) at (9,2) {D};
+            \node[below right]at (9,2) {$ \SI{x}{V}$};
+            \node[below] (E) at (9,0) {E};
+            \node[below] (F) at (6,0) {F};
+            \node[below] (G) at (3,0) {G};
+            \node[below] (H) at (0,0) {H};
+            \node[above]at (0,0) {$ \SI{1.0}{V}$};
+            \draw[->, red!70, >=latex, dashed] (Cu) -- (Eu)
+                node[midway, sloped, above] {$U_\text{EC}$};
+            \draw[->, red!70, >=latex, dashed] (Hu) -- (Cu)
+                node[midway, above] {$U_\text{CH}$};
+            \draw[->, red!70, >=latex, dashed] (Eu) -- (Au)
+                node[midway, below] {$U_\text{AE}$};
+        \end{circuitikz}
+\end{center}
+\end{figure}
+Ces tensions se calculent par différence de potentiel :
+
+\begin{minipage}{0.5\linewidth}
+    \begin{itemize}
+        \item $U_{\rm AB} = V_{\rm A} - V_{\rm B} = \SI{2.0}{V}$ ;
+        \item $U_{\rm FG} = \SI{0}{V}$ ;
+        \item $U_{\rm BG} = \SI{2.0}{V}$ ;
+        \item $U_{\rm CB} = \SI{-0.5}{V}$ ;
+    \end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+    \begin{itemize}
+        \item $U_{\rm CF} = \SI{1.5}{V}$ ;
+        \item $U_{\rm EC} = \SI{1.5}{V}$ ;
+        \item $U_{\rm CH} = \SI{1.5}{V}$ ;
+        \item $U_{\rm AE} = \SI{4.0}{V}$.
+    \end{itemize}
+\end{minipage}
+
 \subsection{}
-	\begin{NCdemo}{Outils du cours}
-		Une tension peut être difficile à calculer au premier coup d'{\oe}il. Dans ces cas-là, il peut être utile d'utiliser des points intermédiaires dont on connaît le potentiel, c'est une forme de composition des vecteurs. Par exemple, la tension $U_{\rm AB}$ entre B et A peut être décomposée à l'aide d'un point tiers, C, par la formule $U_{\rm AB} = U_{\rm AC} + U_{\rm CB}$. On peut le démontrer facilement en remplaçant les tensions par des différences de potentiel.
-	\end{NCdemo}
-	\begin{NCexem}{Application}
-		\begin{itemize}
-			\item $U_{\rm AG} = U_{\rm AB} + U_{\rm BG}$
-			\item $U_{\rm AD} = U_{\rm AB} + U_{\rm BD}$
-		\end{itemize}
-	\end{NCexem}
+\begin{NCdemo}{Outils du cours}
+    Une tension peut être difficile à calculer au premier coup d'œil. Dans
+    ces cas-là, il peut être utile d'utiliser des points intermédiaires dont on
+    connaît le potentiel, c'est une forme de composition des vecteurs. Par
+    exemple, la tension $U_{\rm AB}$ entre B et A peut être décomposée à l'aide
+    d'un point tiers, C, par la formule $U_{\rm AB} = U_{\rm AC} + U_{\rm CB}$.
+    On peut le démontrer facilement en remplaçant les tensions par des
+    différences de potentiel.
+\end{NCdemo}
+
+\begin{NCexem}{Application}
+    \begin{itemize}
+        \item $U_{\rm AG} = U_{\rm AB} + U_{\rm BG}$
+        \item $U_{\rm AD} = U_{\rm AB} + U_{\rm BD}$
+    \end{itemize}
+\end{NCexem}
+
 \subsection{}
-Les points E, F, G et H sont reliés par des fils, sans dipôles intermédiaires. Ils sont donc au même potentiel.
-\begin{impo}{Potentiel dans un circuit}
-	\label{def:potentiel}
-	Dans un circuit, tous les points reliés par des fils sans dipôles intermédiaires sont au même potentiel. Ils sont en fait considérés comme un seul point dans un circuit. Il peut être utile de se servir de cette propriété pour redessiner un circuit sous une forme plus simple.
+Les points E, F, G et H sont reliés par des fils, sans dipôles intermédiaires.
+Ils sont donc au même potentiel ; on appelle de tels points des points
+\underline{equipotentiels}.
+
+\begin{impo}{Potentiel dans un circuit}\label{def:potentiel}
+    Dans un circuit, tous les points reliés par des fils sans dipôles
+    intermédiaires sont au même potentiel. Ils sont en fait considérés comme un
+    seul point dans un circuit. Il peut être utile de se servir de cette
+    propriété pour redessiner un circuit sous une forme plus simple.
 \end{impo}
 
 \section{Schématisation}
 
 \begin{defi}{Résistances équivalentes et associations de résistances}
-	Très souvent, un circuit électrique contient de nombreuses résistances. Ces résistances peuvent être :
+    Très souvent, un circuit électrique contient de nombreuses résistances. Ces
+    résistances peuvent être :
 	\begin{itemize}
-		\item en série : elles sont sur une même branche, aucune branche tierce ne part du point qui les sépare
+        \item en série : elles sont sur une même branche, aucune branche tierce
+            ne part du point qui les sépare
 			\begin{circuitikz}
 				\draw (0,0) node {$\bullet$} to[R = \raisebox{-0.5cm}{$R_1$}]
 				(2,0) to[R = \raisebox{-0.5cm}{$R_2$}]
 				(4,0) node {$\bullet$};
 			\end{circuitikz}
-		\item en dérivation : elles sont situées sur deux branches connectées à leurs extrémités
+        \item en dérivation : elles sont situées sur deux branches connectées à
+            leurs extrémités
 			\begin{circuitikz}
 				\draw (0,0) node {$\bullet$} --
 				(1,0) --
@@ -344,23 +401,30 @@ Les points E, F, G et H sont reliés par des fils, sans dipôles intermédiaires
 				(3,0);
 			\end{circuitikz}
 	\end{itemize}
-	On note symboliquement que deux résistances sont en série par $R_1 + R_2$, elles sont alors équivalentes à une seule résistance de valeur :
+    On note symboliquement que deux résistances sont en série par $R_1 + R_2$,
+    elles sont alors équivalentes à une seule résistance de valeur :
 	\begin{equation}
 		R_{\rm série} = R_1 + R_2
 	\end{equation}
-	On note symboliquement que deux résistances sont en dérivation par $R_1 // R_2$, elles sont alors équivalentes à une seule résistance de valeur :
+    On note symboliquement que deux résistances sont en dérivation par $R_1 \parr 
+    R_2$, elles sont alors équivalentes à une seule résistance de valeur :
 	\begin{equation}
 		R_{\rm dérivation} = \dfrac{R_1\times R_2}{R_1 + R_2}
 	\end{equation}
 \end{defi}
 
 \begin{NCcoro}{Conseils}
-	Lors de la transformation d'une formule symbolique d'une association de résistance en schéma, il est conseillé de commencer par les parenthèses les plus intérieures, puis d'ajouter les éléments en allant vers l'extérieur des parenthèses. Comme pour la multiplication $\times$ et l'addition $+$, le symbole $//$ est prioritaire devant le symbole $+$. N'oubliez pas les branches de sortie afin de définir explicitement quel est le dipôle final.
+    Lors de la transformation d'une formule symbolique d'une association de
+    résistance en schéma, il est conseillé de commencer par les parenthèses les
+    plus intérieures, puis d'ajouter les éléments en allant vers l'extérieur des
+    parenthèses. Comme pour la multiplication $\times$ et l'addition $+$, le
+    symbole $\parr $ est prioritaire devant le symbole $+$. N'oubliez pas les
+    branches de sortie afin de définir explicitement quel est le dipôle final.
 \end{NCcoro}
 
 \begin{NCexem}{Application}
 	\begin{itemize}
-		\item $[(R+r)//(r+r_2)]+r_1$ :\\[-0.5cm]
+		\item $[(R+r)\parr (r+r_2)]+r_1$ :\\[-0.5cm]
 		\begin{center}
 			\begin{circuitikz}
 				\draw (0.5,0) node {$\bullet$} --
@@ -377,7 +441,7 @@ Les points E, F, G et H sont reliés par des fils, sans dipôles intermédiaires
 				(5,0);
 			\end{circuitikz}
 		\end{center}
-		\item $\{ [ (R//r)+r_1 ]//(r + r_2) \} + (r_1//R)$ :\\[-0.5cm]
+		\item $\{ [ (R\parr r)+r_1 ]\parr (r + r_2) \} + (r_1\parr R)$ :\\[-0.5cm]
 		\begin{center}
 			\begin{circuitikz}
 				\draw (0,0) node {$\bullet$} --
@@ -415,17 +479,31 @@ Les points E, F, G et H sont reliés par des fils, sans dipôles intermédiaires
 \section{Association de résistances}
 
 \begin{NCcoro}{Conseils}
-	Dans cet exercice, on va exprimer la résistance équivalente d'un circuit, symboliquement, à l'aide des signes $//$ et $+$. Le plus simple est de procéder par étapes afin d'identifier les couples de résistances en série et en dérivation, et de les remplacer par leur résistance équivalente. Pour ce faire, on se rappelle que d'après la définition \ref{def:potentiel}, on peut déplacer les points le long de fils tant qu'on ne traverse pas de dipôle.
+    Dans cet exercice, on va exprimer la résistance équivalente d'un circuit,
+    symboliquement, à l'aide des signes $\parr $ et $+$. Le plus simple est de
+    procéder par étapes afin d'identifier les couples de résistances en série et
+    en dérivation, et de les remplacer par leur résistance équivalente. Pour ce
+    faire, on se rappelle que d'après la définition \ref{def:potentiel}, on peut
+    déplacer les points le long de fils tant qu'on ne traverse pas de dipôle.
 \end{NCcoro}
 
 \subsection{}
 
 \begin{itemize}
-				\item Dans le schéma 1, $R_1$ et $R$ ne sont ni en série ni en dérivation, il y a un n{\oe}ud entre les deux, qui part sur une autre branche. $r$ et $r_2$ ne sont pas en parallèle, il y a une résistance ($R$) sur la branche transverse. $R_2$ et $R$ : aucun. $R_3$ et $r_2$ : aucun. $R_3$ et $R_2$ sont en série.
-				\item Dans le schéma 2, $R_1$ et $R$ : aucun. $r$ et $r_2$ : aucun. $R_3$ et $r_2$ sont en parallèle, ce qui est bien visible si on déplace le point B en bas à gauche du schéma.
-				\item Dans le schéma 3, $R_1$ et $R$ sont en série. $R_2$ et $R$ : aucun. $r$ et $r^\prime$ sont en parallèle, si on prend les deux résistances en bas à gauche du schéma.
-			\end{itemize}
-\subsection{}
+    \item Dans le schéma 1, $R_1$ et $R$ ne sont ni en série ni en dérivation,
+        il y a un nœud entre les deux, qui part sur une autre branche. $r$
+        et $r_2$ ne sont pas en parallèle, il y a une résistance ($R$) sur la
+        branche transverse. $R_2$ et $R$ : aucun. $R_3$ et $r_2$ : aucun. $R_3$
+        et $R_2$ sont en série.
+    \item Dans le schéma 2, $R_1$ et $R$ : aucun. $r$ et $r_2$ : aucun. $R_3$ et
+        $r_2$ sont en parallèle, ce qui est bien visible si on déplace le point
+        B en bas à gauche du schéma.
+    \item Dans le schéma 3, $R_1$ et $R$ sont en série. $R_2$ et $R$ : aucun.
+        $r$ et $r^\prime$ sont en parallèle, si on prend les deux résistances en
+        bas à gauche du schéma.
+\end{itemize}
+
+\subsection{Schéma 1}
 On va faire en détails le cas du schéma 1.
 	\begin{center}
 		\begin{circuitikz}
@@ -460,7 +538,7 @@ On va faire en détails le cas du schéma 1.
 			\node[left] (B) at (0,-2) {B};
 		\end{circuitikz}
 	\end{center}
-	Maintenant, on voit que $r_2$ et $R_{\rm eq,1}$ sont en parallèle. On les remplace par la résistance équivalente $R_{\rm eq,2} = r_2 // R_{\rm eq,1}$. Le nouveau schéma est :
+	Maintenant, on voit que $r_2$ et $R_{\rm eq,1}$ sont en parallèle. On les remplace par la résistance équivalente $R_{\rm eq,2} = r_2 \parr  R_{\rm eq,1}$. Le nouveau schéma est :
 	\begin{center}
 		\begin{circuitikz}
 			\draw (0,0) node {$\bullet$} to[R = \raisebox{-0.5cm}{$R_1$}]
@@ -488,7 +566,7 @@ On va faire en détails le cas du schéma 1.
 			\node[left] (B) at (0,-2) {B};
 		\end{circuitikz}
 	\end{center}
-	$r$ et $R_{\rm eq,3}$ sont en parallèle, on les remplace par $R_{\rm eq,4} = r // R_{\rm eq,3}$ :
+	$r$ et $R_{\rm eq,3}$ sont en parallèle, on les remplace par $R_{\rm eq,4} = r \parr  R_{\rm eq,3}$ :
 	\begin{center}
 		\begin{circuitikz}
 			\draw (0,0) node {$\bullet$} to[R = \raisebox{-0.5cm}{$R_1$}]
@@ -500,28 +578,354 @@ On va faire en détails le cas du schéma 1.
 	\end{center}
 	$R_1$ et $R_{\rm eq,4}$ sont en série. La résistance totale entre A et B est :
 	\begin{align}
-		R_{\rm eq} &= R_1 + R_{\rm eq,4} \nonumber \\ &= R_1 + (r//R_{\rm eq,3}) \nonumber \\
-		&= R_1 + (r//[R + R_{\rm eq,2}]) \nonumber \\
-		&= R_1 + (r//[R + \{ r_2 // R_{\rm eq,1} \}]) \nonumber \\
-		&= R_1 + (r//[R + \{ r_2 // (R_3 + R_2) \}]) \label{eq:1.4.1}
+		R_{\rm eq} &= R_1 + R_{\rm eq,4} \nonumber \\ &= R_1 + (r\parr R_{\rm eq,3}) \nonumber \\
+		&= R_1 + (r\parr [R + R_{\rm eq,2}]) \nonumber \\
+		&= R_1 + (r\parr [R + \{ r_2 \parr  R_{\rm eq,1} \}]) \nonumber \\
+		&= R_1 + (r\parr [R + \{ r_2 \parr  (R_3 + R_2) \}]) \label{eq:1.4.1}
 	\end{align}
 
-    Une fois ce calcul terminé, on peut vérifier par le chemin inverse que la
-    schématisation de la résistance équivalente \ref{eq:1.4.1} donne bien le
-    schéma de départ.
+Une fois ce calcul terminé, on peut vérifier par le chemin inverse que la
+schématisation de la résistance équivalente \ref{eq:1.4.1} donne bien le schéma
+de départ.
+
+\setcounter{subsection}{1}
+\subsection{Schéma 2}
+
+On part du schéma suivant :
+\begin{center}
+    \begin{circuitikz}[scale=1]
+        \draw (0,0) node {$\bullet$} to[R=\raisebox{-.5cm}{$R_1$}]
+        (2,0) to[R=\raisebox{-.5cm}{$R$}]
+        (4,0) to[R=\raisebox{-.5cm}{$R_3$}]
+        (6,0) node {$\bullet$} --
+        (6,-2) --
+        (2,-2) to[R=\raisebox{.4cm}{$R'$}]
+        (0,-2) --
+        (0,0)
+        ;
+        \draw[] (2,0) to[R=\shifttext{-1cm}{$r$}]
+        (2,-2);
+        \draw[] (4,0) to[R=\shifttext{-1cm}{$r_{2}$}]
+        (4,-2);
+        \node[left] (A) at (0,0) {A};
+        \node[right] (B) at (6,0) {B};
+    \end{circuitikz}
+\end{center}
+Comme on l'a vu, en déplaçant le point B en bas à droite du schéma (ce qu'on
+peut faire parce que c'est le même fil, ils sont équipotentiels), on fait
+apparaître que $R_3$ et $r_2$ sont en parallèle :
+
+\begin{center}
+    \begin{circuitikz}[scale=1]
+        \draw (0,0) node {$\bullet$} to[R=\raisebox{-.5cm}{$R_1$}]
+        (2,0) to[R=\raisebox{-.5cm}{$R$}]
+        (4,0) --
+        (6,0) to[R=\shifttext{-1.15cm}{$R_3$}]
+        (6,-2) node {$\bullet$} --
+        (2,-2) to[R=\raisebox{.4cm}{$R'$}]
+        (0,-2) --
+        (0,0)
+        ;
+        \draw[] (2,0) to[R=\shifttext{-1cm}{$r$}]
+        (2,-2);
+        \draw[] (4,0) to[R=\shifttext{-1cm}{$r_{2}$}]
+        (4,-2);
+        \node[left] (A) at (0,0) {A};
+        \node[right] (B) at (6,-2) {B};
+    \end{circuitikz}
+\end{center}
+
+On peut donc les remplacer par la résistance équivalente $R_{eq,1}$ telle que
+$R_{eq,1} = r_2\parr R_3$ :
+
+\begin{center}
+    \begin{circuitikz}[scale=1]
+        \draw (0,0) node {$\bullet$} to[R=\raisebox{-.5cm}{$R_1$}]
+        (2,0) to[R=\raisebox{-.5cm}{$R$}]
+        (4,0) to[R=\shifttext{-1.15cm}{$R_{eq,1}$}]
+        (4,-2) node {$\bullet$} --
+        (2,-2) to[R=\raisebox{.4cm}{$R'$}]
+        (0,-2) --
+        (0,0)
+        ;
+        \draw[] (2,0) to[R=\shifttext{-1cm}{$r$}]
+        (2,-2);
+        \node[left] (A) at (0,0) {A};
+        \node[right] (B) at (4,-2) {B};
+    \end{circuitikz}
+\end{center}
+
+Pendant ce procédé, on fait bien attention à \underline{conserver le point B}.
+On a alors un schéma où $R$ et $R_{eq,1}$ sont en série, et on peut les
+remplacer par $R_{eq,2} = R + R_{eq,1}$ :
+
+\begin{center}
+    \begin{circuitikz}[scale=1]
+        \draw (0,0) node {$\bullet$} to[R=\raisebox{-.5cm}{$R_1$}]
+        (2,0) --
+        (4,0) to[R=\shifttext{-1.15cm}{$R_{eq,2}$}]
+        (4,-2) node {$\bullet$} --
+        (2,-2) to[R=\raisebox{.4cm}{$R'$}]
+        (0,-2) --
+        (0,0)
+        ;
+        \draw[] (2,0) to[R=\shifttext{-1cm}{$r$}]
+        (2,-2);
+        \node[left] (A) at (0,0) {A};
+        \node[right] (B) at (4,-2) {B};
+    \end{circuitikz}
+\end{center}
+
+On a encore une fois un association en parallèle, et on définit $R_{eq,3} = r
+\parr R_{eq,2}$ :
+
+\begin{center}
+    \begin{circuitikz}[scale=1]
+        \draw (0,0) node {$\bullet$} to[R=\raisebox{-.5cm}{$R_1$}]
+        (2,0) to[R=\shifttext{-1.15cm}{$R_{eq,3}$}]
+        (2,-2) node {$\bullet$} to[R=\raisebox{.4cm}{$R'$}]
+        (0,-2) --
+        (0,0)
+        ;
+        \node[left] (A) at (0,0) {A};
+        \node[right] (B) at (2,-2) {B};
+    \end{circuitikz}
+\end{center}
+
+C'est à partir de là que l'on voit l'importance de conserver le point B sur le
+schéma. En effet, l'énoncé nous demande de déterminer la résistance équivalente
+entre les points A et B ; si l'on faisait la mesure avec un Ohmmètre, on
+mettrait bien un fil de A à B, sans pouvoir faire disparaître l'un des deux
+points à l'intérieur d'une résistance équivalente. En l'occurrence, bien que
+\underline{techniquement} $R'$ et $R_{eq,3}$ soient en série, la présence du
+point B \textit{quand on calcule la résistance équivalente} revient à ce que B
+soit un nœud (duquel partirait un câble qui va à un Ohmmètre). On ne peut donc
+que simplifier le schéma pour faire apparaître $R_{eq,4} = R_1 + R_{eq,3}$ :
+
+\begin{center}
+    \begin{circuitikz}[scale=1]
+        \draw (0,0) node {$\bullet$} --
+        (2,0) to[R=\shifttext{-1.15cm}{$R_{eq,4}$}]
+        (2,-2) node {$\bullet$} --
+        (0,-2) to[R=\shifttext{1.15cm}{$R'$}]
+        (0,0)
+        ;
+        \node[left] (A) at (0,0) {A};
+        \node[right] (B) at (2,-2) {B};
+    \end{circuitikz}
+\end{center}
+
+On a ainsi déterminé que la dernière association à faire est celle de $R'$ avec
+$R_{eq,4}$ pour obtenir la résistance équivalente finale $R_{eq}$ :
+
+\begin{center}
+    \begin{circuitikz}
+        \draw (0,0) node {$\bullet$} to[R=\raisebox{-.5cm}{$R_{eq}$}]
+        (2,0) node {$\bullet$}
+        ;
+        \node[left] (A) at (0,0) {A};
+        \node[right] (B) at (2,0) {B};
+    \end{circuitikz}
+\end{center}
+
+On a alors
+
+\begin{align*}
+    R_{eq} &= R' \parr R_{eq,4}\\
+           &= R' \parr \left( R_1 + R_{eq,3} \right)\\
+           &= R' \parr \left( R_1 + \left[ r \parr R_{eq,2} \right] \right)\\
+           &= R' \parr \left( R_1 + \left[ r \parr \left\{ R + R_{eq,1} \right\}
+           \right] \right)\\
+           &= R' \parr \left( R_1 + \left[ r \parr \left\{ R + \left( r_2 \parr
+           R_3\right) \right\} \right] \right)\\
+\end{align*}
+
+\setcounter{subsection}{1}
+\subsection{Schéma 3}
+
+On part du schéma suivant :
+
+\begin{center}
+    \begin{circuitikz}
+        \draw (0,0) node {$\bullet$} to[R=\raisebox{-.5cm}{$r$}]
+        (2,0) node[above right=10, inner sep=0] (C) {} --
+        (2,-3) node[below right=10, inner sep=0] (F) {} to[R=\raisebox{.5cm}{$r'$}]
+        (0,-3) node {$\bullet$} --
+        (0,-1.5) to[R=\raisebox{-.5cm}{$r$}]
+        (2,-1.5)
+        ;
+        \draw[] (2,0) to[R=\raisebox{-.5cm}{$R'$}]
+        (4,0) to[R=\shifttext{-1.15cm}{$R$}]
+        (4,-1.5) to[R=\shifttext{-1.15cm}{$R_1$}]
+        (4,-3);
+        \draw[] (4,0) --
+        (6,0) node[above right=10, inner sep=0] (D) {} to[R=\shifttext{-1.15cm}{$R_2$}]
+        (6,-1.5) to[R=\shifttext{-1cm}{$r$}]
+        (6,-3) node[below right=10, inner sep=0] (E) {} --
+        (2,-3);
+        \node[left] (A) at (0,0) {A};
+        \node[left] (B) at (0,-3) {B};
+        \draw[dashed, orange!70] (C) -- (D) -- (E) -- (F) -- (C);
+        \node[above left=2, inner sep=0] (Cg) at (2,0) {};
+        \node[above right=2, inner sep=0] (Cd) at (2,0) {};
+        \node[below left=2, inner sep=0] (Fg) at (2,-3) {};
+        \node[below right=2, inner sep=0] (Fd) at (2,-3) {};
+        \draw[dashed, ForestGreen] (Cg) -- (Cd) -- (Fd) -- (Fg) -- (Cg);
+    \end{circuitikz}
+\end{center}
+
+Or, la partie encadrée en tirets oranges est court-circuitée par la partie
+encadrée en tirets vert : le schéma équivalent se réduit directement à
+
+\begin{center}
+    \begin{circuitikz}
+        \draw (0,0) node {$\bullet$} to[R=\raisebox{-.5cm}{$r$}]
+        (2,0) --
+        (2,-3) to[R=\raisebox{.5cm}{$r'$}]
+        (0,-3) node {$\bullet$} --
+        (0,-1.5) to[R=\raisebox{-.5cm}{$r$}]
+        (2,-1.5)
+        ;
+        \node[left] (A) at (0,0) {A};
+        \node[left] (B) at (0,-3) {B};
+    \end{circuitikz}
+\end{center}
+
+On remarque qu'on peut faire l'association en parallèle de $r$ et $r'$ :
+
+\begin{center}
+    \begin{circuitikz}
+        \draw (0,0) node {$\bullet$} to[R=\raisebox{-.5cm}{$r$}]
+        (2,0) --
+        (2,-2) to[R=\raisebox{.5cm}{$R_{eq,1}$}]
+        (0,-2) node {$\bullet$}
+        ;
+        \node[left] (A) at (0,0) {A};
+        \node[left] (B) at (0,-2) {B};
+    \end{circuitikz}
+\end{center}
+
+Et on obtient donc \begin{circuitikz}
+    \draw (0,0) node {$\bullet$} node[left] {A} to[R=\raisebox{-.5cm}{$R_{eq}$}]
+    (2,0) node {$\bullet$} node[right] {B}
+    ;
+\end{circuitikz}
+avec
+
+\begin{align*}
+    R_{eq} = r + \left( r \parr r' \right)
+\end{align*}
+
+\section{Problème : puissance et énerge}
+La philosophie de la résolution de problème, c'est de soi-même établir la
+réflexion « Données/Résultats attendus/Outils » pour la résolution d'un exercice
+de physique. On commence par paramétrer le problème. En l'occurrence, on étudie
+le fonctionnement d'un ascenseur dans un immeuble : on peut naturellement faire
+un schéma. Il faut ensuite déterminer les données pertinentes du sujet, en
+l'occurrence la puissance du système électrique qui doit faire fonctionner
+l'ascenseur doit permettre de soulever à la fois des êtres humains et la cabine
+en elle-même sur plusieurs étages. « Puissance » voulant dire « énergie par
+unité de temps », les données pertinentes vont être l'énergie totale à dépenser
+pour son fonctionnement, et le temps total de fonctionnement.
+
+Pour la partie énergie, on considère donc la masse totale du système à déplacer.
+C'est là que vient la partie résolution de problème : il faut faire une
+proposition. Il n'y a pas de réponse unique à un problème. On peut avoir un
+grand ascenseur qui peut accueillir 6 personnes et qui a donc une cabine plus
+lourde, ou avoir un petit ascenseur avec 2 personnes mais une cage légère. Ce
+qui est important c'est la pertinence de la réflexion établie.
+
+Dans l'exemple corrigé sur Claroline, on a considéré un ascenseur qui déplace
+deux personnes, de poids de $\SI{75}{kg}$, ainsi que la cabine qui a été estimée
+à $\SI{150}{kg}$. Ça paraît faible, mais peu importe, la réflexion est établie ;
+si on veut une mesure plus réaliste, on peut chercher un cahier des charges ou
+des valeurs classiques en ligne.
+
+Ensuite, l'énergie à dépenser dépend de la hauteur sur laquelle on veut déplacer
+cette masse totale. Là il est bon de savoir que dans un immeuble classique, un
+étage fait 3 mètres de haut. Si on veut se déplacer de 4 étages, on va compter
+12 mètres. Dans la formule de l'EPP, la constante est en effet fixe, mais c'est
+nous qui la fixons. Par exemple, je peux dire qu'au rez-de-chaussé, je suis à
+une altitude nulle, et que j'ai une énergie potentielle nulle, donc la constante
+sera 0 tout au long de l'expérience. Au 4ème étage, on aura une EPP de
+
+\[\mathrm{EPP}_\mathrm{4ème} = mgh_\mathrm{immeuble} + 0\]
+
+avec $m= \SI{300}{kg}$, $g= \SI{9.81}{m.s^-2}$ (ou 10.0 si on fait une
+approximation) et $h_\mathrm{immeuble}= \SI{12}{m}$. On aurait pu définir l'EPP
+au rez-de-chaussé en considérant que comme nous ne sommes pas au niveau de la
+mer, on n'a pas une énergie potentielle nulle. À Lyon on a une altitude moyenne
+par rapport à la mer de \SI{237}{m} : on peut considérer qu'au rez-de-chaussé,
+même si on considère l'altitude nulle, on a déjà une EPP de $mgh_\mathrm{mer}$.
+Si c'est le cas, au 4ème étage on aura une EPP de
+
+\[\mathrm{EPP}_\mathrm{4ème} = mgh_\mathrm{immeuble} + mgh_\mathrm{mer}\]
+
+On se permet cela parce que ce qui nous intéresse, c'est la différence d'énergie
+potentielle : dans les deux cas, la différence d'EPP fait bien
+$mgh_\mathrm{immeuble}$. La constante ne sert que de point de référence.
+
+Il reste à déterminer le temps de fonctionnement $t_\mathrm{montée}$ : pour
+cela, on peut chronométrer soi-même le temps de montée dans un ascenseur. Pour 4
+étages, on trouve environ 16 secondes. On se dit que 4 secondes pour un étage
+n'est pas aberrant, compte tenu du temps de démarrage et de décélération, mais
+encore une fois on peut avoir un ascenseur plus rapide ou plus lent. L'important
+c'est d'oser proposer une valeur plausible.
+
+Ainsi, au minimum, la puissance électrique fournie par le système doit être
+capable de fournir exactement la puissance nécessaire à déplacer cette masse
+pendant ce laps de temps, soit
+
+\[P_\mathrm{elec} \geq P_\mathrm{meca} =
+\frac{mgh_\mathrm{immeuble}}{t_\mathrm{montée}}\]
+
+En réalité, il y a toujours des pertes dans les câbles, la dissipation, le
+rendement, et globalement un système électrique (moteur) ne débite mécaniquement
+que 30\% de sa puissance. Autrement dit, si $P_\mathrm{elec}$ est la puissance
+électrique totale de mon système, il n'y a que $0.30\times P_\mathrm{elec}$ qui
+est convertie en énergie mécanique. Encore une fois, ce 30\% est assez
+classique, mais pour le raisonnement on aurait pu dire 80\% (ça n'arrive jamais
+mais on ne peut pas vous en vouloir de ne pas connaître le rendement d'un moteur
+en L1), ou 50\%. En tout cas, c'est cette portion de la puissance électrique qui
+doit permettre de soulever le système, c'est-à-dire $P_\mathrm{meca}$. On
+corrige donc l'équation précédente et on a
+
+\[0.30\times P_\mathrm{elec} = P_\mathrm{meca}\]
+
+Soit, pour conclure,
+
+\[P_\mathrm{elec} = P_\mathrm{meca}/0.30 =
+\frac{mgh_\mathrm{immeuble}}{0.30\times t_\mathrm{montée}}\]
+
+Il ne reste plus qu'à faire l'application numérique :
+
+\[ \boxed{P\mathrm{elec} = \SI{2300}{W}} \]
+
+La source de toute la réflexion est partie de notre capacité à déterminer à la
+fois les données et le résultat attendu. En l'occurrence, c'est la question que
+vous m'avez posée : « comment est on censé trouver une puissance à partir de
+l’énergie potentielle de pesanteur ». La réponse se trouve dans la traduction en
+« maths » du mot français « puissance » : une puissance c'est une énergie
+divisée par un temps. L'intensité électrique est quelque part une puissance :
+c'est une énergie électrique (en coulomb, qui ne sont pas des joules) divisée
+par un temps.
 
 \newpage
 
 %\theendnotes
 
+\begin{center}
+    \Huge Page de tests
+\end{center}
+
 \begin{circuitikz}
     \draw (0,0) node {$\bullet$} to[R=\shifttext{1.15cm}{$R_1$}, i>^=$i_{11}$]
-          (0,4) node {$\bullet$} --
+          (0,4) node {$\bullet$} to[R=\raisebox{-.5cm}{$R_4$}]
           (2,4) node {$\bullet$} to[R=\shifttext{-1.15cm}{$R_2$},
                                     i>^=$i_2$,
                                     v^<=$U_{R_2}$]
           (2,0) node {$\bullet$} to[R=\raisebox{-.5cm}{$R_{40}$}]
-          (4,0) node {$\bullet$} to[V_=$E_3$, i^>=$i_3$] 
+          (4,0) node {$\bullet$} to[V^>=$E_3$, i^>=$i_3$] 
           (4,2) to[R=\shifttext{1.15cm}{$R_3$},
                    v_<=$U_{R_3}$]
           (4,4) node {$\bullet$} --
@@ -534,20 +938,20 @@ On va faire en détails le cas du schéma 1.
     \node[below] (F) at (2,0) {F};
     \node[below right] (G) at (4,0) {G};
     \draw[->] (E) -- (F) node[midway, below] {$U \St{FE}$};
-    \draw[->] (B) -- (A) node[midway, above] {$U \St{AB}$};
+    %\draw[->] (B) -- (A) node[midway, above] {$U \St{AB}$};
     
 \end{circuitikz}
 
 \begin{circuitikz}
     \draw (0,0) to[R=$R_1$]
-    (0,4) to[V=$E_3$, i^>=$i_1$]
+    (0,4) to[V^>=$E_3$, i^>=$i_1$]
     (4,4) to[R=\shifttext{-1.15cm}{$R_2$}, v^<=$U_{R_2}$]
     (4,0)
     ;
 \end{circuitikz}
 
 \begin{circuitikz}
-    \draw (0,0) to[I=$I$]
+    \draw (0,0) to[I^>=$I$]
     (0,2) -- (3,2) node[right] {A}
     (1,2) to[R=\shifttext{-1.15cm}{$R_1$}]
     (1,0)
