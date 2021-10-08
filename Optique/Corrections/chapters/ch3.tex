@@ -1,0 +1,249 @@
+\documentclass[../main/main.tex]{subfiles}
+\begin{document}
+
+\chapter{Instruments d'optique}
+\vspace*{-47pt}
+\begin{center}
+    \Huge Exercices d'application
+\end{center}
+\section{Tracés de rayons avec association de lentilles}
+Les associations de lentilles ne présentent pas de difficultés particulières,
+une fois les techniques de construction maîtrisées (cf. chapitre \ref{ch:O1}).
+
+\subsection{}
+Dans ce premier cas, on doit construire l'image d'un objet \underline{réel} par
+l'association de deux lentilles convergentes. Il suffit pour cela de construire
+l'image de l'objet initial $\ABb$ par la lentille $L_1$, image que l'on appellera
+$\ABa$. C'est cette image qui servira d'objet à la lentille $L_2$, qui en
+formera l'image finale $\ABp$. \bigbreak
+
+On procède donc de la même manière que précédemment, en traçant :
+\begin{enumerate}
+    \item Le rayon passant par $B$ et par $O_1$ : il ne sera pas dévié ;
+    \item Le rayon passant par $B$ et par $F_1$ : il émerge parallèle à
+        l'\ed{A.O.}{axe optique} (optionel quand on est sûr-e de ne pas se
+        tromper avec les deux autres rayons) ;
+    \item Le rayon passant par $B$ et parallèle à l'A.O. : il passe par $F'_1$
+        en sortie.
+\end{enumerate}
+
+On obtient un faisceau \underline{convergent} en sortie de cette lentille,
+l'intersection des rayons se faisant donc dans leur prolongement dans le sens
+positif. $\ABa$ est une \underline{image réelle} \underline{\underline{pour
+$L_1$}}. \bigbreak
+
+En revanche, cette image, qui est donc l'objet de la lentille $L_2$, est dans
+l'espace image de celle-ci : c'est donc un \underline{objet virtuel}
+\underline{\underline{pour $L_2$}}. On construit donc son image en trançant :
+
+\begin{enumerate}
+    \item Le rayon passant par $B_1$ et par $O_2$ : il ne sera pas dévié ;
+    \item Le rayon passant par $B_1$ et par $F_2$ : il émerge parallèle à l'A.O.
+        (optionnel) ;
+    \item Le rayon passant par $B_1$ et parallèle à l'A.O. : il passe par $F'_2$
+        en sortie.
+\end{enumerate}
+
+On fait partir les rayons de la gauche du système comme s'ils allaient passer
+par $B_1$, mais une fois arrivés à la lentille on continue les traits en
+pointillés pour montrer que ce sont des rayons virtuels. Les rayons émergents
+suivent les règles de la définition \ref{rconst}, et donnent un faisceau
+émergent \underline{convergent} donnant lieu à une \underline{image réelle}.
+
+\subsection{}
+De la même manière, on construit $\ABa$ à partir de l'action de $L_1$ sur
+$\ABb$.  C'est la situation 1) 1- c. pour la lentille convergente : on obtient
+une \underline{image virtuelle} \underline{\underline{pour $L_1$}}. $\ABa$ est
+cependant dans l'espace objet pour $L_2$, et est donc un \underline{objet réel}
+\underline{\underline{pour $L_2$}}. On construit son image comme dans la
+situation 1) 1- a. pour la lentille divergente, et on obtient une
+\underline{image virtuelle}.
+
+\section{Des lunettes astronomiques}
+\begin{center}
+    \huge Partie 1
+\end{center}
+
+\pagebreak
+
+\begin{NCdefi}{Données}
+    Association de deux lentilles :
+    \begin{enumerate}
+        \item $L_1$ « objectif », vergence $C_1 = \SI{3.125}{\de}$, diamètre $D
+            = \SI{30}{mm}$ ;
+        \item $L_2$ « oculaire », vergence $C_2 = \SI{25}{\de}$.
+    \end{enumerate}
+\end{NCdefi}
+
+\subsection{}
+
+\begin{NCprop}{Résultat attendu}
+    Focales de lentilles
+\end{NCprop}
+
+\begin{NCdemo}{Outil du cours}
+    Une lentille de focale $f'$ a pour vergence $V$ :
+    \[ V = \frac{1}{f'} \]
+\end{NCdemo}
+
+\begin{NCexem}{Application}
+    \[ \boxed{\obar{O_1F'_1} = \SI{32}{cm}} \]
+    \[ \boxed{\obar{O_2F'_2} = \SI{4}{cm}} \]
+\end{NCexem}
+
+\subsection{a.}
+\begin{defi}{Système afocal}
+    Est afocal un système pour lequel un objet initial à l'infini donne une
+    image finale à l'infini.
+\end{defi}
+
+\begin{inte}{Intérêt d'un système afocal}
+    Un système afocal présente comme intérêt de permettre à un œil emmétrope
+    d'observer sans fatigue, étant donné que l'image sortant du système est à
+    l'infini (cf chapitre 1 exercice 4).
+\end{inte}
+
+\setcounter{subsection}{1}
+\subsection{b.}
+\begin{NCprop}{Résultat attendu}
+    $$\obar{O_1O_2}$$
+\end{NCprop}
+
+\begin{NCdemo}{Outils du cours}
+    Règles de construction de rayons :
+    \begin{enumerate}
+
+        \item Un rayon provenant de l'infini émerge d'une lentille en croisant
+            l'axe optique au plan focal image ;
+
+        \item Des rayons se croisant dans le plan focal objet d'une lentille
+            émergent parallèles entre eux.
+    \end{enumerate}
+    Relation de Chasles :
+    \[ \obar{O_1O_2} = \obar{O_1F_1'} + \obar{F_1'O_2} \]
+\end{NCdemo}
+
+\begin{NCexem}{Application}
+    Pour que tous les rayons sortant de la lunette soient parallèles entre eux
+    (donnant donc une image à l'infini), il faut que tous les rayons à
+    l'intérieur passent par le plan focal objet de son oculaire.\bigbreak
+
+    Or, tous les rayons arrivent dans la lunette parallèles entre eux (objet
+    initial à l'infini) ; il se croisent donc dans le plan focal image de
+    l'objectif. \bigbreak
+
+    Pour que la condition soit vérifiée, il faut donc simplement que les plans
+    focaux image de $L_1$ et objet de $L_2$ soient confondus ; autrement dit :
+    \[ \boxed{F_1' = F_2} \]
+    
+    On a alors $\obar{O_1O_2} = \obar{O_1F_1'} + \obar{F_2O_2}$, et finalement
+
+    \[ \boxed{\obar{O_1O_2} = \SI{+36}{cm}} \]
+\end{NCexem}
+
+\subsection{a.}
+\begin{defi}{Cercle oculaire}
+    On appelle cercle oculaire l'image de la monture de l'objectif donnée par
+    l'oculaire.
+\end{defi}
+
+\begin{inte}{Utilité du cercle oculaire}
+    Il correspond à la section la plus étroite du faisceau sortant de
+    l'oculaire, où l'œil reçoit le maximum de lumière.  
+\end{inte}
+
+\setcounter{subsection}{2}
+\subsection{b.}
+\begin{NCprop}{Résultat attendu}
+    $$\obar{O_2C_k'}$$
+\end{NCprop}
+
+\begin{NCdemo}{Outil du cours}
+    Par définition, $C_k'$ est l'image de $O_1$ par $L_2$. On va donc se servir
+    de la relation de conjugaison d'une lentille mince :
+    \[ \frac{1}{\OF} = \frac{1}{\OAp} - \frac{1}{\OA} \]
+\end{NCdemo}
+
+\begin{NCexem}{Application}
+    On a ici $O \equiv O_2$, $F' \equiv F_2'$, $A \equiv O_1$ et $A' \equiv
+    C_k'$. On a donc :
+    \[ \frac{1}{\obar{O_2F_2'}} = \frac{1}{\obar{O_2C_k'}} -
+    \frac{1}{\obar{O_2O_1}} \]
+    et après calculs :
+    \[ \boxed{\obar{O_2C_k'} = \left[ \frac{1}{\obar{O_2O_1}} +
+    \frac{1}{\obar{O_2F_2'}}\right]^{-1} = \SI{+4.5}{cm}} \]
+\end{NCexem}
+
+\setcounter{subsection}{2}
+\subsection{c.}
+\begin{NCprop}{Résultat attendu}
+    $$D_k'$$
+\end{NCprop}
+
+\begin{NCdemo}{Outil du cours}
+    Le diamètre du cercle oculaire s'apparente à la taille d'un objet. On peut
+    donc utiliser le grandissement :
+    \[ \g = \frac{\ABp}{\ABb} = \frac{\OAp}{\OA} \]
+\end{NCdemo}
+
+\begin{NCexem}{Application}
+    Avec les données de l'énoncé, on obtient :
+    \[ \g = \frac{D_k'}{D} = \frac{\obar{O_2C_k'}}{\obar{O_2O_1}}\]
+    et finalement
+    \[ \boxed{D_k' = D\times \frac{\obar{O_2C_k'}}{\obar{O_2O_1}} =
+    \SI{3.75}{mm}} \]
+\end{NCexem}
+
+\begin{center}
+    \huge Partie 2
+\end{center}
+
+\subsection{}
+Si l'oculaire est divergent, cela signifie que $C_3 < 0$. On a donc $C_3 = -
+C_2$, d'où le résultat demandé.
+
+\subsection{}
+On reprend la question 2) b-, avec cette fois des indices « 3 » au lieu des
+indices « 2 », et on obtient :
+
+\begin{NCexem}{Application}
+    $\obar{O_1O_3} = \obar{O_1F_1'} + \obar{F_3O_3}$ avec $\obar{F_3O_3} =
+    \obar{O_3F_3'} = \SI{-4}{cm}$, d'où
+    \[ \boxed{\obar{O_1O_3} = \SI{+28}{cm}} \]
+\end{NCexem}
+
+\begin{inte}{Intérêt}
+    La lunette de Galilée est donc plus compacte que la lunette de Kepler !
+\end{inte}
+
+\subsection{Tracé non effectué}
+
+\subsection{a.}
+On reprend la question 2) 3- b., avec des indices « 3 » au lieu de « 2 », et on
+obtient :
+\begin{NCexem}{Application}
+    \[ \boxed{\obar{O_3C_k'} = \SI{-3.5}{cm}}\]
+\end{NCexem}
+
+\begin{rema}{comparaison}
+    On a cette fois un cercle oculaire virtuel. Il faudra placer son œil le plus
+    près possible de l'oculaire pour espérer avoir le plus de lumière possible.
+\end{rema}
+
+\setcounter{subsection}{6}
+\subsection{b.}
+On reprend la question 2) 3- c. :
+\begin{NCexem}{Application}
+    \[ \boxed{D_k' = \SI{3.75}{mm}} \]
+\end{NCexem}
+
+\subsection{Comparaison}
+\begin{tabularx}{\linewidth}{|Y*{2}{|Y}|}\hline
+    \rowcolor{gray!15} & Avantages & Inconvéniants \\\hline
+    \cellcolor{gray!15} Lunette Galilée & + compacte\smallbreak image droite &
+    cercle oculaire virtuel \\\hline
+    \cellcolor{gray!15} Lunette Kepler & Grande clarté \smallbreak Cercle
+    oculaire réel & - compacte \smallbreak image renversée \\\hline
+\end{tabularx}
+
+\end{document}

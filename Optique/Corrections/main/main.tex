@@ -1,0 +1,30 @@
+\documentclass[10pt,notitlepage]{book}
+
+\usepackage{preambulle}
+\usepackage[Rejne]{fncychap}
+\fancyhead[L]{\scriptsize Nora \textsc{Nicolas} \& Jérémy \textsc{Auffinger}}
+\fancyhead[R]{\scriptsize \textsc{UE PG -- Fiche de travaux dirigés}}
+
+\titleformat{\section}{\color{blue}\bfseries\large}{\hspace{-0.3em}
+Exercice~\arabic{section})}{.2em}{}{}
+\titleformat{\subsection}{\color{brandeisblue}\bfseries}{\hspace{-0.3em}
+\arabic{section}) \arabic{subsection}-}{.5em}{}{}
+\titleformat{\subsubsection}{\color{capri}\bfseries}{\hspace{-0.3em}
+\arabic{section}) \arabic{subsection}- \alph{subsubsection}.}{.5em}{}{}
+
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+\usepackage{subfiles}
+
+\begin{document}
+
+\subfile{../chapters/ch0}
+\subfile{../chapters/ch1}
+\subfile{../chapters/ch2}
+\subfile{../chapters/ch3}
+\subfile{../chapters/ch4}
+
+\end{document}

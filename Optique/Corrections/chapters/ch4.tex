@@ -1,0 +1,342 @@
+\documentclass[../main/main.tex]{subfiles}
+\begin{document}
+
+\chapter{Dioptres et miroirs sphériques}
+\vspace*{-47pt}
+\begin{center}
+    \Huge Exercices d'application
+\end{center}
+
+\section{Miroir sphérique}
+\begin{NCdefi}{Données}
+    \begin{enumerate}
+        \item $\SC = \SI{+10}{cm}$ ;
+        \item Conditions de Gauss vérifiées.
+    \end{enumerate}
+\end{NCdefi}
+
+\subsection{}
+\begin{NCprop}{Résultat attendu}
+    \[ \SF\quad\mathrm{et}\quad\SFp \]
+\end{NCprop}
+
+\begin{NCdemo}{Outil du cours}
+    \begin{enumerate}
+        \item Relation de conjugaison pour un miroir sphérique :
+            \[ \frac{1}{\SA} + \frac{1}{\SAp} = \frac{2}{\SC} \]
+        \item $F = F'$ pour un miroir sphérique.
+    \end{enumerate}
+\end{NCdemo}
+
+\begin{NCexem}{Application}
+    Le foyer image est défini comme étant le point en lequel converge un rayon
+    incident venant de l'infini et parallèle à l'A.O. On a donc $\SA = +\infty$
+    et la relation de conjugaison donne directement :
+    \[ \boxed{\SF = \SF' = \frac{\SC}{2} = \SI{5}{cm}} \]
+\end{NCexem}
+
+\subsection{}
+\begin{NCdefi}{Données}
+    \begin{enumerate}
+        \item $\SA = \SI{-5}{cm}$
+        \item $(AB) = \SI{1}{cm}$
+    \end{enumerate}
+\end{NCdefi}
+
+\setcounter{subsection}{1}
+\subsection{a.}
+\begin{NCprop}{Résultat attendu}
+    \begin{enumerate}
+        \item $\SAp$ = ?
+        \item $\ABp$ = ?
+    \end{enumerate}
+\end{NCprop}
+
+\begin{NCdemo}{Outil du cours}
+    \begin{enumerate}
+        \item Relation de conjugaison pour un miroir sphérique :
+            \[ \frac{1}{\SA} + \frac{1}{\SAp} = \frac{2}{\SC} \]
+        \item Grandissement :
+            \[ \g = \frac{\ABp}{\ABb} = - \frac{\SAp}{\SA} \]
+    \end{enumerate}
+    
+\end{NCdemo}
+
+\begin{NCexem}{Application}
+    \begin{enumerate}
+        \item \[ \boxed{\SAp = \left[ \frac{2}{\SC}- \frac{1}{\SA}\right]^{-1} =
+            \SI{+2.5}{cm}}\]
+        \item \[ \boxed{\ABp = \ABb\times \left( \frac{-\SAp}{\SA} \right)
+                             = \SI{0.5}{cm}} \]
+    \end{enumerate}
+\end{NCexem}
+
+\setcounter{subsection}{1}
+\subsection{b.}
+On a $\SAp > 0$ : l'image se trouve derrière le miroir et est donc
+\underline{virtuelle}.
+
+\subsection{}
+Pour déterminer le rayon émergent d'un rayon incident quelconque, on applique
+les règles 3) et 4) de \ref{rconstp} : on trace un autre rayon indicent
+parallèle au premier, qui soit un rayon particulier dont on sait tracer le rayon
+émergent (passant par $C$ par exemple). On sait alors que les deux rayons
+émergents doivent se croiser au même point dans le plan focal objet.
+
+\section{Lentille épaisse}
+\begin{NCdefi}{Données}
+    \begin{enumerate}
+        \item Association de deux dioptres ;
+        \item $n = 1.5$ ;
+        \item $O \equiv C$ ;
+        \item $\SC = \SI{-15}{cm}$.
+    \end{enumerate}
+\end{NCdefi}
+
+\subsection{}
+L'objet $\ABb$ passe par un dioptre plan et par un dioptre sphérique.
+
+\subsection{}
+\begin{NCdefi}{Données}
+    $\obar{CA} = \SI{-6}{cm}$
+\end{NCdefi}
+
+\begin{NCprop}{Résultat attendu}
+    \begin{enumerate}
+        \item $\obar{CA}$ ou $\SAp$ a priori ;
+        \item $\g$.
+    \end{enumerate}
+\end{NCprop}
+
+\begin{NCdemo}{Outils du cours}
+    \begin{enumerate}
+        \item Relation de conjugaison pour un dioptre sphérique dont l'objet
+            $A$ est dans un milieu d'indice $n_1$ et l'image $A'$ est dans un
+            milieu d'indice $n_2$ :
+            \[ \frac{n_2}{\SAp} - \frac{n_1}{\SA} = \frac{n_2 - n_1}{\SC}\]
+        \item Relation de conjugaison pour un dioptre plan dont l'objet $A$ est
+            dans un milieu d'indice $n_1$ et l'image $A'$ dans un milieu
+            d'indice $n_2$ :
+            \[ \frac{\OAp}{n_2} - \frac{\OA}{n_1} = 0 \]
+        \item Grandissement pour un dioptre plan :
+            \[ \g _\mathrm{DP} = 1 \]
+        \item Grandissement pour un dioptre sphérique :
+            \[ \g _\mathrm{DS} = \frac{\ABp}{\ABb} = \frac{n_1}{n_2}
+            \frac{\SAp}{\SA}\]
+    \end{enumerate}
+\end{NCdemo}
+
+\begin{NCexem}{Application}
+    \begin{enumerate}
+
+        \item Dans notre cas, en partant de l'objet $\ABb$ dans l'air d'indice
+            1, donnant une image $\ABa$ dans le verre d'indice $n$ et en
+            appelant $C$ le sommet du dioptre plan, la première relation de
+            conjugaison donne :
+
+            \[ \boxed{ \frac{1}{\obar{CA}} = \frac{n}{\obar{CA_1}} =
+            \SI{-9}{cm}} \]
+            
+            On part ensuite de $\ABa$ en tant qu'objet dans un milieu d'indice
+            $n$, formant une image $\ABp$ dans un milieu d'indice 1 passant par
+            un dioptre sphérique. La relation de conjugaison donne alors:
+            
+            \[ \boxed{ \frac{1}{\SAp} - \frac{n}{\obar{SA_1}} = \frac{1 -
+            n}{\SC}}\]
+            
+            Il nous manque a priori la valeur de $\obar{SA_1}$, mais une simple
+            relation de Chasles nous donne $\obar{SA_1} = \SC + \obar{CA_1} =
+            \SI{-24}{cm}$. En isolant $\SAp$, on obtient :
+            
+            \[ \boxed{\SAp = \left[ \frac{n}{\obar{SA_1}} - \frac{n -
+            1}{\SC}\right]^{-1} = \SI{-34}{cm}}\]
+
+        \item $\g = \frac{\ABp}{\ABb} = \frac{\ABp}{\ABa} \frac{\ABa}{\ABb}$.
+            Sachant que le grandissement d'un dioptre plan, ici $
+            \frac{\ABa}{\ABb}$, est égal à 1, et qu'on a $\g _\mathrm{DS} =
+            \frac{n}{1} \frac{\SAp}{\obar{SA_1}}$, on obtient
+
+            \[ \boxed{\g = 2.1}\]
+    \end{enumerate}
+    \end{NCexem}
+
+\begin{NCimpo}{Important !!}
+    On l'a vu mardi 08 octobre, deux choses sont \textbf{nécessaires} pour
+    réussir un exercice de ce genre :
+    \begin{enumerate}
+        \item {\huge Connaître ses relations de conjugaisons} ;
+        \item {\Huge Savoir appliquer les formules théoriques au cas pratique de
+            l'énoncé}.
+    \end{enumerate}
+    Quand on écrit une formule de conjugaison, il faut toujours penser à quel
+    cas il s'applique. On a l'habitude de nommer $n_2$ le second milieu, et
+    l'haibtude de passer de l'air au verre par exemple, et il est facile de se
+    tromper dans les indices des milieux utilisés. Une méthode sûre pour ne pas
+    se tromper, quitte à perdre du temps, consiste à faire le schéma de
+    l'application théorique de la relation de conjugaison avec les $n_2$ et
+    $n_1$, puis d'appliquer les données de l'énoncé par dessus, pour chaque
+    relation de conjugaison.
+\end{NCimpo}
+
+\section{Télescope de Newton}
+\begin{NCdefi}{Données}
+    \begin{enumerate}
+        \item Miroir sphérique de $\SC = \SI{16}{m}$ ;
+        \item Observation du Soleil :
+            \begin{itemize}
+                \item objet à l'infini ;
+                \item Conditions de Gauss ;
+                \item $\t = \SI{0.5}{\degres}$
+            \end{itemize}
+    \end{enumerate}
+\end{NCdefi}
+
+\subsection{}
+
+\begin{NCprop}{Résultat attendu}
+    \begin{enumerate}
+        \item $\obar{O_1A_1}$ ?
+        \item $\ABa$ ?
+    \end{enumerate}
+\end{NCprop}
+
+\begin{NCdemo}{Outils du cours}
+    \begin{enumerate}
+        \item Objet à l'infini se forme sur le plan focal image ;
+        \item Foyers objet et image confondus pour un miroir sphérique ;
+        \item Relation de conjugaison avec origine au sommet :
+            \[ \frac{1}{\SA} + \frac{1}{\SAp} = \frac{2}{\SC} \]
+    \end{enumerate}
+\end{NCdemo}
+
+\begin{NCexem}{Application}
+    \begin{enumerate}
+        \item On observe le Soleil, considéré comme un objet à l'infini : d'un
+            objet $AB$ on obtient un objet $A_1B_1$ dont $A_1$ est confondu avec
+            $F'$.  L'utilisation de la relation de conjugaison avec origine au
+            somment, en nommant ici $O_1$ notre sommet comme indiqué sur
+            l'énoncé, nous donne directement : \[ \boxed{\obar{O_1A_1} =
+            \obar{O_1F'} = \frac{\obar{O_1C}}{2} = \SI{8}{m}} \]
+
+        \item Pour la taille, on sait qu'elle se forme sur $F'$, et on a l'angle
+            de visée. En traçant un rayon d'angle $\t$ passant par le centre du
+            miroir, et qui n'est donc pas dévié, on forme un triangle rectangle
+            avec $\ABa$ et $\obar{A_1C}$. On a donc $\tan\t =
+            \frac{\ABa}{\obar{A_1C}}$ et finalement comme $A_1 = F' = F$ et
+            qu'on connaît $\obar{F'C}$ :
+            \[ \boxed{\ABa = \tan\t\times\obar{A_1C} = \SI{7}{cm}} \]
+    \end{enumerate}
+\end{NCexem}
+
+\subsection{}
+
+\begin{NCdefi}{Données}
+    \begin{enumerate}
+        \item Miroir plan ;
+        \item $\obar{O_2F} = \SI{20}{cm}$.
+    \end{enumerate}
+\end{NCdefi}
+
+\begin{NCprop}{Résultats attendus}
+    \begin{enumerate}
+        \item Nature ?
+        \item $\obar{O_2A_2}$ ?
+        \item $\left( A_2B_2 \right)$ ?
+    \end{enumerate}
+\end{NCprop}
+
+\begin{NCdemo}{Outils du cours}
+    \begin{enumerate}
+        \item Si l'intersection des rayons émergents (dans le sens de la
+            propagation des rayons ou non), c'est-à-dire là ou se forme l'image,
+            est derrière le miroir (i.e. derrière la face réfléchissante),
+            l'image est virtuelle. Si elle est devant, l'image est réelle. Il en
+            vaut de même pour un objet.
+        \item L'action d'un miroir plan sur un objet est d'en faire l'image en
+            symétrique par rapport à son plan.
+    \end{enumerate}
+\end{NCdemo}
+
+\begin{NCexem}{Application}
+    \begin{enumerate}
+        \item Sur le schéma de l'énoncé, le foyer image du miroir $M_1$ est
+            derrière le miroir $M_2$. Or, nous avnos déterminé que c'était là
+            que se formait l'image d'un objet $\ABb$ par $M_1$. L'image $\ABa$
+            pour $M_1$ et donc l'objet $\ABa$ pour $M_2$ est derrière $M_2$, et
+            $\ABa$ est un objet virtuel pour $M_2$.
+
+            Le miroir plan en fait le symétrique par rapport à son plan ;
+            cette image est donc devant le miroir, et $\obar{A_2B_2}$ est ainsi
+            réelle.
+
+        \item Par définition du symétrique, la norme d'un vecteur est conservée
+            après action du miroir. En particulier,
+            $\underbrace{\obar{O_2A_1}}_\mathrm{avant miroir} =
+            \underbrace{\obar{O_2A_2}}_\mathrm{après miroir}$, mais comme $A_1 = F' =
+            F$ et qu'on nous a donné $\obar{O_2F}$, on a immédiatement :
+            \[ \boxed{\obar{O_2A_2}= \obar{O_2F} = \SI{20}{cm}} \]
+
+        \item De même qu'au point précédent, un miroir conserve les distances.
+            On a donc directement :
+            \[ \boxed{ \left(A_2B_2\right) = \left(A_1B_1\right)
+                                           = \SI{7}{cm}} \]
+    \end{enumerate}
+\end{NCexem}
+
+\subsection{a-}
+\begin{NCdefi}{Données}
+    \begin{enumerate}
+        \item Lentille convergente ;
+        \item $\obar{O_3F_3'} = \SI{4}{cm}$ ;
+        \item Les rayons émergent parallèles entre eux (« L'observateur-ice vise
+            à l'infini »).
+    \end{enumerate}
+\end{NCdefi}
+
+\begin{NCprop}{Résultats attendus}
+    $\obar{O_2O_3}$ ?
+\end{NCprop}
+
+\begin{NCdemo}{Outils du cours}
+    \begin{enumerate}
+
+        \item Des rayons qui se croisent dans le plan focal objet ressortent
+            parallèles à l'axe optique (et inversement) ;
+
+        \item Relation de \bsc{Chasles}.
+    \end{enumerate}
+\end{NCdemo}
+
+\begin{NCexem}{Application}
+    L'énoncé nous indique donc que l'objet sur lequel agit $L_3$ se situe sur
+    son plan focal objet. Or, cet objet pour $L_3$ n'est autre que l'image
+    produite par $M_2$, $\obar{A_2B_2}$, et on en déduit que $A_2$ est confondu
+    avec $F_3$. Il nous reste à écrire que $\obar{O_2O_3} = \obar{O_2F_3} +
+    \obar{F_3O_3}$ et dire que $\obar{F_3O_3} = \obar{O_3F_3'}$ pour finalement
+    avoir :
+    \[ \boxed{\obar{O_2O_3} = \obar{O_2A_2} + \obar{O_3F_3'} = 20 + 4 =
+    \SI{24}{cm}} \]
+\end{NCexem}
+
+\setcounter{subsection}{2}
+\subsection{b-}
+En formant un rayon depuis $B_2$ et passant par $O_3$, on forme un triangle
+rectangle entre $\obar{A_2B_2}$ et $ \obar{F_3O_3}$ étant donné que $A_2 = F_3$.
+On a ainsi \[ \boxed{\tan\t' = \frac{A_2B_2}{F_3O_3} \Leftrightarrow \t' =
+66.8\degres}\]
+
+\setcounter{subsection}{2}
+\subsection{c-}
+\begin{NCprop}{Résultat attendu}
+    Grossissement
+\end{NCprop}
+
+\begin{NCdemo}{Outil du cours}
+    $ \displaystyle G = \frac{\t'}{\t}$
+\end{NCdemo}
+
+\begin{NCexem}{Application}
+    \[ \boxed{G = \frac{\t'}{\t} = 113.6} \]
+\end{NCexem}
+
+\end{document}
