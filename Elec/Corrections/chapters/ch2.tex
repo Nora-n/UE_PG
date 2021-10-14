@@ -586,13 +586,12 @@
         l'un considère l'autre comme un récepteur et le fait surchauffer.
     \end{NCimpo}
 \end{tcbraster}
-\vfill
 
 \subsection{Générateurs en parallèle}
 \begin{tcbraster}[raster columns=5, raster equal height=rows]
     \begin{NCdefi}[raster multicolumn=2]{Schéma}
-        \vspace*{-12pt}
         \subsubsection{}
+        \vspace*{-12pt}
         \begin{center}
             \begin{circuitikz}
                 \draw
@@ -634,10 +633,10 @@
                     node {$\bullet$}
                     node [below left] {B}
                 to[V, name=E1, V^>=$E_{1}$, i^>=$i_{1}$, !vi]
-                (0,3)
+                (0,2)
                     node {$\bullet$}
                     node [above] {A} --
-                (2,3) coordinate (N1)
+                (2,2) coordinate (N1)
                     node {$\bullet$}
                     node [above right] {A}
                 to[V, name=E2, V^<=$E_{2}$, i<_=$i_{2}$, !vi]
@@ -646,13 +645,11 @@
                     node [below] {B} --
                 (0,0);
                 \draw[]
-                (N1) --++
-                (2,0)
+                (N1) --
+                (4,2)
                     node {$\bullet$}
-                    node [above right] {A} --++
-                (0,-0.7)
+                    node [above right] {A}
                 to[R, name=R4, i>^=$i$, v^<=$U_{R_4}$, !vi]
-                (4,0.7) --
                 (4,0)
                     node {$\bullet$}
                     node [below right] {B} --
@@ -999,5 +996,377 @@ Soit
 \[ \boxed{R_{\rm eq} = \frac{R_1R_2}{R_1 + R_2}}\]
 
 \section{Conventions}
+\begin{center}
+    \begin{NCrapp}[width=.7\linewidth]{Rappel}
+        Dans une maille d'un circuit, les puissances fournies et reçues
+        s'équilibrent, ce qui se traduit par $\DS \sum P_{\text{fournies}} =
+        \sum P_{\text{reçues}}$, avec les conventions :
+        \begin{tabularx}{\linewidth}{|Y*{2}{|Y}|}\hline
+            &
+            Dipôle \textcolor{ForestGreen}{récepteur} &
+            Dipôle \textcolor{CornflowerBlue}{générateur}
+            \\\hline
+            Convention récepteur
+            \smallbreak $\textcolor{orange}{P_{\text{reçue}}}$ &
+            \begin{circuitikz}
+                \draw
+                (0,0)
+                to[R, name=R, i^<=$i$, v^>=$U$, !vi]
+                (2,0);
+                \varronly{R} \iarronly{R}
+                \node[below] at (R.south)
+                    {$\textcolor{orange}{P_{\text{reçue}}}
+                    \textcolor{ForestGreen}{> 0}$};
+            \end{circuitikz} &
+            \begin{circuitikz}
+                \draw
+                (0,0)
+                to[V, name=E, i^<=$i$, V^>=$U$, !vi]
+                (2,0);
+                \varronly{E} \iarronly{E}
+                \node[below] at (R.south)
+                    {$\textcolor{orange}{P_{\text{reçue}}}
+                    \textcolor{CornflowerBlue}{< 0}$};
+            \end{circuitikz}
+            \\\hline
+            Convention générateur
+            \smallbreak $\textcolor{Purple}{P_{\text{fournie}}}$ &
+            \begin{circuitikz}
+                \draw
+                (0,0)
+                to[R, name=R, i^>=$i$, v^>=$U$, !vi]
+                (2,0);
+                \varronly{R} \iarronly{R}
+                \node[below] at (R.south)
+                    {$\textcolor{Purple}{P_{\text{fournie}}}
+                    \textcolor{ForestGreen}{< 0}$};
+            \end{circuitikz} &
+            \begin{circuitikz}
+                \draw
+                (0,0)
+                to[V, name=E, i^>=$i$, V^>=$U$, !vi]
+                (2,0);
+                \varronly{E} \iarronly{E}
+                \node[below] at (R.south)
+                    {$\textcolor{Purple}{P_{\text{fournie}}}
+                    \textcolor{CornflowerBlue}{> 0}$};
+            \end{circuitikz}
+            \\\hline
+        \end{tabularx}
+    \end{NCrapp}
+\end{center}
+    
+\subsection{Tout récepteur}
+\begin{tcbraster}[raster columns=3, raster equal height=rows]
+    \begin{NCdefi}{Schéma}
+        \subsubsection{}
+        \vfill
+        \begin{center}
+            \begin{circuitikz}
+                \draw
+                (0,0)
+                to[V, name=E, V^>=$E_{}$, i^<=$I_{}$, !vi]
+                (0,2)
+                to[R, name=r, i^<=$I$, v^>=$U_r$, !vi]
+                (2,2)
+                to[R, name=R, i^<=$I$, v^>=$U_R$, !vi]
+                (2,0) --
+                (0,0);
+                \varronly{E} \varronly{r} \varronly{R}
+                \iarronly{E} \iarronly{r} \iarronly{R}
+                \node[] at (r.center) {$r$};
+                \node[] at (R.center) {$R$};
+            \end{circuitikz}
+        \end{center}
+        \vfill
+    \end{NCdefi}
+    \begin{NCdemo}{Calcul préliminaire}
+        \subsubsection{}
+        \vfill
+        \begin{itemize}
+            \item $P_{\text{reçue}}(E) = -EI$
+            \item $P_{\text{reçue}}(r) = rI^2$
+            \item $P_{\text{reçue}}(R) = RI^2$
+        \end{itemize}
+        \vfill
+    \end{NCdemo}
+    \begin{NCexem}{Application}
+        \subsubsection{}
+        On a $\DS \sum P_{\text{fournies}} = \sum P_{\text{reçues}}$ : en
+        convention récepteur, il n'y a pas de puissances fournies, donc d'après
+        la question précédente :
+        \begin{align*}
+            0         & = -EI + rI^2 + RI^2\\
+            I(r+R)    & = E\\
+            \Aboxed{I & = \frac{E}{r+R}}
+        \end{align*}
+    \end{NCexem}
+\end{tcbraster}
 
+\subsection{Tout générateur}
+\begin{tcbraster}[raster columns=3, raster equal height=rows]
+    \begin{NCdefi}{Schéma}
+        \subsubsection{}
+        \vfill
+        \begin{center}
+            \begin{circuitikz}
+                \draw
+                (0,0)
+                to[V, name=E, V^>=$E_{}$, i^>=$I_{}$, !vi]
+                (0,2)
+                to[R, name=r, i^>=$I$, v^>=$U_r$, !vi]
+                (2,2)
+                to[R, name=R, i^>=$I$, v^>=$U_R$, !vi]
+                (2,0) --
+                (0,0);
+                \varronly{E} \varronly{r} \varronly{R}
+                \iarronly{E} \iarronly{r} \iarronly{R}
+                \node[] at (r.center) {$r$};
+                \node[] at (R.center) {$R$};
+            \end{circuitikz}
+        \end{center}
+        \vfill
+    \end{NCdefi}
+    \begin{NCdemo}{Calcul préliminaire}
+        \subsubsection{}
+        \vfill
+        \begin{itemize}
+            \item $P_{\text{fournie}}(E) = EI$
+            \item $P_{\text{fournie}}(r) = -rI^2$
+            \item $P_{\text{fournie}}(R) = -RI^2$
+        \end{itemize}
+        \vfill
+    \end{NCdemo}
+    \begin{NCexem}{Application}
+        \subsubsection{}
+        On a $\DS \sum P_{\text{fournies}} = \sum P_{\text{reçues}}$ : en
+        convention générateur, il n'y a pas de puissances reçues, donc d'après
+        la question précédente :
+        \begin{align*}
+            EI - rI^2 - RI^2 & = 0\\
+            I(r+R)           & = E\\
+            \Aboxed{I        & = \frac{E}{r+R}}
+        \end{align*}
+    \end{NCexem}
+\end{tcbraster}
+
+\subsection{Conventions combinées}
+\begin{tcbraster}[raster columns=3, raster equal height=rows]
+    \begin{NCdefi}{Schéma}
+        \subsubsection{}
+        \vfill
+        \begin{center}
+            \begin{circuitikz}
+                \draw
+                (0,0)
+                to[V, name=E, V^>=$E_{}$, i^>=$I_{}$, !vi]
+                (0,2)
+                to[R, name=r, i^>=$I$, v^<=$U_r$, !vi]
+                (2,2)
+                to[R, name=R, i^>=$I$, v^<=$U_R$, !vi]
+                (2,0) --
+                (0,0);
+                \varronly{E} \varronly{r} \varronly{R}
+                \iarronly{E} \iarronly{r} \iarronly{R}
+                \node[] at (r.center) {$r$};
+                \node[] at (R.center) {$R$};
+            \end{circuitikz}
+        \end{center}
+        \vfill
+    \end{NCdefi}
+    \begin{NCdemo}{Calcul préliminaire}
+        \subsubsection{}
+        \vfill
+        \begin{itemize}
+            \item $P_{\text{fournie}}(E) = EI$
+            \item $P_{\text{reçue}}(r) = rI^2$
+            \item $P_{\text{reçue}}(R) = RI^2$
+        \end{itemize}
+        \vfill
+    \end{NCdemo}
+    \begin{NCexem}{Application}
+        \subsubsection{}
+        On a $\DS \sum P_{\text{fournies}} = \sum P_{\text{reçues}}$ : avec les
+        conventions adaptées à chaque dipôle, on a :
+        \begin{align*}
+            EI        & = rI^2 + RI^2\\
+            I(r+R)    & = E\\
+            \Aboxed{I & = \frac{E}{r+R}}
+        \end{align*}
+    \end{NCexem}
+\end{tcbraster}
+\subsubsection{}
+\begin{center}
+    \begin{NCcexe}[width=.7\linewidth]{Conclusion}
+        On trouve bien toujours la même valeur de l'intensité dans le circuit,
+        ce qui montre bien que les conventions ne sont que des conventions et ne
+        changent pas la manière dont la physique fonctionne ensuite. Il faut
+        noter cependant que le $I$ du premier schéma n'est pas le $I$ des
+        schémas 2 et 3, étant donné que le sens n'est pas le même : les
+        intensitées sont opposées.
+    \end{NCcexe}
+\end{center}
+
+\section{Mesures de tensions et intensités}
+\begin{tcbraster}[raster columns=2, raster equal height=rows]
+    \begin{NCrapp}{Rappel}
+        \begin{center}
+            \begin{circuitikz}
+                \draw
+                (0,0)
+                to[rmeterwa, name=A]
+                (2,0);
+                \node[right=1em] (E) at (2,0) {$\equiv$};
+                \draw[shift={($(E)+(1em,0)$)}]
+                (0,0)
+                to[short]
+                (2,0);
+                \node[] at (A.center) {A};
+            \end{circuitikz}\smallbreak
+            \begin{circuitikz}
+                \draw
+                (0,0)
+                to[rmeter, name=V]
+                (2,0);
+                \node[right=1em] (E) at (2,0) {$\equiv$};
+                \draw[shift={($(E)+(1em,0)$)}]
+                (0,0)
+                to[nos, o-o]
+                (2,0);
+                \node[] at (V.center) {V};
+            \end{circuitikz}
+        \end{center}
+    \end{NCrapp}
+    \begin{NCdefi}[sidebyside]{Données}
+        \begin{itemize}
+            \item $E   = \SI{5.0}{V}$
+            \item $r_1 = \SI{10}{\ohm}$
+            \item $R   = \SI{20}{\ohm}$
+        \end{itemize}
+        \tcblower
+        \begin{itemize}
+            \item $R_1 = \SI{30}{\ohm}$
+            \item $R_2 = \SI{40}{\ohm}$
+        \end{itemize}
+    \end{NCdefi}
+\end{tcbraster}
+\subsection{Schéma 1}
+\begin{tcbraster}[raster columns=3, raster equal height=rows]
+    \begin{NCdefi}{Schéma}
+        \begin{center}
+            \hspace*{-12pt}
+            \begin{circuitikz}
+                \draw
+                (0,0)
+                to[V, name=E, V^>=$E_{}$, !vi]
+                (0,2)
+                to[R, name=r1, !vi]
+                (2,2) coordinate (N1)
+                to[R, name=R, !vi]
+                (4,2)
+                to[rmeter, name=V]
+                (4,0)
+                to[rmeterwa, name=A]
+                (2,0) coordinate (N2)
+                to[rmeterwa, name=Ap]
+                (0,0);
+                \draw[]
+                (N1)
+                to[R, name=R1, !vi]
+                (N2);
+                \varronly{E}
+                \node[] at (r1.center) {$r_1$};
+                \node[] at (R1.center) {$R_1$};
+                \node[] at (R.center) {$R$};
+                \node[] at (V.center) {V};
+                \node[] at (A.center) {A};
+                \node[] at (Ap.center) {A'};
+            \end{circuitikz}
+        \end{center}
+    \end{NCdefi}
+    \begin{NCimpl}{Simplification}
+        \begin{center}
+            \hspace*{-12pt}
+            \begin{circuitikz}
+                \draw
+                (0,0)
+                to[V, name=E, V^>=$E_{}$, i^>=$I$, !vi]
+                (0,2)
+                to[R, name=r1, v^<=$U_r$, !vi]
+                (2,2) coordinate (N1)
+                to[R, name=R, !vi]
+                (4,2)
+                to[nos, o-o]
+                (4,0)
+                to[short]
+                (2,0) coordinate (N2)
+                to[short, name=Sl, i^>=$I$]
+                (0,0);
+                \draw[]
+                (N1)
+                to[R, name=R1, v^<=$U_R$, i>^=$I$, !vi]
+                (N2);
+                \varronly{E} \varronly{R1} \varronly{r}
+                \iarronly{E} \iarronly{R1} \iarronly{Sl}
+                \node[] at (r1.center) {$r_1$};
+                \node[] at (R1.center) {$R_1$};
+                \node[] at (R.center) {$R$};
+            \end{circuitikz}
+        \end{center}
+    \end{NCimpl}
+    \begin{NCexem}{Application}
+        V ouvre le circuit, donc aucun courant ne passe dans la boucle de
+        droite : A mesure \SI{0}{A}. Comme précédemment, on trouve $I$ dans la
+        maille de gauche avec la loi des mailles et on trouve $\DS I =
+        \frac{E}{r_1 + R_1}$, et donc A' mesure \SI{0.17}{A}. Pour V, le
+        potentiel au point gauche est \SI{0}{V} et au point droit est aussi
+        \SI{0}{V}, puisqu'il est relié à la masse du générateur : V = \SI{0}{V}.
+    \end{NCexem}
+\end{tcbraster}
+\subsection{Schéma 2}
+\begin{tcbraster}[raster columns=2, raster equal height=rows]
+    \begin{NCdefi}{Schéma}
+        \begin{center}
+            \begin{circuitikz}
+                \draw
+                (0,0)
+                to[rmeterwa, name=A]
+                (0,2) --
+                (1,2) coordinate (Ntl)
+                to[R, name=R, !vi]
+                (3,2) coordinate (Ntm)
+                to[R, name=r1, !vi]
+                (5,2) coordinate (Ntr) --
+                (6,2)
+                to[rmeterwa, name=Ap]
+                (6,0) --
+                (5,0) coordinate (Nbr)
+                to[rmeter, name=V]
+                (3,0) coordinate (Nbm) --
+                (1,0) coordinate (Nbl) --
+                (0,0);
+                \draw[]
+                (Ntl)
+                to[R, name=R2, !vi]
+                (Nbl);
+                \draw[]
+                (Ntm)
+                to[V, name=E, V^<=$E_{}$, !vi]
+                (Nbm);
+                \draw[]
+                (Ntr)
+                to[R, name=R1, !vi]
+                (Nbr);
+                \node[] at (A.center) {A};
+                \node[] at (Ap.center) {A'};
+                \node[] at (V.center) {V};
+                \node[] at (R.center) {$R$};
+                \node[] at (r1.center) {$r_1$};
+                \node[] at (R1.center) {$R_1$};
+                \node[] at (R2.center) {$R_2$};
+                \varronly{E}
+            \end{circuitikz}
+        \end{center}
+    \end{NCdefi}
+\end{tcbraster}
 \end{document}
