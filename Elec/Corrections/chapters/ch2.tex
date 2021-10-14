@@ -480,7 +480,7 @@
 \end{tcbraster}
 
 \newpage
-\section{Association de générateurs}
+\section{Association de générateurs}\label{ch2:ex3}
 \titleformat{\subsection}{\color{brandeisblue}\bfseries}{\hspace{-0.3em}
 \arabic{section}) \Alph{subsection}-}{.5em}{}{}
 \titleformat{\subsubsection}{\color{capri}\bfseries}{\hspace{-0.3em}
@@ -1294,9 +1294,9 @@ Soit
                 (0,2)
                 to[R, name=r1, v^<=$U_r$, !vi]
                 (2,2) coordinate (N1)
-                to[R, name=R, !vi]
+                to[R, name=R, !vi, color=gray!30]
                 (4,2)
-                to[nos, o-o]
+                to[nos, name=O]
                 (4,0)
                 to[short]
                 (2,0) coordinate (N2)
@@ -1308,6 +1308,8 @@ Soit
                 (N2);
                 \varronly{E} \varronly{R1} \varronly{r}
                 \iarronly{E} \iarronly{R1} \iarronly{Sl}
+                \node[ocirc] at (O.east) {};
+                \node[ocirc] at (O.west) {};
                 \node[] at (r1.center) {$r_1$};
                 \node[] at (R1.center) {$R_1$};
                 \node[] at (R.center) {$R$};
@@ -1368,5 +1370,131 @@ Soit
             \end{circuitikz}
         \end{center}
     \end{NCdefi}
+    \begin{NCimpl}{Simplification}
+       \begin{center}
+            \begin{circuitikz}
+                \draw
+                (0,0)
+                to[short, name=Sl, i^<=$I$, !vi]
+                (0,2)
+                to[short, name=St, i^<=$I$, !vi]
+                (1,2) coordinate (Ntl)
+                to[R, name=R, v^<=$U_R$, !vi]
+                (3,2) coordinate (Ntm)
+                to[R, name=r1, !vi, color=gray!30]
+                (5,2) coordinate (Ntr) --
+                (6,2)
+                to[short, name=Sr]
+                (6,0) --
+                (5,0) coordinate (Nbr)
+                to[nos, name=O]
+                (3,0) coordinate (Nbm)
+                to[short, name=Sb, i^<=$I$, !vi]
+                (1,0) coordinate (Nbl) --
+                (0,0);
+                \draw[]
+                (Ntl)
+                to[R, name=R2, !vi, color=gray!30]
+                (Nbl);
+                \draw[]
+                (Nbm)
+                to[V, name=E, V^>=$E_{}$, i^>=$I$, !vi]
+                (Ntm);
+                \draw[]
+                (Ntr)
+                to[R, name=R1, !vi, color=gray!30]
+                (Nbr);
+                \node[] at (R.center) {$R$};
+                \node[] at (r1.center) {$r_1$};
+                \node[] at (R1.center) {$R_1$};
+                \node[] at (R2.center) {$R_2$};
+                \node[ocirc] at (O.east) {} ;
+                \node[ocirc] at (O.west) {} ;
+                \varronly{E} \varronly{R}
+                \iarronly{E} \iarronly{Sl} \iarronly{Sb} \iarronly{St}
+            \end{circuitikz}
+        \end{center} 
+    \end{NCimpl}
 \end{tcbraster}
+\begin{center}
+    \begin{NCexem}[width=.7\linewidth]{Application}
+        Cette fois c'est la partie de droite qui est ouverte, et donc pas
+        parcourue par un courant : A mesure \SI{0}{V}. L'ampèremètre de gauche
+        court-circuite quant à lui la réssitance $R_2$, ainsi toute l'intensité
+        se trouve dans la boucle où on a tracé \textcolor{brandeisblue}{$I$} ;
+        une rapide loi des mailles donne $\DS I = \frac{E}{R} = \SI{0.25}{A}$. V
+        ne mesure pas de différence de potentiel.
+    \end{NCexem}
+\end{center}
+
+\section{Point de fonctionnement}
+\begin{tcbraster}[raster columns=3, raster equal height=rows]
+    \begin{NCdefi}{Schéma}
+        \begin{center}
+            \begin{circuitikz}
+                \draw
+                (0,0)
+                to[V, name=E, V^>=$E_{}$, i^>=$I_{}$, !vi]
+                (0,2)
+                to[R, name=r, i^>=$I$, v^<=$U_r$, !vi]
+                (0,4) --
+                (2,4)
+                to[R, name=R, i^>=$I$, v^<=$U_R$, !vi]
+                (2,0) --
+                (0,0);
+                \varronly{E} \varronly{r} \varronly{R}
+                \iarronly{E} \iarronly{r} \iarronly{R}
+                \node[] at (r.center) {$r$};
+                \node[] at (R.center) {$R$};
+                \draw[red, -Triangle]
+                ([shift={(0.5,-0.)}]E.west) --
+                ([shift={(0.5,0.)}]r.east)
+                node[midway, right] {$U_G$};
+            \end{circuitikz}
+        \end{center}
+    \end{NCdefi}
+    \begin{NCimpl}{Graphiques}
+        \begin{tikzpicture}[scale=.6]
+            \begin{axis}[
+                axis lines=left,
+                xmin=0, xmax=0.3,
+                ymin=0, ymax=3,
+                xlabel=$I$, ylabel=$U$,
+                clip=false]
+                \addplot[
+                    domain=0:0.3,
+                    smooth,
+                    color=orange]
+                    {2-3*x};
+                \addlegendentry{$U_G = E-rI$}
+                \addplot[
+                    domain=0:0.3,
+                    smooth,
+                    color=ForestGreen]
+                    {7*x};
+                \addlegendentry{$U_R = RI$}
+                \draw[dashed]
+                    (0,7*0.2) --
+                    (0.2,7*0.2) node[ocirc, scale=2] {} --
+                    (0.2,0);
+            \end{axis}
+        \end{tikzpicture}
+    \end{NCimpl}
+    \begin{NCexem}{Application}
+        Quand le circuit est à l'équilibre, \fbox{$\DS U_G = U_R$}. Cela
+        revient à faire une loi des mailles ; graphiquement, on trouve cette
+        position quand les fonctions sont égales, donc à l'intersection des deux
+        courbes. On trouve comme d'habitude \fbox{$\DS I = \frac{E}{r+R} =
+        \SI{0.2}{A}$}
+    \end{NCexem}
+\end{tcbraster}
+
+\section{Association de piles}
+L'additivité des tensions suit la première partie de l'exercice \ref{ch2:ex3},
+et on trouve un générateur équivalent de tension \fbox{$E = e_1 + e_2$} et de
+résistance interne \fbox{$r = r_1 + r_2$}.
+
+\section{Circuit d'allumage des phares d'une voiture}\label{ch2:ex9}
+\subsection{}
+
 \end{document}
