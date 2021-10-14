@@ -1495,6 +1495,154 @@ et on trouve un générateur équivalent de tension \fbox{$E = e_1 + e_2$} et de
 résistance interne \fbox{$r = r_1 + r_2$}.
 
 \section{Circuit d'allumage des phares d'une voiture}\label{ch2:ex9}
+\begin{tcbraster}[raster columns=4, raster equal height=rows]
+    \begin{NCdefi}[raster multicolumn=3]{Schémas}
+        \subsection{}
+        Il y a en effet 3 schémas possibles : 1 seule ampoule, 2 ampoules en série
+        ou 2 ampoultes en parallèle. Ainsi :\smallbreak
+        \begin{circuitikz}
+            \draw
+            (0,0)
+            to[V, name=E, V^>=$E_{}$, i^>=$I_{}$, !vi]
+            (0,2) --
+            (1,2)
+            to[R, name=R, i>^=$I$, v^<=$U$, !vi]
+            (1,0) --
+            (0,0);
+            \varronly{E} \varronly{R}
+            \iarronly{E} \iarronly{R}
+            \node[] at (R.center) {$R$};
+        \end{circuitikz}
+        \hfill
+        \vrule
+        \hfill
+        \begin{circuitikz}
+            \draw
+            (0,0)
+            to[V, name=E, V^>=$E_{}$, i^>=$I_{}$, !vi]
+            (0,3) --
+            (1,3)
+            to[R, name=R, i^>=$I$, v^<=$U_R$, !vi]
+            (1,1.5)
+            to[R, name=Rp, v^<=$U_R$, !vi]
+            (1,0) --
+            (0,0);
+            \varronly{E} \varronly{R} \varronly{Rp}
+            \iarronly{E} \iarronly{R}
+            \node[] at (R.center) {$R$};
+            \node[] at (Rp.center) {$R$};
+        \end{circuitikz}
+        \hfill
+        \vrule
+        \hfill
+        \begin{circuitikz}
+            \draw
+            (0,0)
+            to[V, name=E, V^>=$E_{}$, i^>=$I_{}$, !vi]
+            (0,2) --
+            (1,2) coordinate (N1)
+            to[R, name=R, i>_=$i_1$, v^<=\scriptsize$U_R$, !vi]
+            (1,0) coordinate (N2) --
+            (0,0);
+            \draw[]
+            (N1) --
+            (2,2)
+            to[R, name=Rp, i>_=$i_2$, v^<=\scriptsize$U_R$, !vi]
+            (2,0) --
+            (N2);
+            \varronly{E} \varronly{R} \varronly{Rp}
+            \iarronly{E} \iarronly{R} \iarronly{Rp}
+            \node[] at (R.center) {$R$};
+            \node[] at (Rp.center) {$R$};
+        \end{circuitikz}
+    \end{NCdefi}    
+    \begin{NCdemo}[raster multicolumn=1]{Outil}
+        \subsection{}
+        Pour déterminer la puissance lumineuse émise, étant donné qu'elle vaut
+        2\% de la puissance électrique émise, il suffit de déterminer $I$ du
+        générateur, qui est le seul émetteur, pour avoir $\DS P_{\text{émise}} =
+        EI$
+    \end{NCdemo}
+    \begin{NCexem}[raster multicolumn=3]{Application}
+        \begin{minipage}{0.3\linewidth}
+            \begin{itemize}
+                \item $\DS I = \frac{E}{R}$
+                \item $\DS P = \frac{E^2}{R}$
+            \end{itemize}
+        \end{minipage}
+        \hfill
+        \vrule
+        \hfill
+        \begin{minipage}{0.3\linewidth}
+            \begin{itemize}
+                \item $\DS I = \frac{E}{2R}$
+                \item $\DS P = \frac{E^2}{2R}$
+            \end{itemize}
+        \end{minipage}
+        \hfill
+        \vrule
+        \hfill
+        \begin{minipage}{0.3\linewidth}
+            \begin{itemize}
+                \item $\DS I = \frac{E}{R/2}$\smallbreak
+                    (attention à calculer la résistance équivalente pour n'avoir
+                    qu'une intensité dans la maille)
+                \item $\DS P = 2 \frac{E^2}{R}$
+            \end{itemize}
+        \end{minipage}
+    \end{NCexem}
+    \begin{NCprop}[raster multicolumn=1]{Conclusion}
+        La plus grande puissance émise est donc la situation 3.
+        \subsection{}
+        Le reste de la puissance est transformée en chaleur.
+    \end{NCprop}
+\end{tcbraster}
 \subsection{}
+L'allumage des phares se fait par une commande à gauche du volant.
+\begin{tcbraster}[raster columns=5, raster equal height=rows]
+    \begin{NCimpl}[raster multicolumn=3]{Implication}
+        \subsection{}
+        Si les phares sont branchés en série, dès que l'un brûle et cause un
+        circuit ouvert, l'autre ne sera plus alimenté. Ils sont donc branchés en
+        parallèle.
+    \end{NCimpl}
+    \begin{NCexem}[raster multicolumn=2]{Application}
+        \subsection{}
+        \begin{center}
+            \begin{circuitikz}
+                \draw
+                (0,0)
+                to[V, name=E]
+                (0,2) --
+                (1,2) coordinate (N1)
+                to[R, name=R1]
+                (1,0) coordinate (N2) --
+                (0,0);
+                \draw[]
+                (N1) --
+                (2,2)
+                to[R, name=R2]
+                (2,0) --
+                (N2);
+                \draw[]
+                (0,2) --
+                (-1,2) coordinate (N3)
+                to[R, name=R3, !vi]
+                (-1,0) coordinate (N4) --
+                (0,0);
+                \draw[]
+                (N3) --
+                (-2,2)
+                to[R, name=R4, !vi]
+                (-2,0) --
+                (N4);
+                \foreach \n in {1, ..., 4}{
+                \node[] at (R\n.center) {$R$};}
+            \end{circuitikz}
+        \end{center}
+    \end{NCexem}
+\end{tcbraster}
+\section{Calcul de résistance}
+Bla
 
 \end{document}
