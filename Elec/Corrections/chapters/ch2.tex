@@ -610,7 +610,7 @@
                 (N1) --++
                 (2,0) --++
                 (0,-1)
-                to[R, name=R4, i>^=$i_3$, v^<=$U_{R_4}$, !vi]
+                to[R, name=R4, i>_=$i_4$, v^<=$U_{R_4}$, !vi]
                 (4,1) --
                 (4,0) --
                 (N2);
@@ -635,10 +635,10 @@
                 to[V, name=E1, V^>=$E_{1}$, i^>=$i_{1}$, !vi]
                 (0,2)
                     node {$\bullet$}
-                    node [above] {A} --
+                    node [above left] {A} --
                 (2,2) coordinate (N1)
                     node {$\bullet$}
-                    node [above right] {A}
+                    node [above] {A}
                 to[V, name=E2, V^<=$E_{2}$, i<_=$i_{2}$, !vi]
                 (2,0) coordinate (N2)
                     node {$\bullet$}
@@ -666,11 +666,12 @@
     \end{NCexem}
 \end{tcbraster}
 \begin{center}
-    \begin{NCcexe}[width=.5\linewidth]{Conclusion}
-        On ne peut brancher des générateurs idéaux de tension que si leurs
-        tensions sont les mêmes ; les générateurs réels peuvent l'être et ce
-        sont les intensités qui vont s'adapter pour suivre la loi des mailles.
-    \end{NCcexe}
+    \begin{NCprop}[width=.7\linewidth]{Conclusion}
+        On ne peut brancher des générateurs idéaux de tension en parallèle que
+        si leurs tensions sont les mêmes ; les générateurs réels peuvent l'être
+        et ce sont les intensités qui vont s'adapter pour suivre la loi des
+        mailles.
+    \end{NCprop}
 \end{center}
 
 \titleformat{\subsection}{\color{brandeisblue}\bfseries}{\hspace{-0.3em}
@@ -935,7 +936,9 @@ manière plus explicite :
 		(8.5,0)
             node {\color{red}$\bullet$}
             node [right] {\color{red}B};
-		\draw[shift={($(E)+(2em,-0.5)$)}] (0.5,0) --
+		\draw[shift={($(E)+(2em,-0.5)$)}]
+        (0.5,0)
+        to[short, name=Sl, i>=$i$]
 		(0.5,-0.5)
             node {\color{ForestGreen}$\bullet$}
             node [below left] {\color{ForestGreen}A}
@@ -960,7 +963,7 @@ manière plus explicite :
         to[R, name=R2r]
 		(8,-0.5) --
 		(8,0);
-        \iarronly{Sb} \iarronly{Sm}
+        \iarronly{Sb} \iarronly{Sm} \iarronly{Sl}
         \foreach \n in {l,m,r}{
             \node[] at (R1\n.center) {$R_1$};}
         \foreach \n in {l,r}{
