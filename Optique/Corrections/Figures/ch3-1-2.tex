@@ -1,7 +1,7 @@
-\documentclass[../main/main.tex]{subfiles}
+\documentclass{standalone}
+\usepackage{mintikz}
 
 \begin{document}
-\thispagestyle{empty}
 \begin{tikzpicture}[]
     % Axe optique
     \draw[thin, ->](-7,0)--(7,0)node[below]{A.O.};
@@ -83,9 +83,9 @@
         \path[name intersections={of=OBp and IBp, by=B1}];
         \coordinate (A1) at ($(B1)+(0,{\intsiz})$);
         \draw[->, brandeisblue] (A1) 
-        node[below] {A1}
+        node[below] {A$_1$}
         -- (B1)
-        node[below right] {B1};
+        node[above right] {B$_1$};
         % Rayons pour objet avant foyer image d'une lentille divergente
         % Lengths
         \len{(A1)}{(O2)}{\posi}

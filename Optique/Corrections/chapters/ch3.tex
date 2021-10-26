@@ -53,7 +53,7 @@ suivent les règles de la définition \ref{rconst}, et donnent un faisceau
 émergent \underline{convergent} donnant lieu à une \underline{image réelle}.
 
 \begin{center}
-    \subfile{ch3-1-1}
+    \includegraphics{ch3-1-1}
 \end{center}
 
 \subsection{}
@@ -66,7 +66,7 @@ situation 1) 1- a. pour la lentille divergente, et on obtient une
 \underline{image virtuelle}.
 
 \begin{center}
-    \subfile{ch3-1-2}
+    \includegraphics{ch3-1-2}
 \end{center}
 
 \section{Des lunettes astronomiques}
@@ -173,7 +173,7 @@ rayon émergent de $B_1$ (par exemple celui passant par $O_2$ et qui n'est pas
 dévié) pour trouver l'angle de sortie.
 
 \begin{center}
-    \subfile{ch3-2-1_galilee}
+    \includegraphics{ch3-2-1_kepler}
 \end{center}
 
 \setcounter{subsection}{1}
@@ -280,7 +280,7 @@ indices « 2 », et on obtient :
 \subsection{}
 
 \begin{center}
-    \subfile{ch3-2-2_kepler}
+    \includegraphics{ch3-2-2_galilee}
 \end{center}
 
 \subsection{a.}
@@ -316,6 +316,8 @@ On reprend la question 2) 3- c. :
     \end{tabularx}
 \end{center}
 
+\vfill
+
 \section{L'œil hypermétrope et sa correction}
 \begin{center}
     \begin{NCdefi}[width=.9\linewidth, sidebyside]{Données}
@@ -330,7 +332,7 @@ On reprend la question 2) 3- c. :
         colback = green!50!black,
         colframe = green!50!black]{Schéma}
         \begin{center}
-            \subfile{ch3-3-1}
+            \includegraphics{ch3-3-1}
         \end{center}
     \end{NCdefi}
 \end{center}
@@ -368,7 +370,7 @@ corriger avec des lentilles correctrices convergentes.
         colback = green!50!black,
         colframe = green!50!black]{Schéma}
         \begin{center}
-            \subfile{ch3-3-2}
+            \includegraphics{ch3-3-2}
         \end{center}
     \end{NCdefi}
 \end{center}
@@ -397,20 +399,20 @@ corriger avec des lentilles correctrices convergentes.
         \begin{center}
             \begin{tikzpicture}[]
                 \node[] (AB) at (0,0) {$\ABb$};
-                \node[] (A1B1) at (2,0) {$\ABa$};
-                \node[] (ApBp) at (4,0) {$\ABp$};
-                \draw[->] (AB) -- (A1B1)
+                \node[] (A_1B_1) at (2,0) {$\ABa$};
+                \node[] (A'B') at (4,0) {$\ABp$};
+                \draw[->] (AB) -- (A_1B_1)
                     node [midway, above] {$\Lc_v$}
                     node [midway, below] {O};
-                \draw[->] (A1B1) -- (ApBp)
+                \draw[->] (A_1B_1) -- (A'B')
                     node [midway, above] {$\Lc$}
                     node [midway, below] {S};
                 \node[below=0.3, Purple!70] (ABb) at (AB) {$-\infty$};
-                \node[below=0.3, brandeisblue] (A1B1b) at (A1B1) {$A_1 = F'_v$};
+                \node[below=0.3, brandeisblue] (A1B1b) at (A_1B_1) {$A_1 = F'_v$};
                 \node[below=0.3, ForestGreen] (A1B1bb) at (A1B1b) {$A_1 = R$};
-                \node[below=0.3, orange!70] (ApBpb) at (ApBp) {$A' = E$};
+                \node[below=0.3, orange!70] (A'B'b) at (A'B') {$A' = E$};
                 \draw[->, Purple!70] (ABb) to[bend right] (A1B1b.west);
-                \draw[->, orange!70] (ApBpb) to[bend left] (A1B1bb.east);
+                \draw[->, orange!70] (A'B'b) to[bend left] (A1B1bb.east);
             \end{tikzpicture}
         \end{center}
         On a donc $A_1 = F'_v = R$.
@@ -455,9 +457,107 @@ corriger avec des lentilles correctrices convergentes.
 On a donc
 
 \begin{center}
-    \subfile{ch3-3-3}
+    \includegraphics{ch3-3-3}
 \end{center}
 
-\theendnotes
+\section{Ordonnance d'un ophtalmologiste}
+\begin{tcbraster}[raster columns=3, raster equal height=rows]
+    \begin{NCdefi}{Définitions}
+        L'ophtalmologiste donne une prescription pour fabriquer des verres
+        correcteurs. Les valeurs correspondent donc aux caractéristiques et
+        verres nécessaires à la correction.
+    \end{NCdefi}
+    \begin{NCdemo}{Outil}
+        $f' = 1/V$, et pour une lentille convergente $f' > 0$.
+    \end{NCdemo}
+    \begin{NCexem}{Application}
+        Les verres correcteurs sont donc divergents. On en conclue que M. Dupont
+        a des yeux trop convergents, et qu'il est donc myope.
+    \end{NCexem}
+\end{tcbraster}
 
+\section{Image à travers un doublet de lentilles}
+\begin{tcbraster}[raster columns=3, raster equal height=rows]
+    \begin{NCdefi}{Données}
+        \begin{itemize}
+            \item $(\Lc_1, O_1, f_1'= \SI{2.0}{cm})$ ;
+            \item $\obar{O_1O_2} = \SI{+6.0}{cm}$ ;
+            \item $(\Lc_2, O_2, f_2' = \SI{2.0}{cm})$ ;
+            \item $(AB) = \SI{1}{cm}$ ;
+            \item $\obar{O_1A} = \SI{-6.0}{cm}$
+        \end{itemize}
+    \end{NCdefi}
+    \begin{NCdemo}{Outils}
+        \begin{tikzpicture}[]
+            \node[] (AB) at (0,0) {$\obar{AB}$};
+            \node[] (A_1B_1) at (2,0) {$\obar{A_1B_1}$};
+            \node[] (A'B') at (4,0) {$\obar{A'B'}$};
+            \draw[->] (AB) -- (A_1B_1)
+                node [midway, above] {$\Lc_1$}
+                node [midway, below] {$O_1$};
+            \draw[->] (A_1B_1) -- (A'B')
+                node [midway, above] {$\Lc_2$}
+                node [midway, below] {$O_2$};
+            %\node[below=0.3, Purple!70] (ABb) at (AB) { \SI{-6}{cm}};
+        \end{tikzpicture}
+        \[\boxed{ \frac{1}{\OF} = \frac{1}{\OAp} - \frac{1}{\OA}}\]
+        \[\gamma = \frac{\ABp}{\ABb} = \frac{\OAp}{\OA}\]
+        \[\gamma_{\rm combinaison} = \gamma_1\times\gamma_2\]
+    \end{NCdemo}
+    \begin{NCexem}{Application}
+        $\obar{O_1A_1} = \SI{3}{cm}$, $\obar{O_2A_1} = \SI{-3}{cm}$ donc
+        \fbox{$\obar{O_2A'} = \SI{6}{cm}$} ;\smallbreak
+        $\DS \gamma_{\rm doublet} = \frac{\ABp}{\ABb} =
+        \frac{\obar{O_1A_1}}{\obar{O_1A}}\times
+        \frac{\obar{O_2A'}}{\obar{O_2A_1}} = +1$ donc\smallbreak
+        \fbox{$(\ABp) = (\ABb)$}
+    \end{NCexem}
+\end{tcbraster}
+\begin{center}
+    \begin{NCrema}{Schéma}
+        \includegraphics[width=\linewidth]{ch3-5}
+    \end{NCrema}
+\end{center}
+
+\section{Une lunette astronomique}
+Non traité.
+
+\section{Les défauts de l'œil}
+\begin{center}
+    \begin{NCdefi}[width=.5\linewidth]{Donnée générale}
+        
+    \end{NCdefi}
+\end{center}
+\subsection{Œil myope}
+\begin{tcbraster}[raster columns=2, raster equal height=rows]
+    \begin{NCdefi}{Données}
+        Avec les données sur le champ de vision :
+        \begin{itemize}
+            \item $\obar{SR} = \SI{-1}{m}$
+            \item $\obar{SP} = \SI{-30}{cm}$
+        \end{itemize}
+        De plus, on a $(\Lc_v, O_v, V_v = \SI{-1}{\de})$.
+    \end{NCdefi}
+    \begin{NCdemo}{Outil}
+        Pour l'œil au repos :
+        \begin{tikzpicture}[]
+            \node[] (AB) at (0,0) {$\obar{AB}$};
+            \node[] (A_1B_1) at (2,0) {$\obar{A_1B_1}$};
+            \node[] (A'B') at (4,0) {$\obar{A'B'}$};
+            \draw[->] (AB) -- (A_1B_1)
+                node [midway, above] {$\Lc_v$}
+                node [midway, below] {$O_v$};
+            \draw[->] (A_1B_1) -- (A'B')
+                node [midway, above] {$\Lc$}
+                node [midway, below] {$S$};
+            \node[below=0.3, Purple!70] (ABb) at (AB) {$?$};
+            \node[below=0.3, brandeisblue] (A_1B_1b) at (A_1B_1) {$A_1 = R$};
+            \node[below=0.3, orange!70] (A'B'b) at (A'B') {$A' = E$};
+            \draw[->, Purple!70] (ABb) to[bend right] (A_1B_1b.west);
+            \draw[->, orange!70] (A'B'b) to[bend left] (A_1B_1b.east);
+        \end{tikzpicture}
+    \end{NCdemo}
+\end{tcbraster}
+
+\theendnotes
 \end{document}

@@ -1,7 +1,7 @@
-\documentclass[../main/main.tex]{subfiles}
+\documentclass{standalone}
+\usepackage{mintikz}
 
 \begin{document}
-\thispagestyle{empty}
 \begin{tikzpicture}[]
     % Axe optique
     \draw[thin, ->](-7,0)--(7,0)node[below]{A.O.};
@@ -35,7 +35,7 @@
         \draw[shift={(\x)}] (0,0)
             node[below right] {O$_{2}$};
         \draw[shift={(\x)}] (\z,2pt) --++ (0,-4pt)
-            node[above right] {F$'_{2}$};
+            node[above] {F$'_{2}$};
         \draw[shift={(\x)}] ({-\z},2pt) --++ (0,-4pt)
             node[above left] {F$_{2}$};
     }
@@ -111,7 +111,7 @@
         \len{(O2)}{(F2)}{\foc}
         % Rayon 1
         \draw[ForestGreen, simple] ($2*(O2)-(B1)$) -- (O2);
-        \def \mut{1.8}
+        \def \mut{1.2}
         \draw[orange!70, simple, name path=OBp] (O2)
             --++ ($\mut*(B1)-\mut*(O2)$);
         % Rayon 2
@@ -119,20 +119,20 @@
         \draw[ForestGreen, double] ($(B1)-(\mut*\posi,0)$)
         --++ (\mut*\posi-\posi,0) coordinate (I);
         \draw[ForestGreen, dashed, double] (I) --++ (2*\posi,0);
-        \def \mut{1.5}
+        \def \mut{1.1}
         \draw[orange!70, double, name path=IBp] (I)
             --++ ($\mut*(F2p)-\mut*(I)$);
         % Rayon 3
         \def \intsiz{-\size*\foc/(\posi+\foc)}
         \draw[ForestGreen, triple] (F2) --++ (\foc,{\intsiz}) coordinate (E);
-        \def \mut{1.2}
-        \draw[ForestGreen, dashed, triple] (E) -- (B1) --++ ($\mut*(B1)-\mut*(E)$);
+        \def \mut{0.9}
+        \draw[ForestGreen, dashed, triple, shorten >=-1cm] (E) -- (B1);
         \draw[orange!70, triple, name path=EBp] (E) --++ (1.5*\posi,0);
         % Image
         \path[name intersections={of=OBp and IBp, by=Bp}];
         \coordinate (Ap) at ($(Bp)+(0,-{\intsiz})$);
         \draw[->, Red!70] (Ap) 
-        node[below] {A'}
+        node[above] {A'}
         -- (Bp)
         node[below right] {B'};
 \end{tikzpicture}
