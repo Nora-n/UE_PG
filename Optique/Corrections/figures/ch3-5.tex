@@ -1,0 +1,115 @@
+\documentclass{standalone}
+\usepackage{mintikz}
+
+\begin{document}
+    
+\begin{tikzpicture}[]
+    % Axe optique
+    \draw[thin, ->](-10,0)--(10,0)node[below]{A.O.};
+    % Lentille 1
+    \coordinate (O1) at (-3,0);
+    \def \fa{2}
+    \def \lsiz{3}
+    \coordinate (F1) at ($(O1)+(-\fa,0)$);
+    \coordinate (F1p) at ($(O1)+(\fa,0)$);
+
+    \foreach \x/\z in {O1/\fa}{
+        \draw[shift={(\x)}] (0,0)
+            node[below right] {O$_{1}$}
+            node {$\times$};
+        \draw[shift={(\x)}] (\z,2pt) --++ (0,-4pt)
+            node[below right] {F$'_{1}$};
+        \draw[shift={(\x)}] ({-\z},2pt) --++ (0,-4pt)
+        node[below left] {F$_{1}$};}
+
+    \draw[shift={(O1)}, thick, <->, >=latex, name path=L1]
+        (0,-\lsiz) coordinate (L1b) --
+        (0,\lsiz) coordinate (L1t)
+        node[above]{$\Lc_{1}$};
+    % Lentille 2
+    \coordinate (O2) at (3,0);
+    \def \fb{2}
+    \def \lsiz{3}
+    \coordinate (F2) at ($(O2)+(-\fb,0)$);
+    \coordinate (F2p) at ($(O2)+(\fb,0)$);
+
+    \foreach \x/\z in {O2/\fb}{
+        \draw[shift={(\x)}] (0,0)
+            node[below right] {O$_{2}$}
+            node {$\times$};
+        \draw[shift={(\x)}] (\z,2pt) --++ (0,-4pt)
+            node[below right] {F$'_{2}$};
+        \draw[shift={(\x)}] ({-\z},2pt) --++ (0,-4pt)
+        node[below left] {F$_{2}$};}
+
+    \draw[shift={(O2)}, thick, <->, >=latex, name path=L2]
+        (0,-\lsiz) coordinate (L2b) --
+        (0,\lsiz) coordinate (L2t)
+        node[above]{$\Lc_{2}$};
+    % Objet
+    \def \pos{-6}
+    \def \siz{1}
+    \coordinate (A) at ($(O1)+(\pos,0)$);
+    \coordinate (B) at ($(A)+(0,\siz)$);
+    \draw[->, Purple!70] (A) 
+        node[below] {A}
+        -- (B)
+        node[above left] {B};
+    % Rayons pour objet avant foyer d'une lentille convergente
+    % Lengths
+    \len{(A)}{(O1)}{\posi}
+    \len{(A)}{(B)}{\size}
+    \len{(O1)}{(F1)}{\foc}
+    % Rayon 1
+    \draw[Purple!70, simple] (B) -- (O1);
+    \def\mut{1}
+    \draw[brandeisblue, simple, name path=OBp] (O1)
+    --++ ($\mut*(O1)-\mut*(B)$);
+    % Rayon 2
+    \draw[Purple!70, double] (B) --++ (\posi,0) coordinate (I);
+    \def \mut{2}
+    \draw[brandeisblue, double, name path=IBp] (I)
+    --++ ($\mut*(F1p)-\mut*(I)$);
+    \def \intsiz{\size*\foc/(\posi-\foc)}
+    % Rayon 3
+    \draw[Purple!70, triple] (B) -- (F1)
+    --++ (\foc,-{\intsiz}) coordinate (E);
+    \def \mut{2}
+    \draw[brandeisblue, triple, name path=EBp] (E) --++ (\mut*\foc,0);
+    % Image
+    \path[name intersections={of=OBp and IBp, by=B_1}];
+    \coordinate (A_1) at ($(B_1)+(0,{\intsiz})$);
+    \draw[->, Red!70] (A_1) 
+    node[above] {A$_1$}
+    -- (B_1)
+    node[below right] {B$1$};
+    % Rayons pour objet avant foyer d'une lentille convergente
+    % Lengths
+    \len{(A_1)}{(O2)}{\posi}
+    \len{(A_1)}{(B_1)}{\size}
+    \len{(O2)}{(F2)}{\foc}
+    % Rayon 1
+    \draw[ForestGreen, simple] (B_1) -- (O2);
+    \def\mut{2}
+    \draw[orange!70, simple, name path=OBp] (O2)
+    --++ ($\mut*(O2)-\mut*(B_1)$);
+    % Rayon 2
+    \draw[ForestGreen, double] (B_1) --++ (\posi,0) coordinate (I);
+    \def \mut{3}
+    \draw[orange!70, double, name path=IBp] (I)
+    --++ ($\mut*(F2p)-\mut*(I)$);
+    \def \intsiz{\size*\foc/(\posi-\foc)}
+    % Rayon 3
+    \draw[ForestGreen, triple] (B_1) -- (F2)
+    --++ (\foc,{\intsiz}) coordinate (E);
+    \def \mut{3}
+    \draw[orange!70, triple, name path=EBp] (E) --++ (\mut*\foc,0);
+    % Image
+    \path[name intersections={of=OBp and IBp, by=B'}];
+    \coordinate (A') at ($(B')+(0,{-\intsiz})$);
+    \draw[->, Red!70] (A') 
+    node[below] {A'}
+    -- (B')
+    node[above] {B'};
+\end{tikzpicture}
+\end{document}

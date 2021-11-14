@@ -1,0 +1,352 @@
+\documentclass[../main/main.tex]{subfiles}
+\begin{document}
+
+\chapter{Lois de Kirchhoff}\label{ch:O3}
+\vspace*{-47pt}
+
+\begin{center}
+    \Huge Exercices d'application
+\end{center}
+
+\section{Tensions et courants}
+
+\begin{tcbraster}[raster columns=6, raster equal height=rows]
+    \begin{NCdefi}[raster multicolumn=4]{Schéma}
+        \begin{center}
+            \begin{circuitikz}
+                \draw
+                (0,0)
+                    to[R, name=R1, i>_=$I(R_1)$, v^<=$U(R_1)$, !vi]
+                (3,0) coordinate (Itl)
+                    node {\color{ForestGreen}$\bullet$}
+                    node [above] {\color{ForestGreen}1}
+                    node [above left=0.4] (M) {}
+                    to[R, name=R, i^>=$I(R)$, v^<=$U(R)$, !vi]
+                (6,0) coordinate (Itr)
+                    node {\color{ForestGreen}$\bullet$}
+                    node [above] {\color{ForestGreen}2}
+                    to[R, name=R3, i_>=$I(R_3)$, v^<=$U(R_3)$, !vi]
+                (9,0)
+                    to[R, name=R2, i>^=$I(R_2)$, v^<=$U(R_2)$, !vi]
+                (9,-2)
+                    node [below right=0.4] (N) {}
+                    to[short]
+                (6,-2) coordinate (Ibr)
+                    node {\color{ForestGreen}$\bullet$}
+                    node [below] {\color{ForestGreen}3}
+                    to[R, name=Rp, i>_=$I(R')$, v^<=$U(R')$, !vi]
+                (3,-2) coordinate (Ibl)
+                    node {\color{ForestGreen!40}$\bullet$}
+                    to[short]
+                (0,-2);
+                \draw[]
+                (Itl)
+                to[R, name=r, i>^=$I(r)$, v^<=$U(r)$, !vi]
+                (Ibl);
+                \draw[]
+                (Itr)
+                to[R, name=r2, i>^=$I(r_2)$, v^<=$U(r_2)$, !vi]
+                (Ibr);
+                \varronly{R} \varronly{R1} \varronly{R2} \varronly{R3}
+                \varronly{Rp} \varronly{r} \varronly{r2}
+                \iarronly{R} \iarronly{R1} \iarronly{R2} \iarronly{R3}
+                \iarronly{Rp} \iarronly{r} \iarronly{r2}
+                \node[] at (R.center) {$R$};
+                \node[] at (Rp.center) {$R'$};
+                \node[] at (R1.center) {$R_1$};
+                \node[] at (R2.center) {$R_2$};
+                \node[] at (R3.center) {$R_3$};
+                \node[] at (r.center) {$r$};
+                \node[] at (r2.center) {$r_2$};
+                \node[Orchid] (LM1) at (4.5,-1) {1};
+                \circledarrow{Orchid}{(LM1)}{0.3}
+                \node[Orchid] (LM2) at (7.7,-1) {2};
+                \circledarrow{Orchid}{(LM2)}{0.3}
+                \draw[dashed, Orchid]
+                (M) rectangle
+                (N);
+                \node[Orchid] (LM3) at (2,-1) {3};
+                \circledarrow{Orchid}{(LM3)}{0.3}
+            \end{circuitikz}
+        \end{center}
+    \end{NCdefi}
+    \begin{NCrapp}[raster multicolumn=2]{Rappel}
+        \begin{itemize}
+            \item \textit{Nœud} : jonction entre au moins 3 câbles ;
+            \item \textit{Branche} : section entre 2 nœuds ;
+            \item \textit{Maille} : ensemble de branches fermées.
+        \end{itemize}
+    \end{NCrapp}
+\end{tcbraster}
+
+\begin{tcbraster}[raster columns=2, raster equal height=rows]
+    \begin{NCexem}{Liens entre courants}
+        On établit les liens entre les différents courants avec la loi des nœuds
+        ou avec l'unicité de l'intensité dans une branche. Ici, on a :
+        \begin{itemize}
+            \item $I(R_2) = I(R_3)$ par unicité à droite ;
+            \item $I(R_1) = I(R) + I(r)$ par LdN 1 ;
+            \item $I(R) = I(R_3) + I(r_2)$ par LdN 2 ;
+            \item $I(R_2) + I(r_2) = I(R')$ par LdN 3.
+        \end{itemize}
+        Le dernier nœud, non numéroté, donne une relation redondante avec les
+        autres.
+    \end{NCexem}
+    \begin{NCcexe}{Liens entre tensions}
+        Avec les lois des mailles, on a :
+        \begin{itemize}
+            \item $U(R') + U(r_2) + U(R) = U(r)$ par LdM 1 ;
+            \item $U(R_2) + U(R_3) = U(r_2)$ par LdM 2 ;
+        \end{itemize}
+        La LdM 3 donne une relation redondante avec les deux premières : $U(R')
+        + U(R_2) + U(R_3) + U(R) = U(r)$ est la somme des deux.
+    \end{NCcexe}
+\end{tcbraster}
+
+\section{Calcul d'ntensité}
+\begin{tcbraster}[raster columns=5, raster equal height=rows]
+    \begin{NCdefi}[raster multicolumn=3]{Schéma}
+        \begin{center}
+            \begin{circuitikz}
+                \draw
+                (0,0)
+                    to[R, name=r1, i>_=$I$, v^<=$U(r_1)$, !vi]
+                (3,0)
+                    coordinate (It)
+                    node {\color{ForestGreen}$\bullet$}
+                    node [above] {\color{ForestGreen}1}
+                    to[R, name=R, i_>=$I_2$, v^<=$U(R)$, !vi]
+                (6,0)
+                    to[R, name=R2, v^<=$U(R_2)$, !vi]
+                (6,-3)
+                    to[short]
+                (3,-3)
+                    coordinate (Ib)
+                    node {\color{ForestGreen!70}$\bullet$}
+                    to[short]
+                (0,-3)
+                    to[V, name=E1, V^>=$E_{1}$, !vi]
+                (0,0);
+                \draw[]
+                (It)
+                to[R, name=R1, i>_=$I_1$, v^<=$U(R_1)$, !vi]
+                (Ib);
+                \varronly{E1} \varronly{R} \varronly{R1} \varronly{R2}
+                \varronly{r1}
+                \iarronly{R} \iarronly{R1} \iarronly{r1}
+                \node[] at (r1.center) {$r_1$};
+                \node[] at (R.center) {$R$};
+                \node[] at (R1.center) {$R_1$};
+                \node[] at (R2.center) {$R_2$};
+                \node[Orchid] (LM1) at (1.5,-1.5) {1};
+                \circledarrow{Orchid}{(LM1)}{0.3}
+                \node[Orchid] (LM2) at (4.5,-1.5) {2};
+                \circledarrow{Orchid}{(LM2)}{0.3}
+            \end{circuitikz}
+        \end{center}
+    \end{NCdefi}
+    \begin{tcolorbox}[blankest, raster multicolumn=2, space to=\myspace]
+        \begin{tcbraster}[raster columns=1]
+            \begin{NCprop}[add to natural height=\myspace]{Résultat attendu}
+                On cherche à exprimer $I_2$.
+            \end{NCprop}
+            \begin{NCdemo}{{LdN, LdM}}
+                \begin{itemize}
+                    \item $I = I_1 + I_2 \color{ForestGreen}(1)$ (LdN) ;
+                    \item $I_1R_1 + Ir_1 = E_1 \color{ForestGreen}(2)$ (LdM 1) ;
+                    \item $I_2(R+R_2) = I_1R_1 \color{ForestGreen}(3)$ (LdM 2).
+                \end{itemize}
+            \end{NCdemo}
+        \end{tcbraster}
+    \end{tcolorbox}
+\end{tcbraster}
+\begin{tcbraster}[raster columns=2, raster equal height=rows]
+    \begin{NCimpo}{Conseil}
+        À partir de cet exercice, la résolution des devient assez
+        mathématique et devient de la résolution de systèmes d'équations. Il y a
+        de bonnes pratiques à cet égard : numéroter les équations qu'on veut
+        réutiliser en premier lieu, à l'aide des $\color{ForestGreen}(1)$ par
+        exemple, savoir qu'un système de 3 équations (indépendantes) à 3
+        inconnues \underline{est} résolvable ensuite, et comprendre comment s'y
+        prendre enfin. Cette dernière partie est bien sûr la vraie étape
+        difficile et passe par la pratique, mais elle s'apprend. Je donne
+        quelques outils dans l'encadré suivant.
+    \end{NCimpo}
+    \begin{NCrema}{Exemple}
+        En ayant simplement utilisé les lois de Kirchhoff dont on dispose, $I_2$
+        apparaît dans l'équation $ \color{ForestGreen}(3)$, mais s'exprime en
+        fonction de $I_1$ que l'on ne connaît pas non plus. On doit donc
+        commencer par trouver une expression de $I_1$ qui puisse nous faire
+        avancer. $I_1$ fait partie de l'équation $\color{ForestGreen}(2)$ qui,
+        elle, dépend de I mais en utilisant $\color{ForestGreen}(1)$ on peut
+        facilement changer $ \color{ForestGreen}(2)$ en une nouvelle équation
+        reliant $I_1$ à $I_2$ \underline{et qui n'est pas $\color{ForestGreen}
+        (3)$} et qu'on appellera brillamment $ \color{ForestGreen}(4)$. Ainsi, 
+        en réinjectant \textcolor{ForestGreen}{(4)} dans
+        \textcolor{ForestGreen}{(3)}, on aura une expression de $I_2$ en
+        fonction uniquement des paramètres du circuit ($E, R$).
+    \end{NCrema}
+\end{tcbraster}
+
+\begin{center}
+    \begin{NCexem}[width=.7\linewidth]{Application}
+        Injecter \textcolor{ForestGreen}{(1)} dans \textcolor{ForestGreen}{(2)}
+        donne :
+        \begin{align*}
+            I_1R_1 + (I_1-I_2)r_1 &= E_1\\
+            I_1(R_1+r_1) &= E_1-I_2r_1\\
+            I_1 &= \frac{E_1 - I_2r_1}{R_1 + r_1} \quad \color{ForestGreen}(4)
+        \end{align*}
+        Ainsi, il suffit de réinjecter \textcolor{ForestGreen}{(4)} dans
+        \textcolor{ForestGreen}{(3)} pour avoir :
+        \begin{align*}
+            I_2(R_2+R) &= \frac{E_1 - I_2r_1}{R_1 + r_1}\times R_1\\
+            I_2(R_2+R)\times(R_1+r) &= (E_1-I_2r)\times R_1\\
+            I_2 \left[ (R_2+R)(R_1+r_1)+r_1R_1 \right] &= E_1R_1
+        \end{align*}
+        et finalement
+        \[\boxed{I_2 = \frac{E_1R_1}{\left[ (R_2+R)(R_1+r_1)+r_1R_1 \right]}}\]
+    \end{NCexem}
+\end{center}
+
+\section{Diviseur de tension}
+\begin{tcbraster}[raster columns=3, raster equal height=rows]
+    \begin{NCdefi}{Schéma}
+        \begin{center}
+            \begin{circuitikz}
+                \draw
+                (0,0)
+                to[V, name=E, V^>=$E_{}$, i^>=$I_{}$, !vi]
+                (0,4) --
+                (1,4) coordinate (It)
+                to[R, name=R2, i^>=$I$, v^<=$U_{AB}$, !vi]
+                (1,2) coordinate (Im)
+                to[R, name=R1, v^<=$U_{BC}$, !vi]
+                (1,0) coordinate (Ib) --
+                (0,0);
+                \varronly{E} \varronly{R1} \varronly{R2}
+                \iarronly{E} \iarronly{R2}
+                \node[] at (R1.center) {$R_1$};
+                \node[] at (R2.center) {$R_2$};
+                \draw[]
+                (It) --++
+                (0.5,0) node [right] {A};
+                \draw[]
+                (Im) --++
+                (0.5,0) node [right] {B};
+                \draw[]
+                (Ib) --++
+                (0.5,0) node [right] {C};
+            \end{circuitikz} 
+        \end{center}
+    \end{NCdefi}
+    \begin{tcolorbox}[blankest, raster multicolumn=1, space to=\myspace]
+        \begin{tcbraster}[raster columns=1]
+            \begin{NCprop}{Résultat attendu}
+                On cherche $I$ puis $U_{BC}$.
+            \end{NCprop}
+            \begin{NCdemo}[add to natural height=\myspace]{Outils}
+                \begin{itemize}
+                    \item Loi des mailles pour $I$ ;
+                    \item Loi d'Ohm pour $U_{BC}$.
+                \end{itemize}
+            \end{NCdemo}
+        \end{tcbraster}
+    \end{tcolorbox}
+    \begin{NCexem}{Application}
+        Il suffit d'une loi des mailles pour trouver
+        \[I = \frac{E}{R_1+R_2}\]
+        Puis trivialement
+        \[U_{BC} = R_1I = \frac{R_1}{R_1+R_2}E\]
+    \end{NCexem}
+\end{tcbraster}
+\begin{tcbraster}[raster columns=2, raster equal height=rows]
+    \begin{NCrema}{Remarque}
+        On remarque donc que deux dipôles de résistances $R_1$ et $R_2$ se
+        partageant une tension totale $E$ vont se la répartir
+        en respectant la fraction de résistance à laquelle chaque diôle
+        participe. C'est également une simple moyenne pondérée.
+    \end{NCrema}
+    \begin{NCror}{Important}
+        Ce résultat est bien plus général que pour deux dipôles et fonctionne
+        avec $n$ dipôles \textbf{\textit{en série}} sur une branche. Il faut
+        pouvoir se ramener à ce schéma précis pour appliquer la formule du pont
+        diviseur de tension – que vous pouvez maintenant utiliser sans loi des
+        mailles : $\DS U_x = E\times \frac{R_x}{R_\mathrm{tot}}$
+    \end{NCror}
+\end{tcbraster}
+
+\begin{tcbraster}[raster columns=3, raster equal height=rows]
+    \begin{NCdefi}{Schéma}
+        \begin{center}
+            \begin{circuitikz}
+                \draw
+                (0,0)
+                to[V, name=E, V^>=$E_{}$, i^>=$I_{}$, !vi]
+                (0,4) --
+                (1,4) coordinate (It)
+                to[R, name=R2, i^>=$I$, v^<=$U_{AB}$, !vi]
+                (1,2) coordinate (im)
+                to[R, name=R1, v^<=$U_{BC}$, !vi]
+                (1,0) coordinate (ib) --
+                (0,0);
+                \draw[]
+                (im)
+                to[short]
+                ($(im)+(1,0)$) coordinate (Im)
+                to[R, name=R3, i>^=$I_3$, v^<=$U_{BC}$, !vi]
+                ($(ib)+(1,0)$) coordinate (Ib);
+                \varronly{E} \varronly{R1} \varronly{R2} \varronly{R3}
+                \iarronly{E} \iarronly{R2} \iarronly{R3}
+                \node[] at (R1.center) {$R_1$};
+                \node[] at (R2.center) {$R_2$};
+                \node[] at (R3.center) {$R_3$};
+                \draw[]
+                (It) --++
+                (0.5,0) node [right] {A};
+                \draw[]
+                (Im) --++
+                (0.5,0) node [right] {B};
+                \draw[]
+                (Ib) --++
+                (0.5,0) node [right] {C};
+            \end{circuitikz} 
+        \end{center}
+    \end{NCdefi}
+    \begin{tcolorbox}[blankest, raster multicolumn=1, space to=\myspace]
+        \begin{tcbraster}[raster columns=1]
+            \begin{NCprop}{Résultat attendu}
+                On cherche $I$ puis $U_{BC}$.
+            \end{NCprop}
+            \begin{NCdemo}[add to natural height=\myspace]{Outils}
+                \begin{itemize}
+                    \item Loi des mailles pour $I$ ;
+                    \item Loi d'Ohm pour $U_{BC}$.
+                \end{itemize}
+            \end{NCdemo}
+        \end{tcbraster}
+    \end{tcolorbox}
+    \begin{NCexem}{Application}
+        Il suffit d'une loi des mailles pour trouver
+        \[I = \frac{E}{R_1+R_2}\]
+        Puis trivialement
+        \[U_{BC} = R_1I = \frac{R_1}{R_1+R_2}E\]
+    \end{NCexem}
+\end{tcbraster}
+\begin{tcbraster}[raster columns=2, raster equal height=rows]
+    \begin{NCrema}{Remarque}
+        On remarque donc que deux dipôles de résistances $R_1$ et $R_2$ se
+        partageant une tension totale $E$ vont se la répartir
+        en respectant la fraction de résistance à laquelle chaque diôle
+        participe. C'est également une simple moyenne pondérée.
+    \end{NCrema}
+    \begin{NCror}{Important}
+        Ce résultat est bien plus général que pour deux dipôles et fonctionne
+        avec $n$ dipôles \textbf{\textit{en série}} sur une branche. Il faut
+        pouvoir se ramener à ce schéma précis pour appliquer la formule du pont
+        diviseur de tension – que vous pouvez maintenant utiliser sans loi des
+        mailles : $\DS U_x = E\times \frac{R_x}{R_\mathrm{tot}}$
+    \end{NCror}
+\end{tcbraster}
+
+\end{document}

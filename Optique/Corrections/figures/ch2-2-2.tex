@@ -1,0 +1,98 @@
+\documentclass{standalone}
+\usepackage{mintikz}
+
+\begin{document}
+\begin{tikzpicture}[use optics, scale=0.3]
+    % Dioptre
+    \def\nair{1}
+    \def\neau{1.33}
+    \node[screen,
+        object height=12cm, rotate=90,
+        name path=Dpath]
+        (dioptre) at (0,0) {};
+    \node[right] at (dioptre.south) {dioptre};
+    % Milieu n1
+    \node[above left] at (dioptre.south) {$n_\mathrm{air}$};
+    % Milieu n2
+    \def\dh{11}
+    \coordinate (D1) at ($(dioptre.north)!\dh cm!-90:(dioptre.south)$);
+    \fill[brandeisblue!30]
+        (dioptre.south) -- (dioptre.north) --
+        (D1) -- (D1-|dioptre.south) -- cycle;
+    \node[below left] at (dioptre.south) {$n_\mathrm{eau}$};
+    % Nénuphar
+    \def\rsiz{11.4}
+    \def\rh{0.5}
+    \node[draw, scale=0.3, anchor=west,
+        minimum width=2*\rsiz cm,
+        minimum height=2*\rh cm,
+        fill=ForestGreen!80] (nenuph) at
+        ([shift={(3em,0)}]dioptre.north) {};
+    % Grenouille
+    \def\gsiz{10}
+    \draw[Circle-{[Purple!70]Circle}]
+        (nenuph.south) coordinate (Atop)
+        --++ (0,-\gsiz) coordinate (A);
+    % Grandeurs
+    \node[left] (Ag) at (A) {};
+    \node[left] (Atopg) at (Atop) {};
+    \draw[<->, ForestGreen] (Ag) --
+    node[above, midway, sloped]
+    {\scriptsize $h=\SI{10}{cm}$} (Atopg);
+    % Grandeurs
+    \node[above, inner sep=2]
+        (nenuphtopg) at (nenuph.north) {};
+    \node[above, inner sep=2]
+        (nenuphrightg) at (nenuph.north east) {};
+    \draw[<->, Red!70] (nenuphtopg) --
+    node[above, midway, sloped]
+    {\scriptsize \textcolor{Red!70}{$R_0$}} (nenuphrightg);
+    % Point
+    \node[left, Purple!70] at (A) {A};
+    \node[Purple!70] at (A) {$\times$};
+    % Rayons
+    \foreach \i/\n in {30/1, 50/2, 60/3, 70/4}{
+        \path[name path=AI\n] (A) --++ (\i:25cm);
+        % Define intersection
+        \path[name intersections={of=Dpath and AI\n, by=I\n}];
+        \draw[brandeisblue, dotted, simple] (A) -- (I\n);
+    }
+    \path[name path=AI0] (A) --++ (41.25:30cm);
+    % Define intersection
+    \path[name intersections={of=AI0 and Dpath, by=I0}];
+    \draw[brandeisblue, simple] (A) -- (I0);
+    % Snell
+    \foreach \i/\n in {50/2, 60/3, 70/4}{
+        \draw[orange!70, dotted, simple] (I\n) --++
+            ({90-asin(\neau*sin(90-\i)/\nair)}:7cm);
+    }
+    \draw[orange!70, simple] (I0) --++ (0:15cm) coordinate (Aend);
+    % Réflexion
+    \draw[orange, dotted, simple, rotate=-90] (I1) --++ (60:7cm);
+    % Normal
+    \def\hsiz{5}
+    \draw[gray!50, dashed, name path=Hpath]
+    ([shift={(0,\hsiz)}]I0) coordinate (Htop) --
+    ([shift={(0,-\hsiz)}]I0) coordinate (Hbot);
+    % Define intersection
+    \path[name intersections={of=Hpath and Dpath, by=H}];
+    \node[gray!70, below right] at (H) {H};
+    \node[gray!70] at (H) {$\times$};
+    % Draw angles
+    \pic[scale=0.3,
+    angle radius=2cm, angle eccentricity=1.7,
+    draw, ->, "$i_1$" alias=i1r]
+    {angle=A--H--Hbot};
+    \pic[scale=0.3,
+    angle radius=2cm, angle eccentricity=1.7,
+    draw, ->, "$i_1$" alias=i1]
+    {angle=H--A--Atop};
+    % Draw angles
+    \pic[scale=0.3,
+    angle radius=2cm, angle eccentricity=1.7,
+    draw, ->,
+    "\vspace{-10pt}\hspace{20pt}$i_2 = \SI{90}{\degres}$" alias=i2]
+    {angle=Aend--H--Htop};
+\end{tikzpicture}
+   
+\end{document}
