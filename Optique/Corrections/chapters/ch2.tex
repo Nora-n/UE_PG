@@ -136,14 +136,12 @@
 \end{minipage}
 
 \section{Une grenouille intelligente}
-\begin{NCdefi}{Données}
-    \begin{minipage}{0.45\linewidth}
+\begin{tcbraster}[raster columns=7, raster equal height=rows]
+    \begin{NCdefi}[raster multicolumn=4]{Données}
         Pour une hauteur de grenouille fixée, il y a une taille de
         nénuphar permettant à tous les rayons partant de la grenouille de ne
-        pas traverser le dioptre.
-    \end{minipage}
-    \begin{minipage}{0.55\linewidth}
-        \begin{flushright}
+        pas traverser le dioptre.\smallbreak
+        \begin{center}
             \begin{tikzpicture}[use optics, scale=0.2]
                 % Dioptre
                 \def\nair{1}
@@ -190,23 +188,25 @@
                 node[above, midway, sloped]
                 {\scriptsize \textcolor{Red!70}{$R_0$}} (nenuphrightg);
             \end{tikzpicture}   
-        \end{flushright}
-    \end{minipage}
-\end{NCdefi}
-
-\begin{tcbraster}[raster columns=2, raster equal height=rows]
-    \begin{NCprop}{But à atteindre}
-        Origine physique de ce phénomène et traduction mathématique.
-    \end{NCprop}    
-    \begin{NCdemo}{Outils du cours}
-        Loi de Snell-Descartes :
-        \[ n_1\sin i_1 = n_2\sin i_2\]
-        et \underline{angle limite} de réfraction, tel que :
-        \[ n_1\sin i_\ell = n_2\sin 90\degres = n_2\]
-        qui indique que pour $n_1 > n_2$, il y a un angle d'incidence à
-        partir duquel il n'y a pas de rayon réfracté (les rayons réfractés font un
-        angle de 90° avec la normale et sont donc parallèles au dioptre).
-    \end{NCdemo}
+        \end{center}
+    \end{NCdefi}
+    \begin{tcolorbox}[blankest, raster multicolumn=3, space to=\myspace]
+        \begin{tcbraster}[raster columns=1]
+            \begin{NCprop}{But à atteindre}
+                Origine physique de ce phénomène et traduction mathématique.
+            \end{NCprop}    
+            \begin{NCdemo}{Outils du cours}
+                Loi de Snell-Descartes :
+                \[ n_1\sin i_1 = n_2\sin i_2\]
+                et \underline{angle limite} de réfraction, tel que :
+                \[ n_1\sin i_\ell = n_2\sin 90\degres = n_2\]
+                qui indique que pour $n_1 > n_2$, il y a un angle d'incidence à
+                partir duquel il n'y a pas de rayon réfracté (les rayons
+                réfractés font un angle de 90° avec la normale et sont donc
+                parallèles au dioptre).
+            \end{NCdemo}
+        \end{tcbraster}
+    \end{tcolorbox}
 \end{tcbraster}
 
 \begin{NCexem}[breakable]{Application}
