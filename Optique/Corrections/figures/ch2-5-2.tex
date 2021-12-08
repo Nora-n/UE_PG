@@ -1,0 +1,116 @@
+\documentclass{standalone}
+\usepackage{mintikz}
+
+\begin{document}
+\begin{tikzpicture}[use optics, scale=.2]
+    % Objet
+    \oeil[shift={(0,3)}, rotate=-90, scale=3];
+    \coordinate (A) at (0,0);
+    \node[left, Purple!70] at (A) {A};
+    \node[Purple!70] at (A) {$\times$};
+    \draw[-latex]
+        (-10,1.5) -- node[right=0.05, midway] {$\oplus$}
+        (-10,-1.5);
+    % Dioptre
+    \def\na{1.0}
+    \def\nb{1.33}
+    \node[screen, anchor=north,
+        object height=4cm, rotate=90,
+        name path=Dpath] (dioptre) at (-10,-15) {};
+    % Milieu n1
+    \node[above right] at (dioptre.north) {$n_\mathrm{air}$};
+    % Milieu n2
+    \def\dh{10}
+    \coordinate (D1) at ($(dioptre.north)!\dh cm!-90:(dioptre.south)$);
+    \fill[brandeisblue!30]
+        (dioptre.south) -- (dioptre.north) --
+        (D1) -- (D1-|dioptre.south) -- cycle;
+    \node[below right] at (dioptre.north) {$n_\mathrm{eau}$};
+    \node[left, draw, fill=gray!10]
+        at (dioptre.south) {\small dioptre};
+    % Récipient
+    \draw[]
+        (-10,-3) --++
+        (0,-22) coordinate (Ms);
+    % Miroir
+    \node[mirror, rotate=-90, object height=4cm,
+        name path=Mpath, anchor=south]
+        (M) at (Ms) {};
+    \node[below] at (M.north) {Miroir};
+    % Fin récipient
+    \draw[]
+        (M.north) --++
+        (0,22);
+    % Projection
+    \coordinate (Hp) at ($(dioptre.north)!(A)!(dioptre.south)$);
+    \node[above right, gray!70] at (Hp) {H$'$};
+    \node[gray!70] at (Hp) {$\times$};
+    % Projection
+    \coordinate (H) at ($(M.north)!(A)!(M.south)$);
+    \node[above right, gray!70] at (H) {H};
+    \node[gray!70] at (H) {$\times$};
+    % \draw[dashed, gray!70]
+    %     (A) --
+    %     (H) --++
+    %     ($(H)-(A)$) coordinate (Ap);
+    % Symétrique
+    % \node[left, orange!70] at (Ap) {A$'$};
+    % \node[orange!70] at (Ap) {$\times$};
+    % \oeil[shift={($(Ap)-(0,3)$)}, rotate=90, scale=3];
+    % Rayons
+    \def\shift{0.6}
+    \draw[Purple!70, simple]
+        ($(A)-(\shift,0)$) --
+        ($(Hp)-(\shift,0)$);
+    % Image A_1
+    \coordinate (A1) at ([shift={(0,20)}]Hp);
+    \node[left, brandeisblue] at (A1) {$A_1$};
+    \node[brandeisblue] at (A1) {$\times$};
+    % Rayons
+    \def\shift{0.3}
+    \draw[brandeisblue!70, simple, dashed]
+        ($(A1)-(\shift,0)$) --
+        ($(Hp)-(\shift,0)$);
+    \draw[brandeisblue!70, simple]
+        ($(Hp)-(\shift,0)$) --
+        ($(H)-(\shift,0)$);
+    % Projection
+    \path[dashed, gray!70] (H) --++ ($(H)-(A1)$) coordinate (A2);
+    % Symétrique
+    \node[right, orange!70] at (A2) {$A_2$};
+    \node[orange!70] at (A2) {$\times$};
+    % Rayons
+    \def\shift{0.3}
+    \draw[orange!70, simple, dashed]
+        ($(A2)+(\shift,0)$) --
+        ($(H)+(\shift,0)$);
+    \draw[orange!70, simple]
+        ($(H)+(\shift,0)$) --
+        ($(Hp)+(\shift,0)$);
+    % Point
+    \coordinate (Ap) at ([shift={(0,-30)}]Hp);
+    \node[right, Red!70] at (Ap) {$A'$};
+    \node[Red!70] at (Ap) {$\times$};
+    % Rayons
+    \def\shift{0.6}
+    \draw[Red!70, simple, dashed]
+        ($(A2)+(\shift,0)$) --
+        ($(Hp)+(\shift,0)$);
+    \draw[Red!70, simple]
+        ($(Hp)+(\shift,0)$) --
+        ($(A)+(\shift,0)$);
+    \oeil[shift={($(Ap)+(0,-3)$)}, rotate=90, scale=3];
+    % Grandeurs
+    \node[right=2.2, inner sep=0] (Ag) at (A) {};
+    \node[right=2.2, inner sep=0] (Hg) at (H) {};
+    \draw[|<->|, ForestGreen] (Ag) --
+        node[below, midway, sloped, rotate=180]
+        {\scriptsize $\obar{HA} = \SI{-25}{cm}$} (Hg);
+    % Grandeurs
+    \node[left=0.1, inner sep=0] (Msg) at (M.south) {};
+    \node[left=0.1, inner sep=0] (Dsg) at (dioptre.north) {};
+    \draw[|<->|, ForestGreen] (Msg) --
+        node[above, midway, sloped, rotate=180]
+        {\scriptsize $\obar{HH'} = \SI{-10}{cm}$} (Dsg);
+\end{tikzpicture}
+\end{document}

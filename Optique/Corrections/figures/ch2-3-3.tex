@@ -1,0 +1,64 @@
+\documentclass{standalone}
+\usepackage{mintikz}
+
+\begin{document}
+\begin{tikzpicture}[use optics, scale=0.15]
+    % Dioptre
+    \def\na{1.0}
+    \def\nb{1.33}
+    \node[screen, scale=.15,
+    object height=20cm,
+    name path=Dpath] (dioptre) at (0, 10cm) {};
+    \node[above] at (dioptre.north) {dioptre};
+    % Milieu n1
+    \node[below left] at (dioptre.north) {$n\air$};
+    % Milieu n2
+    \def\dh{20}
+    \coordinate (D1) at ($(dioptre.north)!\dh cm!90:(dioptre.south)$);
+    \fill[brandeisblue!30]
+    (dioptre.south) -- (dioptre.north) --
+    (D1) -- (dioptre.south-|D1) -- cycle;
+    \node[below right] at (dioptre.north) {$n_\mathrm{eau}$};
+    % Axe optique
+    \draw[thin, ->, name path=AO](-25cm,0)--(25cm,0)node[below]{A.O.};
+    % Define intersection
+    \path[name intersections={of=Dpath and AO, by=H}];
+    % Point
+    \node[below, gray!70] at (H) {H};
+    \node[gray!70] at (H) {$\times$};
+    % Observation
+    \oeil[shift={(-15cm,0)}, scale=5];
+    % Poisson
+    \node[anchor=south] (fish) at (15,0) {\twemoji{fish}};
+    % Objet
+    \coordinate (A) at (fish.south);
+    \coordinate (B) at ([shift={(0,10)}]A);
+    \draw[->, Purple!70] (A)
+        node [below] {A}
+        -- (B)
+        node [above] {B};
+    % Grandeurs
+    \node[below=.7, inner sep=2] (Ag) at (A) {};
+    \node[below=.7, inner sep=2] (Hg) at (H) {};
+    \draw[|<->|, ForestGreen] (Ag) --
+    node[below, midway, sloped]{\scriptsize $\obar{HA}<0$} (Hg);
+    % Image
+    \def \pos{10cm}
+    \len{(A)}{(B)}{\siz}
+    \coordinate (Ap) at ($(0,0)+(\pos,0)$);
+    \coordinate (Bp) at ($(Ap)+(0,\siz)$);
+    \draw[->, Red!70] (Ap) 
+    node[below] {A$'$}
+    -- (Bp)
+    node[above left] {B$'$};
+    % Poison bis
+    \node[anchor=south, opacity=.3]
+        (fish) at (10,0) {\twemoji{fish}};
+    % Grandeurs
+    \node[below=0.1, inner sep=2] (Apg) at (Ap) {};
+    \node[below=0.1, inner sep=2] (Hg) at (H) {};
+    \draw[|<->|, ForestGreen] (Apg) --
+    node[below, midway, sloped]{\scriptsize
+    $\obar{HA'}$} (Hg);
+\end{tikzpicture}
+\end{document}

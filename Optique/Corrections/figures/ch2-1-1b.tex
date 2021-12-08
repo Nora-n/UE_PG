@@ -1,0 +1,31 @@
+\documentclass{standalone}
+\usepackage{mintikz}
+
+\begin{document}
+\begin{tikzpicture}[use optics]
+    % Miroir
+    \node[mirror, rotate=-90] (M) at (0,-1) {};
+    \node[right] at (M.north) {M};
+    % Objet
+    \coordinate (A) at (-0.25,0);
+    \node[above, color=Purple!70] at (A) {A};
+    \node[color=Purple!70] at (A) {$\times$};
+    % Projection
+    \coordinate (H) at ($(M.north)!(A)!(M.south)$);
+    \node[above right, gray!70] at (H) {H};
+    \node[gray!70] at (H) {$\times$};
+    \draw[dashed, gray!70] (A) -- (H) --++ ($(H)-(A)$) coordinate (Ap);
+    % Image
+    \node[below, Red!70] at (Ap) {A$'$};
+    \node[Red!70] at (Ap) {$\times$};
+    % Rayons
+    \draw[brandeisblue, simple]
+        (A) -- ([shift={(-0.15,0)}]M.north) coordinate (Id);
+    \draw[brandeisblue, double]
+        (A) -- ([shift={(0.15,0)}]M.south) coordinate (Ig);
+    \draw[dashed, orange!70, simple] (Ap) -- (Id);
+    \draw[dashed, orange!70, double] (Ap) -- (Ig);
+    \draw[orange!70, simple] (Id) --++ ($(Id)-(Ap)$);
+    \draw[orange!70, double] (Ig) --++ ($(Ig)-(Ap)$);
+\end{tikzpicture}   
+\end{document}

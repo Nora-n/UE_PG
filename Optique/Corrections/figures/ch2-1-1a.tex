@@ -1,0 +1,19 @@
+\documentclass{standalone}
+\usepackage{mintikz}
+
+\begin{document}
+\begin{tikzpicture}[use optics]
+    % Miroir
+    \node[mirror, rotate=-90] (M) at (0,-1) {};
+    \node[right] at (M.north) {M};
+    % Objet
+    \coordinate (A) at (-0.25,0);
+    \node[above, color=Purple!70] at (A) {A};
+    \node[color=Purple!70] at (A) {$\times$};
+    % Rayons
+    \draw[brandeisblue, simple]
+        (A) -- ([shift={(-0.15,0)}]M.north) coordinate (Id);
+    \draw[brandeisblue, double]
+        (A) -- ([shift={(0.15,0)}]M.south) coordinate (Ig);
+\end{tikzpicture}   
+\end{document}

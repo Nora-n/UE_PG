@@ -10,44 +10,35 @@
 \end{center}
 
 \section{Miroir plan et tracé des rayons}
-\subsection{}
-\begin{minipage}{0.75\linewidth}
-    On a intersection des rayons incidents avant le miroir, c'est un objet réel.
-    L'image de cet objet par le miroir est son symétrique par rapport au plan du
-    miroir : elle est virtuelle. Les rayons émergents passent par cette image
-    (mais sont en pointillés derrière le miroir).
-\end{minipage}
-\begin{minipage}[c]{0.25\linewidth}
-    \begin{flushright}
-        \includegraphics{../figures/ch2-1-1}
-    \end{flushright}
-\end{minipage}
-
-\subsection{}
-\begin{minipage}{0.75\linewidth}
-    Les rayons incidents se croisent après le miroir. On a un objet virtuel. Son
-    image par le miroir plan est son symétrique par rapport au plan du miroir.
-    C'est donc une image réelle (au-dessus du miroir). Les rayons émergents
-    passent par cette image.
-\end{minipage}
-\begin{minipage}{0.25\linewidth}
-    \begin{flushright}
-        \includegraphics{../figures/ch2-1-1}
-    \end{flushright}
-\end{minipage}
-
-\subsection{}
-\begin{minipage}{0.75\linewidth}
-    Ici on a des rayons émergents. Leur intersection est, par définition, le
-    point image. Elle se fait derrière le miroir : c'est un image virtuelle. On
-    obtient l'objet associé en en faisant le symétrique par rapport au plan du
-    miroir : il est donc au-dessus, et c'est un objet réel.
-\end{minipage}
-\begin{minipage}{0.25\linewidth}
-    \begin{flushright}
-        \includegraphics{../figures/ch2-1-3}
-    \end{flushright}
-\end{minipage}
+\begin{NCdefi}[tabularx={Y|Y|Y}]{Schéma}
+    &&\\
+    \includegraphics{../figures/ch2-1-1a} &
+    \includegraphics{../figures/ch2-1-2a} &
+    \includegraphics{../figures/ch2-1-3a}\\
+    Les rayons, incidents, se coupent avant le miroir. &
+    Les rayons, incidents, se coupent après le miroir. &
+    Les rayons, émergents, se coupent après le miroir.\\
+\end{NCdefi}
+\begin{tcbraster}[raster columns=2, raster equal height=rows]
+    \begin{NCprop}[]{Résultat attendu}
+        Construire les objets et images avec les règles du miroir plan.
+    \end{NCprop}
+    \begin{NCdemo}[]{Outils}
+        Image par miroir plan = symétrique. Objet à intersection des indicents,
+        image intersection émergents.
+    \end{NCdemo}
+\end{tcbraster}
+\begin{NCexem}[tabularx={Y|Y|Y}]{Application}
+    \includegraphics{../figures/ch2-1-1b} &
+    \includegraphics{../figures/ch2-1-2b} &
+    \includegraphics{../figures/ch2-1-3b}\\
+    Le symétrique de A donne A' où les rayons émergents se croisent. &
+    Le symétrique de A donne A' où les rayons émergents se croisent. &
+    Le symétrique de A' donne A où les rayons incidents se croisent.\\
+    A est réel, A' virtuel. &
+    A est virtuel, A' réel. &
+    A est réel, A' virtuel.\\
+\end{NCexem}
 
 \section{Une grenouille intelligente}
 \begin{tcbraster}[raster columns=7, raster equal height=rows]
@@ -224,18 +215,19 @@
 
 \begin{tcbraster}[raster columns=5, raster equal height=rows]
     \begin{NCcoro}[raster multicolumn=2]{Conseils}
-        Réécrire les formules telles que vous les avez apprises en cours,
-        \textbf{puis} inclure les données de l'énoncé une par une pour éviter les
-        erreurs...
+        Réécrire les formules telles que dans le cours, \textbf{puis} remplacer
+        les données.% une par une pour éviter les erreurs.
     \end{NCcoro}    
     \begin{NCimpo}[raster multicolumn=3]{Important}
         \begin{enumerate}
-            \item Ne pas se tromper sur le caractère {\huge algébrique} des
-                grandeurs ;
+            \item Ne pas se tromper sur les grandeurs
+                \underline{\textbf{algébriques}} ;\vspace{-8pt}
             \item Bien identifier quelle est la source, quæl est l'observataire.
         \end{enumerate}
     \end{NCimpo}
 \end{tcbraster}
+
+\newpage
 
 \section{Champ de vision à travers un miroir plan}
 \subsection{Propre image}
@@ -302,6 +294,8 @@
         \end{tcbraster}
     \end{tcolorbox}
 \end{tcbraster}
+
+\newpage
 
 \begin{center}
     \Huge Exercices d'entraînement
@@ -421,7 +415,7 @@ Cet exercice est d'une simplicité absolue. Et pourtant...
             \begin{NCdemo}{Outils du cours}
                 Loi de Snell-Descartes :
                 \[ n_1\sin i_1 = n_2 \sin i_2 \]
-                avec $n_1$ l'indice du milieu d'indidence, $n_2$ celui du milieu
+                avec $n_1$ l'indice du milieu d'incidence, $n_2$ celui du milieu
                 de réfraction, $i_1$ l'angle d'incidence et $i_2$ l'angle de
                 réfraction.
             \end{NCdemo}
@@ -449,6 +443,49 @@ Cet exercice est d'une simplicité absolue. Et pourtant...
     \right. \quad \text{soit} \quad \boxed{n = 1.6}
     \]
 \end{NCexem}
+
+%\newpage
+
+\section{Traversée d'une vitre}
+\begin{tcbraster}[raster columns=11, raster equal height=rows]
+    \begin{tcolorbox}[blankest, raster multicolumn=5, space to=\myspace]
+        \begin{tcbraster}[raster columns=1]
+            \begin{NCdefi}[raster multicolumn=1]{Schéma}
+                \begin{center}
+                    \includegraphics{../figures/ch2-7}
+                \end{center}
+            \end{NCdefi}
+            \begin{NCdemo}[add to natural height=\myspace]{Outils}
+                Loi de Snell-Descartes :
+                \[n_1\sin i_1 = n_2\sin r_1\]
+            \end{NCdemo}
+        \end{tcbraster}
+    \end{tcolorbox}
+    \begin{tcolorbox}[blankest, raster multicolumn=6, space to=\myspace]
+        \begin{tcbraster}[raster columns=1]
+            \begin{NCprop}[raster multicolumn=6]{Résultat attendu}
+                Un rayon traversant une vitre va passer de l'air au verre, puis du verre
+                à l'air. Il traverse donc deux dioptres. On doit utiliser
+                Snell-Descartes pour déterminer la direction du rayon émergent et la
+                comparer à celle du rayon incident.
+            \end{NCprop}
+            \begin{NCexem}[sidebyside, righthand width=1.5cm,
+                add to natural height=\myspace]{Application}
+                \begin{description}
+                    \item[En H] : $n_1\sin i_1 = n_2\sin r_1$ ;
+                    \item[Dedans] : $i_2 = r_1$ ;
+                    \item[En I] : $n_2\sin i_2 = n_1\sin r_2$ ;
+                    \item[Combinaison] :
+                        $\cancel{n_1}\sin i_1 = \cancel{n_1}\sin r_2$
+                \end{description}
+                \tcblower
+                Finalement,
+                \[\boxed{r_2 = i_1}\]
+            \end{NCexem}
+        \end{tcbraster}
+    \end{tcolorbox}
+    
+\end{tcbraster}
 
 \newpage
 

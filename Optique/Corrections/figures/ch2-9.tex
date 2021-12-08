@@ -1,0 +1,176 @@
+\documentclass{standalone}
+\usepackage{mintikz}
+
+\begin{document}
+\begin{tikzpicture}[scale=2]
+    % Param prisme
+    \def\angle{70}
+    \def\n{1.5}
+    % Draw prisme
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (0,2);
+    \path[name path=AC] (A) --++ (6,0);
+    \path[name path=AG] (B) --++ (-90+\angle:6cm);
+    % Define intersection
+    \path[name intersections={of=AC and AG, by=C}];
+    \node[below left] at (A) {A};
+    \node[above left] at (B) {B};
+    \node[below right] at (C) {C};
+    \draw[fill=brandeisblue!5] (A) -- (B) -- (C) -- cycle;
+    % Draw angles
+    \pic[angle radius=0.5cm, angle eccentricity=1.5,
+        draw, "\SI{\angle}{\degres}" alias=angle]
+        {angle=A--B--C};
+    % Draw angles
+    \pic[angle radius=0.9cm, angle eccentricity=1.3,
+    draw, "\SI{20}{\degres}" alias=angle2]
+        {angle=B--C--A};
+    % Draw right angle
+    \pic[angle radius=0.2cm, angle eccentricity=1.3, draw]
+        {right angle=B--A--C};
+    \node[above] at ($0.4*(C)-0.4*(A)$) {$n$};
+    % Source
+    \coordinate (S) at (-0.5,1.5);
+    \coordinate (I) at ($(A)!(S)!(B)$);
+    % Entrée
+    \node[below left] at (I) {I};
+    \node[gray!70] at (I) {$\times$};
+    % Right angle
+    \pic[angle radius=0.2cm, angle eccentricity=1.3, draw]
+    {right angle=B--I--S};
+    \draw[Purple!70, simple] (S) -- (I);
+    % Find int
+    \path[name path=Rs] (B) -- (C);
+    \path[name path=IJ] (I) --++ (5,0);
+    % Define intersection
+    \path[name intersections={of=Rs and IJ, by=J}];
+    \node[above right] at (J) {J};
+    \node[gray!70] at (J) {$\times$};
+    % Draw to intersection
+    \draw[brandeisblue, simple] (I) -- (J);
+    % Normale
+    \draw[dashed, gray!70]
+        ($(J)!-1cm!90:(C)$) coordinate (Jb) --
+        ($(J)!1cm!90:(C)$) coordinate (Jt);
+    % Draw angles
+    \pic[angle radius=0.2cm, angle eccentricity=1.3, draw]
+        {right angle=Jb--J--C};
+    % Draw angles
+    \pic[angle radius=0.6cm, angle eccentricity=1.3,
+        draw, <-, brandeisblue, "$i_2$" alias=i1]
+        {angle=I--J--Jb};
+    % Draw angles
+    \pic[angle radius=0.8cm, angle eccentricity=1.3,
+        draw, <-, brandeisblue!50, "$\alpha$" alias=alpha]
+        {angle=B--J--I};
+    % Reflexion
+    \path[name path=JK] (J) --++ ({2*(-90+\angle)}:3cm);
+    \path[name path=AC] (A) -- (C);
+    % Aide au calcul K
+    \draw[dashed, black!70] (J) -- ($(A)!(J)!(C)$) coordinate (D);
+    \node[below] at (D) {D};
+    % Draw angles
+    \pic[angle radius=1cm, angle eccentricity=1.3,
+        draw, ->, ForestGreen!50,
+        "$\alpha$" alias=alphaa]
+        {angle=Jb--J--D};
+    % Define intersection
+    \path[name intersections={of=JK and AC, by=K}];
+    \draw[ForestGreen, simple] (J) -- (K);
+    \node[below left] at (K) {K};
+    \node[gray!70] at (K) {$\times$};
+    % Draw right angle
+    \pic[angle radius=0.2cm, angle eccentricity=1.3, draw]
+        {right angle=J--D--K};
+    % Draw angles
+    \pic[angle radius=1cm, angle eccentricity=1.3,
+        draw, ->, ForestGreen!50,
+        "$r_2-\alpha$" alias=JDK]
+        {angle=D--J--K};
+    % Draw angles
+    \pic[angle radius=0.6cm, angle eccentricity=1.3,
+        draw, ->, ForestGreen, "$r_2$" alias=r2]
+        {angle=Jb--J--K};
+    % Draw angles
+    \pic[angle radius=0.8cm, angle eccentricity=1.3,
+        draw, ->, ForestGreen!50,
+        "$\alpha$" alias=alpha2]
+        {angle=K--J--C};
+    \draw[dashed, gray!70]
+    ($(K)!-0.5cm!90:(C)$) coordinate (Kb) --
+    ($(K)!1cm!90:(C)$) coordinate (Kt);
+    % Draw right angle
+    \pic[angle radius=0.2cm, angle eccentricity=1.3, draw]
+    {right angle=Kt--K--C};
+    % Draw angles
+    \pic[angle radius=0.6cm, angle eccentricity=1.3,
+        draw, ->, ForestGreen, "$i_3$" alias=i3]
+        {angle=Kt--K--J};
+    % Draw angles
+    \pic[angle radius=0.8cm, angle eccentricity=1.3,
+        draw, ->, ForestGreen!50, "$\beta$" alias=beta]
+        {angle=J--K--A};
+    % Reflexion
+    \path[name path=KL] (K) --++ ({2*(90-\angle)}:1cm);
+    % Define intersection
+    \path[name intersections={of=Rs and KL, by=L}];
+    \node[above left] at (L) {L};
+    % Draw
+    \draw[orange, simple] (K) -- (L);
+    \draw[dashed, gray!70]
+        ($(L)!-0.7cm!90:(C)$) coordinate (Lb) --
+        ($(L)!1cm!90:(C)$) coordinate (Lt);
+    % Draw help line
+    \draw[dashed, black!70] (L) -- ($(A)!(L)!(C)$) coordinate (E);
+    \node[below] at (E) {E};
+    % Draw right angle
+    \pic[angle radius=0.2cm, angle eccentricity=1.3, draw]
+        {right angle=L--E--C};
+    % Draw angles
+    \pic[angle radius=1cm, angle eccentricity=0.8,
+        draw, <-, orange!50,
+        "$\alpha$" alias=alphab]
+        {angle=Lb--L--E};
+    % Draw right angle
+    \pic[angle radius=0.2cm, angle eccentricity=1.3, draw]
+        {right angle=Lb--L--C};
+    % Draw angles
+    \pic[angle radius=0.6cm, angle eccentricity=1.3,
+        draw, <-, orange, "$r_3$" alias=r3]
+        {angle=L--K--Kt};
+    % Draw angles
+    \pic[angle radius=0.6cm, angle eccentricity=0.7,
+        draw, <-, orange!50, "$\beta$" alias=beta2]
+        {angle=C--K--L};
+    % Draw angles
+    \pic[angle radius=0.6cm, angle eccentricity=1.3,
+        draw, <-, orange, "$i_4$" alias=i4]
+        {angle=K--L--Lb};
+    % Calc angle
+    \def\ient{90-3*(90-\angle)}
+    % Draw Snell
+    \draw[Red!70, simple]
+        (L) --++
+        ({\angle-asin(\n*sin(\ient))}:1cm) coordinate (F);
+    % Draw angles
+    \pic[angle radius=0.6cm, angle eccentricity=1.3,
+        draw, <-, Red!70, "$r_4$" alias=r4]
+        {angle=F--L--Lt};
+    % Draw angles
+    % \pic[angle radius=0.8cm, angle eccentricity=1.3,
+    % draw, ->, brandeisblue, "$i_2$"]
+    % {angle=Jr--J--Jt};
+    % % Draw angles
+    % \pic[angle radius=1.3cm, angle eccentricity=1.2,
+    % draw, ->, orange!70, "$r_2$" alias=r2]
+    % {angle=F--J--Jt};
+    % % Draw angles
+    % \pic[angle radius=1.6cm, angle eccentricity=1.2,
+    % draw, ->, red!70, "$D$" alias=D]
+    % {angle=F--J--Jr};
+    % % Draw angles
+    % \pic[angle radius=0.5cm, angle eccentricity=1.3,
+    % draw, ->, "$\theta$" alias=theta]
+    % {angle=B--J--I};
+\end{tikzpicture}
+\end{document}

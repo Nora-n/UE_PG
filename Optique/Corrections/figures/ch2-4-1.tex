@@ -1,0 +1,75 @@
+\documentclass{standalone}
+\usepackage{mintikz}
+
+\begin{document}
+\begin{tikzpicture}[use optics, scale=.10]
+    % Personne
+    \def\hsiz{17}
+    \draw[-{[Purple!70]Circle[length=2mm, width=2mm]}]
+        (0,0) coordinate (O) --++
+        (0,\hsiz) coordinate (A);
+    \oeil[shift={(0,17)}, rotate=-40, scale=4];
+    % Grandeurs
+    \node[left] (Og) at (O) {};
+    \node[left] (Ag) at (A) {};
+    \draw[|<->|, ForestGreen] (Og) --
+        node[above, midway, sloped]
+        {\scriptsize $h=\SI{1.70}{m}$} (Ag);
+    % To lake
+    \draw[gray]
+        (O) --++
+        (20,0) coordinate (D);
+    % Grandeurs
+    \node[below] (Og) at (O) {};
+    \node[below] (Dg) at (D) {};
+    \draw[|<->|, ForestGreen] (Og) --
+        node[below, midway, sloped]
+        {\scriptsize $d=\SI{2.00}{m}$} (Dg);
+    % Lake/mirror
+    \node[mirror, rotate=-90, object height=5cm,
+        name path=Mpath, anchor=south] (M) at (D) {};
+    \node[right] at (M.north) {M};
+    % Grandeurs
+    \node[below] (Mlg) at (M.south) {};
+    \node[below] (Mrg) at (M.north) {};
+    \draw[|<->|, ForestGreen] (Mlg) --
+        node[below, midway, sloped]
+        {\scriptsize $l=\SI{5.00}{m}$} (Mrg);
+    % Grandeurs
+    \node[below=1.3em] (Og) at (O) {};
+    \node[below=1.3em] (Mrg) at (M.north) {};
+    \draw[|<->|, ForestGreen] (Og) --
+        node[below, midway, sloped]
+        {\scriptsize $D=\SI{7.00}{m}$} (Mrg);
+    % Projection
+    \coordinate (H) at ($(M.north)!(A)!(M.south)$);
+    \node[below left, gray!70] at (H) {H};
+    \node[gray!70] at (H) {$\times$};
+    \path[dashed, gray!70] (A) -- (H) --++ ($(H)-(A)$) coordinate (Ap);
+    % Right angle
+    \coordinate (Ms) at (M.south);
+    \pic[angle radius=0.2cm, angle eccentricity=1.3, draw]
+        {right angle=A--H--Ms};
+    % Personne - image
+    \draw[dashed, -{[Red!70]Circle[length=2mm, width=2mm]}]
+        (O) --++
+        (Ap);
+    % Rayons
+    \draw[brandeisblue!70, simple]
+        (A) --
+        (M.south);
+    \draw[orange!70, simple]
+        (M.south) --++
+        ($1.2*(A)+1.2*(M.south)$);
+    \draw[orange!70, simple, dashed]
+        (Ap) -- (M.south);
+    \draw[brandeisblue!70, double]
+        (A) --
+        (M.center);
+    \draw[orange!70, double]
+        (M.center) --++
+        ($0.6*(A)+0.6*(M.center)$);
+    \draw[orange!70, double, dashed]
+        (Ap) -- (M.center);
+\end{tikzpicture}
+\end{document}

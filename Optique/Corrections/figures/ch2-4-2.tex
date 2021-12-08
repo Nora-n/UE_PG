@@ -1,0 +1,119 @@
+\documentclass{standalone}
+\usepackage{mintikz}
+
+\begin{document}
+\begin{tikzpicture}[use optics, scale=.1]
+    % Personne
+    \def\hsiz{17}
+    \draw[-{Circle[length=2mm, width=2mm]}]
+        (0,0) coordinate (O) --++
+        (0,\hsiz) coordinate (A);
+    \oeil[shift={(0,17)}, rotate=-40, scale=4];
+    % Grandeurs
+    \node[left] (Og) at (O) {};
+    \node[left] (Ag) at (A) {};
+    \draw[|<->|, ForestGreen] (Og) --
+        node[above, midway, sloped]
+        {\scriptsize $h=\SI{1.70}{m}$} (Ag);
+    % To lake
+    \draw[gray]
+        (O) --++
+        (20,0) coordinate (D);
+    % Grandeurs
+    \node[below] (Og) at (O) {};
+    \node[below] (Dg) at (D) {};
+    \draw[|<->|, ForestGreen] (Og) --
+        node[below, midway, sloped]
+        {\scriptsize $d=\SI{2.00}{m}$} (Dg);
+    % Lake/mirror
+    \node[mirror, rotate=-90, object height=5cm,
+        name path=Mpath, anchor=south] (M) at (D) {};
+    \node[right] at (M.north) {M};
+    % Grandeurs
+    \node[below] (Mlg) at (M.south) {};
+    \node[below] (Mrg) at (M.north) {};
+    \draw[|<->|, ForestGreen] (Mlg) --
+        node[below, midway, sloped]
+        {\scriptsize $l=\SI{5.00}{m}$} (Mrg);
+    % Grandeurs
+    \node[below=1.3em] (Og) at (O) {};
+    \node[below=1.3em] (Mrg) at (M.north) {};
+    \draw[|<->|, ForestGreen] (Og) --
+        node[below, midway, sloped]
+        {\scriptsize $D=\SI{7.00}{m}$} (Mrg);
+    % Tree
+    \def\tsiz{42.5}
+    \node[anchor=south, yscale=4.43, xscale=2]
+        (tree) at ([shift={(0,-5.3)}]M.north) 
+        {\twemoji{evergreen_tree}};
+    \draw[-{[Purple!70]Circle[length=2mm, width=2mm]}]
+        (M.north) --++
+        (0,\tsiz) coordinate (Ttop);
+    % Tree-taller
+    \def\ttsiz{50}
+    \draw[-{[brandeisblue!70]Circle[length=2mm, width=2mm]}]
+        (M.north) --++
+        (0,\ttsiz) coordinate (Ttopb);
+    % Tree - image
+    \node[anchor=south, yscale=-4.43, xscale=2, opacity=0.3]
+        (treei) at ([shift={(0,+5.3)}]M.north) 
+        {\twemoji{evergreen_tree}};
+    \draw[-{[Red!70]Circle[length=2mm, width=2mm]}]
+        (M.north) --++
+        (0,-\tsiz) coordinate (Ttopi);
+    % Tree-taller - image
+    \draw[-{[Pink!70]Circle[length=2mm, width=2mm]}]
+        (M.north) --++
+        (0,-\ttsiz) coordinate (Ttopbi);
+    % Tree-mid
+    \def\tmsiz{21.25}
+    \draw[-{[ForestGreen]Circle[length=2mm, width=2mm]}]
+        (M.north) --++
+        (0,\tmsiz) coordinate (Tmid);
+    % Tree-mid - image
+    \draw[-{[orange!70]Circle[length=2mm, width=2mm]}]
+        (M.north) --++
+        (0,-\tmsiz) coordinate (Tmidi);
+    % Grandeurs
+    \node[right=1.8em, inner sep=0] (Tbotg) at (M.north) {};
+    \node[right=1.8em, inner sep=0] (Ttopg) at (Ttop) {};
+    \draw[|<->|, red!70] (Tbotg) --
+        node[above, midway, sloped, rotate=180]
+        {\scriptsize $H=?$} (Ttopg);
+    % Rayons
+    \draw[Purple!70, simple]
+        (Ttop) --
+        (M.south);
+    \draw[Red!70, simple]
+        (M.south) --
+        (A);
+    \draw[Red!70, simple, dashed]
+        (Ttopi) --
+        (M.south);
+    % Rayons taller
+    \draw[brandeisblue!70, double]
+        (Ttopb) --
+        (M.south);
+    \draw[Pink, double]
+        (M.south) --++
+        ($0.4*(M.south)-0.4*(Ttopbi)$);
+    \draw[Pink, double, dashed]
+        (Ttopbi) --
+        (M.south);
+    % Rayons middle
+    \path[name path=MA]
+        (Tmidi) --
+        (A);
+    % Define intersection
+        \path[name intersections={of=MA and Mpath, by=Mpoint}];
+    \draw[ForestGreen, triple]
+        (Tmid) --
+        (Mpoint);
+    \draw[orange!70, dashed, triple]
+        (Tmidi) --
+        (Mpoint);
+    \draw[orange!70, triple]
+        (Mpoint) --
+        (A);
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\usepackage{mintikz}
+
+\begin{document}
+\begin{tikzpicture}[use optics]
+    % Miroir
+    \node[mirror, rotate=-90, name path=Mpath] (M) at (0,-1) {};
+    \node[right] at (M.north) {M};
+    % Point
+    \coordinate (A) at (0,-2);
+    \node[below, Purple!70] at (A) {A};
+    \node[Purple!70] at (A) {$\times$};
+    % Rayons
+    \coordinate (O1) at (-1.5,0);
+    \coordinate (O2) at (-0.75,0);
+    % Define intersection
+    \path[name path=1A] (O1) -- (A);
+    \path[name path=2A] (O2) -- (A);
+    \path[name intersections={of=1A and Mpath, by=Ig}];
+    \path[name intersections={of=2A and Mpath, by=Id}];
+    % Draw
+    \draw[brandeisblue, simple] (O1) -- (Ig);
+    \draw[brandeisblue, simple, dashed] (Ig) -- (A);
+    \draw[brandeisblue, double] (O2) -- (Id);
+    \draw[brandeisblue, double, dashed] (Id) -- (A);
+\end{tikzpicture}
+\end{document}

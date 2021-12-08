@@ -1,0 +1,57 @@
+\documentclass{standalone}
+\usepackage{mintikz}
+
+\begin{document}
+\begin{tikzpicture}[use optics, scale=.2]
+    % Objet
+    \oeil[shift={(0,3)}, rotate=-90, scale=3];
+    \coordinate (A) at (0,0);
+    \node[left, Purple!70] at (A) {A};
+    \node[Purple!70] at (A) {$\times$};
+    % Récipient
+    \draw[]
+        (-10,-3) --++
+        (0,-22) coordinate (Ms);
+    \draw[-latex]
+        (-10,1.5) -- node[right=0.05, midway] {$\oplus$}
+        (-10,-1.5);
+    % Miroir
+    \node[mirror, rotate=-90, object height=4cm,
+        name path=Mpath, anchor=south]
+        (M) at (Ms) {};
+    \node[below] at (M.north) {Miroir};
+    % Fin récipient
+    \draw[]
+        (M.north) --++
+        (0,22);
+    % Projection
+    \coordinate (H) at ($(M.north)!(A)!(M.south)$);
+    \node[above right, gray!70] at (H) {H};
+    \node[gray!70] at (H) {$\times$};
+    \draw[dashed, gray!70]
+        (A) --
+        (H) --++
+        ($(H)-(A)$) coordinate (Ap);
+    % Symétrique
+    \node[right, Red!70] at (Ap) {A$'$};
+    \node[Red!70] at (Ap) {$\times$};
+    \oeil[shift={($(Ap)-(0,3)$)}, rotate=90, scale=3];
+    % Rayons
+    \def\shift{0.3}
+    \draw[Purple!70, simple]
+        ($(A)-(\shift,0)$) --
+        ($(H)-(\shift,0)$);
+    \draw[Red!70, simple]
+        ($(H)+(\shift,0)$) --
+        ($(A)+(\shift,0)$);
+    \draw[Red!70, simple, dashed]
+        ($(Ap)+(\shift,0)$) --
+        ($(H)+(\shift,0)$);
+    % Grandeurs
+    \node[right=2.2, inner sep=0] (Ag) at (A) {};
+    \node[right=2.2, inner sep=0] (Hg) at (H) {};
+    \draw[|<->|, ForestGreen] (Ag) --
+        node[below, midway, sloped, rotate=180]
+        {\scriptsize $\obar{HA} = \SI{-25}{cm}$} (Hg);
+\end{tikzpicture}
+\end{document}
