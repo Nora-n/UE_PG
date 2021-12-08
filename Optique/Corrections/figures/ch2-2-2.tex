@@ -55,7 +55,7 @@
         \path[name path=AI\n] (A) --++ (\i:25cm);
         % Define intersection
         \path[name intersections={of=Dpath and AI\n, by=I\n}];
-        \draw[brandeisblue, dotted, simple] (A) -- (I\n);
+        \draw[brandeisblue, dashed, simple] (A) -- (I\n);
     }
     \path[name path=AI0] (A) --++ (41.25:30cm);
     % Define intersection
@@ -63,12 +63,12 @@
     \draw[brandeisblue, simple] (A) -- (I0);
     % Snell
     \foreach \i/\n in {50/2, 60/3, 70/4}{
-        \draw[orange!70, dotted, simple] (I\n) --++
+        \draw[orange!70, dashed, simple] (I\n) --++
             ({90-asin(\neau*sin(90-\i)/\nair)}:7cm);
     }
     \draw[orange!70, simple] (I0) --++ (0:15cm) coordinate (Aend);
     % Réflexion
-    \draw[orange, dotted, simple, rotate=-90] (I1) --++ (60:7cm);
+    \draw[orange, dashed, simple, rotate=-90] (I1) --++ (60:7cm);
     % Normal
     \def\hsiz{5}
     \draw[gray!50, dashed, name path=Hpath]

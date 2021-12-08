@@ -19,32 +19,7 @@
 \end{minipage}
 \begin{minipage}[c]{0.25\linewidth}
     \begin{flushright}
-        \begin{tikzpicture}[use optics]
-            % Miroir
-            \node[mirror, rotate=-90] (M) at (0,-1) {};
-            \node[right] at (M.north) {M};
-            % Objet
-            \coordinate (A) at (-0.25,0);
-            \node[above, color=Purple!70] at (A) {A};
-            \node[color=Purple!70] at (A) {$\times$};
-            % Projection
-            \coordinate (H) at ($(M.north)!(A)!(M.south)$);
-            \node[above right, gray!70] at (H) {H};
-            \node[gray!70] at (H) {$\times$};
-            \draw[dashed, gray!70] (A) -- (H) --++ ($(H)-(A)$) coordinate (Ap);
-            % Image
-            \node[below, Red!70] at (Ap) {A$'$};
-            \node[Red!70] at (Ap) {$\times$};
-            % Rayons
-            \draw[brandeisblue, simple]
-                (A) -- ([shift={(-0.15,0)}]M.north) coordinate (Id);
-            \draw[brandeisblue, double]
-                (A) -- ([shift={(0.15,0)}]M.south) coordinate (Ig);
-            \draw[dashed, orange!70, simple] (Ap) -- (Id);
-            \draw[dashed, orange!70, double] (Ap) -- (Ig);
-            \draw[orange!70, simple] (Id) --++ ($(Id)-(Ap)$);
-            \draw[orange!70, double] (Ig) --++ ($(Ig)-(Ap)$);
-        \end{tikzpicture}
+        \includegraphics{../figures/ch2-1-1}
     \end{flushright}
 \end{minipage}
 
@@ -57,38 +32,7 @@
 \end{minipage}
 \begin{minipage}{0.25\linewidth}
     \begin{flushright}
-        \begin{tikzpicture}[use optics]
-            % Miroir
-            \node[mirror, rotate=-90, name path=Mpath] (M) at (0,-1) {};
-            \node[right] at (M.north) {M};
-            % Point
-            \coordinate (A) at (0,-2);
-            \node[below, Purple!70] at (A) {A};
-            \node[Purple!70] at (A) {$\times$};
-            % Symétrique
-            \coordinate (H) at ($(M.north)!(A)!(M.south)$);
-            \node[above right, gray!70] at (H) {H};
-            \node[gray!70] at (H) {$\times$};
-            \draw[dashed, gray!70] (A) -- (H) --++ ($(H)-(A)$) coordinate (Ap);
-            \node[above, Red!70] at (Ap) {A$'$};
-            \node[Red!70] at (Ap) {$\times$};
-            % Rayons
-            \coordinate (O1) at (-1.5,0);
-            \coordinate (O2) at (-0.75,0);
-            % Define intersection
-            \path[name path=1A] (O1) -- (A);
-            \path[name path=2A] (O2) -- (A);
-            \path[name intersections={of=1A and Mpath, by=Ig}];
-            \path[name intersections={of=2A and Mpath, by=Id}];
-            % Draw
-            \draw[brandeisblue, simple] (O1) -- (Ig);
-            \draw[brandeisblue, simple, dashed] (Ig) -- (A);
-            \draw[brandeisblue, double] (O2) -- (Id);
-            \draw[brandeisblue, double, dashed] (Id) -- (A);
-            % Émergents
-            \draw[orange!70, simple] (Ig) -- (Ap);
-            \draw[orange!70, double] (Id) -- (Ap);
-        \end{tikzpicture}
+        \includegraphics{../figures/ch2-1-1}
     \end{flushright}
 \end{minipage}
 
@@ -101,37 +45,7 @@
 \end{minipage}
 \begin{minipage}{0.25\linewidth}
     \begin{flushright}
-        \begin{tikzpicture}[use optics]
-            % Miroir
-            \node[mirror, rotate=-90, name path=Mpath] (M) at (0,0) {};
-            \node[right] at (M.north) {M};
-            % Point
-            \coordinate (Ap) at (-0.5,-0.75);
-            \node[below, Red!70] at (Ap) {A$'$};
-            \node[Red!70] at (Ap) {$\times$};
-            % Symétrique
-            \coordinate (H) at ($(M.north)!(Ap)!(M.south)$);
-            \node[above left, gray!70] at (H) {H};
-            \node[gray!70] at (H) {$\times$};
-            \draw[dashed, gray!70] (Ap) -- (H) --++ ($(H)-(Ap)$) coordinate (A);
-            \node[above, Purple!70] at (A) {A};
-            \node[Purple!70] at (A) {$\times$};
-            % Rayons
-            \coordinate (E1) at (0,1);
-            \coordinate (E2) at (0.7,0.5);
-            \path[name path=Eg] (Ap) -- (E1);
-            \path[name path=Ed] (Ap) -- (E2);
-            % Define intersection
-            \path[name intersections={of=Eg and Mpath, by=Ig}];
-            \path[name intersections={of=Ed and Mpath, by=Id}];
-            % Draw
-            \draw[orange!70, dashed, simple] (Ap) -- (Ig);
-            \draw[orange!70, dashed, double] (Ap) -- (Id);
-            \draw[orange!70, simple] (Ig) --++ ($2*(Ig)-2*(Ap)$);
-            \draw[orange!70, double] (Id) --++ ($(Id)-(Ap)$);
-            \draw[brandeisblue, simple] (A) -- (Ig);
-            \draw[brandeisblue, double] (A) -- (Id);
-        \end{tikzpicture}
+        \includegraphics{../figures/ch2-1-3}
     \end{flushright}
 \end{minipage}
 
@@ -142,52 +56,7 @@
         nénuphar permettant à tous les rayons partant de la grenouille de ne
         pas traverser le dioptre.\smallbreak
         \begin{center}
-            \begin{tikzpicture}[use optics, scale=0.2]
-                % Dioptre
-                \def\nair{1}
-                \def\neau{1.33}
-                \node[screen,
-                    object height=8cm, rotate=90,
-                    name path=Dpath]
-                    (dioptre) at (0,0) {};
-                \node[right] at (dioptre.south) {dioptre};
-                % Milieu n1
-                \node[above left] at (dioptre.south) {$n_\mathrm{air}$};
-                % Milieu n2
-                \def\dh{11}
-                \coordinate (D1) at ($(dioptre.north)!\dh cm!-90:(dioptre.south)$);
-                \fill[brandeisblue!30]
-                    (dioptre.south) -- (dioptre.north) --
-                    (D1) -- (D1-|dioptre.south) -- cycle;
-                \node[below left] at (dioptre.south) {$n_\mathrm{eau}$};
-                % Nénuphar
-                \def\rsiz{11.4}
-                \def\rh{0.5}
-                \node[draw, scale=0.2, anchor=west,
-                    minimum width=2*\rsiz cm,
-                    minimum height=2*\rh cm,
-                    fill=ForestGreen!80] (nenuph) at
-                    ([shift={(3em,0)}]dioptre.north) {};
-                % Grenouille
-                \def\gsiz{10}
-                \draw[Circle-{[Purple!70]Circle}]
-                    (nenuph.south) coordinate (Atop)
-                    --++ (0,-\gsiz) coordinate (A);
-                % Grandeurs
-                \node[left] (Ag) at (A) {};
-                \node[left] (Atopg) at (Atop) {};
-                \draw[<->, ForestGreen] (Ag) --
-                node[above, midway, sloped]
-                {\scriptsize $h=\SI{10}{cm}$} (Atopg);
-                % Grandeurs
-                \node[above, inner sep=2]
-                    (nenuphtopg) at (nenuph.north) {};
-                \node[above, inner sep=2]
-                    (nenuphrightg) at (nenuph.north east) {};
-                \draw[<->, Red!70] (nenuphtopg) --
-                node[above, midway, sloped]
-                {\scriptsize \textcolor{Red!70}{$R_0$}} (nenuphrightg);
-            \end{tikzpicture}   
+            \includegraphics{../figures/ch2-2-1}   
         \end{center}
     \end{NCdefi}
     \begin{tcolorbox}[blankest, raster multicolumn=3, space to=\myspace]
@@ -224,98 +93,7 @@
     4$^\text{ème}$.
     \begin{center}
         \vspace*{-2.5cm}
-        \begin{tikzpicture}[use optics, scale=0.3]
-            % Dioptre
-            \def\nair{1}
-            \def\neau{1.33}
-            \node[screen,
-                object height=12cm, rotate=90,
-                name path=Dpath]
-                (dioptre) at (0,0) {};
-            \node[right] at (dioptre.south) {dioptre};
-            % Milieu n1
-            \node[above left] at (dioptre.south) {$n_\mathrm{air}$};
-            % Milieu n2
-            \def\dh{11}
-            \coordinate (D1) at ($(dioptre.north)!\dh cm!-90:(dioptre.south)$);
-            \fill[brandeisblue!30]
-                (dioptre.south) -- (dioptre.north) --
-                (D1) -- (D1-|dioptre.south) -- cycle;
-            \node[below left] at (dioptre.south) {$n_\mathrm{eau}$};
-            % Nénuphar
-            \def\rsiz{11.4}
-            \def\rh{0.5}
-            \node[draw, scale=0.3, anchor=west,
-                minimum width=2*\rsiz cm,
-                minimum height=2*\rh cm,
-                fill=ForestGreen!80] (nenuph) at
-                ([shift={(3em,0)}]dioptre.north) {};
-            % Grenouille
-            \def\gsiz{10}
-            \draw[Circle-{[Purple!70]Circle}]
-                (nenuph.south) coordinate (Atop)
-                --++ (0,-\gsiz) coordinate (A);
-            % Grandeurs
-            \node[left] (Ag) at (A) {};
-            \node[left] (Atopg) at (Atop) {};
-            \draw[<->, ForestGreen] (Ag) --
-            node[above, midway, sloped]
-            {\scriptsize $h=\SI{10}{cm}$} (Atopg);
-            % Grandeurs
-            \node[above, inner sep=2]
-                (nenuphtopg) at (nenuph.north) {};
-            \node[above, inner sep=2]
-                (nenuphrightg) at (nenuph.north east) {};
-            \draw[<->, Red!70] (nenuphtopg) --
-            node[above, midway, sloped]
-            {\scriptsize \textcolor{Red!70}{$R_0$}} (nenuphrightg);
-            % Point
-            \node[left, Purple!70] at (A) {A};
-            \node[Purple!70] at (A) {$\times$};
-            % Rayons
-            \foreach \i/\n in {30/1, 50/2, 60/3, 70/4}{
-                \path[name path=AI\n] (A) --++ (\i:25cm);
-                % Define intersection
-                \path[name intersections={of=Dpath and AI\n, by=I\n}];
-                \draw[brandeisblue, dotted, simple] (A) -- (I\n);
-            }
-            \path[name path=AI0] (A) --++ (41.25:30cm);
-            % Define intersection
-            \path[name intersections={of=AI0 and Dpath, by=I0}];
-            \draw[brandeisblue, simple] (A) -- (I0);
-            % Snell
-            \foreach \i/\n in {50/2, 60/3, 70/4}{
-                \draw[orange!70, dotted, simple] (I\n) --++
-                    ({90-asin(\neau*sin(90-\i)/\nair)}:7cm);
-            }
-            \draw[orange!70, simple] (I0) --++ (0:15cm) coordinate (Aend);
-            % Réflexion
-            \draw[orange, dotted, simple, rotate=-90] (I1) --++ (60:7cm);
-            % Normal
-            \def\hsiz{5}
-            \draw[gray!50, dashed, name path=Hpath]
-            ([shift={(0,\hsiz)}]I0) coordinate (Htop) --
-            ([shift={(0,-\hsiz)}]I0) coordinate (Hbot);
-            % Define intersection
-            \path[name intersections={of=Hpath and Dpath, by=H}];
-            \node[gray!70, below right] at (H) {H};
-            \node[gray!70] at (H) {$\times$};
-            % Draw angles
-            \pic[scale=0.3,
-            angle radius=2cm, angle eccentricity=1.7,
-            draw, ->, "$i_1$" alias=i1r]
-            {angle=A--H--Hbot};
-            \pic[scale=0.3,
-            angle radius=2cm, angle eccentricity=1.7,
-            draw, ->, "$i_1$" alias=i1]
-            {angle=H--A--Atop};
-            % Draw angles
-            \pic[scale=0.3,
-            angle radius=2cm, angle eccentricity=1.7,
-            draw, ->,
-            "\vspace{-10pt}\hspace{20pt}$i_2 = \SI{90}{\degres}$" alias=i2]
-            {angle=Aend--H--Htop};
-        \end{tikzpicture}
+        \includegraphics{../figures/ch2-2-2}
     \end{center}
     On voit ici qu'une simple fonction $\tan$ permet d'exprimer $R_0$ :
     \begin{empheq}[box=\fbox]{align}\label{eq:tan}
@@ -373,58 +151,16 @@
 \newpage
 \section{Le chat et le poisson}
 \begin{tcbraster}[raster columns=3, raster equal height=rows]
-    \begin{NCdefi}[raster multicolumn=2]{Données}
-        \begin{minipage}{0.5\linewidth}
-            \begin{enumerate}
-                \item Aquarium $\equiv$ dioptre plan ;
-                \item $n _\mathrm{eau} = 1.33$, $n _\mathrm{air} = 1$ ;
-                \item $\obar{HA} = \SI{-15}{cm}$.
-            \end{enumerate}
-        \end{minipage}
-        \begin{minipage}{0.5\linewidth}
-            \begin{center}
-                \begin{tikzpicture}[use optics, scale=0.1]
-                    % Dioptre
-                    \def\na{1.0}
-                    \def\nb{1.33}
-                    \node[screen, scale=.1,
-                    object height=20cm,
-                    name path=Dpath] (dioptre) at (0, 10cm) {};
-                    \node[above] at (dioptre.north) {dioptre};
-                    % Milieu n1
-                    \node[below left] at (dioptre.north) {$n\air$};
-                    % Milieu n2
-                    \def\dh{20}
-                    \coordinate (D1) at ($(dioptre.north)!\dh cm!90:(dioptre.south)$);
-                    \fill[brandeisblue!30]
-                    (dioptre.south) -- (dioptre.north) --
-                    (D1) -- (dioptre.south-|D1) -- cycle;
-                    \node[below right] at (dioptre.north) {$n_\mathrm{eau}$};
-                    % Axe optique
-                    \draw[thin, ->, name path=AO](-20cm,0)--(20cm,0)node[below]{A.O.};
-                    % Poisson
-                    \node[anchor=south] (fish) at (10,0) {\twemoji{fish}};
-                    % Chat
-                    \node[anchor=south,
-                        xscale=-1, scale=2] (cat) at (-15,-1.2) {\twemoji{cat}};
-                    % Point
-                    \coordinate (A) at ([shift={(0,1.2)}]cat.south);
-                    \node[below, Purple!70] at (A) {A};
-                    \node[Purple!70] at (A) {$\times$};
-                    % Define intersection
-                    \path[name intersections={of=Dpath and AO, by=H}];
-                    % Point
-                    \node[below, gray!70] at (H) {H};
-                    \node[gray!70] at (H) {$\times$};
-                    % Grandeurs
-                    \node[below=.2] (Ag) at (A) {};
-                    \node[below=.2] (Hg) at (H) {};
-                    \draw[<->, ForestGreen] (Ag) --
-                    node[below, midway, sloped]{\scriptsize
-                        $\obar{AH}=\SI{15}{cm}$} (Hg);
-                \end{tikzpicture}
-            \end{center}            
-        \end{minipage}
+    \begin{NCdefi}[raster multicolumn=2, sidebyside]{Données}
+        \begin{enumerate}
+            \item Aquarium $\equiv$ dioptre plan ;
+            \item $n _\mathrm{eau} = 1.33$, $n _\mathrm{air} = 1$ ;
+            \item $\obar{HA} = \SI{-15}{cm}$.
+        \end{enumerate}
+        \tcblower
+        \begin{center}
+            \includegraphics{ch2-3-1}
+        \end{center}            
     \end{NCdefi}    
     \begin{NCprop}{Résultats attendus}
         \begin{enumerate}
@@ -476,137 +212,14 @@
     \end{NCexem}
 \end{tcbraster}
 
-\begin{NCexem}{Schémas}
-    \begin{minipage}{0.5\linewidth}
-        \begin{center}
-            \begin{tikzpicture}[use optics, scale=0.15]
-                % Dioptre
-                \def\na{1.0}
-                \def\nb{1.33}
-                \node[screen, scale=.15,
-                object height=20cm,
-                name path=Dpath] (dioptre) at (0, 10cm) {};
-                \node[above] at (dioptre.north) {dioptre};
-                % Milieu n1
-                \node[below left] at (dioptre.north) {$n\air$};
-                % Milieu n2
-                \def\dh{20}
-                \coordinate (D1) at ($(dioptre.north)!\dh cm!90:(dioptre.south)$);
-                \fill[brandeisblue!30]
-                (dioptre.south) -- (dioptre.north) --
-                (D1) -- (dioptre.south-|D1) -- cycle;
-                \node[below right] at (dioptre.north) {$n_\mathrm{eau}$};
-                % Axe optique
-                \draw[thin, ->, name path=AO](-25cm,0)--(25cm,0)node[below]{A.O.};
-                % Define intersection
-                \path[name intersections={of=Dpath and AO, by=H}];
-                % Point
-                \node[below, gray!70] at (H) {H};
-                \node[gray!70] at (H) {$\times$};
-                % Observation
-                \oeil[shift={(15cm,0)}, scale=5, rotate=180];
-                % Chat
-                \node[anchor=south,
-                    xscale=-1, scale=2] (cat) at (-15,-1.2) {\twemoji{cat}};
-                % Objet
-                \coordinate (A) at ([shift={(0,1.2)}]cat.south);
-                \coordinate (B) at ([shift={(0,10)}]A);
-                \draw[->, Purple!70] (A)
-                    node [below] {A}
-                    -- (B)
-                    node [above] {B};
-                % Grandeurs
-                \node[below, inner sep=2] (Ag) at (A) {};
-                \node[below, inner sep=2] (Hg) at (H) {};
-                \draw[|<->|, ForestGreen] (Ag) --
-                node[below, midway, sloped]{\scriptsize
-                    $\obar{AH}=\SI{15}{cm}$} (Hg);
-                % Image
-                \def \pos{-22.5cm}
-                \len{(A)}{(B)}{\siz}
-                \coordinate (Ap) at ($(0,0)+(\pos,0)$);
-                \coordinate (Bp) at ($(Ap)+(0,\siz)$);
-                \draw[->, Red!70] (Ap) 
-                node[below] {A$'$}
-                -- (Bp)
-                node[above left] {B$'$};
-                % Chat bis
-                \node[anchor=south,
-                    xscale=-1, scale=2, opacity=.3]
-                    (cat) at (-22.5,-1.2) {\twemoji{cat}};
-                % Grandeurs
-                \node[below=0.6, inner sep=0] (Apg) at (Ap) {};
-                \node[below=0.6, inner sep=0] (Hg) at (H) {};
-                \draw[|<->|, ForestGreen] (Apg) --
-                node[below, midway, sloped]{\scriptsize
-                $\obar{A'H}=\SI{22.5}{cm}$} (Hg);
-            \end{tikzpicture}
-        \end{center} 
-    \end{minipage}
-    \vrule
-    \begin{minipage}{0.5\linewidth}
-        \begin{center}
-            \begin{tikzpicture}[use optics, scale=0.15]
-                % Dioptre
-                \def\na{1.0}
-                \def\nb{1.33}
-                \node[screen, scale=.15,
-                object height=20cm,
-                name path=Dpath] (dioptre) at (0, 10cm) {};
-                \node[above] at (dioptre.north) {dioptre};
-                % Milieu n1
-                \node[below left] at (dioptre.north) {$n\air$};
-                % Milieu n2
-                \def\dh{20}
-                \coordinate (D1) at ($(dioptre.north)!\dh cm!90:(dioptre.south)$);
-                \fill[brandeisblue!30]
-                (dioptre.south) -- (dioptre.north) --
-                (D1) -- (dioptre.south-|D1) -- cycle;
-                \node[below right] at (dioptre.north) {$n_\mathrm{eau}$};
-                % Axe optique
-                \draw[thin, ->, name path=AO](-25cm,0)--(25cm,0)node[below]{A.O.};
-                % Define intersection
-                \path[name intersections={of=Dpath and AO, by=H}];
-                % Point
-                \node[below, gray!70] at (H) {H};
-                \node[gray!70] at (H) {$\times$};
-                % Observation
-                \oeil[shift={(-15cm,0)}, scale=5];
-                % Poisson
-                \node[anchor=south] (fish) at (15,0) {\twemoji{fish}};
-                % Objet
-                \coordinate (A) at (fish.south);
-                \coordinate (B) at ([shift={(0,10)}]A);
-                \draw[->, Purple!70] (A)
-                    node [below] {A}
-                    -- (B)
-                    node [above] {B};
-                % Grandeurs
-                \node[below=.7, inner sep=2] (Ag) at (A) {};
-                \node[below=.7, inner sep=2] (Hg) at (H) {};
-                \draw[|<->|, ForestGreen] (Ag) --
-                node[below, midway, sloped]{\scriptsize $\obar{HA}<0$} (Hg);
-                % Image
-                \def \pos{10cm}
-                \len{(A)}{(B)}{\siz}
-                \coordinate (Ap) at ($(0,0)+(\pos,0)$);
-                \coordinate (Bp) at ($(Ap)+(0,\siz)$);
-                \draw[->, Red!70] (Ap) 
-                node[below] {A$'$}
-                -- (Bp)
-                node[above left] {B$'$};
-                % Poison bis
-                \node[anchor=south, opacity=.3]
-                    (fish) at (10,0) {\twemoji{fish}};
-                % Grandeurs
-                \node[below=0.1, inner sep=2] (Apg) at (Ap) {};
-                \node[below=0.1, inner sep=2] (Hg) at (H) {};
-                \draw[|<->|, ForestGreen] (Apg) --
-                node[below, midway, sloped]{\scriptsize
-                $\obar{HA'}$} (Hg);
-            \end{tikzpicture}
-        \end{center} 
-    \end{minipage}
+\begin{NCexem}[sidebyside]{Schémas}
+    \begin{center}
+        \includegraphics{ch2-3-2}
+    \end{center} 
+    \tcblower
+    \begin{center}
+        \includegraphics{ch2-3-3}
+    \end{center} 
 \end{NCexem}
 
 \begin{tcbraster}[raster columns=5, raster equal height=rows]
@@ -624,48 +237,294 @@
     \end{NCimpo}
 \end{tcbraster}
 
-\newpage
+\section{Champ de vision à travers un miroir plan}
+\subsection{Propre image}
+\begin{tcbraster}[raster columns=2, raster equal height=rows]
+    \begin{NCdefi}{Schéma}
+        \begin{center}
+            \includegraphics{ch2-4-1}
+        \end{center}
+    \end{NCdefi}
+    \begin{tcolorbox}[blankest, raster multicolumn=1, space to=\myspace]
+        \begin{tcbraster}[raster columns=1]
+            \begin{NCdemo}{Outil}
+                Pour voir une image, il faut qu'un rayon partant de l'image
+                puisse arriver jusqu'à l'œil de l'observataire. Étant donné
+                qu'on travaille avec un miroir, l'image de l'observataire est
+                son symétrique par le plan du miroir (même si le miroir ne
+                s'étend pas jusque-là !).
+            \end{NCdemo}
+            \begin{NCexem}{Application}
+                On voit vite qu'il n'est pas possible qu'un rayon issu de
+                l'image (en rouge) atteigne l'œil (en violet). On comprend par
+                le tracé des rayons réfléchis que seul l'autre côté du lac sera
+                visible.
+            \end{NCexem}
+        \end{tcbraster}
+    \end{tcolorbox}
+\end{tcbraster}
+
+\subsection{Image arbre}
+\begin{tcbraster}[raster columns=2, raster equal height=rows]
+    \begin{NCdefi}{Schéma}
+        \begin{center}
+            \includegraphics{ch2-4-2}
+        \end{center}
+    \end{NCdefi}
+    \begin{tcolorbox}[blankest, raster multicolumn=1, space to=\myspace]
+        \begin{tcbraster}[raster columns=1]
+            \begin{NCdemo}[add to natural height=\myspace]{Outil}
+                Ici aussi, l'idée est de trouver l'image de l'arbre, et de voir
+                la condition limite pour la taille visible.
+            \end{NCdemo}
+            \begin{NCexem}{Application}
+                Un schéma avec l'image de l'arbre nous permet de voir que le
+                point le plus haut qu'on peut voir par réflexion sur le lac est
+                quand on regarde proche de nous : si on regarde plus loin, on
+                voit en effet plus vers le bas de l'arbre (rayon vert incident,
+                rayon orange émergent). Un arbre qui est trop grand ne sera pas
+                visible en regardant ce point-là (rayon bleu incident, rose
+                émergent). On s'intéresse donc à la construction géométrique
+                formée par le rayon violet incident, rouge émergent, qui nous
+                permet d'appliquer le théorème de Thalès : $\DS\frac{H}{l} =
+                \frac{h}{d}$, soit
+                \[\boxed{H = \frac{l\times h}{d}} \quad \text{avec} \quad
+                    \left\{
+                        \begin{array}{rcl}
+                            l & = & \SI{5.00}{m}\\
+                            h & = & \SI{1.70}{m}\\
+                            d & = & \SI{2.00}{m}
+                        \end{array}
+                \right.\]
+                D'où
+                \[\boxed{H = \SI{4.25}{m}}\]
+            \end{NCexem}
+        \end{tcbraster}
+    \end{tcolorbox}
+\end{tcbraster}
 
 \begin{center}
     \Huge Exercices d'entraînement
 \end{center}
 
-\setcounter{section}{5}
+\section{Miroir et dioptre plan}
+\begin{tcbraster}[raster columns=4, raster equal height=rows]
+    \begin{NCdefi}[raster multicolumn=3, sidebyside]{Schémas}
+        \begin{center}
+            \includegraphics{ch2-5-1}
+            \vfill
+            \begin{tikzpicture}
+                % Réduit
+                \node[] (A) at (-0.8,0) {\color{Purple}$A$};
+                \node[below] at (A) {\scriptsize $n_{\rm air}$};
+                \node[] (Ap) at (0.8,0) {\color{Red}$A'$};
+                \node[below] at (Ap) {\scriptsize $n_{\rm air}$};
+                \draw[->] (A) -- (Ap)
+                    node [midway, above] {$M$}
+                    node [midway, below] {$H$};
+                %\node[below=0.3, Purple!70] (Ab) at (A) {$-infty$};
+                %\node[below=0.3, brandeisblue] (A_1b) at (A_1) {$A_1 = F'_v$};
+                %\node[below=0.3, ForestGreen] (A_1bb) at (A_1b) {$A_1 = R$};
+                %\node[below=0.3, orange!70] (A_2b) at (A_2) {$A' = E$};
+                %\draw[->, Purple!70] (Ab) to[bend right] (A_1b.west);
+                %\draw[->, orange!70] (A_2b) to[bend left] (A_1bb.east);
+            \end{tikzpicture}
+        \end{center}
+        \tcblower
+        \begin{center}
+            \includegraphics{ch2-5-2}
+            \vfill
+            \begin{tikzpicture}
+                % Réduit
+                \node[] (A) at (-2.4,0) {\color{Purple}$A$};
+                \node[below] at (A) {\scriptsize $n_{\rm air}$};
+                \node[] (A1) at (-0.8,0) {\color{brandeisblue}$A_1$};
+                \node[below] at (A1) {\scriptsize $n_{\rm eau}$};
+                \node[] (A2) at (0.8,0) {\color{orange}$A_2$};
+                \node[below] at (A2) {\scriptsize $n_{\rm eau}$};
+                \node[] (Ap) at (2.4,0) {\color{Red}$A'$};
+                \node[below] at (Ap) {\scriptsize $n_{\rm air}$};
+                \draw[->] (A) -- (A1)
+                    node [midway, above] {$D$}
+                    node [midway, below] {$H'$};
+                \draw[->] (A1) -- (A2)
+                    node [midway, above] {$M$}
+                    node [midway, below] {$H$};
+                \draw[->] (A2) -- (Ap)
+                    node [midway, above] {$D$}
+                    node [midway, below] {$H'$};
+            \end{tikzpicture}
+        \end{center}
+    \end{NCdefi}
+    \begin{tcolorbox}[blankest, raster multicolumn=1, space to=\myspace]
+        \begin{tcbraster}[raster columns=1]
+            \begin{NCprop}[add to natural height=\myspace]{Résultat attendu}
+                Ici, on demande un changement par rapport à la situation sans
+                eau. Il faut donc étudier les deux situations.
+            \end{NCprop}
+            \begin{NCdemo}{Outils du cours}
+                Relation de conjugaison pour un miroir plan :
+                \[\obar{HA'} = - \obar{HA}\]
+                Relation de conjugaison d'un dioptre plan :
+                \[ 0 = \frac{n_2}{\obar{HA'}} - \frac{n_1}{\obar{HA}} \]
+            \end{NCdemo}
+            \begin{NCror}{Important}
+                Il est pratiquement obligé de donner les schémas optiques
+                « réduits » (en bas des schémas ici).\smallbreak
+                \textbf{Miroir} : image de l'autre côté.\smallbreak
+                \textbf{Dioptre plan} : image du même côté.
+            \end{NCror}
+        \end{tcbraster}
+    \end{tcolorbox}
+\end{tcbraster}
+\begin{NCexem}[sidebyside]{Application}
+    Dans la première situation, \fbox{$\obar{HA'} = -\obar{HA} = \SI{25}{cm}$}.
+    \tcblower
+
+    Dans la seconde, $\obar{H'A_1} = n_{\rm eau}\obar{H'A} =
+    \underline{\SI{-20}{cm}}$ avec $\obar{H'A} = \SI{-15}{cm}$
+    d'abord.\smallbreak
+
+    Ensuite $\obar{HA_2} = -\obar{HA_1} = \underline{\SI{30}{cm}}$ avec
+    $\obar{HA_1} = -10-20 = \SI{-30}{cm}$.\smallbreak
+
+    Finalement, $\obar{H'A'} = \frac{\obar{H'A_2}}{n_{\rm eau}} =
+    \underline{\SI{30}{cm}}$ avec $\obar{H'A_2} = 10+30 =
+    \SI{40}{cm}$.\smallbreak
+
+    Autrement dit, \fbox{$\obar{HA'} = \SI{20}{cm}$} ; l'image s'est donc
+    \textbf{rapprochée} de \SI{5}{cm}.
+\end{NCexem}
+
+\newpage
+
 \section{Lois de Snell-Descartes}
 Cet exercice est d'une simplicité absolue. Et pourtant...
-\begin{NCdefi}{Données}
-    \begin{enumerate}
-        \item Rayon incident sur un dioptre entre air et milieu d'indice $n$ :
-            angle {\huge avec le dioptre} de \SI{56}{\degres} ;
-        \item Différence d'angle entre rayon incident et réfléchi (« déviation
-            ») de \SI{13.5}{\degres}.
-    \end{enumerate}
-\end{NCdefi}
-
-\begin{NCprop}{Résultat attendu}
-    Indice du liquide.
-\end{NCprop}
-
-\begin{NCdemo}{Outils du cours}
-    Loi de Snell-Descartes :
-    \[ n_1\sin i_1 = n_2 \sin i_2 \]
-    avec $n_1$ l'indice du milieu d'indidence, $n_2$ celui du milieu de
-    réfraction, $i_1$ l'angle d'incidence et $i_2$ l'angle de réfraction.
-\end{NCdemo}
+\begin{tcbraster}[raster columns=5, raster equal height=rows]
+    \begin{NCdefi}[raster multicolumn=3, sidebyside, righthand width=4cm]{Données}
+        \begin{enumerate}
+            \item Rayon incident sur un dioptre entre air et milieu d'indice $n$ :
+                angle {\huge avec le dioptre} de \SI{56}{\degres} ;
+            \item Différence d'angle entre rayon incident et réfléchi (« déviation
+                ») de \SI{13.5}{\degres}.
+        \end{enumerate}
+        \tcblower
+        \begin{center}
+            \includegraphics{ch2-6}
+        \end{center}
+    \end{NCdefi}    
+    \begin{tcolorbox}[blankest, raster multicolumn=2, space to=\myspace]
+        \begin{tcbraster}[raster columns=1]
+            \begin{NCprop}[add to natural height=\myspace]{Résultat attendu}
+                Indice du liquide.
+            \end{NCprop}
+            \begin{NCdemo}{Outils du cours}
+                Loi de Snell-Descartes :
+                \[ n_1\sin i_1 = n_2 \sin i_2 \]
+                avec $n_1$ l'indice du milieu d'indidence, $n_2$ celui du milieu
+                de réfraction, $i_1$ l'angle d'incidence et $i_2$ l'angle de
+                réfraction.
+            \end{NCdemo}
+        \end{tcbraster}
+    \end{tcolorbox}
+\end{tcbraster}
 
 \begin{NCexem}{Application}
     Un bon schéma fait attentivement est \textbf{nécessaire} ici. En effet,
     les angles donnés ne sont pas ceux qu'on utilise dans la relation de
     Snell-Descartes. \bigbreak
     
-    En appelant $i$ l'angle entre le rayon et le dioptre, on a
-    \[ i + i_1 = 90\degres\]
-    et en appelant $D$ la déviation entre les deux rayons, on a
-    \[ i + 90\degres + i_2 + D = 180\degres\]
-
-    On se débrouille pour trouver $n_2$ sachant qu'on a $i_1 = \SI{34}{\degres}$
-    et $i_2 = \SI{20.5}{\degres}$. On trouve
-    \[ \boxed{n_2 = 1.6} \]
+    En appelant $\alpha$ l'angle entre le rayon et le dioptre, on a
+    \[ \alpha + i_1 = 90\degres\]
+    donc \fbox{$i_1 = \SI{34}{\degres}$}. Et en appelant $D$ la déviation entre
+    les deux rayons, on a
+    \[ i_1 = i_2 + D\]
+    soit \fbox{$i_2 = \SI{20.5}{\degres}$}. On en déduit donc
+    \[\boxed{n = \frac{\sin i_1}{\sin i_2}} \quad \text{avec} \quad
+        \left\{
+            \begin{array}{rcl}
+                i_1 & = & \SI{34}{\degres}\\
+                i_2 & = & \SI{20.5}{\degres}
+            \end{array}
+    \right. \quad \text{soit} \quad \boxed{n = 1.6}
+    \]
 \end{NCexem}
 
+\newpage
+
+\setcounter{section}{8}
+\section{Prisme rectangle}
+\begin{tcbraster}[raster columns=3, raster equal height=rows]
+    \begin{NCdefi}[raster multicolumn=2]{Schéma}
+        \begin{center}
+            \includegraphics[scale=0.94]{ch2-9}
+            \begin{tikzpicture}[]
+                \node[] (A) at (0,0) {A};
+                \node[] (B) at (2,0) {B};
+                \node[] (C) at (4,0) {C};
+                \node[] (D) at (6,0) {D};
+                \node[] (E) at (8,0) {E};
+                \draw[->] (A) -- (B)
+                    node [midway, above] {DP}
+                    node [midway, below] {$I$};
+                \draw[->] (B) -- (C)
+                    node [midway, above] {DP}
+                    node [midway, below] {$J$};
+                \draw[->] (C) -- (D)
+                    node [midway, above] {DP}
+                    node [midway, below] {$K$};
+                \draw[->] (D) -- (E)
+                    node [midway, above] {DP}
+                    node [midway, below] {$L$};
+            \end{tikzpicture}
+        \end{center}
+    \end{NCdefi}
+    \begin{tcolorbox}[blankest, raster multicolumn=1, space to=\myspace]
+        \begin{tcbraster}[raster columns=1]
+            \begin{NCprop}[]{Résultat attendu}
+                On cherche à suivre le chemin du rayon indiqué dans l'énoncé. Il
+                faut pour cela savoir ce qui peut arriver au rayon. Dans le cas
+                du passage par un dioptre plan, il peut y avoir traversée du
+                dioptre avec Snell-Descartes, ou réflexion dans le cas $n_2 <
+                n_1$.
+            \end{NCprop}
+            \begin{NCdemo}{Outils du cours}
+                Loi de Snell-Descartes :
+                \[ n_1\sin i = n_2\sin r\]
+                et pour $n_2 < n_1$, $i_\ell$ :
+                \[ n_1\sin i_\ell = n_2\sin 90\degres = n_2\]
+                tel que $i_1 > i_\ell$ est réfléchi.
+            \end{NCdemo}
+        \end{tcbraster}
+    \end{tcolorbox}
+\end{tcbraster}
+\begin{NCexem}[sidebyside]{Application}
+    Ici, l'angle limite de réflexion à l'intérieur du prisme est : \[i_\ell =
+    \arcsin \frac{1}{n} = \boxed{\SI{41.8}{\degres}}\]
+    \begin{description}
+        \item[I] : $\boxed{i_1 = \SI{0}{\degres}}$ donc
+            $\boxed{r_1 = \SI{0}{\degres}}$ ;
+        \item[J] : Ici, on doit voir que $\alpha = \SI{20}{\degres}$ puisque
+            dans le triangle BIJ, la somme des angles doit valoir $\SI{180}
+            {\degres}$ et qu'on a un angle droit + un angle de \SI{70}{\degres}.
+            On en déduit que $\boxed{i_2 = \SI{70}{\degres}}$ également, car
+            $i_2 + \alpha = \SI{90}{\degres}$.\smallbreak
+            Comme \underline{$i_2 > i_\ell$}, le rayon ne traverse pas mais est
+            réfléchi, soit $\boxed{r_2 = \SI{70}{\degres}}$.
+    \end{description}
+    \tcblower
+    \begin{description}
+        \item[K] : Pour trouver l'angle en K, on peut par exemple chercher
+            l'angle $\beta$ : en construisant le triangle rectangle JDK, on
+            trouve que l'angle au sommet est $r_2 - \alpha = \SI{50}{\degres}$ ;
+            avec l'angle droit en D, $\beta = \SI{40}{\degres}$, et $\boxed{i_3
+                = \SI{50}{\degres} > i_\ell}$ donc rayon réfléchi $\boxed{r_3 =
+            \SI{50}{\degres}}$.
+        \item[L] : De même qu'en J, tracer LEC indique que $i_4 + \alpha + \beta
+            = \SI{90}{\degres}$, soit $\boxed{i_4 = \SI{30}{\degres} < i_\ell}$
+            : on applique donc Snell-Descartes ici, et on obtient
+            \[\boxed{r_4} = \arcsin (n\times \sin i_4) =
+            \boxed{\SI{48.6}{\degres}}\]
+    \end{description}
+\end{NCexem}
 \end{document}
