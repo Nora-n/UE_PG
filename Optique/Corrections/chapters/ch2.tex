@@ -4,7 +4,6 @@
 
 \setcounter{chapter}{1}
 \chapter{Miroirs et dioptres plans}
-\vspace*{-47pt}
 \begin{center}
     \Huge Exercices d'application
 \end{center}
@@ -40,6 +39,8 @@
     A est réel, A' virtuel.\\
 \end{NCexem}
 
+\newpage
+
 \section{Une grenouille intelligente}
 \begin{tcbraster}[raster columns=7, raster equal height=rows]
     \begin{NCdefi}[raster multicolumn=4]{Données}
@@ -59,7 +60,7 @@
                 Loi de Snell-Descartes :
                 \[ n_1\sin i_1 = n_2\sin i_2\]
                 et \underline{angle limite} de réfraction, tel que :
-                \[ n_1\sin i_\ell = n_2\sin 90\degres = n_2\]
+                \[ n_1\sin i_\ell = n_2\sin \ang{90;;} = n_2\]
                 qui indique que pour $n_1 > n_2$, il y a un angle d'incidence à
                 partir duquel il n'y a pas de rayon réfracté (les rayons
                 réfractés font un angle de 90° avec la normale et sont donc
@@ -398,9 +399,9 @@ Cet exercice est d'une simplicité absolue. Et pourtant...
     \begin{NCdefi}[raster multicolumn=3, sidebyside, righthand width=4cm]{Données}
         \begin{enumerate}
             \item Rayon incident sur un dioptre entre air et milieu d'indice $n$ :
-                angle {\huge avec le dioptre} de \SI{56}{\degres} ;
+                angle {\huge avec le dioptre} de \ang{56;;} ;
             \item Différence d'angle entre rayon incident et réfléchi (« déviation
-                ») de \SI{13.5}{\degres}.
+                ») de \ang{13.5;;}.
         \end{enumerate}
         \tcblower
         \begin{center}
@@ -429,16 +430,16 @@ Cet exercice est d'une simplicité absolue. Et pourtant...
     Snell-Descartes. \bigbreak
     
     En appelant $\alpha$ l'angle entre le rayon et le dioptre, on a
-    \[ \alpha + i_1 = 90\degres\]
-    donc \fbox{$i_1 = \SI{34}{\degres}$}. Et en appelant $D$ la déviation entre
+    \[ \alpha + i_1 = \ang{90;;}\]
+    donc \fbox{$i_1 = \ang{34;;}$}. Et en appelant $D$ la déviation entre
     les deux rayons, on a
     \[ i_1 = i_2 + D\]
-    soit \fbox{$i_2 = \SI{20.5}{\degres}$}. On en déduit donc
+    soit \fbox{$i_2 = \ang{20.5;;}$}. On en déduit donc
     \[\boxed{n = \frac{\sin i_1}{\sin i_2}} \quad \text{avec} \quad
         \left\{
             \begin{array}{rcl}
-                i_1 & = & \SI{34}{\degres}\\
-                i_2 & = & \SI{20.5}{\degres}
+                i_1 & = & \ang{34;;}\\
+                i_2 & = & \ang{20.5;;}
             \end{array}
     \right. \quad \text{soit} \quad \boxed{n = 1.6}
     \]
@@ -529,7 +530,7 @@ Cet exercice est d'une simplicité absolue. Et pourtant...
                 Loi de Snell-Descartes :
                 \[ n_1\sin i = n_2\sin r\]
                 et pour $n_2 < n_1$, $i_\ell$ :
-                \[ n_1\sin i_\ell = n_2\sin 90\degres = n_2\]
+                \[ n_1\sin i_\ell = n_2\sin \ang{90;;} = n_2\]
                 tel que $i_1 > i_\ell$ est réfléchi.
             \end{NCdemo}
         \end{tcbraster}
@@ -537,31 +538,31 @@ Cet exercice est d'une simplicité absolue. Et pourtant...
 \end{tcbraster}
 \begin{NCexem}[sidebyside]{Application}
     Ici, l'angle limite de réflexion à l'intérieur du prisme est : \[i_\ell =
-    \arcsin \frac{1}{n} = \boxed{\SI{41.8}{\degres}}\]
+    \arcsin \frac{1}{n} = \boxed{ \ang{41.8;;}}\]
     \begin{description}
-        \item[I] : $\boxed{i_1 = \SI{0}{\degres}}$ donc
-            $\boxed{r_1 = \SI{0}{\degres}}$ ;
-        \item[J] : Ici, on doit voir que $\alpha = \SI{20}{\degres}$ puisque
-            dans le triangle BIJ, la somme des angles doit valoir $\SI{180}
-            {\degres}$ et qu'on a un angle droit + un angle de \SI{70}{\degres}.
-            On en déduit que $\boxed{i_2 = \SI{70}{\degres}}$ également, car
-            $i_2 + \alpha = \SI{90}{\degres}$.\smallbreak
+        \item[I] : $\boxed{i_1 = \ang{0;;}}$ donc
+            $\boxed{r_1 = \ang{0;;}}$ ;
+        \item[J] : Ici, on doit voir que $\alpha = \ang{20;;}$ puisque
+            dans le triangle BIJ, la somme des angles doit valoir $\ang{180;;}$
+            et qu'on a un angle droit + un angle de \ang{70;;}.
+            On en déduit que $\boxed{i_2 = \ang{70;;}}$ également, car
+            $i_2 + \alpha = \ang{90;;}$.\smallbreak
             Comme \underline{$i_2 > i_\ell$}, le rayon ne traverse pas mais est
-            réfléchi, soit $\boxed{r_2 = \SI{70}{\degres}}$.
+            réfléchi, soit $\boxed{r_2 = \ang{70;;}}$.
     \end{description}
     \tcblower
     \begin{description}
         \item[K] : Pour trouver l'angle en K, on peut par exemple chercher
             l'angle $\beta$ : en construisant le triangle rectangle JDK, on
-            trouve que l'angle au sommet est $r_2 - \alpha = \SI{50}{\degres}$ ;
-            avec l'angle droit en D, $\beta = \SI{40}{\degres}$, et $\boxed{i_3
-                = \SI{50}{\degres} > i_\ell}$ donc rayon réfléchi $\boxed{r_3 =
-            \SI{50}{\degres}}$.
+            trouve que l'angle au sommet est $r_2 - \alpha = \ang{50;;}$ ;
+            avec l'angle droit en D, $\beta = \ang{40;;}$, et $\boxed{i_3
+            = \ang{50;;} > i_\ell}$ donc rayon réfléchi $\boxed{r_3 =
+        \ang{50;;}}$.
         \item[L] : De même qu'en J, tracer LEC indique que $i_4 + \alpha + \beta
-            = \SI{90}{\degres}$, soit $\boxed{i_4 = \SI{30}{\degres} < i_\ell}$
+            = \ang{90;;}$, soit $\boxed{i_4 = \ang{30;;} < i_\ell}$
             : on applique donc Snell-Descartes ici, et on obtient
             \[\boxed{r_4} = \arcsin (n\times \sin i_4) =
-            \boxed{\SI{48.6}{\degres}}\]
+            \boxed{\ang{48.6;;}}\]
     \end{description}
 \end{NCexem}
 \end{document}

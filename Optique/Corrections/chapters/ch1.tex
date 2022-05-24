@@ -2,7 +2,6 @@
 \begin{document}
 
 \chapter{Lentilles minces}\label{ch:O1}
-\vspace*{-24pt}
 
 \begin{center}
     \Huge Exercices d'application
@@ -22,7 +21,7 @@ construction :
     \end{enumerate}
 \end{defi}
 
-\pagebreak
+% \pagebreak
 
 \begin{center}
     \huge Constructions pour une lentille convergente
@@ -31,7 +30,7 @@ construction :
 \subsection{Objet à distance finie}
 \subsubsection{Avant le foyer objet}
 \begin{wrapfigure}[5]{R}{.45\linewidth}
-    \vspace*{-20pt}
+    \vspace*{-40pt}
     \centering
     \begin{tikzpicture}[scale=0.9]
         % Axe optique
@@ -106,7 +105,7 @@ de sortie}}.
 
 \subsubsection{Sur le foyer objet}
 \begin{wrapfigure}[5]{R}{0.45\linewidth}
-    \vspace*{-20pt}
+    \vspace*{-40pt}
     \begin{tikzpicture}[scale=1]
     % Axe optique
     \draw[thin, ->](-3,0)--(3,0)node[below]{A.O.};
@@ -238,6 +237,7 @@ Tout pareil, on trace :
 
 \subsubsection{Après la lentille}
 \begin{wrapfigure}[5]{R}{0.45\linewidth}
+    \vspace*{-35pt}
     \centering
     \begin{tikzpicture}[scale=1]
         % Axe optique
@@ -394,8 +394,8 @@ deux règles supplémentaires :
     \end{enumerate}
 \end{defi}
 
-\begin{wrapfigure}[11]{R}{.45\linewidth}
-    \vspace*{-20pt}
+\begin{wrapfigure}[8]{R}{.45\linewidth}
+    \vspace*{-30pt}
     \centering
     \begin{tikzpicture}[scale=1]
         % Axe optique
@@ -467,6 +467,8 @@ notre rayon incident quelconque devra passer par l'intersection entre le rayon
 
 \subsection{Rayon quelconque}
 De même que précédemment.
+
+\pagebreak
 
 \begin{center}
     \huge Constructions pour une lentille divergente
@@ -2144,7 +2146,7 @@ toute lentille mince, à savoir celui qui passe par le centre optique et ceux qu
 passent par les foyers. Dans ce genre de démonstration, il est très important de
 faire attention à l'utilisation des valeurs algébriques des longueurs lorsqu'on
 applique les formules de trigonométrie. Une bonne technique consiste à utiliser
-des angles inférieurs à $90\degres$ pour lesquels toutes les fonctions
+des angles inférieurs à $\ang{90;;}$ pour lesquels toutes les fonctions
 trigonométriques sont positives, et à utiliser alors des grandeurs algébriques
 positives dans l'écriture de ces formules.
 
@@ -2451,97 +2453,104 @@ l'axe optique en $F$ : on a trouvé $B$ et $F$ !
 \end{minipage}
 
 \section{Distances focales}
-\begin{NCdefi}{Données}
-	\begin{enumerate}
-		\item $\overline{OA} = -6\,$cm ;
-		\item $\overline{OA^\prime} = 2\,$cm ;
-	\end{enumerate}
-\end{NCdefi}
+\begin{tcbraster}[raster columns=4, raster equal height=rows]
+    \begin{tcolorbox}[blankest, raster multicolumn=1, space to=\myspace]
+        \begin{tcbraster}[raster columns=1]
+            \begin{NCdefi}{Données}
+            	\begin{enumerate}
+            		\item $\overline{OA} = -6\,$cm ;
+            		\item $\overline{OA^\prime} = 2\,$cm ;
+            	\end{enumerate}
+            \end{NCdefi}
+            
+            \begin{NCprop}{Résultats attendus}
+            	\begin{enumerate}
+            		\item $\OF$ ?
+            		\item Nature de la lentille ?
+            	\end{enumerate}
+            \end{NCprop}
+            
+            \begin{NCdemo}[add to natural height=\myspace]{Outils du cours}
+            	\begin{enumerate}
+            		\item Relation de conjugaison
+            	\end{enumerate} 
+            \end{NCdemo}
+        \end{tcbraster}
+    \end{tcolorbox}
+    \begin{NCexem}[raster multicolumn=3]{Résultats}
+    	\begin{enumerate}
+    		\item $\boxed{\OF = 1.5\,{\rm cm}}$
+            \item $\OF > 0$ donc $V>0$ : c'est une lentille convergente
+    		\item On obtient :
+                \begin{center}
+                    \begin{tikzpicture}[scale=.5]
+                        % Axe optique
+                        \draw[thin, ->](-6.5,0)--(6.5,0)node[below]{A.O.};
+                        % -----------------------------------------------------------
+                        % Lentille 
+                        \coordinate (O) at (0,0);
+                        \def \fa{1.5}
+                        \def \lsiz{4}
+                        \coordinate (F) at ($(O)+(-\fa,0)$);
+                        \coordinate (Fp) at ($(O)+(\fa,0)$);
+    
+                        \foreach \x/\z in {O/\fa}{
+                            \draw[shift={(\x)}] (0,0)
+                                node[below right] {O$_{}$};
+                            \draw[shift={(\x)}] (\z,4pt) --++ (0,-8pt)
+                                node[above left=.5pt] {F$'_{}$};
+                            \draw[shift={(\x)}] ({-\z},4pt) --++ (0,-8pt)
+                                node[below left] {F$_{}$};
+                        }
+    
+                        \draw[shift={(O)}, thick,
+                            <->, >=latex, name path=L] (0,-\lsiz)--(0,\lsiz)
+                            node[above]{$\Lc_{}$};
+                        % -----------------------------------------------------------
+                        % Objet
+                        \def \pos{-6}
+                        \def \siz{2}
+                        \coordinate (A) at ($(O)+(\pos,0)$);
+                        \coordinate (B) at ($(A)+(0,\siz)$);
+                        \draw[->, Purple!70] (A) 
+                            node[below] {A}
+                            -- (B)
+                            node[above, left] {B};
+                        % Rayons pour objet avant foyer d'une lentille convergente
+                        % Lengths
+                        \len{(A)}{(O)}{\posi}
+                        \len{(A)}{(B)}{\size}
+                        \len{(O)}{(F)}{\foc}
+                        % Rayon 1
+                        \draw[brandeisblue, simple] (B) -- (O);
+                        \draw[orange!70, simple, name path=OBp] (O) --++ ($(O)-(B)$);
+                        % Rayon 2
+                        \draw[brandeisblue, double] (B) --++ (\posi,0) coordinate (I);
+                        \def \mut{2}
+                        \draw[orange!70, double, name path=IBp] (I)
+                            --++ ($\mut*(Fp)-\mut*(I)$);
+                        % Rayon 3
+                        \def \intsiz{\size*\foc/(\posi-\foc)}
+                        \draw[brandeisblue, triple] (B) -- (F)
+                            --++ (\foc,-{\intsiz}) coordinate (E);
+                        \def \mut{2}
+                        \draw[orange!70, triple, name path=EBp] (E) --++ (\mut*\foc,0);
+                        % Image
+                        \path[name intersections={of=OBp and IBp, by=B\bp}];
+                        \coordinate (A\bp) at ($(B\bp)+(0,{\intsiz})$);
+                        \draw[->, Red!70] (A\bp) 
+                        node[above] {A\bp}
+                        -- (B\bp)
+                        node[below, right] {B\bp};
+                        % -----------------------------------------------------------
+                    \end{tikzpicture}
+                \end{center}
+    	\end{enumerate}
+    \end{NCexem}
+\end{tcbraster}
 
-\begin{NCprop}{Résultats attendus}
-	\begin{enumerate}
-		\item $\OF$ ?
-		\item Nature de la lentille ?
-	\end{enumerate}
-\end{NCprop}
 
-\begin{NCdemo}{Outils du cours}
-	\begin{enumerate}
-		\item Relation de conjugaison
-	\end{enumerate} 
-\end{NCdemo}
 
-\begin{NCexem}{Résultats}
-	\begin{enumerate}
-		\item $\boxed{\OF = 1.5\,{\rm cm}}$
-        \item $\OF > 0$ donc le foyer image est à droite de la lentille, c'est
-            une lentille convergente
-		\item On obtient :
-            \begin{center}
-                \begin{tikzpicture}[scale=.5]
-                    % Axe optique
-                    \draw[thin, ->](-6.5,0)--(6.5,0)node[below]{A.O.};
-                    % -----------------------------------------------------------
-                    % Lentille 
-                    \coordinate (O) at (0,0);
-                    \def \fa{1.5}
-                    \def \lsiz{4}
-                    \coordinate (F) at ($(O)+(-\fa,0)$);
-                    \coordinate (Fp) at ($(O)+(\fa,0)$);
-
-                    \foreach \x/\z in {O/\fa}{
-                        \draw[shift={(\x)}] (0,0)
-                            node[below right] {O$_{}$};
-                        \draw[shift={(\x)}] (\z,4pt) --++ (0,-8pt)
-                            node[above left=.5pt] {F$'_{}$};
-                        \draw[shift={(\x)}] ({-\z},4pt) --++ (0,-8pt)
-                            node[below left] {F$_{}$};
-                    }
-
-                    \draw[shift={(O)}, thick,
-                        <->, >=latex, name path=L] (0,-\lsiz)--(0,\lsiz)
-                        node[above]{$\Lc_{}$};
-                    % -----------------------------------------------------------
-                    % Objet
-                    \def \pos{-6}
-                    \def \siz{2}
-                    \coordinate (A) at ($(O)+(\pos,0)$);
-                    \coordinate (B) at ($(A)+(0,\siz)$);
-                    \draw[->, Purple!70] (A) 
-                        node[below] {A}
-                        -- (B)
-                        node[above, left] {B};
-                    % Rayons pour objet avant foyer d'une lentille convergente
-                    % Lengths
-                    \len{(A)}{(O)}{\posi}
-                    \len{(A)}{(B)}{\size}
-                    \len{(O)}{(F)}{\foc}
-                    % Rayon 1
-                    \draw[brandeisblue, simple] (B) -- (O);
-                    \draw[orange!70, simple, name path=OBp] (O) --++ ($(O)-(B)$);
-                    % Rayon 2
-                    \draw[brandeisblue, double] (B) --++ (\posi,0) coordinate (I);
-                    \def \mut{2}
-                    \draw[orange!70, double, name path=IBp] (I)
-                        --++ ($\mut*(Fp)-\mut*(I)$);
-                    % Rayon 3
-                    \def \intsiz{\size*\foc/(\posi-\foc)}
-                    \draw[brandeisblue, triple] (B) -- (F)
-                        --++ (\foc,-{\intsiz}) coordinate (E);
-                    \def \mut{2}
-                    \draw[orange!70, triple, name path=EBp] (E) --++ (\mut*\foc,0);
-                    % Image
-                    \path[name intersections={of=OBp and IBp, by=B\bp}];
-                    \coordinate (A\bp) at ($(B\bp)+(0,{\intsiz})$);
-                    \draw[->, Red!70] (A\bp) 
-                    node[above] {A\bp}
-                    -- (B\bp)
-                    node[below, right] {B\bp};
-                    % -----------------------------------------------------------
-                \end{tikzpicture}
-            \end{center}
-	\end{enumerate}
-\end{NCexem}
 
 \section{Les petits angles}
 

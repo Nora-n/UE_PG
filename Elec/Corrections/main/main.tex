@@ -1,9 +1,11 @@
 \documentclass[10pt,a4paper,notitlepage]{book}
 
 \usepackage{preambulle}
-\usepackage[Rejne]{fncychap}
-\fancyhead[L]{\scriptsize Nora \textsc{Nicolas}}
-\fancyhead[R]{\scriptsize \textsc{UE PG -- Fiche de travaux dirigés}}
+\usepackage{locdef}
+\usepackage{custikz}
+% \usepackage[Rejne]{fncychap}
+% \fancyhead[L]{\scriptsize Nora \textsc{Nicolas}}
+% \fancyhead[R]{\scriptsize \textsc{UE PG -- Fiche de travaux dirigés}}
 
 \titleformat{\section}{\color{blue}\bfseries\large}{\hspace{-0.3em}
 Exercice~\arabic{section})}{.2em}{}{}
@@ -20,11 +22,9 @@ Exercice~\arabic{section})}{.2em}{}{}
 \usepackage{subfiles}
 
 \begin{document}
-
-\subfile{../chapters/ch0}
-\subfile{../chapters/ch1}
-\subfile{../chapters/ch2}
-\subfile{../chapters/ch3}
-%\subfile{../chapters/ch4}
-
+    \subfile{../chapters/ch0}
+    \subfile{../chapters/ch1}
+    \subfile{../chapters/ch2}
+    \subfile{../chapters/ch3}
+    %\subfile{../chapters/ch4}
 \end{document}
